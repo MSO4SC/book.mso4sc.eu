@@ -1,4 +1,4 @@
-= book.mso4sc.eua
+= book.mso4sc.eu
 :stem: latexmath
 :eqnums: AMS
 :icons: font
@@ -18,10 +18,12 @@ v1.0, 2017-04-27
 TIP: This book is writen in asciidoc.  You can compile it in HTML using the
 asciidoctor compiler, see
 link::http://asciidoctor.org/docs/install-toolchain/[how to install
-asciidoctor] or via a browser plugin
+asciidoctor]. Then just type `make` for fast html compiling.
+You can also preview the document via a browser plugin
 (link::https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview/[firefox], 
 link::https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[chrome]).
-For the plugin, you have to view adoc files as raw (via RAW button), see for example link::https://raw.githubusercontent.com/MSO4SC/book.mso4sc.eu/master/README.adoc[this README.adoc as raw]
+For the plugin, you have to open the raw file (click RAW button).
+See for example this link::https://raw.githubusercontent.com/MSO4SC/book.mso4sc.eu/master/README.adoc[README].
 
 == Introduction
 
