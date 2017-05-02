@@ -11,11 +11,17 @@
 :toc: left
 :toclevels: 2
 :feelpp: Feel++
-:uri-raw-feelpp-book: ../book.feelpp.org
-:toto: https://raw.githubusercontent.com/feelpp/book.feelpp.org/master
+:uri-raw-feelpp-book: https://raw.githubusercontent.com/feelpp/book.feelpp.org/master
 Mso4sc Book contributors <https://github.com/MSO4SC/book.mso4sc.eu/graphs/contributors>
 v1.0, 2017-04-27
 
+TIP: This book is writen in asciidoc.  You can compile it in HTML using the
+asciidoctor compiler, see
+link::http://asciidoctor.org/docs/install-toolchain/[how to install
+asciidoctor] or via a browser plugin
+(link::https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview/[firefox], 
+link::https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[chrome]).
+For the plugin, you have to view adoc files as raw (via RAW button), see for example link::https://raw.githubusercontent.com/MSO4SC/book.mso4sc.eu/master/README.adoc[this README.adoc as raw]
 
 == Introduction
 
