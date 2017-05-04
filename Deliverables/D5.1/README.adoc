@@ -1,9 +1,20 @@
-image:images/media/image1.png[image,width=165,height=156]
-
 = MSO4SC: D5.1 Case study extended design and evaluation strategy
 Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
 v6.0 2017/04/30
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
+
+image:images/media/image1.png[image,width=165,height=156]
 
 [cols=",",options="header",]
 |====================================================================================================================
@@ -191,7 +202,7 @@ In this section we describe the pilots to be implemented in D5.3. The features t
 Two pilots are based on the FEniCS MADF, with the common requirements that the pilots together with the FEniCS MADF should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a tetrahedral volume mesh.
 
 [[floatingwindturbine]]
-=== FloatingWindTurbine
+==== FloatingWindTurbine
 
 *End-user:* Tecnalia.
 
@@ -223,7 +234,7 @@ image:images/media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY
 Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
 
 [[dairqualityprediction-cfd]]
-=== 3DAirQualityPrediction-CFD
+==== 3DAirQualityPrediction-CFD
 
 *End-user:* OMSZ (The Hungarian Meteorological Service)
 
@@ -247,7 +258,7 @@ image:images/media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2
 The common requirements of the Feel++ pilots are that the pilots should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
 [[hifimagnet]]
-=== HIFIMAGNET
+==== HIFIMAGNET
 
 *End-user:* Laboratoire National des Champs Magnétiques Intenses (_LNCMI_)
 
@@ -278,7 +289,7 @@ image:images/media/image13.png[exp_Bprofil.png,width=399,height=311]
 *Test Case 3:* The goal of this test case is to design or re-design part of an existing magnet to reach a more homogeneous magnetic field within a small volume around the magnet centre. This kind of magnet is of special interest for the community of RMN researcher, and could be a booster for some applications.
 
 [[eye2brain]]
-=== EYE2BRAIN
+==== EYE2BRAIN
 
 *End-user:* Eugene and Marilyn Glick Eye Institute in Indianapolis (IN, USA), and the Eye Clinic of Lithuanian University of Health Sciences.
 
@@ -324,7 +335,7 @@ image:images/media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215
 The requirement of the OPM pilot is that the pilot should be deployed at the MSO4SC infrastructure, with support for parallel MPI and efficient ensemble simulations. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
 [[opm-flow]]
-=== OPM Flow
+==== OPM Flow
 
 *End-user:* Statoil, IRIS, TNO.
 
