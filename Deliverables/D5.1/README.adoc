@@ -265,10 +265,15 @@ The common requirements of the Feel++ pilots are that the pilots should be deplo
 
 :leveloffset: +3
 
-ifdef::env-github[==== HifiMagnet]
+ifdef::env-github[]
+==== Hifimagnet
+endif::env-github[]
 include::{pilotsdir}/feelpp/hifimagnet/README.adoc[]
 
-ifdef::env-github[==== HifiMagnet]
+ifdef::env-github[]
+==== Eye2brain
+endif::env-github[]
+
 include::{pilotsdir}/feelpp/eye2brain/README.adoc[]
 
 :leveloffset: -3
