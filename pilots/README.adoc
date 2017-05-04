@@ -33,8 +33,8 @@ image:media/image1.png[image,width=165,height=156]
 :imagesdir!:
 
 |===
-image:{pilotsdir}feelpp/hifimagnet/cover.png[link={pilotsdir}/feelpp/hifimagnet/README.adoc,width=200,alt=Hifimagnet] |
-image:{pilotsdir}/feelpp/eye2brain/cover.png[link={pilotsdir}/feelpp/eye2brain/README.adoc,width=200]
+image:{pilotsdir}feelpp/hifimagnet/cover.png[link={pilotsdir}feelpp/hifimagnet/README.adoc,width=200,alt=Hifimagnet] |
+image:{pilotsdir}feelpp/eye2brain/cover.png[link={pilotsdir}feelpp/eye2brain/README.adoc,width=200]
 |===
 :imagesdir: {toto}
 
