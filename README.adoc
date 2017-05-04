@@ -69,7 +69,7 @@ Official mailings list are the following
 
 == Pilots
 
-include::{pilotsdir}README.adoc
+include::{pilotsdir}README.adoc[]
 
 == Deliverables
 
