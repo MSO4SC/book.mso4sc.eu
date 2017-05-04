@@ -1,7 +1,7 @@
 = MSO4SC: Pilots
 ifndef::env-github[:icons: font]
 ifndef::imagesdir[:imagesdir: ../images/]
-:pilotsdir: 
+ifndef::pilotsdir[:pilotsdir: ]
 ifdef::env-github[]
 :status:
 :outfilesuffix: .adoc
@@ -16,14 +16,16 @@ endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
 :toclevels: 3
+:feelpp: Feel++
 Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
 v6.0 2017/04/30
 
-pilotsdir: {pilotsdir}
 
 image:media/image1.png[image,width=165,height=156]
 
 == List of Pilots
+
+=== Fenics
 
 === {feelpp}
 
@@ -31,11 +33,12 @@ image:media/image1.png[image,width=165,height=156]
 :imagesdir!:
 
 |===
-image:pilots/feelpp/hifimagnet/cover.png[link=pilots/feelpp/hifimagnet/README.adoc,width=200] |
-image:pilots/feelpp/eye2brain/cover.png[link=pilots/feelpp/eye2brain/README.adoc,width=200]
+image:{pilotsdir}feelpp/hifimagnet/cover.png[link={pilotsdir}/feelpp/hifimagnet/README.adoc,width=200] |
+image:{pilotsdir}/feelpp/eye2brain/cover.png[link={pilotsdir}/feelpp/eye2brain/README.adoc,width=200]
 |===
 :imagesdir: {toto}
 
+=== OPM
 
 
 
