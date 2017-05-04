@@ -3,7 +3,7 @@ Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM)
 v6.0 2017/04/30
 ifndef::env-github[:icons: font]
 ifdef::env-github[]
-imagesdir: ../../images/
+:imagesdir: ../../images/
 :status:
 :outfilesuffix: .adoc
 :caution-caption: :fire:
