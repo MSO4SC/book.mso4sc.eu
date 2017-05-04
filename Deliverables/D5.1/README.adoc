@@ -88,9 +88,10 @@ The high level objective of WP5 is to demonstrate and showcase the validity and 
 
 Each MADF has at least one associated pilot, which will demonstrate TRL8 of its associated MADF. A short description of the TRL concept is given, and evaluation criterions are formulated for the pilots based on this concept. We describe the pilots to be implemented, and the features to be evaluated against the TRL criterions, formulated in the form of test cases defined for each pilot. This report will be updated once at a later stage of the project as part of D5.1.
 
-1.  [[introduction]]
+[[introduction]]
 == Introduction
-1.  [[purpose]]
+
+[[purpose]]
 === Purpose
 
 The high level objective of WP5 is to demonstrate and showcase the validity and effectiveness of MSO4SC by defining and implementing a set of pilot scenarios. WP5 will also provide a comprehensive overview of the innovation benefits, the problems that are solved, and how these link to commercial viability. This goal is decomposed into the following objectives: (i) define and coordinate the design of the pilot scenarios; (ii) provide the implementation of pilot scenarios according to the requirements specified in WP2 and the test cases defined for each pilot; (iii) evaluate MSO4SC by verifying the degree of achievements in fulfilling the requirements defined in WP2, including functional and non-functional aspects, and in the form of a target Technology Readiness Level (TRL). The results of the evaluation will be the input for the revision of the research activities of WP3 and WP4.
@@ -288,47 +289,33 @@ The development of an articulated platform capable of providing physicians with 
 
 The schematic below describes the types of data that we will integrate in the platform as well as the modeling components that we will use to connect the data within the eye.
 
-_______________________________________________________________________
 image:images/media/image14.png[data_schematic.png,width=519,height=252]
-_______________________________________________________________________
 
 *Figure 8. The types of data to be integrated, and the modelling components to be used to connect the data within the eye.*
 
 Fundus camera images are processed to extract geometrical information on the retinal vasculature; computational techniques developed within the AngioTk (http://www.cemosis.fr/projects/angiotk/) platform which is adapted to generate computational domains for the blood vessels where we simulate blood flow using Feel++/CFD using the clinically measured values of blood pressure as patient-specific inputs (specifically, we will adapt the mathematical model described in Dziubek et al (2015)). Data from the Heidelberg Retinal Flowmeter will be used to properly tailor the microvascular levels of the model. Retinal Oximetry data will be used to incorporate oxygen dynamics into the vascular model, following a similar procedure as in Causin et al (2015). Color Doppler Imaging data is used to tailor the lumped model describing the blood flow in the central retinal artery and vein to the patient-specific measurements, following a similar procedure to that described in Guidoboni et al (2014). Images obtained via Optical Coherence Tomography is processed to extract geometrical information regarding the structure of the optic nerve head and is integrated within the rest of the ocular platform as a component to be visualized and explored in detail.
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 This application represents a challenge for integration into MSO4SC due to both the rich and possibly interconnected model components and data flow coming from different sources, which need to be exploited by the different model approaches.
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Three approaches are proposed which provide a _*Patient-specific virtual simulator of tissue perfusion in the lamina cribrosa*_ coupling 3D and 0D models but with increasing complexity in the 3D up to a full eye computational model and in parallel a decreasing in complexity of the 0D modeling. The models are fed by the ophthalmological instruments, as described above.
 
-_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 *Test Case 1*: Improper perfusion of the lamina cribrosa (LC) may lead to severe alterations of the visual function. LC perfusion parameters are difficult to estimate with non-invasive measurements and are affected by many factors that vary among individuals and cannot be easily isolated. Here we utilize a mathematical virtual simulator (MVS) to address these challenges.
 
 The MVS combines i) a three-dimensional porous-media model for LC perfusion with ii) a circuit-based model for blood flow in the retrobulbar and ocular posterior segments. Systems i) and ii) are solved using advanced computational and visualization methods (Feel++). Simulation inputs may include some patient-specific factors that can be measured non-invasively, e.g. systolic blood pressure (SBP), diastolic blood pressure (DBP), intraocular pressure (IOP) and ocular geometry.
 
 Figure 9 shows the MVS visualization of ocular geometry. MVS simulated LC perfusion velocities at time t = 2.4 s (green line) are shown for IOP = 15 mmHg and SDB/DBP = 100/70 mmHg, SDB/DBP = 120/80 mmHg, SDB/DBP = 140/90 mmHg. Increasing SBP and DBP leads to higher LC perfusion velocities, especially near the nasal area. MVS also simulates blood velocities in the central retinal artery and vein (CRA and CRV), which are similar to those obtained via Color Doppler Imaging. Thus MVS can serve as an instrument to visualize and estimate LC perfusion parameters, thereby providing new means to address the increasing demand of information on parts of the eye that are not-easily accessible with standard investigations.
-_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 image:images/media/image15.png[figure1.png,width=209,height=199]image:images/media/image16.png[figure2.png,width=217,height=204]
 
 *Figure 9. Right: MVS multiscale scheme. Right: MVS perfusion simulations.*
 
-____________________________________________________________________________________________________________________________________________________________________________________
 image:images/media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215,height=221] image:images/media/image18.png[section_of_the_eye_with_labels.png,width=323,height=202]
 
 *Figure 10. Left: 2D view of the eye and its components. Right: 3D view of a section of the computational geometry of the eye used for the pilot simulations.*
 
-*Test case 2:*
-____________________________________________________________________________________________________________________________________________________________________________________
+*Test case 2:* In Test case 1,we considered a 3D model of the LC and a 0D systemic model of the retinal fluid. In this test case, we complexify the model by coupling the 3D poro-viscoelastic model of the LC with the 3D biomechanical behavior of the Sclera, the Choroid and the Retina, see Figure 10. This enables a more refined modeling of tissue perfusion of the lamina cribrosa. This enables (i) a more refined modeling of tissue perfusion in the lamina cribrosa, choroid and retina, and (ii) the integration of clinical data coming from fundus camera images, heidelberg retinal flowmeter, ocular coherence tomography and retinal oximetry.
 
-In Test case 1,we considered a 3D model of the LC and a 0D systemic model of the retinal fluid. In this test case, we complexify the model by coupling the 3D poro-viscoelastic model of the LC with the 3D biomechanical behavior of the Sclera, the Choroid and the Retina, see Figure 10. This enables a more refined modeling of tissue perfusion of the lamina cribrosa. This enables (i) a more refined modeling of tissue perfusion in the lamina cribrosa, choroid and retina, and (ii) the integration of clinical data coming from fundus camera images, heidelberg retinal flowmeter, ocular coherence tomography and retinal oximetry.
-
-______________
-*Test case 3:*
-______________
-
-This last test case is one step further the last one by adding 3D fluid models for aqueous and vitreous humours, see Figure 10 above. We have a full 3D model of the eye completed by a systemic 0D model ensuring physiological behavior of our model. This enables (i) a more complete modeling of ocular biophysics, and (ii) a virtual laboratory where the efficacy of various therapeutic approaches, including topical medications and surgical interventions, can be tested accounting for patient specific conditions.
+*Test case 3:* This last test case is one step further the last one by adding 3D fluid models for aqueous and vitreous humours, see Figure 10 above. We have a full 3D model of the eye completed by a systemic 0D model ensuring physiological behavior of our model. This enables (i) a more complete modeling of ocular biophysics, and (ii) a virtual laboratory where the efficacy of various therapeutic approaches, including topical medications and surgical interventions, can be tested accounting for patient specific conditions.
 
 [[opm-pilots]]
 === OPM pilots
@@ -376,10 +363,11 @@ image:images/media/image19.png[../../../../../D5.1/norne-perm.png,width=566,heig
 [[test-case-3-the-norwegian-continental-shelf-has-several-aquifers-that-are-considered-potential-candidates-for-large-scale-storage-of-co2.-simulating-the-injection-process-and-subsequent-migration-of-the-co2-plume-is-an-important-part-of-the-suitability-evaluation.-in-this-test-scenario-we-will-simulate-one-of-the-primary-candidates-for-such-sequestration.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-and-that-results-can-be-accessed-afterwards.]]
 ==== Test case 3: The Norwegian Continental Shelf has several aquifers that are considered potential candidates for large-scale storage of CO2. Simulating the injection process and subsequent migration of the CO2 plume is an important part of the suitability evaluation. In this test scenario, we will simulate one of the primary candidates for such sequestration. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, and that results can be accessed afterwards.
 
-1.  [[other-pilots]]
+[[other-pilots]]
 === Other pilots
-1.  [[zibaffinity]]
-=== ZibAffinity
+
+[[zibaffinity]]
+==== ZibAffinity
 
 *End-user:* Pharmaceutical companies.
 
@@ -417,10 +405,9 @@ ZIBAffinity can be used for the prediction of several host-guest-affinities (not
 
 *Use Case 2:* ZIBAffinity is used to design small drug-like molecules with a high affinity for special pharmaceutical targets (pain relief drugs [21] or estrogen receptor inhibitors [22]). This test case is important for the planning of the data storage and data management in MSO4SC. The data that is created in these projects is extremely valuable for pharmaceutical companies and, thus, needs a very high level of protection against data loss and data security.
 
-1.  [[section]]
-===
-2.  [[dairqualityprediction]]
-=== 3DAirQualityPrediction
+
+[[dairqualityprediction]]
+==== 3DAirQualityPrediction
 
 The requirement of the pilots is that the pilots should be deployed at the MSO4SC infrastructure, with statistical data.
 
