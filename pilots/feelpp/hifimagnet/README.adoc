@@ -1,7 +1,7 @@
 [[hifimagnet]]
 = HIFIMAGNET
 ifndef::env-github[:icons: font]
-:imagesdir: ../../../images/
+ifndef::imagesdir[:imagesdir: ../../../images/]
 :pilotsdir: ../../../pilots/
 ifdef::env-github[]
 :status:
@@ -16,7 +16,6 @@ ifdef::env-github[]
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
-{imagesdir}
 
 *End-user:* Laboratoire National des Champs Magnétiques Intenses (_LNCMI_)
 

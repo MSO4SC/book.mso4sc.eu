@@ -1,6 +1,21 @@
 [[eye2brain]]
 = EYE2BRAIN
-:toc: left
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../images/]
+:pilotsdir: ../../../pilots/
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:pilotsdir: ../../pilots/
+endif::[]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+
 
 
 *End-user:* Eugene and Marilyn Glick Eye Institute in Indianapolis (IN, USA), and the Eye Clinic of Lithuanian University of Health Sciences.
