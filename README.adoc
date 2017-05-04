@@ -48,6 +48,15 @@ Official mailings list are the following
 |mso4sc_wp5@lists.atosresearch.eu|
 |=================================
 
+
+== From docx to asciidoc
+
+----
+mkdir Deliverables/Dx.y
+cd Deliverables/Dx.y
+pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --normalize --extract-media=images <filename>.docx > README.adoc
+----
+
 == Feel++
 
 We present here an example of {feelpp} benchmark aggregated from
