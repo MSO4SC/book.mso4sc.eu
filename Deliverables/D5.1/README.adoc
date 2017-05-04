@@ -3,6 +3,7 @@ Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM)
 v6.0 2017/04/30
 ifndef::env-github[:icons: font]
 ifdef::env-github[]
+imagesdir: ../../images/
 :status:
 :outfilesuffix: .adoc
 :caution-caption: :fire:
@@ -15,7 +16,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
 :toclevels: 3
 
-image:images/media/image1.png[image,width=165,height=156]
+image:{imagesdir}/image1.png[image,width=165,height=156]
 
 [cols=",",options="header",]
 |====================================================================================================================
@@ -44,7 +45,7 @@ Carlos Fernandez (CESGA);_
 
 [cols=",",]
 |=========================================================================================================================================================================
-|image:images/media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|image:{imagesdir}/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
 |=========================================================================================================================================================================
 
 [[version-history]]
@@ -223,14 +224,14 @@ The geometry model is provided by Nautilus Floating Solutions, a Basque spin-off
 The expected size of the computational problem is an unstructured tetrahedral FEM mesh of ca. 10 million vertices.
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-image:images/media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
+image:{imagesdir}/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Figure : Nautilus platform.
 
 *Test Case 2:* The pilot will be validated against the MARIN benchmark, a standard benchmark in marine engineering for wave impact, or dam break. The benchmark consists of a door opening, allowing a volume of water to enter which creates a wave that impact the wall in the box (see Figure 2). This test case involves turbulent two-phase flow (air and water), discretized by a Direct FEM method with a variable density formulation [10], using an unstructured tetrahedral mesh of around 2 million vertices, Simulations are validated with experimental data obtained by mounted pressure sensors on the box.  
 
-image:images/media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
+image:{imagesdir}/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
 
 Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
 
@@ -245,90 +246,21 @@ Ambient (outdoor) air pollution is estimated by the World Health Organization (W
 
 *Test Case 1:* The test case concerns an urban street canyon for which both simulation results and experimental measurements are available [11]. The problem setup is visualized below.
 
-image:images/media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:images/media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
+image:{imagesdir}/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:{imagesdir}/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
 
 *Figure 3: Urban street canyon in the form of 42 Street in New York (figures from Wikipedia).*
 
-image:images/media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:images/media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
+image:{imagesdir}/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:{imagesdir}/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
 
 **Figure 4: Urban street canyon model problem (figures reproduced from article**^12^*).*
+
 
 [[feel-pilots]]
 === Feel++ pilots
 
 The common requirements of the Feel++ pilots are that the pilots should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
-[[hifimagnet]]
-==== HIFIMAGNET
-
-*End-user:* Laboratoire National des Champs Magnétiques Intenses (_LNCMI_)
-
-The _LNCMI_ is a French large scale facility [12] also part of the European Magnetic Field Laboratory (EMFL), enabling researchers to perform experiments in the highest possible magnetic field (up to 35 T static field provided by water cooled resistive magnets connected with a 24 MW power supply). Magnets are accessible to the international scientific community through project calls twice a year. Studies range from solid physics to applied superconductivity and magneto-science. In strong international competition driven by _NHMFL_ (USA), and with the emergence of magnet labs in China, the _LNCMI_ has entered the race for higher magnetic field. To keep up in this context, magnet technologies have to be pushed to their limits, both in terms of materials (active research is carried out to have materials - either resistive or superconductor - with improved mechanical and electrical properties) and of design methods.    
-
-From an engineering point of view designing, such high field magnet reaches the limits of our current methodology and the models upon which it relies. In particular it raises questions about the model precision, from a pure numerical point of view and from the model itself: is the physics considered sufficient to correctly represent the observed phenomena. On top of that, to guarantee the requested homogeneity it is mandatory to account for geometrical uncertainties, slight plays and mechanical clearances. Moreover material properties and operating parameters uncertainties should be accounted for to assure a robust design.
-
-image:images/media/image9.png[HL-31-cadgeom.png,width=144,height=215] image:images/media/image10.png[H1H8_B3D.png,width=350,height=221]
-
-*Figure 5. Left: View of a PolyHelix Magnet Insert (a quarter of the structure has been removed to give better insight of the considered geometry). Right: Magnetic Field B produced by a typical PolyHelix magnet Insert. On the right plots of specific B components on the low pressure side of the magnet.*
-
-The HIFIMAGNET pilot application [13,14] has been developed in the frame of a collaboration between LNCMI and Institut de Recherche Mathématique Avancée (IRMA) from Unistra to address these questions.  HIFIMAGNET consists of: (i) a set of numerical models ranging from 2D to 3D, including more and more physics, and (ii) a framework for sensitivity analysis and uncertainty quantification with respect to material properties, operational parameters and geometry, that aims to complement LNCMI standard design. This framework relies on Feel++ Reduced Basis Method facility.
-
-The pilot consists will be evaluated through 3 test cases. The first two tests are designed to show the TRL level of Feel++/HiFiMagnet. The 3rd test case is more challenging, and demonstrates the potential of HiFiMagnet for robust design optimization.
-
-*Test Case 1:* An existing polyhelix magnet will be modelled in operation, at low and high field using a 3D non-linear multi-physics model.  The simulations will be validated against experimental results, more precisely with magnetic field measurements in the zone of interest for researchers. Depending on the availability of other measurements, such as the temperature at the low-pressure side of the magnets, which are currently under development more validations can be performed on the cooling model and the global thermal behaviour of the magnets.
-
-image:images/media/image11.jpeg[setup_lowres.jpg,width=180,height=240]image:images/media/image12.png[elevator2+zoom.png,width=187,height=242]
-
-*Figure 6. Left: Experimental Setup for Low field Measurements on a Workbench. Right: Experimental Setup for Low field Measurements in Situ.*
-
-image:images/media/image13.png[exp_Bprofil.png,width=399,height=311]
-
-*Figure 7. Left Magnet Field profile along circles of increasing radius at a given altitude for a test magnet of 2 helices: comparison between measurements and different numerical models.*
-
-*Test Case 2:* The commissioning of a magnet is performed when a new magnet is first set into operation. It consists in measuring the resistance of each helix or pair of helices, as a function of the total current and the mean temperature of the coolant. This data is then used to control and monitor the magnet. A deviation of more than 3% from the expected resistance is a signal for power shutdown. This test case will involve 3D non-linear multi-physics simulations, and also a reduced model for parametric studies. The result will be compared with experimental data measured for an existing magnet.
-
-*Test Case 3:* The goal of this test case is to design or re-design part of an existing magnet to reach a more homogeneous magnetic field within a small volume around the magnet centre. This kind of magnet is of special interest for the community of RMN researcher, and could be a booster for some applications.
-
-[[eye2brain]]
-==== EYE2BRAIN
-
-*End-user:* Eugene and Marilyn Glick Eye Institute in Indianapolis (IN, USA), and the Eye Clinic of Lithuanian University of Health Sciences.
-
-Thanks to its special connection to the brain and its accessibility to measurements, the eye provides a unique window on the brain, thereby offering non-invasive access to a large set of potential biomarkers that might help in the early diagnosis and clinical care of Neuro-Degenerative Diseases (NDD). However, characterizing ocular biomarkers as surrogates of cerebral or systemic vascular status is far from trivial. Clinical measurements are influenced by many factors that vary among individuals and cannot be isolated in vivo, thereby posing serious challenges for the interpretation of such measurements.
-
-Motivated by the need of mathematical and computational methods to study the Eye-Brain system (which we refer to as Eye2Brain) and aid the interpretation of ocular measurements as biomarkers for the brain status, we are currently developing a multi-component platform combining detailed descriptions of the eye and the brain with a systemic view of the Eye2Brain connections.
-
-The development of an articulated platform capable of providing physicians with an integrated view of the patient’s status will significantly improve our current ability to monitor health and to prevent, detect, treat and manage disease in a personalized manner. Within this project, we propose to develop such a platform for application in ophthalmology, with the specific goal of developing, testing and delivering a software that can be used in ophthalmology clinics to improve diagnosis and care of ocular diseases (e.g. glaucoma, diabetic retinopathy, age-related macular degeneration) and other pathologies that also manifest in the eye (e.g. diabetes, hypertension, NDD). This application clearly leverages the resources and expertise that we have gathered within the Eye2Brain project, and it extends them to build a tool that can directly impact the clinical practice.
-
-The schematic below describes the types of data that we will integrate in the platform as well as the modeling components that we will use to connect the data within the eye.
-
-image:images/media/image14.png[data_schematic.png,width=519,height=252]
-
-*Figure 8. The types of data to be integrated, and the modelling components to be used to connect the data within the eye.*
-
-Fundus camera images are processed to extract geometrical information on the retinal vasculature; computational techniques developed within the AngioTk (http://www.cemosis.fr/projects/angiotk/) platform which is adapted to generate computational domains for the blood vessels where we simulate blood flow using Feel++/CFD using the clinically measured values of blood pressure as patient-specific inputs (specifically, we will adapt the mathematical model described in Dziubek et al (2015)). Data from the Heidelberg Retinal Flowmeter will be used to properly tailor the microvascular levels of the model. Retinal Oximetry data will be used to incorporate oxygen dynamics into the vascular model, following a similar procedure as in Causin et al (2015). Color Doppler Imaging data is used to tailor the lumped model describing the blood flow in the central retinal artery and vein to the patient-specific measurements, following a similar procedure to that described in Guidoboni et al (2014). Images obtained via Optical Coherence Tomography is processed to extract geometrical information regarding the structure of the optic nerve head and is integrated within the rest of the ocular platform as a component to be visualized and explored in detail.
-
-This application represents a challenge for integration into MSO4SC due to both the rich and possibly interconnected model components and data flow coming from different sources, which need to be exploited by the different model approaches.
-
-Three approaches are proposed which provide a _*Patient-specific virtual simulator of tissue perfusion in the lamina cribrosa*_ coupling 3D and 0D models but with increasing complexity in the 3D up to a full eye computational model and in parallel a decreasing in complexity of the 0D modeling. The models are fed by the ophthalmological instruments, as described above.
-
-*Test Case 1*: Improper perfusion of the lamina cribrosa (LC) may lead to severe alterations of the visual function. LC perfusion parameters are difficult to estimate with non-invasive measurements and are affected by many factors that vary among individuals and cannot be easily isolated. Here we utilize a mathematical virtual simulator (MVS) to address these challenges.
-
-The MVS combines i) a three-dimensional porous-media model for LC perfusion with ii) a circuit-based model for blood flow in the retrobulbar and ocular posterior segments. Systems i) and ii) are solved using advanced computational and visualization methods (Feel++). Simulation inputs may include some patient-specific factors that can be measured non-invasively, e.g. systolic blood pressure (SBP), diastolic blood pressure (DBP), intraocular pressure (IOP) and ocular geometry.
-
-Figure 9 shows the MVS visualization of ocular geometry. MVS simulated LC perfusion velocities at time t = 2.4 s (green line) are shown for IOP = 15 mmHg and SDB/DBP = 100/70 mmHg, SDB/DBP = 120/80 mmHg, SDB/DBP = 140/90 mmHg. Increasing SBP and DBP leads to higher LC perfusion velocities, especially near the nasal area. MVS also simulates blood velocities in the central retinal artery and vein (CRA and CRV), which are similar to those obtained via Color Doppler Imaging. Thus MVS can serve as an instrument to visualize and estimate LC perfusion parameters, thereby providing new means to address the increasing demand of information on parts of the eye that are not-easily accessible with standard investigations.
-
-image:images/media/image15.png[figure1.png,width=209,height=199]image:images/media/image16.png[figure2.png,width=217,height=204]
-
-*Figure 9. Right: MVS multiscale scheme. Right: MVS perfusion simulations.*
-
-image:images/media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215,height=221] image:images/media/image18.png[section_of_the_eye_with_labels.png,width=323,height=202]
-
-*Figure 10. Left: 2D view of the eye and its components. Right: 3D view of a section of the computational geometry of the eye used for the pilot simulations.*
-
-*Test case 2:* In Test case 1,we considered a 3D model of the LC and a 0D systemic model of the retinal fluid. In this test case, we complexify the model by coupling the 3D poro-viscoelastic model of the LC with the 3D biomechanical behavior of the Sclera, the Choroid and the Retina, see Figure 10. This enables a more refined modeling of tissue perfusion of the lamina cribrosa. This enables (i) a more refined modeling of tissue perfusion in the lamina cribrosa, choroid and retina, and (ii) the integration of clinical data coming from fundus camera images, heidelberg retinal flowmeter, ocular coherence tomography and retinal oximetry.
-
-*Test case 3:* This last test case is one step further the last one by adding 3D fluid models for aqueous and vitreous humours, see Figure 10 above. We have a full 3D model of the eye completed by a systemic 0D model ensuring physiological behavior of our model. This enables (i) a more complete modeling of ocular biophysics, and (ii) a virtual laboratory where the efficacy of various therapeutic approaches, including topical medications and surgical interventions, can be tested accounting for patient specific conditions.
+include::{pilotsdir}/feelpp/hifimagnet/README.adoc[]
 
 [[opm-pilots]]
 === OPM pilots
@@ -366,7 +298,7 @@ The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud 
 [[test-case-1-the-norne-field-is-a-norwegian-sea-oil-field-for-which-the-operator-statoil-has-made-available-the-simulation-models-and-other-data-used-on-the-field.-while-not-very-large-in-terms-of-number-of-computational-cells-it-is-complex-in-terms-of-grid-structure-and-fluid-behaviour-features.-the-field-has-many-wells-that-connect-to-the-reservoir-that-must-be-accounted-for.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-that-the-results-can-be-accessed-afterwards-and-that-the-results-match-those-obtained-by-a-baseline-simulation.]]
 *Test case 1:* The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
 
-image:images/media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+image:{imagesdir}/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
 
 *Figure 11: Permeability distribution of Norne field.*
 
@@ -390,7 +322,7 @@ ZIBAffinity [15] uses molecular dynamics (MD) simulations and methods of statist
 
 The affinity is estimated as a linear combination of averages of molecular observables according to a linear interaction energy [16] model. Ensuing from the uploaded small molecule, GROMACS MD simulations, with at most 61 different starting positions, are performed in parallel. The optimal binding position (binding mode) is then extracted from that data and provided as a 3D molecular structure serving (Figure 6), along with thermo-statistical data (Figure 6) as the basis for absolute or relative binding affinity estimation.
 
-image:images/media/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
+image:{imagesdir}/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
 
 ________________________________________________________________________________________________________________________________________
 *Figure 12: Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).*
@@ -402,7 +334,7 @@ Pilot features to be validated are correct predictions of the binding affinities
 
 *Use Case 1:* ZIBAffinity will be used for a particular test case that is extensively described in a recent article [17]. In this test case several small drug-like molecules are tested against the alpha-estrogen receptor as target molecule. Laboratory data for binding free energies ΔG^Exp^ are available (x-axis in Figure 7) and have been used for parameter estimation regarding the linear interaction model presented above. After that training phase, the ZIBAffinity software predicts binding energies ΔG^Comp^ of all given small molecules (y-axis in Figure 7).
 
-image:images/media/image21.png[plot-py_lie2011_fit-loo.png,width=392,height=296]
+image:{imagesdir}/image21.png[plot-py_lie2011_fit-loo.png,width=392,height=296]
 
 *Figure 12: Predicted vs. experimental binding free energies of the alpha-estrogen receptor and a set of 31 ligands using the software ZIBAffinity.*
 
@@ -410,7 +342,7 @@ With this approach it is possible to estimate the estrogenicity of small-molecul
 
 If laboratory data is not available, then ZIBAffinity only provides a priority list of trace pollutants for further biochemical experiments. ZIBAffinity predicts their potential toxicological risk (see Figure 8) on the basis of “adverse” thermo-statistical data.   
 
-image:images/media/image22.png[ransrisk priority table,width=350,height=152]
+image:{imagesdir}/image22.png[ransrisk priority table,width=350,height=152]
 
 *Figure 13: Potential toxicological risk on the basis of “adverse” thermo-statistical data.   *
 
@@ -432,7 +364,7 @@ The framework is composed of modules, namely traffic, emission, meteorology, dis
 
 [cols="",]
 |================================================================================================================================================================================================================
-|image:images/media/image23.png[Macintosh HD:Users:jhoffman:Library:Containers:com.apple.mail:Data:Library:Mail Downloads:E7B589A8-16C5-4E09-B96F-65D1EDCA2C50:Workflow_health_3_fenics.png,width=566,height=416]
+|image:{imagesdir}/image23.png[Macintosh HD:Users:jhoffman:Library:Containers:com.apple.mail:Data:Library:Mail Downloads:E7B589A8-16C5-4E09-B96F-65D1EDCA2C50:Workflow_health_3_fenics.png,width=566,height=416]
 |================================================================================================================================================================================================================
 
 *Figure 14. An overview of the 3DAirQualityPrediction workflow for running scenarios for health indicators depending on traffic, fleet and meteorology data or traffic and meteorology measurements and simulations.*
@@ -443,14 +375,14 @@ The preprocessing steps of the simulation modules are based on several toolkits 
 
 [cols="",]
 |==================================================================
-|image:images/media/image25.jpeg[Full_Gyor_01,width=404,height=227]
+|image:{imagesdir}/image25.jpeg[Full_Gyor_01,width=404,height=227]
 |==================================================================
 
 *Figure 15. Example of CAD geometry of the town resulted from city geoinformatic data base using Blender* *scripts*
 
 [cols="",]
 |======================================================================================================================================================
-|image:images/media/image26.png[octree_high_6_6_2060K_no_logo,width=229,height=161] image:images/media/image27.png[Polyhedra_halo,width=285,height=160]
+|image:{imagesdir}/image26.png[octree_high_6_6_2060K_no_logo,width=229,height=161] image:{imagesdir}/image27.png[Polyhedra_halo,width=285,height=160]
 |======================================================================================================================================================
 
 *Figure 16 An overview of the meshes: octree mesh generated by in-house multi thread Java code (left) and polyhedral mesh resulted from using ANSYS Fluent (right).*
@@ -466,7 +398,7 @@ Based on these data, the user has an option to choose PTV VISSIM or VISUM for mi
 
 [cols="",]
 |================================================================================================================================
-|image:images/media/image28.png[map4,width=260,height=162] image:images/media/image29.png[traffic detectors,width=266,height=161]
+|image:{imagesdir}/image28.png[map4,width=260,height=162] image:{imagesdir}/image29.png[traffic detectors,width=266,height=161]
 |================================================================================================================================
 
 *Figure 17. An overview of traffic sensor network of the city (on the courtesy of Hungarian National Roads Nonprofit Ltd. -Magyar Közút Nonprofit Zrt.*
@@ -486,7 +418,7 @@ The project will use 3DAirQualityPrediction-CFD application for simulation of th
 [cols="",]
 |==========================================================
 |
-|image:images/media/image30.jpeg[kep3,width=360,height=235]
+|image:{imagesdir}/image30.jpeg[kep3,width=360,height=235]
 |==========================================================
 
 *Figure 18. NOx concentrations at 1.5m height according to the simulation results* *with RANS simulation with Ansys Fluent. Note that in the project the high quality 3DAirQuallityPrediction-HPC* *adaptive LES module will provide even higher accuracy.*
