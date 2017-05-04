@@ -28,7 +28,7 @@ The development of an articulated platform capable of providing physicians with 
 
 The schematic below describes the types of data that we will integrate in the platform as well as the modeling components that we will use to connect the data within the eye.
 
-image:images/media/image14.png[data_schematic.png,width=519,height=252]
+image:media/image14.png[data_schematic.png,width=519,height=252]
 
 *Figure 8. The types of data to be integrated, and the modelling components to be used to connect the data within the eye.*
 
@@ -44,11 +44,11 @@ The MVS combines i) a three-dimensional porous-media model for LC perfusion with
 
 Figure 9 shows the MVS visualization of ocular geometry. MVS simulated LC perfusion velocities at time t = 2.4 s (green line) are shown for IOP = 15 mmHg and SDB/DBP = 100/70 mmHg, SDB/DBP = 120/80 mmHg, SDB/DBP = 140/90 mmHg. Increasing SBP and DBP leads to higher LC perfusion velocities, especially near the nasal area. MVS also simulates blood velocities in the central retinal artery and vein (CRA and CRV), which are similar to those obtained via Color Doppler Imaging. Thus MVS can serve as an instrument to visualize and estimate LC perfusion parameters, thereby providing new means to address the increasing demand of information on parts of the eye that are not-easily accessible with standard investigations.
 
-image:images/media/image15.png[figure1.png,width=209,height=199]image:images/media/image16.png[figure2.png,width=217,height=204]
+image:media/image15.png[figure1.png,width=209,height=199]image:media/image16.png[figure2.png,width=217,height=204]
 
 *Figure 9. Right: MVS multiscale scheme. Right: MVS perfusion simulations.*
 
-image:images/media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215,height=221] image:images/media/image18.png[section_of_the_eye_with_labels.png,width=323,height=202]
+image:media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215,height=221] image:media/image18.png[section_of_the_eye_with_labels.png,width=323,height=202]
 
 *Figure 10. Left: 2D view of the eye and its components. Right: 3D view of a section of the computational geometry of the eye used for the pilot simulations.*
 
