@@ -1,8 +1,6 @@
 = MSO4SC: Pilots
-Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
-v6.0 2017/04/30
 ifndef::env-github[:icons: font]
-:imagesdir: ../images/
+ifndef::imagesdir[:imagesdir: ../images/]
 :pilotsdir: 
 ifdef::env-github[]
 :status:
@@ -18,23 +16,26 @@ endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
 :toclevels: 3
+Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
+v6.0 2017/04/30
+
+pilotsdir: {pilotsdir}
 
 image:media/image1.png[image,width=165,height=156]
 
 == List of Pilots
 
-:leveloffset: +2
+=== {feelpp}
 
-ifdef::env-github[]
-= Hifimagnet
-endif::env-github[]
-include::{pilotsdir}feelpp/hifimagnet/README.adoc[]
+:toto: {imagesdir}
+:imagesdir!:
 
-ifdef::env-github[]
-= Eye2brain
-endif::env-github[]
+|===
+image:pilots/feelpp/hifimagnet/cover.png[link=pilots/feelpp/hifimagnet/README.adoc,width=200] |
+image:pilots/feelpp/eye2brain/cover.png[link=pilots/feelpp/eye2brain/README.adoc,width=200]
+|===
+:imagesdir: {toto}
 
-include::{pilotsdir}feelpp/eye2brain/README.adoc[]
 
-:leveloffset: -2
+
 
