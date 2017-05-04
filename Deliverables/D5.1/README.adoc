@@ -13,6 +13,7 @@ ifdef::env-github[]
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
+:toclevels: 3
 
 image:images/media/image1.png[image,width=165,height=156]
 
