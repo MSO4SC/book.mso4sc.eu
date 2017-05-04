@@ -2,8 +2,8 @@
 Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
 v6.0 2017/04/30
 ifndef::env-github[:icons: font]
-ifdef::env-github[]
 :imagesdir: ../../images/
+ifdef::env-github[]
 :status:
 :outfilesuffix: .adoc
 :caution-caption: :fire:
@@ -11,6 +11,7 @@ ifdef::env-github[]
 :note-caption: :paperclip:
 :tip-caption: :bulb:
 :warning-caption: :warning:
+:imagesdir: ../../master/images/
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
