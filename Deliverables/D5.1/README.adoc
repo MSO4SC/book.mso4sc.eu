@@ -1,0 +1,534 @@
+image:images/media/image1.png[image,width=165,height=156]
+
+MSO4SC
+
+D5.1 Case study extended design and evaluation strategy
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|=================================================================================================================================================================================================================
+|Work Package |WP5 END-USER APPLICATIONS DEVELOPMENT
+|Due Date: |_M6 (PROJECT MONTH)_
+|Submission Date: |_30/04/2017_
+|Version: |_01_
+|Status |_Draft_
+|Author(s): |_Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)_
+|Reviewer(s) |_Javier Francisco Nieto De Santos (ATOS); +
+Carlos Fernandez (CESGA);_
+|=================================================================================================================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:images/media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|=========================================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|01 |14/04/2017 |Initial version |_Johan Hoffman; Marcus Weber; Vedat Durmaz; Tania Bakhos; Johan Jansson; Aitgeirr Rasmussen; Christophe Trophime; Christophe Prud’homme_
+|02 |29/04/2017 |Review |Carlos Fernández
+|03 |29/04/2017 |Review |Javier Francisco Nieto De Santos
+|04 |29/04/2017 |Final |Johan Hoffman
+| | | |
+| | | |
+| | | |
+|=========================================================================================================================================================================
+
+*DELETE PRIOR TO SUBMISSION*
+
+Calendar for completion – (include names and dates of responsible people)
+
+TOC – date - responsible
+
+First draft of Deliverable – date - responsible
+
+Inputs from x, y z date - responsible
+
+Version ready for review: date - responsible
+
+Review date - responsible
+
+Review completed xxx -
+
+available for final format checks
+
+Delivery via continuous reporting system: date - – Julia/ Javi
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc467570556[_Figure 1: Figure caption_ 7]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc467570557[_Table 1. Acronyms_ 5]
+
+link:#_Toc467570558[_Table 2 Table caption_ 6]
+
+[[executive-summary]]
+= Executive Summary
+
+The high level objective of WP5 is to demonstrate and showcase the validity and effectiveness of MSO4SC by defining and implementing a set of pilot scenarios. WP5 will also provide a comprehensive overview of the innovation benefits, the problems that are solved, and how these can link to commercial viability. This document represents deliverable D5.1 that provides a description of the pilot scenarios and an evaluation strategy of the e-infrastructure, in particular with respect to evaluation of the Technology Readiness Level (TRL) that will reach TRL8 as part of the project.
+
+Each MADF has at least one associated pilot, which will demonstrate TRL8 of its associated MADF. A short description of the TRL concept is given, and evaluation criterions are formulated for the pilots based on this concept. We describe the pilots to be implemented, and the features to be evaluated against the TRL criterions, formulated in the form of test cases defined for each pilot. This report will be updated once at a later stage of the project as part of D5.1.
+
+1.  [[introduction]]
+== Introduction
+1.  [[purpose]]
+=== Purpose
+
+The high level objective of WP5 is to demonstrate and showcase the validity and effectiveness of MSO4SC by defining and implementing a set of pilot scenarios. WP5 will also provide a comprehensive overview of the innovation benefits, the problems that are solved, and how these link to commercial viability. This goal is decomposed into the following objectives: (i) define and coordinate the design of the pilot scenarios; (ii) provide the implementation of pilot scenarios according to the requirements specified in WP2 and the test cases defined for each pilot; (iii) evaluate MSO4SC by verifying the degree of achievements in fulfilling the requirements defined in WP2, including functional and non-functional aspects, and in the form of a target Technology Readiness Level (TRL). The results of the evaluation will be the input for the revision of the research activities of WP3 and WP4.
+
+[[overview]]
+=== Overview
+
+This document provides a description of the pilot scenarios. It also describes the overall evaluation strategy, detailing the protocol and procedures that should be followed during the evaluation of the pilots, in particular with respect to evaluation of the TRL level. The pilots and the evaluation strategy are based on the requirements identified in D2.1[[_Ref353795592]][1], together with direct input from the pilot coordinators and end-users. This is the first D5.1 report, which will be updated once during the project taking into account results and experiences up to that point in the project.
+
+The evaluation plan formulates a set of features for each pilot to be validated and goals to be achieved, in the form of test cases. The results of the evaluation protocol will be reported twice during the project in the form of evaluation reports (D5.4), to function as input to the successive releases of the MSO4SC platform, and to the research community. In line with the evaluation strategy, the pilots have been detailed, specifying end-users, a set of test cases, and how the MSO4SC e-infrastructure will be used, in order to facilitate their implementation in D5.3.
+
+In D2.1 the pilots were divided into four groups: three groups of pilots based on the MSO4SC MADFs: FEniCS, Feel++ and OPM, respectively, and one group of pilots based on other applications. The functional requirements identified in D2.1 of the envisioned infrastructure were: (i) high performance of the applications; (ii) efficient data flow between the application domain and the e-infrastructure; (iii) fast post-processing including visualization. The main non-functional requirement was (iv) usability of services with one-click deployment from the marketplace, which is of particular importance for non-technical users like authorities applying an end-user application from MSO4SC for a certain addressed societal challenge.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+[cols=",",options="header",]
+|=====================================================
+|*Acronym* |*Definition*
+|*CFD* |Computational Fluid Dynamics
+|*D* |Deliverable
+|*EC* |European Commission
+|*ESA* |European Space Agency
+|*FEM* |Finite Element Method
+|*MADF* |Mathematical Development Framework
+|*MPI* |Message Passing Interface
+|*NASA* |National Aeronautics and Space Administration
+|*RANS* |Reynolds Averaged Navier-Stokes equations
+|*TRL* |Technology Readiness Level
+|*WP* a|
+____________
+Work Package
+____________
+
+|=====================================================
+
+[[_Toc467570557]]Table . Acronyms.
+
+[[evaluation-strategy]]
+== Evaluation strategy
+
+In this section we describe the evaluation strategy, in the form of an evaluation plan detailing the protocol to be followed during the evaluation of the pilots. The evaluation criteria are formulated to demonstrate the progress to TRL8 of the e-infrastructure as defined in D2.2 [2], in particular the Mathematical Development Frameworks (MADFs) and the MSO Portal. Each MADF has at least one associated pilot, which will demonstrate TRL8 of its associated MADF and the MSO Portal. We start by a short description of the TRL concept, and then describe how we will evaluate the pilots with respect to this concept.
+
+[[technology-readiness-level-trl]]
+=== Technology Readiness Level (TRL)
+
+Technology Readiness Level (TRL) is a method to estimate the technology maturity of a component or product during the development process. TRL is based on a scale from 1 to 9, with 9 being the most mature technology. The TRL concept provides a framework that enables consistent and uniform assessment of technical maturity across different technology fields.
+
+Although the TRL scale is conceptually universal, the precise definition of the different levels differs between agencies such as NASA, ESA and EC. We will here adopt the EC definition[[_Ref354734949]][multiblock footnote omitted] of TRL6 to TRL8, outlined in Table 1. All pilots satisfy TRL6 at the start of the project. The main difference between TRL7 and TRL8 is that at TRL8 the pilots have reached a level of maturity that allows the end-users to use the service independently from the developers of the service, and whereas TRL7 verifies the functional requirements identified in D2.1, TRL8 in addition verifies the non-functional requirements.
+
+[cols=",,",options="header",]
+|================================================================================================================================================================================================
+|*TRL* |*EC definition* |*Pilot evaluation criterion*
+|TRL6 |Technology demonstrated in relevant environment (industrially relevant environment in the case of key enabling technologies). |All pilots satisfy TRL6 at the start of the MSO4SC project.
+|TRL7 |System prototype demonstration in operational environment. |A prototype is demonstrated for pilot test cases representative of the operational environment of the pilot end-user.
+|TRL8 |System complete and qualified. |The pilot end-user can independently use the service.
+|================================================================================================================================================================================================
+
+[[_Toc467570558]]Table : TRL definition by EC^2^, and the associated MSO4SC pilot evaluation criteria.
+
+[[evaluation-plan]]
+=== Evaluation plan
+
+To apply the TRL scale to the MADFs, we need to adapt the EC definitions to the context of the pilots that will serve as evaluation criteria for the MADFs.
+
+We outline the MSO4SC interpretation of the TRL criteria in Table 2 for TRL7 and TRL8, and we recall that all MADFs and pilots already satisfy TRL6 at the outset of the project. Pilots are formulated together with end-users of the MSO4SC technology. The TRL operational environment is interpreted as the operational environment of the end-user, with the TRL7 criterion defined as a prototype of the pilot being demonstrated in a test case representative for the end-user environment. The criterion for TRL8 is defined as a service that can be used independently by the end-user through the MSO Portal.
+
+The pilot evaluation protocol is described below, based on the functional and non-functional requirements identified in D2.1.
+
+[cols=",",options="header",]
+|========================================================================================================
+|*TRL* |*Evaluation protocol*
+|TRL7 a|
+* Run pilot test cases on the MSO4SC e-infrastructure.
+** Verify efficient data flow between application domain and the e-infrastructure.
+** Verify high performance of the application.
+** Verify fast post-processing including visualization.
+* Summarize the findings for the evaluation report (D5.4).
+
+|TRL8 a|
+* Verify independent end-user usability of service, including one-click deployment from the MSO Portal.
+* Summarize the findings for the evaluation report (D5.4), including end-user certification of usability.
+
+|========================================================================================================
+
+Table : Pilot evaluation protocol.
+
+[[definition-of-pilots]]
+== Definition of pilots
+
+In this section we describe the pilots to be implemented in D5.3. The features to be evaluated correspond to the features listed in the development roadmap in D2.2, which will be evaluated in through test cases defined for each pilot. Over the course of the project, the test cases may be modified or new test cases may be added. First, the pilots associated to the three MADFs are defined (FEniCS, Feel++, OPM), and then the remaining pilots.
+
+[[fenics-pilots]]
+=== FEniCS pilots
+
+Two pilots are based on the FEniCS MADF, with the common requirements that the pilots together with the FEniCS MADF should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a tetrahedral volume mesh.
+
+[[floatingwindturbine]]
+=== FloatingWindTurbine
+
+*End-user:* Tecnalia.
+
+Over recent years, wind energy has emerged as the most promising source of marine renewable energy. In particular offshore wind has large potential, due to the wind typically being stronger offshore, and the visual and noise impact of the offshore turbines being lower than their onshore counterparts. Offshore floating platforms for wind turbines represent a challenging design concept, seeking to balance cost effectiveness and performance.
+
+The FloatingWindTurbine pilot application is a key driver in the ELKARTEK “ICERMAR” project, which is a collaborative project between BCAM and the end-user Tecnalia on Marine Renewable Energy research, funded by the Basque Government. The task of the pilot is to function as a software tool for virtual design of floating wind turbines.
+
+*The pilot will be evaluated through two test cases*, defined in collaboration with the end-user. The first is a single-phase simulation of water flow past a platform, and the second is a standard benchmark in marine engineering, the MARIN benchmark [3].
+
+*Test Case 1:* The interaction of ocean currents with the semi-submersible Nautilus platform[[_Ref353797743]] [4,5] is modelled. To solve the Navier-Stokes equations describing the ocean flow, FeniCS-HPC [6] is used in the form of the Unicorn CFD solver, which is based on the Direct FEM methodology, including parameter-free implicit turbulence modelling, a cheap slip velocity boundary layer model and adaptive error control [7]. The simulations will be validated against experimental results. In particular, the drag of the platform will be compared with data from a tank test campaign [8,9].
+
+The geometry model is provided by Nautilus Floating Solutions, a Basque spin-off company comprised of industry leaders partnering in research on offshore wind energy. The geometric model describes a floating platform supporting a wind energy turbine; in the form of a 4-column ring pontoon semi-submersible platform with heave plates and a catenary mooring system. The wind turbine is located in the centre relative to the columns. The precise specifications of the geometry are as follows:
+
+* The four columns are 9.5 m diameter each and are placed in a square pattern at a distance of 33 m from one another. The columns are connected by a rigid ring pontoon, which is provided with heave damping plates at the bottom. The horizontal plates at the bottom and in between the columns increase the added mass.
+* The operational draft is around 20 m.
+
+The expected size of the computational problem is an unstructured tetrahedral FEM mesh of ca. 10 million vertices.
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+image:images/media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Figure : Nautilus platform.
+
+*Test Case 2:* The pilot will be validated against the MARIN benchmark, a standard benchmark in marine engineering for wave impact, or dam break. The benchmark consists of a door opening, allowing a volume of water to enter which creates a wave that impact the wall in the box (see Figure 2). This test case involves turbulent two-phase flow (air and water), discretized by a Direct FEM method with a variable density formulation [10], using an unstructured tetrahedral mesh of around 2 million vertices, Simulations are validated with experimental data obtained by mounted pressure sensors on the box.  
+
+image:images/media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
+
+Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
+
+[[dairqualityprediction-cfd]]
+=== 3DAirQualityPrediction-CFD
+
+*End-user:* OMSZ (The Hungarian Meteorological Service)
+
+Ambient (outdoor) air pollution is estimated by the World Health Organization (WHO) to be the largest single environmental health risk, each year causing millions of premature deaths worldwide, with strong links to both cardiovascular disease and cancer. The societal challenge of air quality is particularly urgent in urban areas, with traffic as one of the main sources of pollution. The impact of air pollution may be more or less severe depending on the local climate and urban planning. To simulate the dispersion of air pollutants is of major interest, for urban planning and also for local forecasts of the air quality. For example, local hot spots may expose the population for elevated health risks, such as cancer. At the heart of an air quality prediction service is a CFD simulation tool for the local climate system, including dispersion of air pollution.
+
+*The pilot is evaluated in one test case*. In addition this pilot will function as a subroutine for the pilot 3DAirQualityPrediction as the CFD simulation engine.
+
+*Test Case 1:* The test case concerns an urban street canyon for which both simulation results and experimental measurements are available [11]. The problem setup is visualized below.
+
+image:images/media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:images/media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
+
+*Figure 3: Urban street canyon in the form of 42 Street in New York (figures from Wikipedia).*
+
+image:images/media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:images/media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
+
+**Figure 4: Urban street canyon model problem (figures reproduced from article**^12^*).*
+
+[[feel-pilots]]
+=== Feel++ pilots
+
+The common requirements of the Feel++ pilots are that the pilots should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
+
+[[hifimagnet]]
+=== HIFIMAGNET
+
+*End-user:* Laboratoire National des Champs Magnétiques Intenses (_LNCMI_)
+
+The _LNCMI_ is a French large scale facility [12] also part of the European Magnetic Field Laboratory (EMFL), enabling researchers to perform experiments in the highest possible magnetic field (up to 35 T static field provided by water cooled resistive magnets connected with a 24 MW power supply). Magnets are accessible to the international scientific community through project calls twice a year. Studies range from solid physics to applied superconductivity and magneto-science. In strong international competition driven by _NHMFL_ (USA), and with the emergence of magnet labs in China, the _LNCMI_ has entered the race for higher magnetic field. To keep up in this context, magnet technologies have to be pushed to their limits, both in terms of materials (active research is carried out to have materials - either resistive or superconductor - with improved mechanical and electrical properties) and of design methods.    
+
+From an engineering point of view designing, such high field magnet reaches the limits of our current methodology and the models upon which it relies. In particular it raises questions about the model precision, from a pure numerical point of view and from the model itself: is the physics considered sufficient to correctly represent the observed phenomena. On top of that, to guarantee the requested homogeneity it is mandatory to account for geometrical uncertainties, slight plays and mechanical clearances. Moreover material properties and operating parameters uncertainties should be accounted for to assure a robust design.
+
+image:images/media/image9.png[HL-31-cadgeom.png,width=144,height=215] image:images/media/image10.png[H1H8_B3D.png,width=350,height=221]
+
+*Figure 5. Left: View of a PolyHelix Magnet Insert (a quarter of the structure has been removed to give better insight of the considered geometry). Right: Magnetic Field B produced by a typical PolyHelix magnet Insert. On the right plots of specific B components on the low pressure side of the magnet.*
+
+The HIFIMAGNET pilot application [13,14] has been developed in the frame of a collaboration between LNCMI and Institut de Recherche Mathématique Avancée (IRMA) from Unistra to address these questions.  HIFIMAGNET consists of: (i) a set of numerical models ranging from 2D to 3D, including more and more physics, and (ii) a framework for sensitivity analysis and uncertainty quantification with respect to material properties, operational parameters and geometry, that aims to complement LNCMI standard design. This framework relies on Feel++ Reduced Basis Method facility.
+
+The pilot consists will be evaluated through 3 test cases. The first two tests are designed to show the TRL level of Feel++/HiFiMagnet. The 3rd test case is more challenging, and demonstrates the potential of HiFiMagnet for robust design optimization.
+
+*Test Case 1:* An existing polyhelix magnet will be modelled in operation, at low and high field using a 3D non-linear multi-physics model.  The simulations will be validated against experimental results, more precisely with magnetic field measurements in the zone of interest for researchers. Depending on the availability of other measurements, such as the temperature at the low-pressure side of the magnets, which are currently under development more validations can be performed on the cooling model and the global thermal behaviour of the magnets.
+
+image:images/media/image11.jpeg[setup_lowres.jpg,width=180,height=240]image:images/media/image12.png[elevator2+zoom.png,width=187,height=242]
+
+*Figure 6. Left: Experimental Setup for Low field Measurements on a Workbench. Right: Experimental Setup for Low field Measurements in Situ.*
+
+image:images/media/image13.png[exp_Bprofil.png,width=399,height=311]
+
+*Figure 7. Left Magnet Field profile along circles of increasing radius at a given altitude for a test magnet of 2 helices: comparison between measurements and different numerical models.*
+
+*Test Case 2:* The commissioning of a magnet is performed when a new magnet is first set into operation. It consists in measuring the resistance of each helix or pair of helices, as a function of the total current and the mean temperature of the coolant. This data is then used to control and monitor the magnet. A deviation of more than 3% from the expected resistance is a signal for power shutdown. This test case will involve 3D non-linear multi-physics simulations, and also a reduced model for parametric studies. The result will be compared with experimental data measured for an existing magnet.
+
+*Test Case 3:* The goal of this test case is to design or re-design part of an existing magnet to reach a more homogeneous magnetic field within a small volume around the magnet centre. This kind of magnet is of special interest for the community of RMN researcher, and could be a booster for some applications.
+
+[[eye2brain]]
+=== EYE2BRAIN
+
+*End-user:* Eugene and Marilyn Glick Eye Institute in Indianapolis (IN, USA), and the Eye Clinic of Lithuanian University of Health Sciences.
+
+Thanks to its special connection to the brain and its accessibility to measurements, the eye provides a unique window on the brain, thereby offering non-invasive access to a large set of potential biomarkers that might help in the early diagnosis and clinical care of Neuro-Degenerative Diseases (NDD). However, characterizing ocular biomarkers as surrogates of cerebral or systemic vascular status is far from trivial. Clinical measurements are influenced by many factors that vary among individuals and cannot be isolated in vivo, thereby posing serious challenges for the interpretation of such measurements.
+
+Motivated by the need of mathematical and computational methods to study the Eye-Brain system (which we refer to as Eye2Brain) and aid the interpretation of ocular measurements as biomarkers for the brain status, we are currently developing a multi-component platform combining detailed descriptions of the eye and the brain with a systemic view of the Eye2Brain connections.
+
+The development of an articulated platform capable of providing physicians with an integrated view of the patient’s status will significantly improve our current ability to monitor health and to prevent, detect, treat and manage disease in a personalized manner. Within this project, we propose to develop such a platform for application in ophthalmology, with the specific goal of developing, testing and delivering a software that can be used in ophthalmology clinics to improve diagnosis and care of ocular diseases (e.g. glaucoma, diabetic retinopathy, age-related macular degeneration) and other pathologies that also manifest in the eye (e.g. diabetes, hypertension, NDD). This application clearly leverages the resources and expertise that we have gathered within the Eye2Brain project, and it extends them to build a tool that can directly impact the clinical practice.
+
+The schematic below describes the types of data that we will integrate in the platform as well as the modeling components that we will use to connect the data within the eye.
+
+_______________________________________________________________________
+image:images/media/image14.png[data_schematic.png,width=519,height=252]
+_______________________________________________________________________
+
+*Figure 8. The types of data to be integrated, and the modelling components to be used to connect the data within the eye.*
+
+Fundus camera images are processed to extract geometrical information on the retinal vasculature; computational techniques developed within the AngioTk (http://www.cemosis.fr/projects/angiotk/) platform which is adapted to generate computational domains for the blood vessels where we simulate blood flow using Feel++/CFD using the clinically measured values of blood pressure as patient-specific inputs (specifically, we will adapt the mathematical model described in Dziubek et al (2015)). Data from the Heidelberg Retinal Flowmeter will be used to properly tailor the microvascular levels of the model. Retinal Oximetry data will be used to incorporate oxygen dynamics into the vascular model, following a similar procedure as in Causin et al (2015). Color Doppler Imaging data is used to tailor the lumped model describing the blood flow in the central retinal artery and vein to the patient-specific measurements, following a similar procedure to that described in Guidoboni et al (2014). Images obtained via Optical Coherence Tomography is processed to extract geometrical information regarding the structure of the optic nerve head and is integrated within the rest of the ocular platform as a component to be visualized and explored in detail.
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+This application represents a challenge for integration into MSO4SC due to both the rich and possibly interconnected model components and data flow coming from different sources, which need to be exploited by the different model approaches.
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Three approaches are proposed which provide a _*Patient-specific virtual simulator of tissue perfusion in the lamina cribrosa*_ coupling 3D and 0D models but with increasing complexity in the 3D up to a full eye computational model and in parallel a decreasing in complexity of the 0D modeling. The models are fed by the ophthalmological instruments, as described above.
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+*Test Case 1*: Improper perfusion of the lamina cribrosa (LC) may lead to severe alterations of the visual function. LC perfusion parameters are difficult to estimate with non-invasive measurements and are affected by many factors that vary among individuals and cannot be easily isolated. Here we utilize a mathematical virtual simulator (MVS) to address these challenges.
+
+The MVS combines i) a three-dimensional porous-media model for LC perfusion with ii) a circuit-based model for blood flow in the retrobulbar and ocular posterior segments. Systems i) and ii) are solved using advanced computational and visualization methods (Feel++). Simulation inputs may include some patient-specific factors that can be measured non-invasively, e.g. systolic blood pressure (SBP), diastolic blood pressure (DBP), intraocular pressure (IOP) and ocular geometry.
+
+Figure 9 shows the MVS visualization of ocular geometry. MVS simulated LC perfusion velocities at time t = 2.4 s (green line) are shown for IOP = 15 mmHg and SDB/DBP = 100/70 mmHg, SDB/DBP = 120/80 mmHg, SDB/DBP = 140/90 mmHg. Increasing SBP and DBP leads to higher LC perfusion velocities, especially near the nasal area. MVS also simulates blood velocities in the central retinal artery and vein (CRA and CRV), which are similar to those obtained via Color Doppler Imaging. Thus MVS can serve as an instrument to visualize and estimate LC perfusion parameters, thereby providing new means to address the increasing demand of information on parts of the eye that are not-easily accessible with standard investigations.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+image:images/media/image15.png[figure1.png,width=209,height=199]image:images/media/image16.png[figure2.png,width=217,height=204]
+
+*Figure 9. Right: MVS multiscale scheme. Right: MVS perfusion simulations.*
+
+____________________________________________________________________________________________________________________________________________________________________________________
+image:images/media/image17.png[Schematic_diagram_of_the_human_eye_.png,width=215,height=221] image:images/media/image18.png[section_of_the_eye_with_labels.png,width=323,height=202]
+
+*Figure 10. Left: 2D view of the eye and its components. Right: 3D view of a section of the computational geometry of the eye used for the pilot simulations.*
+
+*Test case 2:*
+____________________________________________________________________________________________________________________________________________________________________________________
+
+In Test case 1,we considered a 3D model of the LC and a 0D systemic model of the retinal fluid. In this test case, we complexify the model by coupling the 3D poro-viscoelastic model of the LC with the 3D biomechanical behavior of the Sclera, the Choroid and the Retina, see Figure 10. This enables a more refined modeling of tissue perfusion of the lamina cribrosa. This enables (i) a more refined modeling of tissue perfusion in the lamina cribrosa, choroid and retina, and (ii) the integration of clinical data coming from fundus camera images, heidelberg retinal flowmeter, ocular coherence tomography and retinal oximetry.
+
+______________
+*Test case 3:*
+______________
+
+This last test case is one step further the last one by adding 3D fluid models for aqueous and vitreous humours, see Figure 10 above. We have a full 3D model of the eye completed by a systemic 0D model ensuring physiological behavior of our model. This enables (i) a more complete modeling of ocular biophysics, and (ii) a virtual laboratory where the efficacy of various therapeutic approaches, including topical medications and surgical interventions, can be tested accounting for patient specific conditions.
+
+[[opm-pilots]]
+=== OPM pilots
+
+The requirement of the OPM pilot is that the pilot should be deployed at the MSO4SC infrastructure, with support for parallel MPI and efficient ensemble simulations. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
+
+[[opm-flow]]
+=== OPM Flow
+
+*End-user:* Statoil, IRIS, TNO.
+
+OPM Flow is a reservoir simulation application that is part of OPM and has been chosen as the pilot in the MSO4SC project. Reasons for choosing OPM Flow for the pilot include:
+
+* It is the most advanced application in OPM, and is actively developed by the project partner (SINTEF) and other contributors.
+* It is the application that generates the most interest from users, including both industry and the research community.
+
+Subsurface flow simulation is of vital importance for the oil and gas industry. This industry depends on reservoir simulation to study petroleum fields, forecast their performance and make investment decisions. Subsurface flow simulations are also important for a wide range of environmental management applications. For example, CO~2~ sequestration studies can inform policymakers and stakeholders about the potential and execution of long-term CO~2~ storage. Studies of groundwater flows and pollutants are other important use cases.
+
+From a mathematical point of view, reservoir simulators solve systems of nonlinear partial differential equations describing the flow of fluids in the porous medium, coupled to models that describe fluid behaviour in wells or facilities that are connected to the reservoir. These systems are often hard to solve for several reasons, for example:
+
+* The porous medium is strongly heterogeneous and anisotropic. In particular permeability can span several orders of magnitude.
+* Computational grids usually have high aspect ratios and can be fully unstructured with arbitrary polygonal cells.
+* Phase behaviour is nontrivial. For example, phases can appear and disappear as fluid components dissolve or vaporize across gaseous and oleic phases.
+* Coupling to wells can connect regions that are far away from each other.
+* The models are highly nonlinear.
+
+After discretization in space and time, a complex system of nonlinear discrete equations has to be solved by Newton's method. The Newton approach must be modified to achieve acceptable convergence behaviour.
+
+A successful reservoir simulator must have robust strategies to deal with numerical problems, preconditioning methods that are capable of handling strongly heterogeneous and anisotropic systems, and highly capable linear solvers. From an engineering point of view, it is also essential that the simulator is flexible and powerful with respect to input data, both for reservoir geometry and physical properties, provides robust non-linear and linear solvers with high performance, and support user-friendly reporting and output facilities.
+
+OPM Flow is a fully implicit reservoir simulator for the black-oil fluid model and some extended models. It can run realistic industrial simulation models for petroleum assets and CO2 sequestration cases. The simulator is implemented using automatic differentiation to enable rapid development of new fluid models and features. Since the entire simulator and framework is open source, it is possible for any interested party to build such features and extend the simulator for research or other purposes. It supports industry-standard input and output formats to fit into existing workflows, and its performance is close to the performance of commercial alternatives.
+
+The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud hardware, controlled from a simple web interface. Users must be able to upload their own input data, monitor simulations as they progress and access full results upon completion. From the requirements set out in D2.1, particular emphasis is on the ability to run large ensembles effectively. Three test cases will be used for the evaluation of the pilot.
+
+[[test-case-1-the-norne-field-is-a-norwegian-sea-oil-field-for-which-the-operator-statoil-has-made-available-the-simulation-models-and-other-data-used-on-the-field.-while-not-very-large-in-terms-of-number-of-computational-cells-it-is-complex-in-terms-of-grid-structure-and-fluid-behaviour-features.-the-field-has-many-wells-that-connect-to-the-reservoir-that-must-be-accounted-for.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-that-the-results-can-be-accessed-afterwards-and-that-the-results-match-those-obtained-by-a-baseline-simulation.]]
+==== Test case 1: The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
+
+image:images/media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+
+*Figure 11: Permeability distribution of Norne field.*
+
+[[test-case-2-the-olympic-benchmark-is-an-artificial-benchmark-created-by-tno-netherlands-for-benchmarking-ensemble-based-reservoir-optimization-and-history-matching-algorithms-software-and-workflows.-a-critical-part-of-such-a-workflow-is-the-ability-to-run-large-ensembles-of-simulation-cases-and-that-is-what-will-be-tested-in-this-scenario.-for-successful-evaluation-we-require-that-a-large-set-of-realizations-drawn-from-the-case-can-be-uploaded-and-run-in-bulk-with-only-minimal-user-intervention-other-than-setting-up-the-set-of-ensemble-runs-and-that-results-can-be-accessed-in-bulk-afterwards.]]
+==== Test case 2: The OLYMPIC benchmark is an artificial benchmark created by TNO (Netherlands) for benchmarking ensemble-based reservoir optimization and history matching algorithms, software and workflows. A critical part of such a workflow is the ability to run large ensembles of simulation cases, and that is what will be tested in this scenario. For successful evaluation, we require that a large set of realizations drawn from the case can be uploaded and run in bulk with only minimal user intervention other than setting up the set of ensemble runs, and that results can be accessed in bulk afterwards.
+
+[[test-case-3-the-norwegian-continental-shelf-has-several-aquifers-that-are-considered-potential-candidates-for-large-scale-storage-of-co2.-simulating-the-injection-process-and-subsequent-migration-of-the-co2-plume-is-an-important-part-of-the-suitability-evaluation.-in-this-test-scenario-we-will-simulate-one-of-the-primary-candidates-for-such-sequestration.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-and-that-results-can-be-accessed-afterwards.]]
+==== Test case 3: The Norwegian Continental Shelf has several aquifers that are considered potential candidates for large-scale storage of CO2. Simulating the injection process and subsequent migration of the CO2 plume is an important part of the suitability evaluation. In this test scenario, we will simulate one of the primary candidates for such sequestration. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, and that results can be accessed afterwards.
+
+1.  [[other-pilots]]
+=== Other pilots
+1.  [[zibaffinity]]
+=== ZibAffinity
+
+*End-user:* Pharmaceutical companies.
+
+The requirement of the pilot is that the pilot should be deployed at the MSO4SC infrastructure, with support for parallel MPI.
+
+ZIBAffinity [15] uses molecular dynamics (MD) simulations and methods of statistical thermodynamics in order to estimate binding affinities for biological host–guest systems (HGS). Having uploaded a small drug-like molecule under observation as input, the user selects one or more protein target structures from a database of force field-parameterized models and submits one job per target-ligand combination to the queue of the CESGA high performance computer. After job processing, the results are made available to the user.
+
+The affinity is estimated as a linear combination of averages of molecular observables according to a linear interaction energy [16] model. Ensuing from the uploaded small molecule, GROMACS MD simulations, with at most 61 different starting positions, are performed in parallel. The optimal binding position (binding mode) is then extracted from that data and provided as a 3D molecular structure serving (Figure 6), along with thermo-statistical data (Figure 6) as the basis for absolute or relative binding affinity estimation.
+
+image:images/media/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
+
+________________________________________________________________________________________________________________________________________
+*Figure 12: Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).*
+________________________________________________________________________________________________________________________________________
+
+For each available target molecule separately, the linear combination factors of the free energy equation above must have been learned in advance during a training phase and must be stored in the target database together with the target’s initial configuration and further required information. At runtime, they are used for the calculation of absolute binding affinities (test case 1). If, in contrast, no training data is available for a particular protein target, ZIBAffinity can use standard weights or estimate relative binding affinities (test case 2).
+
+Pilot features to be validated are correct predictions of the binding affinities (inside the statistical range), run-time on the cloud system compared to running ZIBAffinity on HLRN (North-German Supercomputing Alliance), and usability of the data storage and data management concepts of MSO4SC.
+
+*Use Case 1:* ZIBAffinity will be used for a particular test case that is extensively described in a recent article [17]. In this test case several small drug-like molecules are tested against the alpha-estrogen receptor as target molecule. Laboratory data for binding free energies ΔG^Exp^ are available (x-axis in Figure 7) and have been used for parameter estimation regarding the linear interaction model presented above. After that training phase, the ZIBAffinity software predicts binding energies ΔG^Comp^ of all given small molecules (y-axis in Figure 7).
+
+image:images/media/image21.png[plot-py_lie2011_fit-loo.png,width=392,height=296]
+
+*Figure 12: Predicted vs. experimental binding free energies of the alpha-estrogen receptor and a set of 31 ligands using the software ZIBAffinity.*
+
+With this approach it is possible to estimate the estrogenicity of small-molecules, which is important for prediction of effects of trace pollutants as endocrine disruptors, a major challenge for water cleaning plants [18] and a severe problem of industrialized countries.    
+
+If laboratory data is not available, then ZIBAffinity only provides a priority list of trace pollutants for further biochemical experiments. ZIBAffinity predicts their potential toxicological risk (see Figure 8) on the basis of “adverse” thermo-statistical data.   
+
+image:images/media/image22.png[ransrisk priority table,width=350,height=152]
+
+*Figure 13: Potential toxicological risk on the basis of “adverse” thermo-statistical data.   *
+
+ZIBAffinity can be used for the prediction of several host-guest-affinities (not only to proteins). One example is the prediction of the elution order of Liquid Chromatographic Separations [19]. This prediction is important for the choice of the column material of separation columns. Thus, it provides important data for the design of chemical processes. A well-suitable column separation material is very important for producing pharmaceuticals with fewer side effects (due to pollutants). In terms of drug delivery, ZIBAffinity can help to design drug-carriers with certain drug-release profiles [20].
+
+*Use Case 2:* ZIBAffinity is used to design small drug-like molecules with a high affinity for special pharmaceutical targets (pain relief drugs [21] or estrogen receptor inhibitors [22]). This test case is important for the planning of the data storage and data management in MSO4SC. The data that is created in these projects is extremely valuable for pharmaceutical companies and, thus, needs a very high level of protection against data loss and data security.
+
+1.  [[section]]
+===
+2.  [[dairqualityprediction]]
+=== 3DAirQualityPrediction
+
+The requirement of the pilots is that the pilots should be deployed at the MSO4SC infrastructure, with statistical data.
+
+*End-user:* OMSZ (The Hungarian Meteorological Service)
+
+Urban citizens are exposed to air pollution at an increased level, which causes many premature deaths [23]. In cities, the main producer of the most relevant pollutants, the nitrogen oxides (NOx) is the traffic, which is responsible for emitting more than 40% of this contaminants. In order to support city authorities and policy makers in their job for reducing air pollution arising from traffic, computational models have been used for running scenarios for some decades. However, accurate models that take into account real 3D geometry of cities including buildings with high spatial resolution and are easy-to-use at the same time seem to be lacking. The main difficulty of matching accuracy and usability is that accuracy needs supercomputers, which is traditionally of difficult use. Bringing the existing 3DAirQualityPrediction framework to the MSO4SC infrastructure and using the fast and accurate FEniCS-HPC application 3DAirQualityPrediction-CFD as module of the framework 3DAirQualityPrediction the project will match accuracy and usability.
+
+The framework is composed of modules, namely traffic, emission, meteorology, dispersion and the core module, which is either for evaluating assessments or performing optimization or control. An overview of the 3DAirQC workflow is seen on Figure 14.
+
+[cols="",]
+|================================================================================================================================================================================================================
+|image:images/media/image23.png[Macintosh HD:Users:jhoffman:Library:Containers:com.apple.mail:Data:Library:Mail Downloads:E7B589A8-16C5-4E09-B96F-65D1EDCA2C50:Workflow_health_3_fenics.png,width=566,height=416]
+|================================================================================================================================================================================================================
+
+*Figure 14. An overview of the 3DAirQualityPrediction workflow for running scenarios for health indicators depending on traffic, fleet and meteorology data or traffic and meteorology measurements and simulations.*
+
+*Preprocessing of the data*
+
+The preprocessing steps of the simulation modules are based on several toolkits consisting of Blender (see https://www.blender.org/) tools for 3D modelling, in-house 3D meshing tools and some commercial tools of ANSYS. All of these steps need normally special and time consuming work, which is done mainly automatically using our tools. For illustration of the tools for geometry preprocessing and meshing see Figure 15 and Figure 16, respectively.
+
+[cols="",]
+|==================================================================
+|image:images/media/image25.jpeg[Full_Gyor_01,width=404,height=227]
+|==================================================================
+
+*Figure 15. Example of CAD geometry of the town resulted from city geoinformatic data base using Blender* *scripts*
+
+[cols="",]
+|======================================================================================================================================================
+|image:images/media/image26.png[octree_high_6_6_2060K_no_logo,width=229,height=161] image:images/media/image27.png[Polyhedra_halo,width=285,height=160]
+|======================================================================================================================================================
+
+*Figure 16 An overview of the meshes: octree mesh generated by in-house multi thread Java code (left) and polyhedral mesh resulted from using ANSYS Fluent (right).*
+
+*The traffic module*
+
+For modelling the urban traffic we have been using macroscopic and microscopic models. These are based on
+
+* historical traffic count data of a big campaign and/or
+* monitoring data arising from operational data collected by city and national road authorities.
+
+Based on these data, the user has an option to choose PTV VISSIM or VISUM for microscopic or macroscopic simulation of the traffic or either use just statistical or measurement data.
+
+[cols="",]
+|================================================================================================================================
+|image:images/media/image28.png[map4,width=260,height=162] image:images/media/image29.png[traffic detectors,width=266,height=161]
+|================================================================================================================================
+
+*Figure 17. An overview of traffic sensor network of the city (on the courtesy of Hungarian National Roads Nonprofit Ltd. -Magyar Közút Nonprofit Zrt.*
+
+*The emission module*
+
+For modelling the emission of the vehicles in the traffic the European standard emission model, the COPERT model is used. Actually it is a script that computes emissions of the pollutants at street segments that serve as forcing terms in the dispersion module.
+
+*The meteorology module*
+
+For boundary conditions of the dispersion module we used meteorology data from the national official operational data of the Hungarian Meteorology Service (OMSZ), which uses the AROME (Application of Research to Operations at Mesoscale) non-hydrostatic numerical weather prediction model
+
+*The dispersion module*
+
+The project will use 3DAirQualityPrediction-CFD application for simulation of the emitted pollutants. There are two options of running the CFD solver. The first one is the frozen flow field model where the wind field is precomputed with a RANS or an adaptive LES model of 3DAirQuallityPrediction-CFD according to the setting given in a configuration file. Then dispersion of the pollutants is computed with the simple advection-diffusion(-reaction) module of 3DAirQuallityPrediction-CFD. In the second option the wind field and dispersion of the pollutants is computed simultaneously. These options are governed by the configuration of the 3DAirQuallityPrediction-CFD.
+
+[cols="",]
+|==========================================================
+|
+|image:images/media/image30.jpeg[kep3,width=360,height=235]
+|==========================================================
+
+*Figure 18. NOx concentrations at 1.5m height according to the simulation results* *with RANS simulation with Ansys Fluent. Note that in the project the high quality 3DAirQuallityPrediction-HPC* *adaptive LES module will provide even higher accuracy.*
+
+*Test cases*
+
+The pilot test cases will be performed in city of Győr where all data including traffic monitoring and also historic data are available.
+
+*Test case 1:* In this pilot traffic and meteorology data are taken from historical data. Thus running the 3DAirQualityPrediction framework all data and codes can be ported and run at the infrastructure of the MSO4SC infrastructure. Several meteorology and traffic scenarios will be run based on - precomputed or statistical – meteorological and traffic data.
+
+*Test case 2:* In this pilot traffic and meteorology data are taken from measurements and, optionally, traffic is simulated. Thus running the 3DAirQualityPrediction framework data transfer from the server collecting measurements data from meteorology and traffic has to be incorporated, Data transfer a dedicated server of SZE that runs the propriety software PTVVISSIM/VISUM will be solved, or alternatively on MSO4SC infrastructure, using the license provided by SZE.
+
+[[conclusions]]
+== Conclusions
+
+In this report we have presented the pilots to be evaluated in WP6. We provide a description of the pilot scenarios and an evaluation strategy for the e-infrastructure, in particular with respect to evaluation of the Technology Readiness Level (TRL) that will reach TRL8 as part of the project. The focus is the MSO Portal and the MADFs, where each MADF has at least one associated pilot.
+
+[[_Toc355044555]]
+
+[[references]]
+== References
+
+1.  MSO4SC D2.1 End Users’ Requirements Report, 2017.
+2.  MSO4SC D2.2 MSO4SC e-infrastructure Definition, 2017.
+3.  K. Kleefsman, G. Fekken, A. Veldman, B. Iwanowski and B. Buchner, “A volume-of-fluid based simulation method for wave impact problems”, Journal of computational physics, 2005.
+4.  J. Jansson, V. Nava, G. Aguirre, R. Vilela de Abreu, M. Sanchez , G. Perez, J. Hoffman and J. L. Villate, “Estimation of hydrodynamic viscous characteristics of an offshore wind platform using adaptive finite element simulations”, 1st prize for best poster at Bilbao Marine Energy Week, 2015.
+5.  J. Jansson, V. Nava, M. Sanchez, G. Aguirre, R. Vilela de Abreu, J. Hoffman and J. L. Villate, “Adaptive simulation of unsteady flow past the submerged part of a floating wind turbine platform”, Proceedings ECCOMAS VI International conference on computational methods in marine engineering, 2015.
+6.  J. Hoffman, J. Jansson, R. Vilela de Abreu, N. C. Degirmenci, N. Jansson, K. Müller, M. Nazarov and J. H. Spühler, “Unicorn: Parallel adaptive finite element simulation of turbulent flow and fluid-structure interaction for deforming domains and complex geometry”, Computers and Fluids, 2013.
+7.  J. Hoffman, J. Jansson, N. Jansson and R. Vilela De Abreu, “Towards a parameter-free method for high Reynolds number turbulent flow simulation based on adaptive finite element approximation. Computer Methods in Applied Mechanics and Engineering, 2015.
+8.  V. Nava, G. Aguirre, J. Galvan, M. Sanchez-Lara, I. Mendikoa and G. Perez-Moran, MARINET: “Identification and validation of hydrodynamic characteristics of a Semi-Submersible Offshore Wind Platform through tank test”, under peer review.
+9.  V. Nava, G. Aguirre, J. Galvan, M. Sanchez-Lara, I. Mendikoa and G. Perez-Moran, “Experimental Studies on the Hydrodynamic Behavior of a Semi-Submersible Offshore Wind Platform”, Proceedings of 1st International Conference on Renewable Energies Offshore, 2014.
+10. J. Jansson, V. D. Nguyen, M. M. Ginard, D. Castanon Quiroz, L. Saavedra, E.Krishnasamy, A. Goude and J. Hoffman, “Direct finite element simulation of turbulent flow for marine based renewable energy”, _under peer review._
+11. S.M. Salim, et al., Numerical simulation of atmospheric pollutant dispersion in an urban street canyon: Comparison between RANS and LES, Journal of Wind Engineering and Industrial Aerodynamics, Vol.99(2-3), pp.103-113, 2011.
+12. J. Béard and F. Debray, The French High Magnetic Field Facility, _Journal of Low Temperature Physics, 2013, 170(5-6), pp541-552._
+13. C. Daversin, C. Prudhomme, C. Trophime. Full 3D MultiPhysics Model of High Field PolyHelices Magnets. _IEEE Transactions on Applied Superconductivity_, Institute of Electrical and Electronics Engineers, 2016, 26 (4), pp.1-4.
+14. C. Daversin-Catty. Reduced basis method applied to large non-linear multi-physics problems. Application to high field magnets design. Analysis of PDEs [math.AP]. _IRMA (UMR 7501), 2016._
+15. V. Durmaz, FU Berlin, Atomistic Binding Free Energy Estimations for Biological Host–Guest Systems, Doctoral Thesis, 2016.
+16. J. Åqvist, C. Medina, J. E. Samuelsson: A new method for predicting binding affinity in computer-aided drug design. Protein Eng, 7:385−391, 1994.
+17. V. Durmaz, S. Schmidt, P. Sabri, C. Piechotta, M. Weber: A hands-off linear interaction energy approach to binding mode and affinity estimation of estrogens. _J. Chem. Inf. Model,_ 53(10):2681–2688, 2013.
+18. V. Durmaz, M. Weber, J. Meyer, H. Mückter: Computergestützte Simulationen zur Abschätzung gesundheitlicher Risiken durch anthropogene Spurenstoffe in der Wassermatrix. _KA Korrespondenz Abwasser, Abfall,_ 3/15:264-267, 2015.
+19. V. Durmaz, M. Weber, R. Becker: How to Simulate Affinities for Host-Guest Systems Lacking Binding Mode Information: Application in the Liquid Chromatographic Separation of Hexabromocyclododecane Stereoisomers. _Journal of Molecular Modeling, 18(6):2399-2408, 2012._
+20. M. Weber, C. Zoschke, A. Sedighi, E. Fleige, R. Haag, M. Schäfer-Korting: Free Energy Simulations of Drug loading for Core-Multishell Nanotransporters. _J Nanomed Nanotechnol,_ 5(5):234, 2014.
+21. V. Spahn, G. Del Vecchio, D. Labuz, A. Rodriguez-Gaztelumendi, N. Massaly, J. Temp, V. Durmaz, P. Sabri, M. Reidelbach, H. Machelska, M. Weber, C. Stein: A nontoxic pain killer designed by modeling of pathological receptor conformations. _Science_, 355(6328):966-969, March 2017.
+22. F. Abendroth, M. Solleder, D. Mangoldt, P. Welker, K. Licha, M. Weber, O. Seitz: High affinity fluorescence labelled ligands for the estrogen receptor. _Eur. J. Org. Chem.,_ 2015(10):2157-2166, 2015.
+23. WHO, 2014: Burden of disease from ambient and household air pollution. Report. _http://www.who.int/phe/health_topics/outdoorair/databases/en/_
