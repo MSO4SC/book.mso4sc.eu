@@ -1,4 +1,22 @@
 = book.mso4sc.eu
+Mso4sc Book contributors <https://github.com/MSO4SC/book.mso4sc.eu/graphs/contributors>
+v1.0, 2017-04-27
+ifndef::env-github[:icons: font]
+:imagesdir: images/
+:pilotsdir: pilots/
+:deliverablesdir: Deliverables/
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:pilotsdir: pilots/
+endif::[]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :stem: latexmath
 :eqnums: AMS
 :icons: font
@@ -12,10 +30,10 @@
 :toclevels: 2
 :feelpp: Feel++
 :uri-raw-feelpp-book: https://raw.githubusercontent.com/feelpp/book.feelpp.org/master
-Mso4sc Book contributors <https://github.com/MSO4SC/book.mso4sc.eu/graphs/contributors>
-v1.0, 2017-04-27
 
-TIP: This book is writen in asciidoc.  You can compile it in HTML using the
+[TIP]
+====
+This book is writen in asciidoc.  You can compile it in HTML using the
 asciidoctor compiler, see
 link::http://asciidoctor.org/docs/install-toolchain/[how to install
 asciidoctor]. Then just type `make` for fast html compiling.
@@ -24,12 +42,13 @@ You can also preview the document via a browser plugin
 link::https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[chrome]).
 For the plugin, you have to open the raw file (click RAW button).
 See for example this link::https://raw.githubusercontent.com/MSO4SC/book.mso4sc.eu/master/README.adoc[README].
+====
 
 == Introduction
 
 This book presents works related to the Msc4sc project
 funded by the EU E-INFRA 
-link:http://mso4sc.elmerex.hu[H2020 project Mso4sc]
+link:http://mso4sc.eu[H2020 project Mso4sc]
 
 Documentation can also be found on the official
 link:https://github.com/Mso4sc[Mso4sc github] wiki.
@@ -48,6 +67,13 @@ Official mailings list are the following
 |mso4sc_wp5@lists.atosresearch.eu|
 |=================================
 
+== Pilots
+
+include::{pilotsdir}README.adoc
+
+== Deliverables
+
+link:{deliverablesdir}D5.1/README.adoc[]
 
 == From docx to asciidoc
 
