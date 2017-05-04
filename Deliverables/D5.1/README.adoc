@@ -1,6 +1,8 @@
 image:images/media/image1.png[image,width=165,height=156]
 
 = MSO4SC: D5.1 Case study extended design and evaluation strategy
+Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
+v6.0 2017/04/30
 :toc: left
 
 [cols=",",options="header",]
