@@ -268,13 +268,13 @@ The common requirements of the Feel++ pilots are that the pilots should be deplo
 ifdef::env-github[]
 = Hifimagnet
 endif::env-github[]
-include::{pilotsdir}/feelpp/hifimagnet/README.adoc[]
+include::{pilotsdir}feelpp/hifimagnet/README.adoc[]
 
 ifdef::env-github[]
 = Eye2brain
 endif::env-github[]
 
-include::{pilotsdir}/feelpp/eye2brain/README.adoc[]
+include::{pilotsdir}feelpp/eye2brain/README.adoc[]
 
 :leveloffset: -3
 

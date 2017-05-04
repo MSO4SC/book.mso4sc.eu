@@ -1,0 +1,40 @@
+= MSO4SC: Pilots
+Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
+v6.0 2017/04/30
+ifndef::env-github[:icons: font]
+:imagesdir: ../images/
+:pilotsdir: 
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:pilotsdir: 
+endif::[]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:toc: left
+:toclevels: 3
+
+image:media/image1.png[image,width=165,height=156]
+
+== List of Pilots
+
+:leveloffset: +2
+
+ifdef::env-github[]
+= Hifimagnet
+endif::env-github[]
+include::{pilotsdir}feelpp/hifimagnet/README.adoc[]
+
+ifdef::env-github[]
+= Eye2brain
+endif::env-github[]
+
+include::{pilotsdir}feelpp/eye2brain/README.adoc[]
+
+:leveloffset: -2
+
