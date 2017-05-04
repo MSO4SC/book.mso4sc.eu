@@ -1,7 +1,22 @@
 [[hifimagnet]]
 = HIFIMAGNET
+ifndef::env-github[:icons: font]
 :imagesdir: ../../../images/
-:toc: left
+:pilotsdir: ../../../pilots/
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:pilotsdir: ../../pilots/
+endif::[]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+
+{imagesdir}
 
 *End-user:* Laboratoire National des Champs Magnétiques Intenses (_LNCMI_)
 
@@ -9,7 +24,7 @@ The _LNCMI_ is a French large scale facility [12] also part of the European Magn
 
 From an engineering point of view designing, such high field magnet reaches the limits of our current methodology and the models upon which it relies. In particular it raises questions about the model precision, from a pure numerical point of view and from the model itself: is the physics considered sufficient to correctly represent the observed phenomena. On top of that, to guarantee the requested homogeneity it is mandatory to account for geometrical uncertainties, slight plays and mechanical clearances. Moreover material properties and operating parameters uncertainties should be accounted for to assure a robust design.
 
-image:images/media/image9.png[HL-31-cadgeom.png,width=144,height=215] image:images/media/image10.png[H1H8_B3D.png,width=350,height=221]
+image:imagesmedia/image9.png[HL-31-cadgeom.png,width=144,height=215] image:imagesmedia/image10.png[H1H8_B3D.png,width=350,height=221]
 
 *Figure 5. Left: View of a PolyHelix Magnet Insert (a quarter of the structure has been removed to give better insight of the considered geometry). Right: Magnetic Field B produced by a typical PolyHelix magnet Insert. On the right plots of specific B components on the low pressure side of the magnet.*
 
@@ -19,11 +34,11 @@ The pilot consists will be evaluated through 3 test cases. The first two tests a
 
 *Test Case 1:* An existing polyhelix magnet will be modelled in operation, at low and high field using a 3D non-linear multi-physics model.  The simulations will be validated against experimental results, more precisely with magnetic field measurements in the zone of interest for researchers. Depending on the availability of other measurements, such as the temperature at the low-pressure side of the magnets, which are currently under development more validations can be performed on the cooling model and the global thermal behaviour of the magnets.
 
-image:{imagesdir}/media/image11.jpeg[setup_lowres.jpg,width=180,height=240]image:{imagesdir}/media/image12.png[elevator2+zoom.png,width=187,height=242]
+image:media/image11.jpeg[setup_lowres.jpg,width=180,height=240]image:media/image12.png[elevator2+zoom.png,width=187,height=242]
 
 *Figure 6. Left: Experimental Setup for Low field Measurements on a Workbench. Right: Experimental Setup for Low field Measurements in Situ.*
 
-image:{imagesdir}/media/image13.png[exp_Bprofil.png,width=399,height=311]
+image:media/image13.png[exp_Bprofil.png,width=399,height=311]
 
 *Figure 7. Left Magnet Field profile along circles of increasing radius at a given altitude for a test magnet of 2 helices: comparison between measurements and different numerical models.*
 

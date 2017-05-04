@@ -3,6 +3,7 @@ Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM)
 v6.0 2017/04/30
 ifndef::env-github[:icons: font]
 :imagesdir: ../../images/
+:pilotsdir: ../../pilots/
 ifdef::env-github[]
 :status:
 :outfilesuffix: .adoc
@@ -11,13 +12,14 @@ ifdef::env-github[]
 :note-caption: :paperclip:
 :tip-caption: :bulb:
 :warning-caption: :warning:
-:imagesdir: ../../images/
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:pilotsdir: ../../pilots/
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :toc: left
 :toclevels: 3
 
-image:{imagesdir}media/image1.png[image,width=165,height=156]
+image:media/image1.png[image,width=165,height=156]
 
 [cols=",",options="header",]
 |====================================================================================================================
@@ -46,7 +48,7 @@ Carlos Fernandez (CESGA);_
 
 [cols=",",]
 |=========================================================================================================================================================================
-|image:{imagesdir}media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|image:media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
 |=========================================================================================================================================================================
 
 [[version-history]]
@@ -225,14 +227,14 @@ The geometry model is provided by Nautilus Floating Solutions, a Basque spin-off
 The expected size of the computational problem is an unstructured tetrahedral FEM mesh of ca. 10 million vertices.
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-image:{imagesdir}media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
+image:media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Figure : Nautilus platform.
 
 *Test Case 2:* The pilot will be validated against the MARIN benchmark, a standard benchmark in marine engineering for wave impact, or dam break. The benchmark consists of a door opening, allowing a volume of water to enter which creates a wave that impact the wall in the box (see Figure 2). This test case involves turbulent two-phase flow (air and water), discretized by a Direct FEM method with a variable density formulation [10], using an unstructured tetrahedral mesh of around 2 million vertices, Simulations are validated with experimental data obtained by mounted pressure sensors on the box.  
 
-image:{imagesdir}media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
+image:media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
 
 Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
 
@@ -247,11 +249,11 @@ Ambient (outdoor) air pollution is estimated by the World Health Organization (W
 
 *Test Case 1:* The test case concerns an urban street canyon for which both simulation results and experimental measurements are available [11]. The problem setup is visualized below.
 
-image:{imagesdir}media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:{imagesdir}media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
+image:media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
 
 *Figure 3: Urban street canyon in the form of 42 Street in New York (figures from Wikipedia).*
 
-image:{imagesdir}media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:{imagesdir}media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
+image:media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
 
 **Figure 4: Urban street canyon model problem (figures reproduced from article**^12^*).*
 
@@ -261,7 +263,11 @@ image:{imagesdir}media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Sh
 
 The common requirements of the Feel++ pilots are that the pilots should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
+:leveloffset: +3
 include::{pilotsdir}/feelpp/hifimagnet/README.adoc[]
+
+include::{pilotsdir}/feelpp/eye2brain/README.adoc[]
+:leveloffset: -3
 
 [[opm-pilots]]
 === OPM pilots
@@ -299,7 +305,7 @@ The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud 
 [[test-case-1-the-norne-field-is-a-norwegian-sea-oil-field-for-which-the-operator-statoil-has-made-available-the-simulation-models-and-other-data-used-on-the-field.-while-not-very-large-in-terms-of-number-of-computational-cells-it-is-complex-in-terms-of-grid-structure-and-fluid-behaviour-features.-the-field-has-many-wells-that-connect-to-the-reservoir-that-must-be-accounted-for.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-that-the-results-can-be-accessed-afterwards-and-that-the-results-match-those-obtained-by-a-baseline-simulation.]]
 *Test case 1:* The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
 
-image:{imagesdir}media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+image:media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
 
 *Figure 11: Permeability distribution of Norne field.*
 
@@ -323,7 +329,7 @@ ZIBAffinity [15] uses molecular dynamics (MD) simulations and methods of statist
 
 The affinity is estimated as a linear combination of averages of molecular observables according to a linear interaction energy [16] model. Ensuing from the uploaded small molecule, GROMACS MD simulations, with at most 61 different starting positions, are performed in parallel. The optimal binding position (binding mode) is then extracted from that data and provided as a 3D molecular structure serving (Figure 6), along with thermo-statistical data (Figure 6) as the basis for absolute or relative binding affinity estimation.
 
-image:{imagesdir}media/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
+image:media/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
 
 ________________________________________________________________________________________________________________________________________
 *Figure 12: Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).*
@@ -335,7 +341,7 @@ Pilot features to be validated are correct predictions of the binding affinities
 
 *Use Case 1:* ZIBAffinity will be used for a particular test case that is extensively described in a recent article [17]. In this test case several small drug-like molecules are tested against the alpha-estrogen receptor as target molecule. Laboratory data for binding free energies ΔG^Exp^ are available (x-axis in Figure 7) and have been used for parameter estimation regarding the linear interaction model presented above. After that training phase, the ZIBAffinity software predicts binding energies ΔG^Comp^ of all given small molecules (y-axis in Figure 7).
 
-image:{imagesdir}media/image21.png[plot-py_lie2011_fit-loo.png,width=392,height=296]
+image:media/image21.png[plot-py_lie2011_fit-loo.png,width=392,height=296]
 
 *Figure 12: Predicted vs. experimental binding free energies of the alpha-estrogen receptor and a set of 31 ligands using the software ZIBAffinity.*
 
@@ -343,7 +349,7 @@ With this approach it is possible to estimate the estrogenicity of small-molecul
 
 If laboratory data is not available, then ZIBAffinity only provides a priority list of trace pollutants for further biochemical experiments. ZIBAffinity predicts their potential toxicological risk (see Figure 8) on the basis of “adverse” thermo-statistical data.   
 
-image:{imagesdir}media/image22.png[ransrisk priority table,width=350,height=152]
+image:media/image22.png[ransrisk priority table,width=350,height=152]
 
 *Figure 13: Potential toxicological risk on the basis of “adverse” thermo-statistical data.   *
 
@@ -365,7 +371,7 @@ The framework is composed of modules, namely traffic, emission, meteorology, dis
 
 [cols="",]
 |================================================================================================================================================================================================================
-|image:{imagesdir}media/image23.png[Macintosh HD:Users:jhoffman:Library:Containers:com.apple.mail:Data:Library:Mail Downloads:E7B589A8-16C5-4E09-B96F-65D1EDCA2C50:Workflow_health_3_fenics.png,width=566,height=416]
+|image:media/image23.png[Macintosh HD:Users:jhoffman:Library:Containers:com.apple.mail:Data:Library:Mail Downloads:E7B589A8-16C5-4E09-B96F-65D1EDCA2C50:Workflow_health_3_fenics.png,width=566,height=416]
 |================================================================================================================================================================================================================
 
 *Figure 14. An overview of the 3DAirQualityPrediction workflow for running scenarios for health indicators depending on traffic, fleet and meteorology data or traffic and meteorology measurements and simulations.*
@@ -376,14 +382,14 @@ The preprocessing steps of the simulation modules are based on several toolkits 
 
 [cols="",]
 |==================================================================
-|image:{imagesdir}media/image25.jpeg[Full_Gyor_01,width=404,height=227]
+|image:media/image25.jpeg[Full_Gyor_01,width=404,height=227]
 |==================================================================
 
 *Figure 15. Example of CAD geometry of the town resulted from city geoinformatic data base using Blender* *scripts*
 
 [cols="",]
 |======================================================================================================================================================
-|image:{imagesdir}media/image26.png[octree_high_6_6_2060K_no_logo,width=229,height=161] image:{imagesdir}media/image27.png[Polyhedra_halo,width=285,height=160]
+|image:media/image26.png[octree_high_6_6_2060K_no_logo,width=229,height=161] image:media/image27.png[Polyhedra_halo,width=285,height=160]
 |======================================================================================================================================================
 
 *Figure 16 An overview of the meshes: octree mesh generated by in-house multi thread Java code (left) and polyhedral mesh resulted from using ANSYS Fluent (right).*
@@ -399,7 +405,7 @@ Based on these data, the user has an option to choose PTV VISSIM or VISUM for mi
 
 [cols="",]
 |================================================================================================================================
-|image:{imagesdir}media/image28.png[map4,width=260,height=162] image:{imagesdir}media/image29.png[traffic detectors,width=266,height=161]
+|image:media/image28.png[map4,width=260,height=162] image:media/image29.png[traffic detectors,width=266,height=161]
 |================================================================================================================================
 
 *Figure 17. An overview of traffic sensor network of the city (on the courtesy of Hungarian National Roads Nonprofit Ltd. -Magyar Közút Nonprofit Zrt.*
@@ -419,7 +425,7 @@ The project will use 3DAirQualityPrediction-CFD application for simulation of th
 [cols="",]
 |==========================================================
 |
-|image:{imagesdir}media/image30.jpeg[kep3,width=360,height=235]
+|image:media/image30.jpeg[kep3,width=360,height=235]
 |==========================================================
 
 *Figure 18. NOx concentrations at 1.5m height according to the simulation results* *with RANS simulation with Ansys Fluent. Note that in the project the high quality 3DAirQuallityPrediction-HPC* *adaptive LES module will provide even higher accuracy.*
