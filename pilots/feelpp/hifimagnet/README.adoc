@@ -24,7 +24,7 @@ The _LNCMI_ is a French large scale facility [12] also part of the European Magn
 
 From an engineering point of view designing, such high field magnet reaches the limits of our current methodology and the models upon which it relies. In particular it raises questions about the model precision, from a pure numerical point of view and from the model itself: is the physics considered sufficient to correctly represent the observed phenomena. On top of that, to guarantee the requested homogeneity it is mandatory to account for geometrical uncertainties, slight plays and mechanical clearances. Moreover material properties and operating parameters uncertainties should be accounted for to assure a robust design.
 
-image:imagesmedia/image9.png[HL-31-cadgeom.png,width=144,height=215] image:imagesmedia/image10.png[H1H8_B3D.png,width=350,height=221]
+image:media/image9.png[HL-31-cadgeom.png,width=144,height=215] image:media/image10.png[H1H8_B3D.png,width=350,height=221]
 
 *Figure 5. Left: View of a PolyHelix Magnet Insert (a quarter of the structure has been removed to give better insight of the considered geometry). Right: Magnetic Field B produced by a typical PolyHelix magnet Insert. On the right plots of specific B components on the low pressure side of the magnet.*
 
