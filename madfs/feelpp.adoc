@@ -27,3 +27,5 @@ Scriptability::  Providing  ways  to  use  the  {feelpp}  model  components  int
 Deployability:: to deliver and deploy it in the MSO4SC environment including the parallel(MPI) version.
 
 The  work  on  deployability,  usability  and  scalability  will also be very valuable for researchers. 
+
+{feelpp} is the core framework for several MSO4SC pilots such as <<../pilots/feelpp/hifimagnet/README.adoc,hifimagnet>> and <<../pilots/feelpp/eye2brain/README.adoc,eye2brain>>.
