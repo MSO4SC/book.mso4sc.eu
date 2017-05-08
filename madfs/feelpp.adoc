@@ -1,6 +1,7 @@
 :feelpp: Feel++
 = {feelpp}
 :cpp: C++
+:toc: left
 
 == {feelpp}
 
