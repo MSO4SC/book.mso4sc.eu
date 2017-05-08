@@ -4,6 +4,7 @@
 
 == {feelpp}
 
+image:feelpp.jpg[float=right]
 {feelpp} is an open-source software gathering scientists, engineers, mathematicians, physicists, medical doctors, computer scientists around applications in academic and industrial projects. {feelpp} is the flag ship framework for interdisciplinary interaction at Cemosis, the agency for mathematics-entreprise and multidisciplinary research in modeling, simulation ad optimisation (MSO) in Strasbourg.
 Cemosis is also one of the french link:http://mso.agence-maths-entreprises.fr[MSO] node for mathematics-entreprise interaction.
 
