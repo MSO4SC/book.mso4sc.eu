@@ -13,9 +13,9 @@ Cemosis is also one of the french link:http://mso.agence-maths-entreprises.fr[MS
 
 {feelpp}  is  a  {cpp}  library  which  provides  a  mathematical  kernel  that  encompasses  a  large  range  of  numerical methods  to  solve  partial  differential  equations  such  as  (i)  arbitrary  order  continuous  and  discontinuous  Galerkin methods  in  1D,  2D  and  3D,  (ii)  domain  decomposition  methods,  (iii)  fictitious  domain  methods,  (iv)  level-set methods or (iv) certified reduced basis methods. These methods are developed and used easily thanks to a domain specific  language  embedded  in  {cpp}  mimicking  the  mathematical  language  associated  to  Galerkin  methods.  This language  allows  physicists,  engineers  and  mathematicians  to  focus  on  the  numerical  methods  as  well  as  on  the physics, whilst hiding the computer science details (e.g. parallelism) or algebraic solvers, thus enabling the user to ramp up very quickly from rapid prototyping numerical methods to large scale computations
 
-link:http://book.feelpp.org[Feel++ Book] +
-link:http://www.feelpp.org[Feel++ Site] +
-link:http://www.github.com/feelpp/feelpp[Feel++ Development]
+link:http://book.feelpp.org[{feelpp} Book] +
+link:http://www.feelpp.org[{feelpp} Site] +
+link:http://www.github.com/feelpp/feelpp[{feelpp} Development]
 
 == {feelpp} in MSO4SC
 
