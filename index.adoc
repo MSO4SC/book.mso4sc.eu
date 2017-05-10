@@ -1,7 +1,7 @@
 = Documentation
 :imagesdir: images/
 :pilotsdir: docs/pilots/
-ifndef::deliverablesdir[:deliverablesdir: docs/Deliverables/]
+ifndef::deliverablesdir[:deliverablesdir: docs/deliverables/]
 include::docs/includes/header.adoc[]
 
 [TIP]
@@ -47,7 +47,7 @@ include::docs/pilots/README.adoc[]
 
 == Deliverables
 
-ifdef::env-github[link:{deliverablesdir}D5.1/README.adoc[Deliverable 5.1]]
+ifdef::env-github[link:{deliverablesdir}d5.1/README.adoc[Deliverable 5.1]]
 ifndef::env-github[link:/deliverables/D5.1/[Deliverable 5.1]]
 
 == From docx to asciidoc
