@@ -7,4 +7,5 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :warning-caption: :warning:
 :imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+:deliverablesdir: {uri-mso4sc-book}/docs/deliverables/
 endif::[]

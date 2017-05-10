@@ -1,7 +1,7 @@
 = Documentation
 :imagesdir: images/
 :pilotsdir: docs/pilots/
-:deliverablesdir: docs/Deliverables/
+ifndef::deliverablesdir[:deliverablesdir: docs/Deliverables/]
 include::docs/includes/header.adoc[]
 
 [TIP]

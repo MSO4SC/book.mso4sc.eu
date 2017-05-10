@@ -1,2 +1,3 @@
-:uri-mso4sc-org: https://github.com/feelpp
+:uri-mso4sc-eu: http://mso4sc.elmerex.hu/
 :uri-raw-feelpp-book: https://raw.githubusercontent.com/feelpp/book.feelpp.org/master
+:uri-mso4sc-book: https://github.com/MSO4SC/book.mso4sc.eu/tree/master/

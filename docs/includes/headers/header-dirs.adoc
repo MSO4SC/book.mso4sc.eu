@@ -1,3 +1,0 @@
-:imagesdir: images/
-:pilotsdir: docs/pilots/
-:deliverablesdir: docs/Deliverables/
