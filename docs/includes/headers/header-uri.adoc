@@ -1,0 +1,2 @@
+:uri-mso4sc-org: https://github.com/feelpp
+:uri-raw-feelpp-book: https://raw.githubusercontent.com/feelpp/book.feelpp.org/master

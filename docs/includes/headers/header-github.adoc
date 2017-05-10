@@ -1,0 +1,10 @@
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:imagesdir: https://media.githubusercontent.com/media/MSO4SC/book.mso4sc.eu/master/images/
+endif::[]

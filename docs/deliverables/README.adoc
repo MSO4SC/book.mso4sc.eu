@@ -1,0 +1,11 @@
+= book.mso4sc.eu
+= Deliverables
+:page-root: ../../
+:page-permalink: /deliverables/
+:page-layout: default
+include::../includes/header.adoc[]
+
+
+ifdef::env-github[=== link:{deliverablesdir}D5.1/README.adoc[Deliverable 5.1]]
+ifndef::env-github[=== link:/deliverables/D5.1/[Deliverable 5.1]]
+

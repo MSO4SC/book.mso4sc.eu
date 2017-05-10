@@ -1,0 +1,10 @@
+= Finis Terrae II Cluster
+:page-root: ../../
+:page-permalink: /ft2/
+:page-layout: default
+include::../includes/header.adoc[]
+
+
+ifdef::env-github[=== link:feelpp/README.adoc[feelpp]]
+ifndef::env-github[=== link:/ft2/feelpp/[feelpp]]
+

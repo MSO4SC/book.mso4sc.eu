@@ -1,0 +1,40 @@
+= MSO4SC: Pilots
+:page-root: ../../
+:page-permalink: /pilots/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../includes/header.adoc[]
+
+
+//Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
+//v6.0 2017/04/30
+
+
+image:media/image1.png[image,width=165,height=156]
+
+== List of Pilots
+
+=== Fenics
+
+=== {feelpp}
+
+:toto: {imagesdir}
+:imagesdir!:
+
+|===
+ifdef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link={pilotsdir}covers/hifimagnet/README.adoc,width=200,alt=Hifimagnet]]
+ifndef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link=/pilots/hifimagnet/,width=200,alt=Hifimagnet]]
+HIFIMAGNET
+|
+ifdef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link={pilotsdir}covers/feelpp/eye2brain/README.adoc,width=200]]
+ifndef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link=/pilots/eye2brain/,width=200]]
+EYE2BRAIN
+|===
+:imagesdir: {toto}
+
+=== OPM
+
+
+

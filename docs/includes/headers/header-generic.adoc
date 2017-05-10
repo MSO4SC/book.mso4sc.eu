@@ -1,0 +1,13 @@
+:stem: latexmath
+:eqnums: AMS
+:icons: font
+:source-highlighter: pygments
+:pygments-style: manni
+:sectanchors:
+:sectlinks:
+:sectnums:
+:linkattrs:
+:toc: left
+:toclevels: 2
+ifndef::env-github[:icons: font]
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]

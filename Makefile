@@ -6,3 +6,6 @@ build:
 install:
 	gem install pygments.rb
 	gem install asciidoctor
+
+serve:
+	bundle exec jekyll serve
