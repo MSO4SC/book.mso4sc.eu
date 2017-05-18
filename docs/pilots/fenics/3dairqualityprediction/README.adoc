@@ -1,4 +1,4 @@
-[[3dairqualityprediction]]
+[[airqualityprediction]]
 = 3D Air Quality Prediction
 :page-root: ../../../../
 :page-permalink: /pilots/3dairqualityprediction/
