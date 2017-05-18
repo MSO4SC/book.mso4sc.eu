@@ -253,22 +253,19 @@ image:media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-
 
 The common requirements of the Feel++ pilots are that the pilots should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
-:leveloffset: +3
-
-ifdef::env-github[]
-= Hifimagnet
-endif::env-github[]
+//ifdef::env-github[]
+//==== Hifimagnet
+//endif::env-github[]
 //include::{pilotsdir}feelpp/hifimagnet/README.adoc[]
-include::../../pilots/feelpp/hifimagnet/README.adoc[]
+include::../../pilots/feelpp/hifimagnet/README.adoc[leveloffset=3]
 
-ifdef::env-github[]
-= Eye2brain
-endif::env-github[]
+//ifdef::env-github[]
+//==== Eye2brain
+//endif::env-github[]
 
 //include::{pilotsdir}feelpp/eye2brain/README.adoc[]
-include::../../pilots/feelpp/eye2brain/README.adoc[]
+include::../../pilots/feelpp/eye2brain/README.adoc[leveloffset=3]
 
-:leveloffset: -3
 
 [[opm-pilots]]
 === OPM pilots
