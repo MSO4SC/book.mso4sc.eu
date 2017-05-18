@@ -45,7 +45,7 @@ ifdef::env-github[image:covers/floatingwindturbine/cover.png[link={pilotsdir}fen
 ifndef::env-github[image:covers/floatingwindturbine/cover.png[link=/pilots/floatingwindturbine/,width=200,alt=FloatingWindTurbine]]
 FLOATING WIND TURBINE
 |
-ifdef::env-github[image:covers/3dairqualityprediction/cover.png[link={pilotsdir}fenics/airqualityprediction/README.adoc,width=200]]
-ifndef::env-github[image:covers/3dairqualityprediction/cover.png[link=/pilots/3dairqualityprediction/,width=200]]
+ifdef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link={pilotsdir}fenics/airqualitypredictioncfd/README.adoc,width=200]]
+ifndef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link=/pilots/3dairqualitypredictioncfd/,width=200]]
 3D AIR QUALITY PREDICTION
 |===

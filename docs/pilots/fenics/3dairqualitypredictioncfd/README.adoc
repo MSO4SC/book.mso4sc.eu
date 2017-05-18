@@ -1,7 +1,7 @@
-[[airqualityprediction]]
-= 3D Air Quality Prediction
+[[airqualitypredictioncfd]]
+= 3D Air Quality Prediction CFD
 :page-root: ../../../../
-:page-permalink: /pilots/3dairqualityprediction/
+:page-permalink: /pilots/3dairqualitypredictioncfd/
 :page-layout: default
 ifndef::env-github[:icons: font]
 ifndef::imagesdir[:imagesdir: ../../../../images/]

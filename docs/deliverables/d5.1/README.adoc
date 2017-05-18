@@ -196,56 +196,11 @@ In this section we describe the pilots to be implemented in D5.3. The features t
 
 Two pilots are based on the FEniCS MADF, with the common requirements that the pilots together with the FEniCS MADF should be deployed at the MSO4SC e-infrastructure, including support for post-processing and visualization as part of the MSO Portal, e.g. by ParaViewWeb. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a tetrahedral volume mesh.
 
-[[floatingwindturbine]]
-==== FloatingWindTurbine
+//include::{pilotsdir}/fenics/floatingwindturbine/README.adoc[leveloffset=3]
+include::../../pilots/fenics/floatingwindturbine/README.adoc[leveloffset=3]
 
-*End-user:* Tecnalia.
-
-Over recent years, wind energy has emerged as the most promising source of marine renewable energy. In particular offshore wind has large potential, due to the wind typically being stronger offshore, and the visual and noise impact of the offshore turbines being lower than their onshore counterparts. Offshore floating platforms for wind turbines represent a challenging design concept, seeking to balance cost effectiveness and performance.
-
-The FloatingWindTurbine pilot application is a key driver in the ELKARTEK “ICERMAR” project, which is a collaborative project between BCAM and the end-user Tecnalia on Marine Renewable Energy research, funded by the Basque Government. The task of the pilot is to function as a software tool for virtual design of floating wind turbines.
-
-*The pilot will be evaluated through two test cases*, defined in collaboration with the end-user. The first is a single-phase simulation of water flow past a platform, and the second is a standard benchmark in marine engineering, the MARIN benchmark [3].
-
-*Test Case 1:* The interaction of ocean currents with the semi-submersible Nautilus platform[[_Ref353797743]] [4,5] is modelled. To solve the Navier-Stokes equations describing the ocean flow, FeniCS-HPC [6] is used in the form of the Unicorn CFD solver, which is based on the Direct FEM methodology, including parameter-free implicit turbulence modelling, a cheap slip velocity boundary layer model and adaptive error control [7]. The simulations will be validated against experimental results. In particular, the drag of the platform will be compared with data from a tank test campaign [8,9].
-
-The geometry model is provided by Nautilus Floating Solutions, a Basque spin-off company comprised of industry leaders partnering in research on offshore wind energy. The geometric model describes a floating platform supporting a wind energy turbine; in the form of a 4-column ring pontoon semi-submersible platform with heave plates and a catenary mooring system. The wind turbine is located in the centre relative to the columns. The precise specifications of the geometry are as follows:
-
-* The four columns are 9.5 m diameter each and are placed in a square pattern at a distance of 33 m from one another. The columns are connected by a rigid ring pontoon, which is provided with heave damping plates at the bottom. The horizontal plates at the bottom and in between the columns increase the added mass.
-* The operational draft is around 20 m.
-
-The expected size of the computational problem is an unstructured tetrahedral FEM mesh of ca. 10 million vertices.
-
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-image:media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-
-Figure : Nautilus platform.
-
-*Test Case 2:* The pilot will be validated against the MARIN benchmark, a standard benchmark in marine engineering for wave impact, or dam break. The benchmark consists of a door opening, allowing a volume of water to enter which creates a wave that impact the wall in the box (see Figure 2). This test case involves turbulent two-phase flow (air and water), discretized by a Direct FEM method with a variable density formulation [10], using an unstructured tetrahedral mesh of around 2 million vertices, Simulations are validated with experimental data obtained by mounted pressure sensors on the box.  
-
-image:media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
-
-Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
-
-[[dairqualityprediction-cfd]]
-==== 3DAirQualityPrediction-CFD
-
-*End-user:* OMSZ (The Hungarian Meteorological Service)
-
-Ambient (outdoor) air pollution is estimated by the World Health Organization (WHO) to be the largest single environmental health risk, each year causing millions of premature deaths worldwide, with strong links to both cardiovascular disease and cancer. The societal challenge of air quality is particularly urgent in urban areas, with traffic as one of the main sources of pollution. The impact of air pollution may be more or less severe depending on the local climate and urban planning. To simulate the dispersion of air pollutants is of major interest, for urban planning and also for local forecasts of the air quality. For example, local hot spots may expose the population for elevated health risks, such as cancer. At the heart of an air quality prediction service is a CFD simulation tool for the local climate system, including dispersion of air pollution.
-
-*The pilot is evaluated in one test case*. In addition this pilot will function as a subroutine for the pilot 3DAirQualityPrediction as the CFD simulation engine.
-
-*Test Case 1:* The test case concerns an urban street canyon for which both simulation results and experimental measurements are available [11]. The problem setup is visualized below.
-
-image:media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
-
-*Figure 3: Urban street canyon in the form of 42 Street in New York (figures from Wikipedia).*
-
-image:media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
-
-**Figure 4: Urban street canyon model problem (figures reproduced from article**^12^*).*
+//include::{pilotsdir}/fenics/3dairqualitypredictioncfd/README.adoc[leveloffset=3]
+include::../../pilots/fenics/3dairqualitypredictioncfd/README.adoc[leveloffset=3]
 
 
 [[feel-pilots]]
@@ -272,46 +227,9 @@ include::../../pilots/feelpp/eye2brain/README.adoc[leveloffset=3]
 
 The requirement of the OPM pilot is that the pilot should be deployed at the MSO4SC infrastructure, with support for parallel MPI and efficient ensemble simulations. The input is in the form standard CAD data or an STL surface, whereas the output is a time series of sampled solutions over a volume mesh.
 
-[[opm-flow]]
-==== OPM Flow
+//include::{pilotsdir}/opm/opm-flow/README.adoc[leveloffset=3]
+include::../../pilots/opm/opm-flow/README.adoc[leveloffset=3]
 
-*End-user:* Statoil, IRIS, TNO.
-
-OPM Flow is a reservoir simulation application that is part of OPM and has been chosen as the pilot in the MSO4SC project. Reasons for choosing OPM Flow for the pilot include:
-
-* It is the most advanced application in OPM, and is actively developed by the project partner (SINTEF) and other contributors.
-* It is the application that generates the most interest from users, including both industry and the research community.
-
-Subsurface flow simulation is of vital importance for the oil and gas industry. This industry depends on reservoir simulation to study petroleum fields, forecast their performance and make investment decisions. Subsurface flow simulations are also important for a wide range of environmental management applications. For example, CO~2~ sequestration studies can inform policymakers and stakeholders about the potential and execution of long-term CO~2~ storage. Studies of groundwater flows and pollutants are other important use cases.
-
-From a mathematical point of view, reservoir simulators solve systems of nonlinear partial differential equations describing the flow of fluids in the porous medium, coupled to models that describe fluid behaviour in wells or facilities that are connected to the reservoir. These systems are often hard to solve for several reasons, for example:
-
-* The porous medium is strongly heterogeneous and anisotropic. In particular permeability can span several orders of magnitude.
-* Computational grids usually have high aspect ratios and can be fully unstructured with arbitrary polygonal cells.
-* Phase behaviour is nontrivial. For example, phases can appear and disappear as fluid components dissolve or vaporize across gaseous and oleic phases.
-* Coupling to wells can connect regions that are far away from each other.
-* The models are highly nonlinear.
-
-After discretization in space and time, a complex system of nonlinear discrete equations has to be solved by Newton's method. The Newton approach must be modified to achieve acceptable convergence behaviour.
-
-A successful reservoir simulator must have robust strategies to deal with numerical problems, preconditioning methods that are capable of handling strongly heterogeneous and anisotropic systems, and highly capable linear solvers. From an engineering point of view, it is also essential that the simulator is flexible and powerful with respect to input data, both for reservoir geometry and physical properties, provides robust non-linear and linear solvers with high performance, and support user-friendly reporting and output facilities.
-
-OPM Flow is a fully implicit reservoir simulator for the black-oil fluid model and some extended models. It can run realistic industrial simulation models for petroleum assets and CO2 sequestration cases. The simulator is implemented using automatic differentiation to enable rapid development of new fluid models and features. Since the entire simulator and framework is open source, it is possible for any interested party to build such features and extend the simulator for research or other purposes. It supports industry-standard input and output formats to fit into existing workflows, and its performance is close to the performance of commercial alternatives.
-
-The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud hardware, controlled from a simple web interface. Users must be able to upload their own input data, monitor simulations as they progress and access full results upon completion. From the requirements set out in D2.1, particular emphasis is on the ability to run large ensembles effectively. Three test cases will be used for the evaluation of the pilot.
-
-[[test-case-1-the-norne-field-is-a-norwegian-sea-oil-field-for-which-the-operator-statoil-has-made-available-the-simulation-models-and-other-data-used-on-the-field.-while-not-very-large-in-terms-of-number-of-computational-cells-it-is-complex-in-terms-of-grid-structure-and-fluid-behaviour-features.-the-field-has-many-wells-that-connect-to-the-reservoir-that-must-be-accounted-for.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-that-the-results-can-be-accessed-afterwards-and-that-the-results-match-those-obtained-by-a-baseline-simulation.]]
-*Test case 1:* The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
-
-image:media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
-
-*Figure 11: Permeability distribution of Norne field.*
-
-[[test-case-2-the-olympic-benchmark-is-an-artificial-benchmark-created-by-tno-netherlands-for-benchmarking-ensemble-based-reservoir-optimization-and-history-matching-algorithms-software-and-workflows.-a-critical-part-of-such-a-workflow-is-the-ability-to-run-large-ensembles-of-simulation-cases-and-that-is-what-will-be-tested-in-this-scenario.-for-successful-evaluation-we-require-that-a-large-set-of-realizations-drawn-from-the-case-can-be-uploaded-and-run-in-bulk-with-only-minimal-user-intervention-other-than-setting-up-the-set-of-ensemble-runs-and-that-results-can-be-accessed-in-bulk-afterwards.]]
-*Test case 2:* The OLYMPIC benchmark is an artificial benchmark created by TNO (Netherlands) for benchmarking ensemble-based reservoir optimization and history matching algorithms, software and workflows. A critical part of such a workflow is the ability to run large ensembles of simulation cases, and that is what will be tested in this scenario. For successful evaluation, we require that a large set of realizations drawn from the case can be uploaded and run in bulk with only minimal user intervention other than setting up the set of ensemble runs, and that results can be accessed in bulk afterwards.
-
-[[test-case-3-the-norwegian-continental-shelf-has-several-aquifers-that-are-considered-potential-candidates-for-large-scale-storage-of-co2.-simulating-the-injection-process-and-subsequent-migration-of-the-co2-plume-is-an-important-part-of-the-suitability-evaluation.-in-this-test-scenario-we-will-simulate-one-of-the-primary-candidates-for-such-sequestration.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-and-that-results-can-be-accessed-afterwards.]]
-*Test case 3:* The Norwegian Continental Shelf has several aquifers that are considered potential candidates for large-scale storage of CO2. Simulating the injection process and subsequent migration of the CO2 plume is an important part of the suitability evaluation. In this test scenario, we will simulate one of the primary candidates for such sequestration. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, and that results can be accessed afterwards.
 
 [[other-pilots]]
 === Other pilots
