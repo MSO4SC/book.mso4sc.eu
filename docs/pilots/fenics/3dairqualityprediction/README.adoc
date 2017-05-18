@@ -1,0 +1,26 @@
+[[3dairqualityprediction]]
+= 3D Air Quality Prediction
+:page-root: ../../../../
+:page-permalink: /pilots/3dairqualityprediction/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../../../includes/header.adoc[]
+
+
+*End-user:* OMSZ (The Hungarian Meteorological Service)
+
+Ambient (outdoor) air pollution is estimated by the World Health Organization (WHO) to be the largest single environmental health risk, each year causing millions of premature deaths worldwide, with strong links to both cardiovascular disease and cancer. The societal challenge of air quality is particularly urgent in urban areas, with traffic as one of the main sources of pollution. The impact of air pollution may be more or less severe depending on the local climate and urban planning. To simulate the dispersion of air pollutants is of major interest, for urban planning and also for local forecasts of the air quality. For example, local hot spots may expose the population for elevated health risks, such as cancer. At the heart of an air quality prediction service is a CFD simulation tool for the local climate system, including dispersion of air pollution.
+
+*The pilot is evaluated in one test case*. In addition this pilot will function as a subroutine for the pilot 3DAirQualityPrediction as the CFD simulation engine.
+
+*Test Case 1:* The test case concerns an urban street canyon for which both simulation results and experimental measurements are available [11]. The problem setup is visualized below.
+
+image:media/image5.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:300px-W42nd_Street_canyon_jeh.JPG,width=252,height=189] image:media/image6.jpeg[Macintosh HD:private:var:folders:zj:f05rzpk52rg1lrvf7s79sbzc0000gp:T:TemporaryItems:42nd_Street_in_Tudor_City.jpg,width=285,height=190]
+
+*Figure 3: Urban street canyon in the form of 42 Street in New York (figures from Wikipedia).*
+
+image:media/image7.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.41.59.png,width=482,height=130]image:media/image8.jpeg[Macintosh HD:Users:jhoffman:Desktop:Screen Shot 2017-04-21 at 16.39.36.png,width=492,height=202]
+
+**Figure 4: Urban street canyon model problem (figures reproduced from article**^12^*).*

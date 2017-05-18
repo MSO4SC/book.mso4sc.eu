@@ -1,5 +1,5 @@
 = Contributing to the Feel++ book
-include::includes/header.adoc[]
+include::docs/includes/header.adoc[]
 
 
 == Directory tree

@@ -1,0 +1,40 @@
+[[floatingwindturbine]]
+= Floating Wind Turbine
+:page-root: ../../../../
+:page-permalink: /pilots/floatingwindturbine/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../../../includes/header.adoc[]
+
+
+*End-user:* Tecnalia.
+
+Over recent years, wind energy has emerged as the most promising source of marine renewable energy. In particular offshore wind has large potential, due to the wind typically being stronger offshore, and the visual and noise impact of the offshore turbines being lower than their onshore counterparts. Offshore floating platforms for wind turbines represent a challenging design concept, seeking to balance cost effectiveness and performance.
+
+The FloatingWindTurbine pilot application is a key driver in the ELKARTEK “ICERMAR” project, which is a collaborative project between BCAM and the end-user Tecnalia on Marine Renewable Energy research, funded by the Basque Government. The task of the pilot is to function as a software tool for virtual design of floating wind turbines.
+
+*The pilot will be evaluated through two test cases*, defined in collaboration with the end-user. The first is a single-phase simulation of water flow past a platform, and the second is a standard benchmark in marine engineering, the MARIN benchmark [3].
+
+*Test Case 1:* The interaction of ocean currents with the semi-submersible Nautilus platform[[_Ref353797743]] [4,5] is modelled. To solve the Navier-Stokes equations describing the ocean flow, FeniCS-HPC [6] is used in the form of the Unicorn CFD solver, which is based on the Direct FEM methodology, including parameter-free implicit turbulence modelling, a cheap slip velocity boundary layer model and adaptive error control [7]. The simulations will be validated against experimental results. In particular, the drag of the platform will be compared with data from a tank test campaign [8,9].
+
+The geometry model is provided by Nautilus Floating Solutions, a Basque spin-off company comprised of industry leaders partnering in research on offshore wind energy. The geometric model describes a floating platform supporting a wind energy turbine; in the form of a 4-column ring pontoon semi-submersible platform with heave plates and a catenary mooring system. The wind turbine is located in the centre relative to the columns. The precise specifications of the geometry are as follows:
+
+* The four columns are 9.5 m diameter each and are placed in a square pattern at a distance of 33 m from one another. The columns are connected by a rigid ring pontoon, which is provided with heave damping plates at the bottom. The horizontal plates at the bottom and in between the columns increase the added mass.
+* The operational draft is around 20 m.
+
+The expected size of the computational problem is an unstructured tetrahedral FEM mesh of ca. 10 million vertices.
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+image:media/image3.png[https://lh3.googleusercontent.com/L2gcL1DxOOLZIkHGzZP7qIDH-_5A_x52iWBSoAlXo83ZqdJPL4o8nxelR-4IHiWGqfWXXosplX7Y4vKU3Jo__y09303M4c_LYYP2RRBIDbK-I6G3IfVLnV-ACLo8EJf-RGewbeF_,width=328,height=161]
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Figure : Nautilus platform.
+
+*Test Case 2:* The pilot will be validated against the MARIN benchmark, a standard benchmark in marine engineering for wave impact, or dam break. The benchmark consists of a door opening, allowing a volume of water to enter which creates a wave that impact the wall in the box (see Figure 2). This test case involves turbulent two-phase flow (air and water), discretized by a Direct FEM method with a variable density formulation [10], using an unstructured tetrahedral mesh of around 2 million vertices, Simulations are validated with experimental data obtained by mounted pressure sensors on the box.  
+
+image:media/image4.png[https://lh6.googleusercontent.com/qpB0rjpu62FqDsYY9DlDmAzOh05ubGGABHaXQhEqBALpGeqoHjyb2-AHjWYzw85l7mtrmslAZ_ekNA-mFu0Z2Ali5K5usT5O1RpSUgTJA4e8MViQ6XnfhsaFyTbQFtFkz79c8qWm,width=581,height=191]
+
+Figure : Snapshots from a video of the experiment (right) and a reference volume of fluid (VOF) simulation (left) for the MARIN benchmark^4^, at time t=0,1,2,3,4,5s.
+
