@@ -37,23 +37,19 @@ EYE2BRAIN
 === OPM
 
 |===
-ifdef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link={pilotsdir}covers/hifimagnet/README.adoc,width=200,alt=Hifimagnet]]
-ifndef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link=/pilots/hifimagnet/,width=200,alt=Hifimagnet]]
-HIFIMAGNET
-|
-ifdef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link={pilotsdir}covers/feelpp/eye2brain/README.adoc,width=200]]
-ifndef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link=/pilots/eye2brain/,width=200]]
-EYE2BRAIN
+ifdef::env-github[image:{pilotsdir}covers/opm-flow/cover.png[link={pilotsdir}covers/hifimagnet/README.adoc,width=200]]
+ifndef::env-github[image:{pilotsdir}covers/opm-flow/cover.png[link=/pilots/opm-flow/,width=200]]
+OPM FLOW
 |===
 
 == Fenics
 
 |===
-ifdef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link={pilotsdir}covers/hifimagnet/README.adoc,width=200,alt=Hifimagnet]]
-ifndef::env-github[image:{pilotsdir}covers/hifimagnet/cover.png[link=/pilots/hifimagnet/,width=200,alt=Hifimagnet]]
-HIFIMAGNET
+ifdef::env-github[image:{pilotsdir}covers/floatingwindturbine/cover.png[link={pilotsdir}covers/hifimagnet/README.adoc,width=200]]
+ifndef::env-github[image:{pilotsdir}covers/floatingwindturbine/cover.png[link=/pilots/floatingwindturbine/,width=200,alt=FloatingWindTurbine]]
+FLOATING WIND TURBINE
 |
-ifdef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link={pilotsdir}covers/feelpp/eye2brain/README.adoc,width=200]]
-ifndef::env-github[image:{pilotsdir}covers/eye2brain/cover.png[link=/pilots/eye2brain/,width=200]]
-EYE2BRAIN
+ifdef::env-github[image:{pilotsdir}covers/3dairqualityprediction/cover.png[link={pilotsdir}covers/feelpp/eye2brain/README.adoc,width=200]]
+ifndef::env-github[image:{pilotsdir}covers/3dairqualityprediction/cover.png[link=/pilots/3dairqualityprediction/,width=200]]
+3D AIR QUALITY PREDICTION
 |===
