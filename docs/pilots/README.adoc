@@ -18,6 +18,16 @@ image:media/image1.png[image,width=165,height=156]
 
 === Fenics
 
+|===
+ifdef::env-github[image:covers/floatingwindturbine/cover.png[link={pilotsdir}fenics/3dairqualityprediction/README.adoc,width=200]]
+ifndef::env-github[image:covers/floatingwindturbine/cover.png[link=/pilots/floatingwindturbine/,width=200,alt=FloatingWindTurbine]]
+FLOATING WIND TURBINE
+|
+ifdef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link={pilotsdir}fenics/airqualitypredictioncfd/README.adoc,width=200]]
+ifndef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link=/pilots/3dairqualitypredictioncfd/,width=200]]
+3D AIR QUALITY PREDICTION
+|===
+
 === {feelpp}
 
 |===
@@ -38,14 +48,3 @@ ifndef::env-github[image:covers/opm-flow/cover.png[link=/pilots/opm-flow/,width=
 OPM FLOW
 |===
 
-== Fenics
-
-|===
-ifdef::env-github[image:covers/floatingwindturbine/cover.png[link={pilotsdir}fenics/3dairqualityprediction/README.adoc,width=200]]
-ifndef::env-github[image:covers/floatingwindturbine/cover.png[link=/pilots/floatingwindturbine/,width=200,alt=FloatingWindTurbine]]
-FLOATING WIND TURBINE
-|
-ifdef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link={pilotsdir}fenics/airqualitypredictioncfd/README.adoc,width=200]]
-ifndef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link=/pilots/3dairqualitypredictioncfd/,width=200]]
-3D AIR QUALITY PREDICTION
-|===
