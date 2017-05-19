@@ -1,0 +1,274 @@
+[[motor]]
+= Numerical simulation of electric motor*
+:page-root: ../../../../
+:page-permalink: /pilots/motor/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../../../includes/header.adoc[]
+
+
+
+== Objectives and goals
+
+The main objective of our task is to develop a thermal model for finding the
+temperature distribution of different components of an electric motor during
+its various operating conditions and to determine the heat removal by natural
+convection from the machine surface.
+
+The application allows the predictions of simultaneous heat transfer in solid
+and fluid media with energy exchange between them. The prediction of the
+temperature distribution inside an operating electric motor is required at the
+machine design stage. Excessive temperature in the motor can cause electrical
+insulation failure, demagnetization of the magnets and increase in Joule
+losses.
+
+== Geometry of the analysed Motor
+
+
+.Fig.1. Temperature test set up for the prototype machine.
+image:media/motor/image1.png[image,width=313,height=224,align="center"]
+
+
+As shown in Fig. 1, the electric motor model has a very complicated geometry.
+Obviously, it is not possible to perform simulation on the entire PM motor, due
+to the large number of volumes and calculations required. Therefore, a part of
+the PM motor consisting of each part (front cover, stator core, stator
+windings, rotor, permanent magnets, shaft, external housing and the air-gap
+between these components are modelled for this study as shown on the Fig. 2.
+Fig. 3. shows a detailed view of the main components of the modeled electric
+motor.
+
+.Fig.2. View of the entire motor under analysis.
+image:media/motor/image2.png[image,width=306,height=185,align="center"]
+
+
+.Fig.3. View of the components that form the electric motor under analysis.
+image:media/motor/image3.png[image,width=603,height=179,align="center"]
+
+
+Model detail includes; (1) the front cover, (2) and (5) the external housing
+geometry, (3) the stator core geometry including slot detail and the stator
+windings, (4) the rotor geometry including permanent magnets and shaft. In
+order to simplify the model, the winding region was modeled as a solid section
+and the end winding region was modeled as a torus. This assumption made this
+motor element easier to mesh.
+
+As shown in Fig. 4, the mesh for the motor and the air-gap was created based on
+tetrahedral elements, as these are the only elements capable of meshing that
+domain.
+
+.Fig.4. A general view of the final 
+image:media/motor/image4.png[image,width=287,height=176,align="center"] 
+
+.Fig. 5. shows a cut-view of the internal air-gap section
+image:media/motor/image5.png[image,width=304,height=181,align="center"] 
+
+.Fig.6. Internal air-gap section
+image:media/motor/image6.png[image,width=347,height=224,align="center"]
+
+
+== Thermal modeling
+
+We are interested in solving a conjugate heat transfer problem in a domain Ω
+which consists of a set of N sub-domains that represent fluid and solid
+regions.
+
+The strategy to solve conjugate heat transfer problems is based on:
+
+* modeling the heat transfer in solid
+* modelling flow and heat transfer in the fluid
+* the solutions are coupled at the fluid-solid interfaces using the continuity
+of temperature and heat-flux.
+
+The fluids (internal and external) are modeled using the incompressible
+Navier-Stokes equations with the Boussinesq approximation. The solids are
+modeled with the heat equation.
+
+The coupling of the fluid domain and the solid domain is accomplished through
+the transfer of temperature and heat flux at interfaces.
+
+The Navier-Stokes equations with the Boussinesq approximation are solved to
+compute the fluid flow and it can be expressed as:
+
+* The continuity:
+
+[stem]
+++++
+\nabla\cdot V = \frac{\partial u}{\partial x}
++\frac{\partial v}{\partial y}
++\frac{\partial w}{\partial z}
+++++
+
+* momentum equations:
+
+[stem]
+++++
+\rho \left( \frac{\partial u}{\partial t}
+    +u\frac{\partial u}{\partial x}
+    +v\frac{\partial u}{\partial y}
+    +w\frac{\partial u}{\partial z}
+\right) =
+- \frac{\partial p}{\partial x}
+    +\frac{\partial}{\partial x} \left(\mu \frac{\partial u}{\partial x} \right)
+    +\frac{\partial}{\partial y} \left(\mu \frac{\partial u}{\partial y} \right)
+    +\frac{\partial}{\partial z} \left(\mu \frac{\partial u}{\partial z} \right)
+++++
+
+[stem]
+++++
+\rho \left( \frac{\partial v}{\partial t}
+    +u\frac{\partial v}{\partial x}
+    +v\frac{\partial v}{\partial y}
+    +w\frac{\partial v}{\partial z}
+\right) =
+- \frac{\partial p}{\partial y}
+    +\frac{\partial}{\partial x} \left(\mu \frac{\partial v}{\partial x} \right)
+    +\frac{\partial}{\partial y} \left(\mu \frac{\partial v}{\partial y} \right)
+    +\frac{\partial}{\partial z} \left(\mu \frac{\partial v}{\partial z} \right)
+++++
+
+[stem]
+++++
+\rho \left( \frac{\partial w}{\partial t}
+    +u\frac{\partial w}{\partial x}
+    +v\frac{\partial w}{\partial y}
+    +w\frac{\partial w}{\partial z}
+\right) =
+- \frac{\partial p}{\partial z}
+    +\frac{\partial}{\partial x} \left(\mu \frac{\partial w}{\partial x} \right)
+    +\frac{\partial}{\partial y} \left(\mu \frac{\partial w}{\partial y} \right)
+    +\frac{\partial}{\partial z} \left(\mu \frac{\partial w}{\partial z} \right)
+    +\rho_\text{ref} g(1-\beta(T-T_\text{ref}))
+++++
+
+The variables _p, T,_ andare the pressure, temperature and density. is the
+coefficient of thermal expansion.
+
+The energy equation is solved to compute the fluid and solid temperatures:
+
+[stem]
+++++
+\rho C_p
+\left[
+    \frac{\partial T}{\partial t}
+    +u\frac{\partial T}{\partial x}
+    +v\frac{\partial T}{\partial y}
+    +w\frac{\partial T}{\partial z}
+\right]
+-k
+\left[
+    +\frac{\partial^2 T}{\partial x^2}
+    +\frac{\partial^2 T}{\partial y^2}
+    +\frac{\partial^2 T}{\partial z^2}
+\right]
+= Q
+++++
+
+Whereis the thermal conductivity, __C__~p~ is the specific heat capacity and is
+is the internal heat generation.
+
+=== Conjugate heat transfer algorithm:
+
+The algorithm starts with the initialization of the of temperature at the
+solid/fluid interfaces.
+
+==== Solving a Dirichlet type problem in fluid domain:
+
+The fluid solver utilizes the wall temperature (solid/fluid interfaces) for the
+evaluation of flow and heat transfer in the fluid. This step allows us to
+establish the continuity of the temperature at solid/fluid interfaces.
+
+* Based on the results of the previous step the heat flux and the heat transfer
+coefficient between solid and fluid parts are determined.
+
+==== Solving a Neumann type problem in the solid domains:*
+
+The computed temperature distribution of fluid and the heat transfer
+coefficient are transfered to the heat solid solver and then we solve the
+conduction problem in solid domain with a boundary condition on fluxes. This
+step allows us to establish the continuity of the heat flux at solid/fluid
+interfaces.
+
+This process is repeated until the convergence is achieved.
+
+== HEAT SOURCE MODEL
+
+The heat losses produced in a PM synchronous motors are the results of
+different losses (electrical, mechanical, eddy current..). The main heat
+sources of the electrical losses which comprise the conduction losses of the
+stator windings and the iron losses, including eddy current loss and hysteresis
+loss of the stator core.
+
+Thus, one goal of this part is to develop method for calculation of the Joule
+heat only using a Finite Element Method and the other types of losses are
+neglected. The output results of the loss calculation is used in the thermal
+analysis.
+
+=== Electrostatics
+
+The electrical potential field in a conductor is governed by Maxwell’s equation
+of conservation of electrical charge.
+
+Steady-state case: the equations can be written as follows:
+
+[stem]
+++++
+E=-\nabla\phi \quad \text{in} \Omega
+++++
+
+The constitutive equation:
+
+[stem]
+++++
+J= \sigma E \quad \text{in}\Omega
+++++
+
+where stem:[E] is electrical field, stem:[\Phi] is the electrical potential,
+stem:[\sigma] is the electrical
+conductivity, and stem:[\sigma] is the electrical current density vector.
+
+The balance equation expresses conservation of charge (Gauss’ law):
+
+[stem]
+++++
+\nabla J= 0 \quad \text{in}\Omega
+++++
+
+
+Elimination of the intermediate variables and in yields the scalar Poisson’s equation
+
+[stem]
+++++
+\nabla(\sigma\nabla\phi)= 0 \quad \text{in}\Omega
+++++
+
+The boundary conditions are as follows:
+
+* a prescribed electrical potential: stem:[\phi=\phi_0], on stem:[\Gamma_\phi]
+* imposition of an electrical current density: stem:[J_n = -J.n = J_0]
+
+with denoting the local outward unit normal vector.
+
+Using Green's (divergence) theorem, the weak or global form of the Poisson’s
+equation is:
+
+[stem]
+++++
+\int_\Omega\nabla\phi\nabla Vd\Omega - \int_{\partial\Omega}\sigma\nabla\phi nVd\Gamma = 0
+++++
+,
+[stem]
+++++
+\int_\Omega\nabla\phi\nabla Vd\Omega + \int_{\partial\Omega}(J.n) Vd\Gamma = 0.
+++++
+
+
+The volume heat source associated with resistance heating is given by Joule’s
+law
+
+[stem]
+++++
+P=\sigma J.J = \sigma\nabla\phi\nabla\phi
+++++

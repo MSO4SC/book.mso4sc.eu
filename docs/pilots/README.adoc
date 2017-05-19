@@ -48,3 +48,11 @@ ifndef::env-github[image:covers/opm-flow/cover.png[link=/pilots/opm-flow/,width=
 OPM FLOW
 |===
 
+=== Others
+
+|===
+ifdef::env-github[image:covers/motor/cover.png[link={pilotsdir}others/motor/README.adoc,width=200]]
+ifndef::env-github[image:covers/motor/cover.png[link=/pilots/motor/,width=200]]
+Motor
+|===
+
