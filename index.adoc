@@ -40,9 +40,7 @@ Official mailings list are the following
 |mso4sc_wp5@lists.atosresearch.eu|
 |=================================
 
-== Pilots
-
-include::docs/pilots/README.adoc[]
+include::docs/pilots/README.adoc[leveloffset=2]
 //include::{pilotsdir}/README.adoc[]
 
 == Deliverables
