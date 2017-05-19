@@ -1,6 +1,6 @@
 = Finis Terrae II - Feel++
 :page-root: ../../../
-:page-permalink: /ft2/feelpp
+:page-permalink: /ft2/feelpp/
 :page-layout: default
 ifndef::env-github[:icons: font]
 ifndef::imagesdir[:imagesdir: ../../images/]
