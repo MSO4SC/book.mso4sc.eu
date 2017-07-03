@@ -1,6 +1,6 @@
 = MSO4SC: D5.1 Case study extended design and evaluation strategy
 :page-root: ../../../
-:page-permalink: /deliverables/D5.1/
+:page-permalink: /deliverables/d5.1/
 :page-layout: manual
 :imagesdir: ../../../images/
 :pilotsdir: ../../../pilots/
