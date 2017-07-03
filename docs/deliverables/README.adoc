@@ -6,6 +6,10 @@
 include::../includes/header.adoc[]
 
 
-ifdef::env-github[=== link:{deliverablesdir}D5.1/README.adoc[Deliverable 5.1]]
-ifndef::env-github[=== link:/deliverables/D5.1/[Deliverable 5.1]]
+ifdef::env-github[=== link:d5.1/README.adoc[Deliverable 5.1]]
+ifndef::env-github[=== link:/deliverables/d5.1/[Deliverable 5.1]]
+
+ifdef::env-github[=== link:d3.1/README.adoc[Deliverable 3.1]]
+ifndef::env-github[=== link:/deliverables/d3.1/[Deliverable 3.1]]
+
 
