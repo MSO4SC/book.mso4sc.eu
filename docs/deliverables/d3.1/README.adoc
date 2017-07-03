@@ -1,4 +1,4 @@
-= MSO4SC: D4.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+= MSO4SC: D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
 :page-root: ../../../
 :page-permalink: /deliverables/d3.1/
 :page-layout: manual
