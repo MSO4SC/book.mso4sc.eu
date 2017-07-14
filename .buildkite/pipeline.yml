@@ -2,9 +2,9 @@ steps:
  - name: ':jekyll: :book:'
    command: .buildkite/steps/build.sh
    env:
-     PROJECT: book.mso4sc.eu
+     PROJECT: book.mso4sc
  - name: ':rocket: :book:'
    command: .buildkite/steps/deploy.sh
    branches: master
    env:
-     PROJECT: book.mso4sc.eu
+     PROJECT: book.mso4sc
