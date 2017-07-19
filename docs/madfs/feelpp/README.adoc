@@ -1,5 +1,5 @@
 :feelpp: Feel++
-= MSO4SC: MADFs {feelpp}
+= MADFs: {feelpp}
 :page-root: ../../../
 :page-permalink: /madfs/feelpp/
 :page-layout: default
