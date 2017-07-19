@@ -1,4 +1,4 @@
-= MSO4SC: D2.2 MSO4SC e-Infrastructure Definition
+= MSO4SC: media/d2.2 MSO4SC e-Infrastructure Definition
 :page-root: ../../../
 :page-permalink: /deliverables/d2.2/
 :page-layout: manual
@@ -7,7 +7,7 @@
 :toc: left
 include::../../includes/header.adoc[]
 
-image:d2.2/image1.PNG[image,width=165,height=156]
+image:media/d2.2/image1.PNG[image,width=165,height=156]
 
 
 
@@ -37,7 +37,7 @@ image:d2.2/image1.PNG[image,width=165,height=156]
 
 [cols=",",]
 |=========================================================================================================================================================================
-|image:d2.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|image:media/d2.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
 |=========================================================================================================================================================================
 
 [[version-history]]
@@ -345,7 +345,7 @@ All of these conceptual layers are part of the e-Infrastructure, although the MS
 * *Cloud Management Layer:* This is the layer which maps with those services given usually at the Platform as a Service (PaaS) layer, where services on top of the IaaS are provided, such as monitoring of the applications running, orchestration with load balancing and deployment of the applications.
 * *Infrastructure Layer:* This layer corresponds to the typical Infrastructure as a Service (IaaS) layer, where access to computation capabilities is given. These computation capabilities may come from Cloud providers or from HPC centres, enabling a HPC as a Service model.
 
-image:d2.2/image3.png[image,width=491,height=352]
+image:media/d2.2/image3.png[image,width=491,height=352]
 
 [[_Toc479011389]]Figure : Layers in the MSO e-Infrastructure Vision
 
@@ -374,7 +374,7 @@ This set of actors can be reduced, combining certain roles. The actions to be do
 
 Taking into account the features to be provided, the following figure shows the proposed high level architecture for the MSO4SC e-Infrastructure.
 
-image:d2.2/image4.png[image,width=531,height=388]
+image:media/d2.2/image4.png[image,width=531,height=388]
 
 [[_Toc479011390]]Figure : High Level Architecture for MSO4SC e-Infrastructure
 
@@ -438,7 +438,7 @@ In order to show how the components interact at the high level, we have identifi
 
 The registration of a new user relies on the authentication and authorization module, simplifying the process. When a user administrator wants to register a new user, he/she just need to go to the MSO Portal, fill in the form with the user information and submit the data.
 
-image:d2.2/image5.png[image,width=371,height=237]
+image:media/d2.2/image5.png[image,width=371,height=237]
 
 [[_Toc479011391]]Figure : High level interactions for User Registration
 
@@ -447,7 +447,7 @@ image:d2.2/image5.png[image,width=371,height=237]
 
 For the Publication of the Mathematical Frameworks, a catalogue will be implemented based on FIWARE components which will be adapted to the new type of applications (MADFs) and their features. In this catalogue information regarding benchmarking, scalability, and other key features for the usage of the software will be included.
 
-image:d2.2/image6.png[image,width=423,height=271]
+image:media/d2.2/image6.png[image,width=423,height=271]
 
 [[_Toc479011392]]Figure : High level interactions when registering/modifying a MADF in the Catalogue
 
@@ -464,7 +464,7 @@ When finished, the orchestrator will move the resulting data to a proper locatio
 
 Below the Figure 5 shows graphically the process described.
 
-image:d2.2/image7.png[image,width=566,height=502]
+image:media/d2.2/image7.png[image,width=566,height=502]
 
 [[_Toc479011393]]Figure : High level interactions for executing simulations
 
@@ -484,7 +484,7 @@ The MSO Portal will be the user-friendly interaction mechanism between the end u
 * *Experiments management Tool:* This module will take the information submitted from the user about the simulations, datasets, and pre/post operations the user would like to run, and send it in a proper format to the orchestrator in order to start the simulation.
 * *Pre/Post Processing Tool:* Pre and post operations needed to be done over the datasets of a simulation will be managed by this tool, controlled by the end user through the frontend.
 
-image:d2.2/image8.png[image,width=566,height=396]
+image:media/d2.2/image8.png[image,width=566,height=396]
 
 [[_Toc479011394]]Figure : Design of the MSO Portal
 
@@ -493,7 +493,7 @@ image:d2.2/image8.png[image,width=566,height=396]
 
 The data repository communicates with the MSO Portal and the Orchestrator. The first will show the data available in the different storage units, while the second will make the decision of which datasets have to be moved from/to the computing infrastructure.
 
-image:d2.2/image9.png[image,width=412,height=230]
+image:media/d2.2/image9.png[image,width=412,height=230]
 
 [[_Toc479011395]]Figure : Design of the Data Repository
 
@@ -510,7 +510,7 @@ These repositories are currently being used to share the data, metadata and the 
 
 This environment will include a continuous integration system in order to facilitate integration and to perform automatic testing operations. The continuous integration process will help to detect and mitigate possible risks in the deployment process.
 
-image:d2.2/image10.png[image,width=361,height=422]
+image:media/d2.2/image10.png[image,width=361,height=422]
 
 [[_Toc479011396]]Figure : Software repository and continuous integration and deployment
 
