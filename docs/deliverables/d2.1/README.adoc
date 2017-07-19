@@ -1,0 +1,584 @@
+= MSO4SC: D2.2 MSO4SC e-Infrastructure Definition
+:page-root: ../../../
+:page-permalink: /deliverables/d2.2/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+:toc: left
+include::../../includes/header.adoc[]
+
+image:d2.2/image1.PNG[image,width=165,height=156]
+
+
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|============================================================================================================================================
+|Work Package |WP2 User Requirements and Dissemination
+|Due Date: |_M5 (+1)_
+|Submission Date: |_03/04/2017_
+|Version: |_1.1_
+|Status |_Final_
+|Author(s): |_F. Javier Nieto (ATOS); Javier Carnero (ATOS); Carlos Fernández (CESGA); Johan Jansson (BCAM); Christophe Prud'homme (UNISTRA)_
+|Reviewer(s) |_Zoltán Horváth (SZE); Ákos Kovács (SZE); Tamás Budai (SZE), Burak Karaboga (ATOS)_
+|============================================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:d2.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|==============================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |22/02/2017 |Table of contents |_F. Javier Nieto (ATOS)_
+|0.2 |10/03/2017 |Section 3, ToC modifications |_F. Javier Nieto (ATOS)_
+|0.3 |16/03/2017 |Contributions to Sections 2, 4, 5 and 6 |_C. Fernández (CESGA)_
+|0.4 |17/03/2017 |Contributions to Sections 2, 4 and 5 |_Javier Carnero (ATOS)_
+|0.5 |20/03/2017 |Contributions integration, Sections 1 and 7 |_F. Javier Nieto (ATOS)_
+|0.6 |20/03/2017 |Simulation Execution subsection |_Javier Carnero (ATOS)_
+|0.7 |21/03/2017 |Requirements subsection |_Johan Jansson (BCAM)_
+| |22/03/2017 |MADFs, visualization and pre/post processing |_Christophe Prud'homme (UNISTRA)_
+|0.8 |29/03/2017 |Infrastructure deployment |_Carlos Fernández (CEGA)_
+|0.9 |29/03/2017 |Finalize communities support |_Johan Jansson (BCAM)_
+|0.10 |29/03/2017 |Software repository and MADF publication schemas |__Carlos Fernández (__[[_GoBack1]]_CESGA)_
+|1.0 |30/03/2017 |Integration and roadmap |_F. Javier Nieto (ATOS)_
+|1.0 |31/03/2017 |Reviews |Zoltán Horváth (SZE); Ákos Kovács (SZE); Tamás Budai (SZE), Burak Karaboga (ATOS)
+|1.1 |31/03/2017 |Apply corrections as required |_F. Javier Nieto (ATOS), Javier Carnero (ATOS)_
+|==============================================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc479011389[_Figure 1: Layers in the MSO e-Infrastructure Vision_ 15]
+
+link:#_Toc479011390[_Figure 2: High Level Architecture for MSO4SC e-Infrastructure_ 17]
+
+link:#_Toc479011391[_Figure 3: High level interactions for User Registration_ 19]
+
+link:#_Toc479011392[_Figure 4: High level interactions when registering/modifying a MADF in the Catalogue_ 20]
+
+link:#_Toc479011393[_Figure 5: High level interactions for executing simulations_ 21]
+
+link:#_Toc479011394[_Figure 6: Design of the MSO Portal_ 22]
+
+link:#_Toc479011395[_Figure 7: Design of the Data Repository_ 23]
+
+link:#_Toc479011396[_Figure 8: Software repository and continuous integration and deployment_ 24]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc479011397[_Table 1. Acronyms_ 8]
+
+[[executive-summary]]
+= Executive Summary
+
+This document provides a definition of the MSO4SC e-Infrastructure, in such a way the features, stakeholders and required architecture are defined. The document extracts the requirements for the e-Infrastructure, describing the desired features from the stakeholders’ point of view. Such stakeholders and their needs are identified, as well as the different functional blocks of the e-Infrastructure which will implement the required features. The document provides different levels of detail for describing the MSO e-Infrastructure, even including some examples of operations. Finally, the document provides a vision about the expected deployment of the identified functional blocks.
+
+1.  [[introduction]]
+== Introduction
+1.  [[purpose]]
+=== Purpose
+
+Once the first set of requirements have become available, it is important to perform a deep analysis in order to determine the features to be provided by the MSO4SC e-Infrastructure, as described in the Description of Action [1]. Even if there were already some ideas about the main functionalities to be covered, stakeholders’ input is important in order to focus the developments. The main purpose of this document is to take those inputs and determine the features and services to be provided through the e-Infrastructure, as well as to define how such e-Infrastructure will be implemented.
+
+We have gathered the requirements and other information available in order to propose a first definition for the e-Infrastructure. For doing so, we have mapped requirements and features, and we have determined more in detail the required features and how they should be integrated and work, even proposing the tools that can be used for implementing the functionality.
+
+Later on, the consortium has started a process in which those features have been analysed, identifying the conceptual layers they belong to and defining the high level architecture of the e-Infrastructure. Such definition includes some high level components and examples of how they are expected to interact when providing some of the functionalities.
+
+In order to progress a bit more and to provide clear evidence on how the functionalities will be implemented, the document contains a more detailed design of the high level components. Such detailed design still is high level and it will be even more detailed in the deliverables of the corresponding work packages (mainly in WP3).
+
+Finally, we have discussed about the way to deploy all the components which are part of the e-Infrastructure, in such a way it will be possible to make available the integrated e-Infrastructure and its associated services.
+
+The document is organized as follows. Section 2 describes the features to be provided by the e-Infrastructure, providing a link with the requirements already identified. Section 3 provides a high level view of the e-Infrastructure by identifying the conceptual layers, the different actors involved and the high level architecture, proposing an implementation roadmap. Section 4 provides some examples where several high level components interact. Section 5 gives more details about the internal design of the components identified in the high level architecture. Section 6 provides an overview about the e-Infrastructure deployment and, finally, section 7 includes a summary and some conclusions.
+
+[[_Toc275174396]][[_Toc368494030]]
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+This is the list of acronyms to be taken into account in this document.
+
+[cols=",",options="header",]
+|======================================================
+|*Acronym* |*Definition*
+|*API* |Application Programming Interface
+|*CAD* |Computer-Aided Design
+|*CKAN* |Comprehensive Knowledge Archive Network
+|*D* |Deliverable
+|*DCAT* |Data Catalog Vocabulary
+|*DoA* |Description of Action
+|*DRS* |Document Review Sheet
+|*EC* |European Commission
+|*EGI* |European Grid Infrastructure
+|*HPC* |High Performance Computing
+|*IaaS* |Infrastructure as a Service
+|*KVM* |Kernel-based Virtual Machine
+|*MADF* |Mathematical Application Development Framework
+|*MPI* |Message Passing Interface
+|*MSO* |Modelling, Simulation and Optimization
+|*OpenMP* |Open Multi-Processing
+|*OPM* |Open Porous Media
+|*PaaS* a|
+_____________________
+Platform as a Service
+_____________________
+
+|*PRACE* a|
+____________________________________________
+Partnership for Advanced Computing in Europe
+____________________________________________
+
+|*Q&A* a|
+_____________________
+Questions and Answers
+_____________________
+
+|*REST* a|
+_______________________________
+Representational State Transfer
+_______________________________
+
+|*SQL* a|
+_________________________
+Structured Query Language
+_________________________
+
+|*SSL* a|
+____________________
+Secure Sockets Layer
+____________________
+
+|*SVN* a|
+__________
+Subversion
+__________
+
+|*WP* a|
+____________
+Work Package
+____________
+
+|*WPL* a|
+___________________
+Work Package Leader
+___________________
+
+|======================================================
+
+[[_Toc479011397]]Table . Acronyms
+
+[[e-infrastructure-features-and-services]]
+== E-Infrastructure Features and Services
+
+This section provides a view on the expected features for the MSO4SC e-Infrastructure, mainly coming from the requirements document [2] and other informal inputs from the stakeholders.
+
+[[e-infrastructure-requirements]]
+=== E-Infrastructure Requirements
+
+The e-Infrastructure (MSO4SC), based on leading MSO software, and supercomputing and cloud solutions from HPC expert groups, should support application developers and application users and communities working on solving societal challenges. MSO4SC should support a cloud-like deployment, explicitly recognizing the HPC and big-data characteristics of the applications. The platform must be designed taking into account the optimal provisioning configuration of the main mathematical application classes: distributed memory (MPI), shared memory (OpenMP) and embarrassingly parallel. It needs to be easily adaptable to developing technologies and consider cost an inherent factor. The design of new services and applications based on the platform must be flexible to adapt with the platform. Thus the platform and its applications must keep pace with the evolving optimum for affordable compute capacity.
+
+These requirements have been collected from the MSO4SC proposal document, the "Cloud and HPC Questionnaire" circulated at the start of the project, from the requirements document [2] and from WP discussions and meeting notes.
+
+The main components of MSO4SC should be:
+
+* *Mathematical Application Development Frameworks (MADFs):* MSO4SC should support three MADFs, which should be validated for efficient usage of Cloud and HPC resources: Feel++, FEniCS-HPC and OPM.
+
+All three MADFs should be adapted to MSO4SC to be: well-tested, optimized for the hardware to be used, suitable packaging for ease-of-deployment. ‘Scriptability’ of the MADFs is also a requirement, e.g. so that an end-user software product can be automatically built from a script.
+
+* *Pilots:* On top of these MADFS, MSO4SC should support at least four out of the following six end-user software products as pilot applications for validation, using at least two out of the above three MADFs: 3D Urban Air Quality Prediction, Eye2brain, Hifimagnet, OPM Flow, FloatingWindTurbine and ZIBaffinity.
+
+The pilots should include a validation test to be able to evaluate successful deployment, and to facilitate maintenance of the pilots.
+
+* *HPC and Cloud Management (MSO Cloud):* The main features to be supported by the MSO Cloud should be the following:
+
+1.  It will support heterogeneous, HPC and multi-cloud systems, such as OpenStack and OpenNebula types of clouds (but will also enable others such as Amazon) and Slurm and TORQUE HPC systems [3], avoiding the vendor lock-in problem. Future emerging cloud types could be easily connected to it (only the suitable cloud plugins should be developed).
+2.  Its multi-cloud/HPC feature will enable to simultaneously distribute parallel tasks of embarrassingly parallel applications in several clouds, as a way to speed up their execution.
+3.  It should be based on the usage of containers so that MPI, OpenMP, embarrassingly parallel and Hadoop-like [4] applications can run efficiently, provided the required parallel scalability and single-node performance can be validated.
+
+The MSO Cloud system will have a PaaS level software development platform providing:
+
+1.  A workflow-oriented software development environment
+2.  Simultaneous job submission mechanism to heterogeneous multi-cloud, cluster and supercomputer systems.
+3.  A transparent storage access mechanism by which several popular storage systems can be accessed.
+4.  A meta-broker that can schedule parallel computational jobs among various clouds.
+5.  An orchestrator tool by which even complex virtual infrastructures (service sets) can automatically and dynamically be deployed and managed in the MSO4SC e-Infrastructure, so that their distribution in the nodes benefits from memory sharing and messaging mechanisms, as required. It should enable a distribution mechanism so that certain parts of the mathematical algorithms will go to Cloud resources, while other parts will go to HPC resources, depending on the definition provided by the MADFs. The tool should also be able to receive input while the simulation is running to change the execution parameters “on the go”.
+6.  A REST API to connect the system with the MSO Portal (below) and also with third party applications.
+
+* *Software product catalogue and toolbox (MSO Portal):* A math-related software product catalogue should be setup that will contain the MADFs and the end-user software products, providing visibility and facilitating the search and access to these applications. MSO4SC should provide graphical user interfaces to simplify the use of the portal and the integration of the MADFs, also enabling some configuration inputs.
+
+Specific requirements on the MSO Portal are:
+
+1.  An open online database of high quality MSO software
+2.  An open online database of mathematical models
+3.  An open online database of benchmarks
+4.  Integration with existing open source software repositories and services
+5.  Archival infrastructure for open source software, specifically for the MADFs and Pilots in MSO4SC
+6.  A high quality web interface for the above services
+7.  An integrated visualization framework, such as ParaView.
+8.  An integrated pre-processing framework supporting CAD geometry construction and mesh generation, such as Salome.
+9.  "One single button to run the whole simulation"-type interface. Additionally the possibility for interactive simulation should be investigated, e.g. to change MADF or Pilot parameters while the simulation is running.
+
+* *Computing Infrastructure:* The project partners should set up an initial infrastructure using HPC and Clouds from ATOS and CESGA. The initial infrastructure may be limited, and further infrastructure should be sought from external organizations such as PRACE and EGI FedCloud.
+1.  [[software-management]]
+=== Software Management
+
+There are several aspects about software management that the e-Infrastructure should deal with. It is necessary not only to facilitate the publication and access to software, but also to support the management of code in those situations in which the re-compilation and deployment of software is mandatory (in order to support several target hardware platforms).
+
+A marketplace is needed in order to present the users the different software available in the platform, as well as giving them the possibility to upload new applications. From this point the user should be able to select, run the application in the infrastructure, obtaining the results. The FIWARE Business Framework generic enabler has been selected to provide this functionality in the platform, since it is flexible, well-proven, it supports federation with other marketplaces, it supports business models definition for software pieces and it can be customized.
+
+The actual catalogue of applications will be stored in a code repository, which will not only allow users and developers to leave their code, but also to maintain, configure and test it easily. The use of version control tools, as SVN or Git, are planned to be used in order to add this feature to the platform.
+
+Before running the applications in the infrastructure, first they have to be deployed. The deployment of an application will usually consist of one or more of these steps: copy the code from the repository; compile it on the infrastructure; copy the executables to the different parts of the infrastructure that will run them; move the data from where it is stored to where it is going to be needed by the executables; and allocate the necessary physical resources to run it. The deployment service will automatize this workflow, being designed to fulfil the requirements of the pilots already in the project. Software added to the platform will have to provide a deployment description to use the service in the same way as the pilots will do, and the e-Infrastructure should support the creation of such deployment description.
+
+Apart from the deployment of the end user applications, the underlying MADFs that support them need to be available in the HPC machines within the MSO4SC platform. Therefore, a ready-to-be-used installation of all the MADFs will be added to each HPC computing unit.
+
+[[data-management]]
+=== Data Management
+
+As in the case of software management, data management covers several aspects about dealing with data when running the software deployed on the e-Infrastructure.
+
+A common data repository will be very useful for different reasons. First of all the end user applications aimed to be used in the platform will typically use large datasets that are not easily stored in the computing infrastructure. Also this datasets should be uploaded and updated by the users, as well as shared by different applications.
+
+Moreover large datasets will be generated as a result, that again should not be stored in the computational infrastructure. These results should be published as well to be used by post-processing tools of even other end user applications.
+
+Files can be simply left in a public folder available for users, but it is possible to provide a more complete tool for managing datasets. Actually, as the data will have different formats and characteristics, not only one storage tool will be suitable to use it as repository, but several of them instead.
+
+However, he different sources in which MSO4SC will store/retrieve the data should be managed from the same point, which should also add value to the data and normalize the access to it. In our case we plan to use CKAN, a platform for managing datasets which allows publishing, accessing, and searching thanks to a metadata model based on DCAT [5], which includes information about the author, last updated, endpoints, licensing scheme, etc.
+
+There are also CKAN extensions available which add features to the tool such as, allowing users to add comments about the datasets, providing statistics about the access, facilitating import of datasets from other CKAN instances or repositories, etc.
+
+To move the datasets from the data repository to the computing units and vice versa other tools specifically designed for moving large datasets will be used. As an example there is GridFTP [6], which is a high performance, secure and reliable data transfer to move data as quick as possible using high-bandwidth wide-area networks. But such tool only moves data as it is required and, therefore, it lacks some intelligence about best policies for moving and copy the data. As a result MSO4SC e-Infrastructure will propose a new solution for improving data management.
+
+Data security will be addressed by the different physical storage mechanisms, storing each dataset using the proper tools that guarantee not only optimal storage/retrieval but also enough security measures. When moving data from/to the platform, SSL connections will be used, and no sensible data will be stored in the platform. Also simulations will be executed on the infrastructure taking into account that the corresponding facilities where they are going to run have are compliance with the security standards that data requires.
+
+[[simulations-management]]
+=== Simulations Management
+
+Even if it is possible to find other portals out there which implement marketplaces and other useful features, it is very difficult to find integrated solutions which support effectively the whole lifecycle of simulations.
+
+According to our discussions with stakeholders, they need tools which support them by defining the workflows of their simulations, in which not only the MADF is invoked, but also some other tools, such as those for pre/post processing of the data used. This way, it is possible to link outputs and inputs from different tools, solving the technical issues in a transparent way for the end users, who only need to care about the simulation itself.
+
+Such construction of simulations also includes the possibility to define different combinations of input parameters, in such a way that creating parametric studies will be easier. This approach would facilitate launching several simulations in parallel, with a minimum effort.
+
+Once the simulation is prepared, stakeholders expect to be able to run easily all the steps, even being able to monitor how the simulation is running. On one hand, it is necessary to know which step of the simulation is running, and in which conditions. On the other hand, after some discussions, stakeholders expressed their wish of retrieving certain parameters about the execution (provided by the MADFs), so they will be able to determine whether some parameters are beyond a threshold that would indicate the simulation should be stopped (since it is already unfeasible to obtain a good result). This means that it is necessary to put in place some mechanism which will facilitate the interaction with the simulation while it is being executed.
+
+[[access-to-e-infrastructure-resources]]
+=== Access to e-Infrastructure Resources
+
+The final user interacts with the e-Infrastructure using the MSO Portal. Using this interface, the user will be able to select the MADFs, the infrastructure, and the resources for the simulation. This means that the e-Infrastructure must provide an orchestrator (and broker) which will be in charge of selecting the optimal resources, and sending the simulation to the Cloud and HPC infrastructure available to run the simulations. The main purpose of this functionality is to hide the complexity of resources selection and software deployment in the corresponding hardware and/or virtual resources, so stakeholders only need to take care of preparing their experiments.
+
+After deployment, it is necessary to keep track of what is going on the infrastructure. A monitoring system should send information to the portal about the execution of the simulation and the user will be able to take decisions based on this information. As a result of the questionnaires filled by the partners, it was clear that interaction with the simulation is important because of many factors: to be able to change parameters and to stop the simulation in case that it is not progressing well. Therefore interactive access is a necessity to the final user, but this is not something available, in general, in HPC-based software, so the e-Infrastructure will include new mechanisms for providing such feature.
+
+Finally, accounting will be implemented as to know how many resources are consumed by the users and to assess the usage not only of the different resource providers, but also of the different MADFs and software available in the system. Such information will become available to the corresponding stakeholders, so they can monitor the resources usage done.
+
+[[visualization-and-prepost-processing-tools]]
+=== Visualization and Pre/Post Processing Tools
+
+Pre/Postprocessing steps are very important when setting up simulations. Two solutions will be provided:
+
+First, basic visualisation through web browser will be provided through paraview-web and HPC-Cloud solution. Most MADFS already support to some extent data formats accepted by Paraview. The Paraview interface will have to be available through the cloud application development layer API.
+
+Second, we consider the framework Salome which provides through scripting pre to post-processing tools. Salome’s support would enable industrial grade applications into the MSO4SC. Salome will be available through Docker type images by the Applications and MADFS. It is not clear at the moment if Salome as a Service is feasible.
+
+[[communities-support]]
+=== Communities Support
+
+Interaction with the end-user communities is key to adoption and success of the project and MSO4SC framework. We can identify two distinct community types: "user" community without high technical proficiency who will run simulations, and "developer" community with high technical proficiency who will be interested and take part in developing the MADFs and end-user applications.
+
+We identify the following requirements for supporting these communities:
+
+* Outreach to both user and developer communities to make the MSO4SC support activities and systems visible.
+* The MSO4SC software should be developed in the Git version control system in the GitHub system with associated user and developer support services:
+
+1.  Bug reporting
+2.  Feature requests
+3.  Enabling community contributions by branching and pull requests
+4.  Q&A in a Wiki or StackExchange [7] type forum
+
+* Developer community liaison with a Gitter [8] type forum
+* Specific "math user community liaison" targeting the specific needs and interests of the typical math community which may not be advanced in software development.
+* Training for developer and user communities
+1.  [[mathematical-frameworks-as-a-service]]
+=== Mathematical Frameworks as a Service
+
+The Mathematical frameworks available by default with the standard MSO4SC e-Infrastructure are: FEniCS-HPC, Feel++ and OPM.
+
+The frameworks will be available:
+
+* Through scripting by the Simulation service. This enables creating new applications easily;
+* Deployed though Docker-like images to the MSO4SC applications;
+* Installed on the MSO4SC supercomputers and readily available for high performance computing applications.
+
+Documentation will be available online to support the MADFs programming and deployment.
+
+[[high-level-architecture]]
+== High Level Architecture
+
+In this section we present the original concepts behind the MSO4SC platform and the proposed architecture for implementing all the expected features.
+
+[[mso-conceptual-layers]]
+=== MSO Conceptual Layers
+
+Since the beginning, the consortium identified four main conceptual layers, each of them containing certain elements and providing a set of services for the layer on top.
+
+All of these conceptual layers are part of the e-Infrastructure, although the MSO4SC project does not develop components for all of them. These layers are the following:
+
+* *End User Applications Layer:* This is the layer in which end users provide their applications, based on the MADFs and other available tools at the Application Development layer. At this layer, basically, it is possible to publish, deploy and monitor complex applications, as well as to design simple experiments for running simulations several ways in an automated way.
+* *Application Development Layer:* The purpose of this layer is to facilitate the implementation of applications based on MADFs, by providing not only the MADFs, but also a set of tools which can be also integrated, such as pre/post-processing and visualization. It also provides access to the services of the Cloud Management layer, so it will be possible to know about monitoring, accounting, current deployment, etc.
+* *Cloud Management Layer:* This is the layer which maps with those services given usually at the Platform as a Service (PaaS) layer, where services on top of the IaaS are provided, such as monitoring of the applications running, orchestration with load balancing and deployment of the applications.
+* *Infrastructure Layer:* This layer corresponds to the typical Infrastructure as a Service (IaaS) layer, where access to computation capabilities is given. These computation capabilities may come from Cloud providers or from HPC centres, enabling a HPC as a Service model.
+
+image:d2.2/image3.png[image,width=491,height=352]
+
+[[_Toc479011389]]Figure : Layers in the MSO e-Infrastructure Vision
+
+Figure 1 depicts some main components already proposed at the proposal time, in order to show the central role of the MSO Portal and the Orchestrator. The MSO Portal will concentrate all those functionalities related to the publication of applications and MADFs, gathering monitoring information, provision of useful tools (i.e. visualization) and deployment of applications and MADFs.
+
+On the other hand, the Orchestrator will take the deployment requests from the Portal and it will manage the infrastructure behind, in order to optimize the execution as much as possible, based on monitoring information.
+
+At the Infrastructure layer, we will only guarantee that it is possible interact with platforms such as Slurm and OpenStack, by using containers for the applications and MADFs whenever possible.
+
+[[actors]]
+=== Actors
+
+Since the activities related to the market analysis and exploitation have just started, there is no complete vision about the stakeholders involved. Anyway, taking into account the kinds of end users already identified and some of the requirements they have, we have done a first list of actors for our e-Infrastructure:
+
+* *MADFs Providers/Developers:* Developers and/or providers of mathematical frameworks will use the e-Infrastructure for publishing their software and for doing configurations in such a way it will be possible to use them in several platforms.
+* *Tools Providers/Developers:* In a similar way as with MADFs, several tools will be provided in order to facilitate visualization and pre/post processing tools. This group will publish their software and they will have the opportunity to test it.
+* *Complex Applications Providers/Developers:* These providers and/or developers will integrate MADFs and other tools in their applications, which will be used, later on, by End Users. They will publish their applications and also they will use tools for supporting the integration and testing of MADFs and other tools in their software, indicating how to deploy all together. The project makes possible that these can also include application providers who are not partners in the consortium.
+* *End Users:* These users will only navigate through the Portal in order to run complex applications, unaware of the complexity behind. They will only care about experiments execution.
+* *Infrastructure Providers:* These providers will be the ones giving access to computing hardware. They will provide APIs so their infrastructures can be integrated with the MSO4SC e-Infrastructure, in order to deploy the software.
+* *E-Infrastructure Administrators:* They are in charge of all the components belonging to the e-Infrastructure itself: the Portal, the monitoring tools and the orchestration components. They will also support stakeholders of the e-Infrastructure.
+
+This set of actors can be reduced, combining certain roles. The actions to be done by MADFs and Tools developers/providers are basically the same, so we can group them under the same kind of actor called “MADFs and Tools Providers/Developers”. In the case of End Users and Complex Applications Providers/Developers, they are expected to do different actions (i.e. End Users cannot publish software), therefore, we will maintain them separated.
+
+[[high-level-architecture-1]]
+=== High Level Architecture
+
+Taking into account the features to be provided, the following figure shows the proposed high level architecture for the MSO4SC e-Infrastructure.
+
+image:d2.2/image4.png[image,width=531,height=388]
+
+[[_Toc479011390]]Figure : High Level Architecture for MSO4SC e-Infrastructure
+
+The proposed architecture above (Figure 2) contains two components in direct communication with the HPC and Cloud infrastructures (‘Orchestrator’ and ‘Monitoring & Accounting’), three components more oriented to stakeholders interaction and services provision (‘MSO Portal’, ‘Software Repository’ and ‘Data Repository’) and an horizontal component focused on the security aspects of the e-Infrastructure (‘Authentication & Authorization’).
+
+While the MSO Portal is in the centre of all interactions (since it is the access point for stakeholders and it also uses services provided by the Orchestrator and the Monitoring & Accounting component), the Orchestrator plays an important role for deploying software and data adequately and the Monitoring & Accounting component retrieves crucial information useful for both the stakeholders and the Orchestrator. Further details are provided in the next sections.
+
+[[main-components]]
+=== Main Components
+
+After the first analysis of the requirements and the e-Infrastructure features, we have identified the following components, as part of the high level architecture:
+
+* *Authentication & Authorization:* This component deals with those security aspects related to users management, single sign-on and authorization. The rest of components will interact with it in order to confirm users’ access to functionalities, depending on the assigned roles.
+* *Data Repository:* It is in charge of datasets storage and management both for input and output data. Such data will be used by the software to be run in the e-Infrastructure and, therefore, the Orchestrator may request concrete data movement operations, while the MSO Portal will retrieve information for providing a dataset catalogue.
+* *Software Repository:* This repository not only stores the software that can be used in the context of the e-Infrastructure, but also pre-configured containers that can be used by the Orchestrator when deploying applications. It will also facilitate management and testing of the software code whenever possible.
+* *MSO Portal:* This component is formed by a frontend and a set of tools available for stakeholders, such as a datasets catalogue, experiments execution, results visualization, data pre/post processing, automated deployment and status monitoring.
+* *Monitoring & Accounting:* It retrieves information both about resources usage and about applications execution. It gathers information about the resources spent by users, available resources from infrastructures and current status of the software running.
+* *Orchestrator:* This component decides about the most adequate way to deploy the application taking into account resources availability and software characteristics. Moreover, it takes care of requesting data movement and preparing the software so it will be ready to run in the corresponding system.
+
+Although the detailed design of these components corresponds to the WP3 work package, this document provides a high level view of each component in section 5, while section 4 shows examples of high level interactions among the proposed components.
+
+[[development-roadmap]]
+=== Development Roadmap
+
+There are two versions of the MSO4SC e-Infrastructure to be released during the project: one at month 12 and another one at month 22.
+
+For the first release, the following features are planned:
+
+* Basic orchestration mechanism for deploying MADFs in HPC
+* Data catalogue tool integrated
+* Launch simulations easily, based on a text format for simulation definition
+* Set up the tool for Q&A
+* 3 MADFs available in HPC, with containers for deployment
+* Initial integration of the visualization tool
+* Initial integration of the pre/post processing tool
+* Set up the software repository and continuous integration mechanism
+* Provide the software marketplace
+* Initial monitoring platform, with probes for retrieving HPC status
+
+For the second release, the planned implementations are:
+
+* Complete orchestration mechanism and enable interaction with Cloud solutions
+* Link with related external communities
+* Tool for data movement linked to the catalogue
+* Set up online training tool
+* Yellow pages tool for stakeholders
+* Enable retrieval of simulation parameters at runtime and interaction with the simulation (stop, change parameter, etc)
+* Enable testing and continuous deployment for the software
+* Tool for creating basic tool-chains with workflows, for modelling simulations and parametric studies
+* Complete integration of the visualization and pre/post processing tools
+* Complete Maths as a Service model for MADFs (scriptability, validation, documentation…)
+* Improve monitoring with accounting information
+
+[[high-level-interactions-for-initial-operations]]
+== High Level Interactions for Initial Operations
+
+In order to show how the components interact at the high level, we have identified some typical operations, defining those interactions.
+
+[[user-registration]]
+=== User Registration
+
+The registration of a new user relies on the authentication and authorization module, simplifying the process. When a user administrator wants to register a new user, he/she just need to go to the MSO Portal, fill in the form with the user information and submit the data.
+
+image:d2.2/image5.png[image,width=371,height=237]
+
+[[_Toc479011391]]Figure : High level interactions for User Registration
+
+[[madf-publication]]
+=== MADF Publication
+
+For the Publication of the Mathematical Frameworks, a catalogue will be implemented based on FIWARE components which will be adapted to the new type of applications (MADFs) and their features. In this catalogue information regarding benchmarking, scalability, and other key features for the usage of the software will be included.
+
+image:d2.2/image6.png[image,width=423,height=271]
+
+[[_Toc479011392]]Figure : High level interactions when registering/modifying a MADF in the Catalogue
+
+These tools will be integrated and all the information visible in the MSO Portal.
+
+[[simulation-execution]]
+=== Simulation Execution
+
+The execution of a simulation is the main feature of the MSO4SC platform and the most complex. As all other operations (except user registration), the process will start with the user logging into the system. Before actually executing the simulation, the user will have to select the dataset(s) to be used as input, and the end user application (the simulation algorithms).
+
+Then, through the MSO Portal, the user calls the orchestrator to start the execution. This module will control the input data movement and the deployment of the application in the computing infrastructure, and will monitor the running tasks through the Monitoring & Accounting module.
+
+When finished, the orchestrator will move the resulting data to a proper location through the Data Repository module. Optionally, the user will be able to visualize the data in the MSO Portal.
+
+Below the Figure 5 shows graphically the process described.
+
+image:d2.2/image7.png[image,width=566,height=502]
+
+[[_Toc479011393]]Figure : High level interactions for executing simulations
+
+1.  [[detailed-design-of-main-mso4sc-components]]
+== Detailed Design of Main MSO4SC Components
+1.  [[mso-portal]]
+=== MSO Portal
+
+The MSO Portal will be the user-friendly interaction mechanism between the end users and the MSO4SC platform. From its frontend the user will be able to use all the functionalities the project provides: run the MSO4SC experiments software with pre and post operations and monitor it while executing, apart from login into the system, manage the data available, visualize it, etc. Its components are described below.
+
+* *Frontend:* This component serves the user with a nice interface in which he/she will be able to access to the different functionalities in the portal. To accomplish this, the FIWARE Business framework is expected to be used.
+* *Data Catalogue:* It will present the data available in the system no matter where it is actually stored, providing easy ways to manage and select the datasets to be used by the rest of the modules. FIWARE CKAN catalogue is proposed to implement this module.
+* *Monitoring Visualization:* This component will render and present to the user the monitoring data generated by the Monitoring & Accounting module, so he/she will be able to control the simulation execution.
+* *Visualization Tool:* This module will allow the user the possibility to visualize the datasets available in meaningful ways apart from the raw presentation of data.
+* *Marketplace:* In this section of the MSO4SC portal the user will find a catalogue of the end user applications available in the platform, and will be able to upload, update and select each of them for execution. FIWARE Business framework will be used to implement this as well.
+* *Community Management:* The MSO4SC platform has to be aware of the different scientific communities that use the system. To achieve that this module will manage the information, datasets and end user applications that is presented to the user of the portal.
+* *Experiments management Tool:* This module will take the information submitted from the user about the simulations, datasets, and pre/post operations the user would like to run, and send it in a proper format to the orchestrator in order to start the simulation.
+* *Pre/Post Processing Tool:* Pre and post operations needed to be done over the datasets of a simulation will be managed by this tool, controlled by the end user through the frontend.
+
+image:d2.2/image8.png[image,width=566,height=396]
+
+[[_Toc479011394]]Figure : Design of the MSO Portal
+
+[[data-repository]]
+=== Data Repository
+
+The data repository communicates with the MSO Portal and the Orchestrator. The first will show the data available in the different storage units, while the second will make the decision of which datasets have to be moved from/to the computing infrastructure.
+
+image:d2.2/image9.png[image,width=412,height=230]
+
+[[_Toc479011395]]Figure : Design of the Data Repository
+
+The components included in the data repository are:
+
+* *Heterogeneous data storage:* To adequate the repository to the different characteristics and formats of the datasets, this component will be formed of several storage units based on different paradigms, such as array databases, relational and no-sql databases, storage servers, etc.
+* *Data Movement Tool:* Relying on specific protocols and tools as GridFTP, the component will take orders from the orchestrator to move data from and to the different storage units as efficient as possible. To connect to the heterogeneous data storage, this component will use the Authentication & Authorization module.
+1.  [[software-repository]]
+=== Software Repository
+
+As a part of the communication mechanisms supporting the project structure, a set of public domain repositories has been created taking advance of the services and collaborative tools (like wikis, issue tracking, continuous integration, etc.) provided by GitHub.
+
+These repositories are currently being used to share the data, metadata and the deployment process of the frameworks and are also intended to be the place where to publish the e-Infrastructure and benchmarks for the MADFs.
+
+This environment will include a continuous integration system in order to facilitate integration and to perform automatic testing operations. The continuous integration process will help to detect and mitigate possible risks in the deployment process.
+
+image:d2.2/image10.png[image,width=361,height=422]
+
+[[_Toc479011396]]Figure : Software repository and continuous integration and deployment
+
+[[orchestrator]]
+=== Orchestrator
+
+The orchestrator takes decisions about the best way to deploy the applications taking into account resources availability and software characteristics, and also user requests, based on their experience. Moreover, it takes care of requesting data movement and preparing the software so it will be ready to run in the corresponding system.
+
+The orchestrator will need monitoring information provided by the different infrastructures in order to know about their configuration, available software, the status of the systems (for example if there is any issue in the system) and the available storage, among other metrics. With this information it will need to take the decision about where to send the simulations and in case of complex simulations the need to use different resources to solve a problem, taking in account dependencies and data movement.
+
+Initial tests where done using Mesos, but some issues where found during the communication with the batch systems (Slurm for example). Other implementations of meta-schedulers are being analysed to get the most versatile and functional.
+
+[[e-infrastructure-deployment-plan]]
+== E-Infrastructure Deployment Plan
+
+During the first year of the project two HPC infrastructures will be available for the users of the project, Finis Terrae-II supercomputer at CESGA and another supercomputer provided by ATOS. These infrastructures will provide over 10,000 cores and 200Tflops of peak performance to run the most parallel and higher-demand simulations.
+
+Cloud resources will be available as virtual machines and will be used for those applications that need interactive access or specific requirements not fulfilled with the HPC resources. During the second year of the project, the opportunity of engaging in other pan-European infrastructures will be explored likely those offered by PRACE and EGI.eu initiatives.
+
+[[deployment-infrastructure]]
+=== Deployment Infrastructure
+
+The deployment infrastructure will be in charge of hosting the software developed for the orchestration at the Cloud Management layer and the Portal, among other components. For the scope of the project we foresee to have maximum flexibility in this infrastructure, with the capacity to move it to different locations and to even have it replicated.
+
+Virtualization Technologies will be used to have this flexibility and the capacity to move and install the software in different locations. KVM or Xen, but also container technologies will be analysed to be used on top of the virtualization mechanisms. If possible we will try to have different images in at least two of these three technologies during the project.
+
+[[components-deployment]]
+=== Components Deployment
+
+Taking in account the six principal components of the project, (Authentication & Authorization, Data Repository, Software Repository, MSO Portal, Monitoring & Accounting, Orchestrator), we will group these components in layers taking in account their characteristics:
+
+* Authentication & Authorization and MSO Portal: These two components will be the main point of contact with the final users.
+* Data Repository and Software repository: They will have high storage demands in terms of capacity but also in terms of performance.
+* Orchestrator and Monitoring & Accounting: these two components will be critical for the deployment and usability of the platform, and they will have to be tightly coupled.
+
+To deploy these components we plan to use Kubernetes [9] technology. The main reasons for using Kubernetes are:
+
+* Management: Provides the functionalities to move/allocate resources dynamically
+* High availability control: if one Docker fails, Kubernetes will take the necessary actions to redeploy it
+* Scalability: in case of having a high load in some of the services, and needing more than one deployment of the services, Kubernetes will take this in consideration and scale the deployment providing more provisioning of the resources
+
+In terms of hardware requirements, we do not expect a high need for resources, as the processing will not be performed in any of them, but these services will redirect (as a gateway) the simulations and visualization capacities to other HPC or cloud resources.
+
+[[summary-and-conclusions]]
+== Summary and Conclusions
+
+This document presents not only the features and services to be provided through the e-Infrastructure, but also an overview about the design and implementation of such e-Infrastructure.
+
+The requirements provided by the stakeholders have been useful, although the consortium is still gathering more information from them. But this has been enough in order to identify a first set of features and a description of how they should work.
+
+The definition of the e-Infrastructure has followed a top down approach, in which functional units have been identified starting from high level functionalities, going deeper into the details as the design evolves. It was possible to map the features with the initially proposed conceptual layers, although the latter design does not perform such layered distinction, trying to put all the components at the same level.
+
+The high level architecture proposes a set of high level components and interactions, so it is possible to understand better how the e-Infrastructure should work. Therefore, it has been easier to split the implementation of functionalities among them, also defining another level of detail, which should be completed in the corresponding WPs.
+
+Finally, the document proposes a way to deploy the e-Infrastructure which will give service to the project pilots and, eventually, to some interested stakeholders.
+
+[[references]]
+= References
+
+1.  [[_Ref467573084]]MSO4SC Description of Work (DoA). Annex I to the EC Contract.
+2.  [[_Ref479012272]]MSO4SC D2.1End Users’ Requirements Report
+3.  TORQUE Resource Manager: http://www.adaptivecomputing.com/products/open-source/torque/[_http://www.adaptivecomputing.com/products/open-source/torque/_]
+4.  Apache Hadoop: http://hadoop.apache.org/[_http://hadoop.apache.org/_]
+5.  Data Catalog Vocabulary (DCAT): https://www.w3.org/TR/vocab-dcat/[_https://www.w3.org/TR/vocab-dcat/_]
+6.  GridFTP: http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/[_http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/_]
+7.  StackExchange: http://stackexchange.com/[_http://stackexchange.com/_]
+8.  Gitter: https://gitter.im/
+9.  [[_Ref479012448]]Kubernetes: https://kubernetes.io/[_https://kubernetes.io/_]
+
+[[section]]
+=
