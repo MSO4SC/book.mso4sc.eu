@@ -45,12 +45,16 @@ include::docs/pilots/README.adoc[leveloffset=2]
 
 == Deliverables
 
-ifdef::env-github[==== link:{deliverablesdir}d5.1/README.adoc[Deliverable 5.1]]
-ifndef::env-github[==== link:/deliverables/d5.1/[Deliverable 5.1]]
-ifdef::env-github[==== link:{deliverablesdir}d4.1/README.adoc[Deliverable 4.1]]
-ifndef::env-github[==== link:/deliverables/d4.1/[Deliverable 4.1]]
+ifdef::env-github[=== link:{deliverablesdir}d5.1/README.adoc[Deliverable 2.1]]
+ifndef::env-github[=== link:/deliverables/d5.1/[Deliverable 2.1]]
+ifdef::env-github[=== link:{deliverablesdir}d2.2/README.adoc[Deliverable 2.2]]
+ifndef::env-github[=== link:/deliverables/d2.2/[Deliverable 2.2]]
 ifdef::env-github[==== link:{deliverablesdir}d3.1/README.adoc[Deliverable 3.1]]
 ifndef::env-github[==== link:/deliverables/d3.1/[Deliverable 3.1]]
+ifdef::env-github[==== link:{deliverablesdir}d4.1/README.adoc[Deliverable 4.1]]
+ifndef::env-github[==== link:/deliverables/d4.1/[Deliverable 4.1]]
+ifdef::env-github[==== link:{deliverablesdir}d5.1/README.adoc[Deliverable 5.1]]
+ifndef::env-github[==== link:/deliverables/d5.1/[Deliverable 5.1]]
 
 == From docx to asciidoc
 
