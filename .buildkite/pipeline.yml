@@ -3,6 +3,7 @@ steps:
    command: .buildkite/steps/build.sh
    env:
      PROJECT: book.mso4sc
+ - wait
  - name: ':rocket: :book:'
    command: .buildkite/steps/deploy.sh
    branches: master
