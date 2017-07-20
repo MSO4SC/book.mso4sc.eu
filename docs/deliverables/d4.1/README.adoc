@@ -439,8 +439,6 @@ We provide a prototype for pre-processing and data setup for the project. This t
 
 Finally we deploy and test the developed solution on real cases. The main testing will allow a use to setup a MADFs simulation from the web and visualize the results through ParaViewWeb.
 
-[[section-1]]
-====
 
 [[mso4sc-specification-for-fenics-adaptation]]
 = 8 MSO4SC Specification for Fenics adaptation
