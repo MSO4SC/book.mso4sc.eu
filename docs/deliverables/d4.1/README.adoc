@@ -266,12 +266,8 @@ Several container technologies have been tested in the context of WP3, WP4 and W
 
 Each MADFS should provide
 
-* __________________________________
-Docker images for Cloud deployment
-__________________________________
-* ____________________________________________________
-Singularity images for HPC infrastructure deployment
-____________________________________________________
+* Docker images for Cloud deployment
+* Singularity images for HPC infrastructure deployment
 
 The current state of container support for each MADFS is described in the table below
 
@@ -290,24 +286,15 @@ MADFS are required to provide small and large testcases for validation and bench
 
 We should be able
 
-* _______________________________________________
-to conduct strong and weak scalability studies.
-_______________________________________________
-* __________________________________________________________________________________________________________
-To verify that between MADFS versions the scalability and physical results are maintained if not improved.
-__________________________________________________________________________________________________________
+* to conduct strong and weak scalability studies.
+* To verify that between MADFS versions the scalability and physical results are maintained if not improved.
+
 
 The testcases should be documented from the physical and/or the scalability point of view through documentation in each MADFS. For example
 
-* __________________
-Fenics provides...
-__________________
-* ______________________________________________________________________________________________________________________________________________________________________________
-Feel++ provides online documentation of various benchmarks supported by its toolboxes (e.g. http://book.feelpp.org/benchmarks/csm/)[_http://book.feelpp.org/benchmarks/csm/)_]
-______________________________________________________________________________________________________________________________________________________________________________
-* ________________
-OPM provides ...
-________________
+* Fenics provides...
+* Feel++ provides online documentation of various benchmarks supported by its toolboxes (e.g. http://book.feelpp.org/benchmarks/csm/)[_http://book.feelpp.org/benchmarks/csm/)_]
+* OPM provides ...
 
 Such test cases are also very important from the qualification perspective, because they support the process of checking out whether the MADFs work as expected. The fact that there are standardized benchmarks for the MADFs will also help to understand whether the obtained results are right and the measured performances is as expected.
 
@@ -384,12 +371,8 @@ Feel++
 see Feel++ CI/CD section
 
  a|
-* ___________________________________________________________________________
-*Travis*: multiple systems (Ubuntu/debian flavors) and compilers are tested
-___________________________________________________________________________
-* _________________________________________________________________________________________________________________________________________
-*Buildkite*: Feel++ and its toolboxes are built and deployed on Docker Cloud(Hub) and Singularity images are generated from Docker images
-_________________________________________________________________________________________________________________________________________
+* *Travis*: multiple systems (Ubuntu/debian flavors) and compilers are tested
+* *Buildkite*: Feel++ and its toolboxes are built and deployed on Docker Cloud(Hub) and Singularity images are generated from Docker images
 
 |OPM a|
 * 
@@ -499,39 +482,17 @@ Prior to MSO4SC, Feel++ has gathered documentation written in Asciidoc and Doxyg
 
 Recently thanks to MSO4SC support, Feel++ has deployed http://book.feelpp.org[_http://book.feelpp.org_] a web site presenting Feel++ documentations
 
-* ____________________________________________________________________________________
-User Manual http://book.feelpp.org/user-manual[_http://book.feelpp.org/user-manual_]
-____________________________________________________________________________________
-* ___________________
-Applications manual
-___________________
-** ________________
-Mesh partitioner
-________________
-* ______________________________________________________________________
-Toolbox manuals including benchmarks : http://book.feelpp.org/toolbox/
-______________________________________________________________________
-** _____________________________________
-Monophysics: CFD, CSM, Heat transfer,
-_____________________________________
-** ______________________________________________________
-Multiphysics: FSI, heat&fluid, thermo-electro-aerolic…
-______________________________________________________
-** ___________________________________________________________________________________
-Benchmarks http://book.feelpp.org/benchmarks/[_http://book.feelpp.org/benchmarks/_]
-___________________________________________________________________________________
-* ______________________________________________________________________________________________________________
-Mathematics manuals (the mathematics inside Feel++) http://book.feelpp.org/math[_http://book.feelpp.org/math_]
-______________________________________________________________________________________________________________
-** _____________________
-Finite Element method
-_____________________
-** ____________________
-Reduced basis method
-____________________
-** __________
-HDG method
-__________
+* User Manual http://book.feelpp.org/user-manual[_http://book.feelpp.org/user-manual_]
+* Applications manual
+** Mesh partitioner
+* Toolbox manuals including benchmarks : http://book.feelpp.org/toolbox/
+** Monophysics: CFD, CSM, Heat transfer,
+** Multiphysics: FSI, heat&fluid, thermo-electro-aerolic…
+**Benchmarks http://book.feelpp.org/benchmarks/[_http://book.feelpp.org/benchmarks/_]
+* Mathematics manuals (the mathematics inside Feel++) http://book.feelpp.org/math[_http://book.feelpp.org/math_]
+**Finite Element method
+**Reduced basis method
+**HDG method
 
 This is an ongoing effort in MSO4SC to bring Feel++ documentation of the toolboxes as well as the application to a very high quality.
 
@@ -551,32 +512,18 @@ Moreover, thanks to ctest framework, many other Feel++ applications (more than 8
 
 Feel++ uses the following Continuous Integration tools:
 
-* ______
-Travis
-______
-* _________
-Buildkite
-_________
+* Travis
+* Buildkite
 
 They are both integrated into *Github* and use *Docker* to get the Feel++ Build and Runtime Environment.
 
 Buildkite builds inside Docker and then deploy to Docker cloud
 
-* __________________
-the Feel++ library
-__________________
-* ____________________
-the Feel++ Toolboxes
-____________________
-* ____________________
-the Feel++ Testsuite
-____________________
-* ________________________
-the Feel++ documentation
-________________________
-* __________________________________________
-the Feel++ Pilots eye2brain and hifimagnet
-__________________________________________
+*the Feel++ library
+*the Feel++ Toolboxes
+* the Feel++ Testsuite
+*the Feel++ documentation
+*the Feel++ Pilots eye2brain and hifimagnet
 
 [[continuous-integration]]
 ==== Continuous Integration
@@ -615,18 +562,10 @@ Singularity is not as mature with respect to hosting and deploying images. Curre
 
 We propose to develop a benchmarking system as follows
 
-* _______________________________________
-describe specification of the benchmark
-_______________________________________
-* ____________________________________________________
-categorize the benchmark study: scalability, physics
-____________________________________________________
-* __________________
-provide input data
-__________________
-* _________________
-store output data
-_________________
+*describe specification of the benchmark
+*categorize the benchmark study: scalability, physics
+*provide input data
+*store output data
 
 *Note*: Depending on the study we can keep large data set or not. e.g. for scalability study we store very little information except the partitioned meshes to ensure that we can reproduce the results.
 
@@ -686,9 +625,6 @@ Feel++ already supports paraview and catalyst for in-situ visualisation. Feel++ 
 
 We describe in this section the specifications strictly related to OPM and not part of the common specifications.
 
-[[section-2]]
-====  +
-
 [[conclusions]]
 = 11 Conclusions
 
@@ -697,34 +633,13 @@ In this report we have presented the MADFS selected by MSO4SC and defined the sp
 [[references]]
 = 12 References
 
-1.  ______________________________________________________________________________________________________________________________________________________
-MSO4SC D2.1 End Users’ Requirements Report, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.1/[_http://book.mso4sc.cemosis.fr/deliverables/d2.1/_]
-______________________________________________________________________________________________________________________________________________________
-2.  __________________________________________________________________________________________________________________________________________________________
-MSO4SC D2.2 MSO4SC e-infrastructure Definition, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.2/[_http://book.mso4sc.cemosis.fr/deliverables/d2.2/_]
-__________________________________________________________________________________________________________________________________________________________
-3.  ______________________________________________________________________________________________________________________________________________________________
-D5.1 Case study extended design and evaluation strategy - http://book.mso4sc.cemosis.fr/deliverables/d5.1/[_http://book.mso4sc.cemosis.fr/deliverables/d5.1/_]
-______________________________________________________________________________________________________________________________________________________________
-4.  ___________________________________________________________
-Docker : https://www.docker.com/[_https://www.docker.com/_]
-___________________________________________________________
-5.  ______________________________________________________________
-DockerHub: https://hub.docker.com/ and http://cloud.docker.com
-______________________________________________________________
-6.  _________________________________________
-Singularity : http://singularity.lbl.gov/
-_________________________________________
-7.  ____________________________________________
-SingularityHub: https://singularity-hub.org/
-____________________________________________
-8.  ____________________________
-Travis: http://travis-ci.org
-____________________________
-9.  _______________________________________________________
-Buildkite: http://buildkite.com[_http://buildkite.com_]
-_______________________________________________________
-10. _______________________________________________________________
-Cling: https://root.cern.ch/cling[_https://root.cern.ch/cling_]
-_______________________________________________________________
-11. 
+1. MSO4SC D2.1 End Users’ Requirements Report, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.1/[_http://book.mso4sc.cemosis.fr/deliverables/d2.1/_]
+2. MSO4SC D2.2 MSO4SC e-infrastructure Definition, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.2/[_http://book.mso4sc.cemosis.fr/deliverables/d2.2/_]
+3. D5.1 Case study extended design and evaluation strategy - http://book.mso4sc.cemosis.fr/deliverables/d5.1/[_http://book.mso4sc.cemosis.fr/deliverables/d5.1/_]
+4. Docker : https://www.docker.com/[_https://www.docker.com/_]
+5. DockerHub: https://hub.docker.com/ and http://cloud.docker.com
+6. Singularity : http://singularity.lbl.gov/
+7. SingularityHub: https://singularity-hub.org/
+8. Travis: http://travis-ci.org
+9. Buildkite: http://buildkite.com[_http://buildkite.com_]
+10. Cling: https://root.cern.ch/cling[_https://root.cern.ch/cling_]
