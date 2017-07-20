@@ -1,4 +1,4 @@
-= MSO4SC: D4.1 Detailed specifications for the MADF
+= MSO4SC: D4.1 Detailed specifications for the MADF (Draft v0.2)
 :page-root: ../../../
 :page-permalink: /deliverables/d4.1/
 :page-layout: manual
