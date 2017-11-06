@@ -25,8 +25,8 @@ gem 'rake-jekyll', '~> 1.1.0'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
-  gem 'asciidoctor-diagram', '~> 1.4.0' # (1)
-  gem 'asciidoctor-latex'
+#  gem 'asciidoctor-diagram', '~> 1.4.0' # (1)
+#  gem 'asciidoctor-latex'
 #  gem 'asciidoctor-bibtex'
   gem 'jekyll-asciidoc'
   gem 'jekyll-theme-primer', '~> 0.1.7'
