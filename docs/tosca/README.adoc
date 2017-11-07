@@ -89,7 +89,7 @@ TIP: Check the file _local-blueprint-inputs-example.yaml_ in the {uri-blueprint-
 In the `node_templates` section is where your application is actually defined, by stablishing _nodes_ and _relations_ between them.
 
 To begin with, every _node_ is identified by its name (`ft2_node` in the example below), and a type is assigned to it.
-In the case of {uri-mso4sc}[MSO4SC] each _node_ represents either a computation infrastructure (e.g a HPC), or a job. See {uri-cloudify-hpc-types}Cloudify HPC plugin types] for more information and examples.
+In the case of {uri-mso4sc}[MSO4SC] each _node_ represents either a computation infrastructure (e.g a HPC), or a job. See {uri-cloudify-hpc-types}[Cloudify HPC plugin types] for more information and examples.
 
 .HPC node example
 [source,yaml]
@@ -106,7 +106,7 @@ node_templates:
 
 The example above represents the Finis Terrae II HPC, of type `hpc.nodes.Compute`. All HPC infrastructures must be of this type. Then the HPC is configured using the inputs (using fuction `get_input`). Detailed information about how to configure the HPCs is in the {uri-cloudify-hpc-config}[Cloudify HPC plugin configuraton].
 
-The following code uses `ft2_node` to describe four jobs that should run in the Finis Terrae II. Two of them are of type `hpc.nodes.singularity_job` which means that the job will run using a {uri-singularity}[Singularity] container, while the other two of type `hpc.nodes.job` describe jobs that are going to run directly in the HPC using Slurm commands. Navigate to {uri-cloudify-hpc-types}Cloudify HPC plugin types] to know more about each parameter.
+The following code uses `ft2_node` to describe four jobs that should run in the Finis Terrae II. Two of them are of type `hpc.nodes.singularity_job` which means that the job will run using a {uri-singularity}[Singularity] container, while the other two of type `hpc.nodes.job` describe jobs that are going to run directly in the HPC using Slurm commands. Navigate to {uri-cloudify-hpc-types}[Cloudify HPC plugin types] to know more about each parameter.
 
 .Four jobs example
 [source,yaml]
