@@ -1,0 +1,11 @@
+= Others
+:page-root: ../../../
+:page-permalink: /madfs/others/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../images/]
+ifndef::madfsdir[:madfsdir: ../../madfsdir/]
+:toc: left
+include::../../includes/header.adoc[]
+
+WARNING: TODO

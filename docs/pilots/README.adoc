@@ -12,9 +12,7 @@ include::../includes/header.adoc[]
 //v6.0 2017/04/30
 
 
-image:media/image1.png[image,width=165,height=156]
-
-== List of Pilots
+image:{imagesdir}media/image1.png[image,width=165,height=156]
 
 === Fenics
 

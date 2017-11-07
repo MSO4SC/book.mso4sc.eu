@@ -1,5 +1,4 @@
-:feelpp: Feel++
-= MADFs: {feelpp}
+= {feelpp}
 :page-root: ../../../
 :page-permalink: /madfs/feelpp/
 :page-layout: default
@@ -9,8 +8,6 @@ ifndef::madfsdir[:madfsdir: ../../madfsdir/]
 :cpp: C++
 :toc: left
 include::../../includes/header.adoc[]
-
-== {feelpp}
 
 image:media/feelpp.jpg[float=right]
 {feelpp} is an open-source software gathering scientists, engineers, mathematicians, physicists, medical doctors, computer scientists around applications in academic and industrial projects. {feelpp} is the flag ship framework for interdisciplinary interaction at Cemosis, the agency for mathematics-entreprise and multidisciplinary research in modeling, simulation ad optimisation (MSO) in Strasbourg.

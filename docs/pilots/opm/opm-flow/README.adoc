@@ -37,7 +37,7 @@ The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud 
 [[test-case-1-the-norne-field-is-a-norwegian-sea-oil-field-for-which-the-operator-statoil-has-made-available-the-simulation-models-and-other-data-used-on-the-field.-while-not-very-large-in-terms-of-number-of-computational-cells-it-is-complex-in-terms-of-grid-structure-and-fluid-behaviour-features.-the-field-has-many-wells-that-connect-to-the-reservoir-that-must-be-accounted-for.-for-successful-evaluation-we-require-that-the-model-can-be-uploaded-and-run-with-no-further-user-intervention-that-the-results-can-be-accessed-afterwards-and-that-the-results-match-those-obtained-by-a-baseline-simulation.]]
 *Test case 1:* The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
 
-image:media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+image:{imagesdir}media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
 
 *Figure 11: Permeability distribution of Norne field.*
 

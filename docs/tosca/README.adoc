@@ -1,0 +1,366 @@
+= MSO4SC: TOSCA Modelling and execution
+:page-root: ../../../
+:page-permalink: /tosca/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../images/]
+:toc: left
+include::../includes/header.adoc[]
+// URIs
+:uri-tosca: http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.1/TOSCA-Simple-Profile-YAML-v1.1.html
+:uri-mso4sc: http://www.mso4sc.eu
+:uri-singularity: http://singularity.lbl.gov/
+:uri-cloudify-hpc: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc
+:uri-cloudify-hpc-config: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#hpc-plugin-configuration
+:uri-cloudify-hpc-types: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#types
+:uri-cloudify-hpc-relationships: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#relationships
+:uri-cloudify-functions: http://docs.getcloudify.org/4.1.0/blueprints/spec-intrinsic-functions/
+:uri-oasis: https://www.oasis-open.org/
+:uri-cli: https://github.com/MSO4SC/MSOOrchestrator-CLI
+:uri-cloudify-cli: http://docs.getcloudify.org/4.1.0/cli/overview/
+:uri-cli-installation: https://github.com/MSO4SC/MSOOrchestrator-CLI/blob/master/README.adoc
+:uri-blueprint-examples: https://github.com/MSO4SC/resources/tree/master/blueprint-examples
+:uri-cloudify-blueprint: http://docs.getcloudify.org/4.1.0/blueprints/overview/
+
+This section describes how to model a MADF or Pilot and then run the execution in the {uri-cli}[MSO4SC Orchestrator CLI].
+
+TIP: Working examples be found at {uri-blueprint-examples}[the resources repository].
+
+== Modelling
+
+NOTE: The aim of this section is not to document all the possibilities available using {uri-tosca}[TOSCA], nor the modelling capabilities of Cloudify, but the common modelling of a {uri-mso4sc}[MSO4SC] application in the MSOOrchestrator. To know more about TOSCA and Cloudify modelling, visit {uri-cloudify-blueprint}.
+
+An application is modelled using a {uri-tosca}[TOSCA] blueprint, an {uri-oasis}[OASIS] standard language to describe a topology of cloud based web services, their components, relationships, and the processes that manage them, written in yaml.
+
+A blueprint is typically composed by a _header_, an _inputs_ section, a _node_templates_ section, and an outputs section. Optinally can have a _node_types_ section. 
+
+=== Header
+
+The header include the TOSCA version used and other {uri-tosca}[TOSCA] imports. In {uri-mso4sc}[MSO4SC] the Cloudify 1.1.3 tosca version, built-in types and the cloudify-hcp-plugin are mandatory:
+
+[source,yaml]
+----
+tosca_definitions_version: cloudify_dsl_1_3
+
+imports:
+    # Cloudify built-in types.
+    - http://www.getcloudify.org/spec/cloudify/4.1/types.yaml
+    # HPC pluging
+    - http://raw.githubusercontent.com/MSO4SC/cloudify-hpc-plugin/master/plugin.yaml
+----
+
+Other TOSCA files can also be imported in the `inports` list to compose a blueprint made of more than one file. See <<node-types>> for more info.
+
+=== Inputs
+
+In this section is where all the inputs that the blueprint need to know to execute properly are defined. These then can be passed as an argument list in the CLI, or prefereably by an inputs file. An input can define a default value. (See the {uri-cli}[CLI docs] and the file _local-blueprint-inputs-example.yaml_ in the {uri-blueprint-examples}[blueprint examples]).
+
+[source,yaml]
+----
+inputs:
+    # Monitor
+    monitor_entrypoint:
+        description: Monitor entrypoint IP
+        default: "127.0.0.1"
+        type: string
+
+    # Job prefix name
+    job_prefix:
+        description: Job name prefix in HPCs
+        default: "mso4sc"
+        type: string
+
+    # CESGA FTII parameters
+    ft2_config:
+        description: FTII connection credentials
+        default: {}
+----
+
+In the example above, three inputs are defined:
+
+* `monitor_entrypoint` as the Monitor IP, localhost by default.
+* `job_prefix` as the prefix that will be used to prepend to the job names in the HPC. _mso4sc_ by default.
+* `ft2_config` as a Finis Terrae II configuration. See the {uri-cloudify-hpc-config}[Cloudify HPC plugin configuraton] and for more information.
+
+TIP: Check the file _local-blueprint-inputs-example.yaml_ in the {uri-blueprint-examples}[blueprint examples] as an input file example.
+
+=== Node Templates
+
+In the `node_templates` section is where your application is actually defined, by stablishing _nodes_ and _relations_ between them.
+
+To begin with, every _node_ is identified by its name (`ft2_node` in the example below), and a type is assigned to it.
+In the case of {uri-mso4sc}[MSO4SC] each _node_ represents either a computation infrastructure (e.g a HPC), or a job. See {uri-cloudify-hpc-types}Cloudify HPC plugin types] for more information and examples.
+
+.HPC node example
+[source,yaml]
+----
+node_templates:
+    ft2_node:
+        type: hpc.nodes.Compute
+        properties:
+            config: { get_input: ft2_config }
+            monitor_entrypoint: { get_input: monitor_entrypoint }
+            monitor_orchestrator_available: True
+            job_prefix: { get_input: job_prefix }
+----
+
+The example above represents the Finis Terrae II HPC, of type `hpc.nodes.Compute`. All HPC infrastructures must be of this type. Then the HPC is configured using the inputs (using fuction `get_input`). Detailed information about how to configure the HPCs is in the {uri-cloudify-hpc-config}[Cloudify HPC plugin configuraton].
+
+The following code uses `ft2_node` to describe four jobs that should run in the Finis Terrae II. Two of them are of type `hpc.nodes.singularity_job` which means that the job will run using a {uri-singularity}[Singularity] container, while the other two of type `hpc.nodes.job` describe jobs that are going to run directly in the HPC using Slurm commands. Navigate to {uri-cloudify-hpc-types}Cloudify HPC plugin types] to know more about each parameter.
+
+.Four jobs example
+[source,yaml]
+----
+    first_job:
+        type: hpc.nodes.singularity_job
+        properties:
+            job_options:
+                modules:
+                    - gcc/5.3.0
+                    - openmpi/1.10.2
+                    - singularity/2.3.1
+                partition: 'thin-shared'
+                image: '$LUSTRE/openmpi_1.10.7_ring.img'
+                volumes:
+                    - '/scratch'
+                command: 'ring > fourth_example_1.test'
+                nodes: 1
+                tasks: 1
+                tasks_per_node: 1
+                max_time: '00:01'
+            deployment:
+                bootstrap: 'scripts/singularity_bootstrap_example.sh'
+                revert: 'scripts/singularity_revert_example.sh'
+                inputs:
+                    - 'first_job'
+        relationships:
+            - type: job_contained_in_hpc
+              target: ft2_node
+
+    second_parallel_job:
+        type: hpc.nodes.job
+        properties:
+            job_options: 
+                type: 'SRUN'
+                modules:
+                    - gcc/5.3.0
+                partition: 'thin-shared'
+                command: 'touch fourth_example_2.test'
+                nodes: 1
+                tasks: 1
+                tasks_per_node: 1
+                max_time: '00:01'
+            deployment:
+                bootstrap: 'scripts/bootstrap_example.sh'
+                revert: 'scripts/revert_example.sh'
+                inputs:
+                    - 'second_job'
+        relationships:
+            - type: job_contained_in_hpc
+              target: ft2_node
+            - type: job_depends_on
+              target: first_job
+    
+    third_parallel_job:
+        type: hpc.nodes.singularity_job
+        properties:
+            job_options:
+                modules:
+                    - gcc/5.3.0
+                    - openmpi/1.10.2
+                    - singularity/2.3.1
+                partition: 'thin-shared'
+                image: '$LUSTRE/openmpi_1.10.7_ring.img'
+                volumes:
+                    - '/scratch'
+                command: 'ring > fourth_example_3.test'
+                nodes: 1
+                tasks: 1
+                tasks_per_node: 1
+                max_time: '00:01'
+            deployment:
+                bootstrap: 'scripts/singularity_bootstrap_example.sh'
+                revert: 'scripts/singularity_revert_example.sh'
+                inputs:
+                    - 'third_job'
+        relationships:
+            - type: job_contained_in_hpc
+              target: ft2_node
+            - type: job_depends_on
+              target: first_job
+
+    fourth_job:
+        type: hpc.nodes.job
+        properties:
+            job_options:
+                type: 'SBATCH'
+                command: "touch.script fourth_example_4.test"
+            deployment:
+                bootstrap: 'scripts/bootstrap_sbatch_example.sh'
+                revert: 'scripts/revert_sbatch_example.sh'
+                inputs:
+                    - 'fourth_job'
+        relationships:
+            - type: job_contained_in_hpc
+              target: ft2_node
+            - type: job_depends_on
+              target: second_parallel_job
+            - type: job_depends_on
+              target: third_parallel_job
+----
+
+Finally, jobs have two types of relationships: __job_contained_in_hpc__, to stablish in which HPC the job is going to run, and __job_depend_on__, to describe the dependency between jobs. In the example above, `fourth_job` depends on `three_parallel_job` and `second_parallel_job`, so it will not execute until the other two have finished. In the same way, `three_parallel_job` and `second_parallel_job` depends on `first_job`, so they will run in parallel once the first job is finished. All jobs are contained in `ft2_node`, so they will run on the Finis Terrae II using the credentials provided. See {uri-cloudify-hpc-relationships}[Cloudify HPC plugin relationships] for more information.
+
+=== Outputs
+
+The last section, `outputs`, helps to publish different attributes of each _node_ that can be retrieved after the install workflow of the blueprint has finished (See <<Execution>>). In the MSO4SC case the attributes are not being used right now, and only the name of each job can be publish. However this can change in the future.
+
+Each output has a name, a description, and value.
+
+[source,yaml]
+----
+outputs:
+    first_job_name:
+        description: first job name
+        value: { get_attribute: [first_job, job_name] }
+    second_job_name:
+        description: second job name
+        value: { get_attribute: [second_parallel_job, job_name] }
+    third_job_name:
+        description: third job name
+        value: { get_attribute: [third_parallel_job, job_name] }
+    fourth_job_name:
+        description: fourth job name
+        value: { get_attribute: [fourth_job, job_name] }
+---- 
+
+[[node-types]]
+=== Advanced: Node Types
+
+Similarly to how `node_templates` are defined, new node types can be defined to be used as types. Usually these types are going to be defined in a separate file and imported in the blueprint through the `import` keyword in the <<Header>> section, although they can be in the same file. In {uri-mso4sc}[MSO4SC] MADFs are going to be described in this way.
+
+.MADF example
+[source,yaml]
+----
+node_types:
+    hpc.nodes.fenics_iter:
+        derived_from: hpc.nodes.job
+        properties:
+            iter_number:
+                description: Iteration index (two digits string)
+            job_options:
+                default:
+                    type: 'SBATCH'
+                    modules:
+                        - 'gcc/5.3.0'
+                        - 'impi'
+                        - 'petsc'
+                        - 'parmetis'
+                        - 'zlib'
+                    command: { concat: ['/mnt/lustre/scratch/home/otras/ari/jci/wing_minimal/fenics-hpc_hpfem/unicorn-minimal/nautilus/fenics_iter.script ', ' ', { get_property: [SELF, iter_number] }] }
+    
+    hpc.nodes.fenics_post:
+        derived_from: hpc.nodes.job
+        properties:
+            iter_number:
+                description: Iteration index (two digits string)
+            file:
+                description: Input file for dolfin-post postprocessing
+            job_options:
+                default:
+                    type: 'SBATCH'
+                    modules:
+                        - 'gcc/5.3.0'
+                        - 'impi'
+                        - 'petsc'
+                        - 'parmetis'
+                        - 'zlib'
+                    command: { concat: ['/mnt/lustre/scratch/home/otras/ari/jci/wing_minimal/fenics-hpc_hpfem/unicorn-minimal/nautilus/post.script ', { get_property: [SELF, iter_number] }, ' ', { get_property: [SELF, file] }] }
+----
+
+Above there is dummy example of two new types of a MADF, derived from `hpc.nodes.job`.
+
+The first type, `hpc.nodes.fenics_iter`, simulates an iteration of the FEniCS MADF. A new property has been defined, `iter_number`, with a description and no default value (so it is mandatory). Besides the `job_options` property default value has been overriden with a concrete list of modules, job type, and a command.
+
+The second type, `hpc.nodes.fenics_post`, described a simulated postprocessing operation of FEniCS, defining again the `iter_number` property and another one `file`. Finally the job options default value has been overriden with a list of modules, a SBATCH type, and a command.
+
+NOTE: The commands are built using the functions `concat` and `get_property`. This allows the orchestrator to compose the command based on other properties. See the {uri-cloudify-functions}[intrinsic functions] available for more information.
+
+== Execution
+
+Execution of an application is performed through the {uri-cli}[MSOOrchestrator-CLI] in your local machine or a host of your own.
+
+=== Requirements
+
+* MSOOrchestrator CLI with connection to the MSOOrchestrator. See {uri-cli-installation}[the docs] to prepare the CLI in your local machine or remote host.
+* TOSCA Blueprint. See <<Modelling>> to create your blueprint.
+
+=== Services Information
+
+* Finis Terrae II
+** Host: ft2.cesga.es
+** Country TimeZone: Europe/Madrid
+** Workload Manager: SLURM
+* SZE Cluster
+** Host: mso.tilb.sze.hu
+** Country TimeZone: Europe/Budapest
+** Workload Manager: SLURM
+* MSOOrchestrator: 10.38.3.74
+* MSOMonitor
+** Host: 10.38.3.1
+** Port: 9090
+** Type: PROMETHEUS
+** Orchestrator Port: 8079
+
+=== Steps
+
+. *Upload the blueprint*
++
+Before doing anything, the blueprint we want to execute needs to be uploaded in the orchestrator with an assigned name.
++
+`cfy blueprints upload -b [BLUEPRINT-NAME] [BLUEPRINT-FILE].yaml`
+
+. *Create a deployment*
++
+Once we have a blueprint installed, we create a _deployment_, which is a blueprint with an input file attached. This is usefull to have the same blueprint that represents the application, with different configurations (_deployments_). A name has to be assigned to it as well.
++
+`cfy deployments create -b [BLUEPRINT-NAME] -i [INPUTS-FILE].yaml --skip-plugins-validation [DEPLOYMENT-NAME]`
++
+NOTE: `--skip-plugins-validation` is mandatory as we want that the orchestrator download the plugin from a source location (GitHub in our case). This is for testing purposes, and will be removed in future releases of MSO4SC.
+
+. *Install a deployment*
++
+Install workflow puts everything in place to run the application. Usual tasks in this workflow are data movements, binary downloads, HPC configuration, etc.
++
+`cfy executions start -d [DEPLOYMENT-NAME] install`
+
+. *Run the application*
++
+Finally to start the execution we run the `run_jobs` workflow to start sending jobs to the different infrastructures. The execution can be followed in the output.
++
+`cfy executions start -d [DEPLOYMENT-NAME] run_jobs`
++
+NOTE: The CLI has a timeout of 900 seconds, which normally is not enough time for an application to finish. However, if the CLI timeout, the execution will still be running on the MSOOrchestrator. To follow the execution just follow the instructions in the output.
+
+==== Revert previous Steps
+
+If an error occur in some of the steps above, or you simply want to uninstall the application, recreate the deployment with new inputs, or remove the blueprint (and possibly upload an updated one), follow the following steps.
+
+. *Uninstall a deployment*
++
+On the contraty of the _install_ workflow, in this case the orchestrator is tipically goint to perform the revert operation of _install_, by deleting execution files or moving data to an external location.
++
+`cfy executions start -d [DEPLOYMENT-NAME] uninstall -p ignore_failure=true`
++
+NOTE: The `ignore_failure` parameter is optional, to perform the _uninstall_ even if an error occurs.
+
+. *Remove a deployment*
++
+`cfy deployments delete [DEPLOYMENT-NAME]`
+
+. *Remove a blueprint*
++
+`cfy blueprints delete [BLUEPRINT-NAME]`
+
+
+TIP: A complete list of CLI commands can be found at {uri-cloudify-cli}
