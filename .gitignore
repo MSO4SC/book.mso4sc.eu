@@ -1,5 +1,6 @@
 auto/
 /vendor
+/.bundle
 /book.html
 /book.pdf
 /index.html
