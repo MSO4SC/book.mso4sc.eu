@@ -1,4 +1,5 @@
 auto/
+/vendor
 /book.html
 /book.pdf
 /index.html
