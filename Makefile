@@ -11,7 +11,7 @@ HELP="Usage: make <option> \n\
 all: help
 
 install:
-	bundle install --path vendor/bundle
+	bundle install --path .bundle/gems
 
 build:
 	#asciidoctor -a reproducible -S unsafe -a allow-uri-read README.adoc
@@ -22,7 +22,7 @@ serve:
 
 clean:
 	rm -rf Gemfile.lock
-	rm -rf ./vendor
+	rm -rf .bundle/gems
 
 help:
 	@printf ${HELP}
