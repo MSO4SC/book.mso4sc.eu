@@ -146,10 +146,7 @@ This deliverable includes Acronyms of terms used within the document collected i
 |*MSO* |Mathematical Modelling, Simulation and Optimization
 |*T* |Task
 |*TRL* |Technology Readiness Level
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
 |==========================================================
 
@@ -190,84 +187,42 @@ For the internal requirements definition, the consortium will re-use requirement
 
 [cols=",,,",options="header",]
 |====================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-____
-_ID_
-____
+ a|_ID_
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |_Name for the requirement_
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-_______________
-Low/Medium/High
-_______________
+ a|Low/Medium/High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |_Functional/Non-functional_
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |_Definition of the requirement. Describe what it is about._
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |_Reason to include the requirement. Justify why the requirement should be taken into account._
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |_Actors involved in the requirement, taking into account stakeholders related to it._
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |_List of pilots or entities which proposed or are related to the requirement and that can validate the requirement._
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |_Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done)._
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |_Which WPs we expect to work on this requirement_
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |_Include some mapping with the parts of the high level architecture which are affected by this requirement_
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |_List here those requirements related to this one_
 |====================================================================================================================================================
@@ -317,79 +272,40 @@ In this section, we describe the requirements as the result of the gathering met
 
 [cols=",,,",]
 |===================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-1
-_______
+ a|Cloud-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Application support
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- | a|
-___________
-*Req. Type*
-___________
+ | a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The infrastructure should provide support to other MADFs and applications not described in the project
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |For the sustainability of the project the infrastructure should have the availability to provide support to other user communities
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |(Please include other potential communities with different software requirements)
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |???
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |===================================================================================================================================
@@ -398,84 +314,42 @@ _______________
 
 [cols=",,,",]
 |======================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-2
-_______
+ a|Cloud-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Infrastructures support
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The software developed to manage and orchestrate the infrastructure should be portable and capable to manage other infrastructures, not only the ones and the beginning of the project (CESGA & ATOS)
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Some use cases are very restricted in terms of data confidentiality, so some parts of the software have to run in local clusters of the users. This should be supported
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF use case
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SINTEF
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot applications SINTEF
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |======================================================================================================================================================================================================
@@ -484,84 +358,42 @@ _______________
 
 [cols=",,,",]
 |=========================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-3
-_______
+ a|Cloud-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Data management
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |This functionality is need to provide the data for the simulations and the output results in the different places where the simulations might take place
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |3DAirqualityprediction use case
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SZE
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |3DAirqualityprediction use case
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |=========================================================================================================================================================
@@ -570,84 +402,42 @@ _______________
 
 [cols=",,,",]
 |==============================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-4
-_______
+ a|Cloud-4
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Licenses and software restrictions
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The software developed to manage and orchestrate the infrastructure should support proprietary software and the restrictions that it might impose.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Some use cases make use of proprietary software. This software is not installed in all the clusters because of license restrictions so the orchestration must take this in account when deploying and running the simulations
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |3DAirqualityprediction use case
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SZE
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |3DAirqualityprediction use case
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |==============================================================================================================================================================================================================================
@@ -656,84 +446,42 @@ _______________
 
 [cols=",,,",]
 |======================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-5
-_______
+ a|Cloud-5
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |MPI
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The software developed to manage and orchestrate the infrastructure should support the execution of MPI applications.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Many use cases make use MPI to run HPC-parallel applications to reduce the execution time.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIBAffinity users, ZIB
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |ZIB
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot applications ZIBAffinity and others
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |======================================================================================================================
@@ -742,84 +490,42 @@ _______________
 
 [cols=",,,",]
 |==========================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-6
-_______
+ a|Cloud-6
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Visualization
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The infrastructure should support remote visualization capabilities.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Many use cases require visualization software in different parts of the simulation: pre-processing and post-processing, mainly. The infrastructure should support an integrated use of this software as part of the services to the users
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIBAffinity users, ZIB
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |ZIB
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |ZIBAffinity users
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |==========================================================================================================================================================================================================================================
@@ -828,84 +534,42 @@ _______________
 
 [cols=",,,",]
 |==================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-Cloud-7
-_______
+ a|Cloud-7
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Simulation monitoring
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The users request a way to know of the simulation is progressing and even to know some of the intermediate results as they are being obtained during the execution and before the final results
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |In some simulations it is very useful to know how the simulation is progressing to determine if there has been a mistake in the initial parameters or they should be changed, before finishing the simulations. This will optimize the use of resources because in some cases the simulation won´t have to finish
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |BCAM use case and other use cases
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |BCAM
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |Nautilus simulation
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |==================================================================================================================================================================================================================================================================================================================
@@ -917,84 +581,42 @@ _______________
 
 [cols=",,,",]
 |=============================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-UNISTRA-1
-_________
+ a|UNISTRA-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Feel++ is a mathematical framework to solve PDE used for multiphysics modeling
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop the simulation framework required by the pilot testcases eye2brain and hifimagnet
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |Feel++ developers and users - UNISTRA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |MADF Feel++ and pilots Eye2brain & Hifimagnet
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot applications Eye2brain and Hifimagnet
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |UNISTRA-1, UNISTRA-2
 |=============================================================================================
@@ -1003,84 +625,42 @@ _______________
 
 [cols=",,,",options="header",]
 |===========================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-KTH-1
-_____
+ a|KTH-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |FEniCS-HPC installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Installation and optimization of FEniCS-HPC.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop a 3D flow solver based on FEniCS-HPC for the pilot case 3DAirQualityPrediction.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |FEniCS users.- BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |MADF FEniCS and pilot 3DAirQualityPrediction.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot 3DAirQualityPrediction.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |===========================================================================================
@@ -1089,84 +669,42 @@ _______________
 
 [cols=",,,",options="header",]
 |====================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-________
-SINTEF-0
-________
+ a|SINTEF-0
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Installation and optimization of OPM.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The OPM software includes the components required to run the pilot case OPM Flow, which must be compiled and installed on the target architectures.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |MADF OPM and pilot OPM Flow.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot OPM Flow.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |====================================================================================================================================================
@@ -1180,84 +718,42 @@ _______________
 
 [cols=",,,",]
 |==================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-UNISTRA-2
-_________
+ a|UNISTRA-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ HIFIMAGNET
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |HIFIMAGNET pilot application for high field magnet modelling and simulation.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop the simulation framework required by this pilot testcase
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |Feel++ developers and users – UNISTRA - LNCMI - EMFL
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |LNCMI - EMFL
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot application HIFIMAGNET will be used as a benchmark for this requirement
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |UNISTRA-1
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |UNISTRA-1 UNISTRA-2
 |==================================================================================
@@ -1266,84 +762,42 @@ _______________
 
 [cols=",,,",]
 |============================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-UNISTRA-3
-_________
+ a|UNISTRA-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ EYE2BRAIN
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |EYE2BRAIN pilot application for modelling and simulation of flows in the eye and the brain.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop the simulation framework required by the pilot testcase
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |Feel++ developers and users – UNISTRA – GLICK INSTITUTE
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |UNISTRA – GLICK INSTITUTE
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot application EYE2BRAIN will be used as a benchmark for this requirement
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |UNISTRA-1
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |UNISTRA-1, UNISTRA-2
 |============================================================================================
@@ -1352,84 +806,42 @@ _______________
 
 [cols=",,,",options="header",]
 |=============================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-________
-SINTEF-1
-________
+ a|SINTEF-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow must run on CESGA
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow is a reservoir simulator which is part of the OPM software suite. OPM Flow must run on the CESGA HPC infrastructure
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |OPM Flow is one of the pilot scenarios described under task 3 of work package 5.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |The OPM Flow pilot scenario is described as part of task 3 in work package 5.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the OPM Flow application will be used as benchmark for this scenario.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |Work package 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |SINTEF-2, SINTEF-3
 |=============================================================================================================================
@@ -1438,84 +850,42 @@ _______________
 
 [cols=",,,",options="header",]
 |=========================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-________
-SINTEF-2
-________
+ a|SINTEF-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Ensemble run of OPM Flow
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional / Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow is a reservoir simulator which is part of the OPM software suite. OPM Flow must run ensembles of simulations on the CESGA HPC infrastructure.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Ensemble runs of OPM Flow is a natural part one of the pilot scenarios described under task 3 of work package 5.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |The OPM Flow pilot scenario is described as part of task 3 in work package 5.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the OPM Flow application will be used as benchmark for this scenario. It will be natural to assume that the CPU time spent is close to a linear function of the number of ensemble members.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |Work package 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |SINTEF-1
 |=========================================================================================================================================================================================================
@@ -1524,84 +894,42 @@ _______________
 
 [cols=",,,",options="header",]
 |===============================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-________
-SINTEF-3
-________
+ a|SINTEF-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Parallel OPM Flow
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional / Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow is a reservoir simulator which is part of the OPM software suite. OPM Flow must run parallel MPI simulations efficiently on the CESGA HPC infrastructure.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |OPM Flow is one of the pilot scenarios described under task 3 of work package 5.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |The OPM Flow pilot scenario is described as part of task 3 in work package 5.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the OPM Flow application will be used as benchmark for this scenario. It will be natural to assume that the OPM Flow application will scale well for a limited number of nodes (e.g, up-to 8 parallel processes).
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |Work package 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |SINTEF-1
 |===============================================================================================================================================================================================================================
@@ -1610,48 +938,24 @@ _______________
 
 [cols=",,,",]
 |===================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-______
-BCAM-1
-______
+ a|BCAM-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Floating Wind Turbine pilot
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |We are simulating the Nautilus platform behaviour offshore using FeniCS-HPC. The Nautilus platform is a floating platform supporting a wind turbine for off-shore marine energy production. The goal is to evaluate the stability of the platform.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  a|
 The meshes that we are using for the Nautilus simulations have the following properties:
@@ -1662,40 +966,22 @@ The meshes that we are using for the Nautilus simulations have the following pro
 
 The computational resources allocated at CESGA for FEniCS-HPC shall support those numbers.
 
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |FEniCS users.- BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |Nautilus platform pilot case for marine energy environment (WP5)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the Nautilus platform simulation will be used as benchmark for this requirement
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |===================================================================================================================================================================================================================================================
@@ -1704,84 +990,42 @@ _______________
 
 [cols=",,,",]
 |==============================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-______
-BCAM-2
-______
+ a|BCAM-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Postprocessing and visualization of simulation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Postpossessing facilities and visualization (e.g. Paravieweb) to check the results of the simulation once it is finished.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The analysis of the simulation progress is needed in order to check if the simulation is going in the right direction, and to give quick preliminary results. In this sense, remote checking through website will save efforts and resources.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |FEniCS users.- BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |Nautilus platform pilot case for marine energy environment (WP5)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the Nautilus platform simulation will be used as benchmark for this requirement
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |==============================================================================================================================================================================================================================================
@@ -1790,48 +1034,24 @@ _______________
 
 [cols=",,,",]
 |===========================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-ZIB-1
-_____
+ a|ZIB-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |ZIBAffinity development and installation
-a|
-_________
-*Prioity*
-_________
+a|*Prioity*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional/Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Given a (novel) chemical compound, ZIBAffinity is designed to provide life scientists from various fields (medicine, toxicology, etc.) with an estimate of its binding affinity to target molecules selected from a connected database of critical biological targets on the basis of atomistic force field simulations. The major purpose of the software is a risk assessment of anthropogenic substances and novel transformation products detected in the environment.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  a|
 Thermodynamic quantities derived from atomistic molecular dynamics simulations are computationally demanding, highly parallelizable, and demanding in terms of installation, application, and bookkeeping. Life scientists from various fields would benefit from an automated pipeline with a user-friendly interface and access to HPC.
@@ -1840,40 +1060,22 @@ According to the current implementation state, the calculation of each ligand-ta
 
 Using 61 computing nodes consisting of 24 cores each, the molecular dynamics-based computation of the binding free energy of one protein-ligand complex takes about 0.75 to 1.5 hours depending on both the simulation box size and CPU performance. These requirements are easily met by CESGA. In combination with the planned e-infrastructure, we are convinced to find a user-friendly solution for our task.
 
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIBAffinity users, ZIB
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |The implementation of the entire procedure will be validated using a set of ligand molecules in complex with the human estrogen receptor alpha for which experimentally determined binding affinities are known.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The results are mainly validated on the basis of predicted binding modes and binding affinities that will be compared to those determined through X-ray crystallographic structures and IC50 values from binding assays, respectively.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |NA
 |===========================================================================================================================================================================================================================================================================================================================================================================================================================================================================
@@ -1882,84 +1084,42 @@ _______________
 
 [cols=",,,",options="header",]
 |======================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-SZE-1
-_____
+ a|SZE-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction with statistical data
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional/Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Installation and optimization of 3DAirQualityPrediction with data resulting from statistical databases for traffic, emissions and meteorology; the dispersion is simulated via 3DAirQualityPrediction-CFD.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop a 3DAirQualityPrediction scenario with simulation the dispersion only and run what-if scenarios according to environmental requirements corresponding to statistical data. The time for the analysis should meet the regulatory standards.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SZE, KTH, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |3DAirQualityPrediction.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot-1 scenario for 3DAirQualityPrediction. The scenario consists of data from European and regional data bases corresponding to city of Gyor, see http://math.sze.hu/en_GB/air-project.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |KTH1
 |======================================================================================================================================================================================================================================================
@@ -1968,84 +1128,42 @@ _______________
 
 [cols=",,,",options="header",]
 |======================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-SZE-2
-_____
+ a|SZE-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction with full simulation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional/Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Installation and optimization of 3DAirQualityPrediction with simulation in all components. The dispersion is simulated via 3DAirQualityPrediction-CFD.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |We develop a 3DAirQualityPrediction scenario with simulation the dispersion only and run what-if scenarios according to environmental requirements corresponding to statistical data.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SZE, KTH, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |3DAirQualityPrediction.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot-2 scenario for 3DAirQualityPrediction. The validation measurements correspond to observations for the city of Gyor, see http://math.sze.hu/en_GB/air-project.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |KTH1
 |======================================================================================================================================================================================
