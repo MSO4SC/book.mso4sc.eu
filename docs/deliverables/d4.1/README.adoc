@@ -225,10 +225,7 @@ Finally, in sections link:#_1y810tw[5], 6 and 7 we describe the MSO4SC specifica
 |*OPM* |Open Porous Media
 |*RANS* |Reynolds Averaged Navier-Stokes equations
 |*TRL* |Technology Readiness Level
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
 |=====================================================
 
