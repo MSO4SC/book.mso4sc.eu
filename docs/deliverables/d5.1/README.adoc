@@ -128,10 +128,7 @@ In D2.1 the pilots were divided into four groups: three groups of pilots based o
 |*NASA* |National Aeronautics and Space Administration
 |*RANS* |Reynolds Averaged Navier-Stokes equations
 |*TRL* |Technology Readiness Level
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
 |=====================================================
 
