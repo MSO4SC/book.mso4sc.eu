@@ -79,9 +79,10 @@ link:#_Toc497235093[Table 5 – Test Case Template 29]
 
 The Project will deliver an e-infrastructure with services of mathematical development frameworks and their particular end-user applications. All services will be at technology readiness level of 8, which is very demanding requirement. This document is defining the overall process of quality assurance and the associated documentation structure, which has the aim of underpinning the TRL8 of the MSO4SC system. This document will provide the outline of the protocols of qualification procedures of the MSO4SC services. This document will also provide methodology of independent testing of functions (i.e. tests performed by external stakeholders) for pilots that will guarantee audit of MSO4SC. Notice that as planned in the Grant Agreement the protocols will be detailed and applied in further tasks of WP6 in the Project.
 
-1.  [[introduction]]
+[[introduction]]
 = Introduction
-1.  [[purpose]]
+
+[[purpose]]
 === Purpose
 
 The purpose of this document is to give an overview of the quality assurance method of the Project. The quality assurance method explains the overall protocol of the qualification and how compliance to the protocol ensures a system which meets the quality and Technology Readiness Level 8 requirements. Does not provide precise reference to verification and validation of the underlying services, and the end-user audits or user acceptance tests of them, which will be explained in the following documentations, as described in D1.1 Project Management Plan:
@@ -198,7 +199,8 @@ The SQAP has the following structure:
 5.  Quality assurance process according to IEEE 730:2014 with references to criteria of TRL8,
 6.  Documentation requirements,
 7.  Tools of quality management.
-1.  [[basic-terms]]
+
+[[basic-terms]]
 == Basic terms
 
 In this section of the SQAP a summary of the following terms will be given in order show their usage throughout this documentation:
@@ -206,7 +208,8 @@ In this section of the SQAP a summary of the following terms will be given in or
 * Software Development Life Cycle (SDLC)
 
 * Technology Readiness Level (TRL)
-1.  [[sdlc-and-qualification-summary]]
+
+[[sdlc-and-qualification-summary]]
 === SDLC and qualification summary
 
 Since MSO4SC is a project of development and integration type of nature, from the qualification point of view it is important to define the Software Development Life Cycle. This consists of the following stages:
@@ -232,7 +235,8 @@ Quality assurance covers all the above mentioned steps. In the following section
 * Stage 1-3: Planning and design phase,
 * Stage 4: Implementation phase,
 * Stage 5-6: Testing and audit phase
-1.  [[technology-readiness-level-trl]]
+
+[[technology-readiness-level-trl]]
 === Technology Readiness Level (TRL)
 
 There are no clear guidelines how TRL can be applied in software development and cloud service development frameworks. The proposed documentation will be necessary to underpin each TRL at the Technology Readiness Assessment Reviews. The documents required for assessment are broader than quality testing, since the development of the functionality is also required. (See Figure 1 in Section 1.)
@@ -305,7 +309,8 @@ ATOS and SZE as parts of the project integration task monitor the overall softwa
 * Primary End User Representative (PER): the primary point of contact and principal approver on behalf of the end user community. The PER is responsible for ensuring that end user reviews are conducted on time and by appropriate subject matter experts. (Every CTE developer has to appoint a PER, and assign a project plan to it.)
 * Primary Developer Representative (PDR): The PDR acts as the primary point of contact and principal approver on behalf of the Service Providers. The PDR is responsible for the conduct of technical reviews in a timely manner and by appropriate development team members.
 * Quality Assurance Reviewer (QAR): The QAR acts as the independent quality assurance reviewer for the project. The QAR will work independently from the Service Provider’s team to ensure objective audits and reviews of the work products and processes of this software development and integration project. Quality Assurance Review shall perform the tasks of independent functionality testing.
-1.  [[quality-assurance-estimated-resources]]
+
+[[quality-assurance-estimated-resources]]
 === Quality assurance estimated resources
 
 The Quality Assurance process shall run through the Project and requires the above mentioned team members.
@@ -361,7 +366,8 @@ The following sections describe each of the quality attributes in more detail, a
 * Supportability
 * Testability
 * User Experience / Usability
-1.  [[availability]]
+
+[[availability]]
 === Availability
 
 Availability defines the proportion of time that the system is functional and working. It can be measured as a percentage of the total system downtime over a predefined period. Applies to all CTE. Metrics to be used is: MTBF/(MTBF+MTTR). Will be assessed by PDR, and results reviewed by QAR.
@@ -437,7 +443,8 @@ Testability is a measure of how well system or components allow you to create te
 
 * Efficiency: average tests per unit of man-day.
 * Effectiveness: average probability of killing a bug per unit of man-day.
-1.  [[user-experience-usability]]
+
+[[user-experience-usability]]
 === User Experience / Usability
 
 The application interfaces must be designed with the user and consumer in mind so that they are intuitive to use, can be localized and globalized, provide access for disabled users, and provide a good overall user experience. It applies to end user applications, and MSO4SC. Effectiveness (number of tasks completed successfully/number of tasks undertaken), efficiency (time needed for a specific task) and satisfaction will be measured. Satisfaction will be measured by reporting initial users.
@@ -459,9 +466,10 @@ The Quality Assurance Method described in this document has the following steps:
 
 Ensuring the TRL 8 level will be done by conducting proper architecture, software, and documentation reviews.
 
-1.  [[planning-and-design-phase]]
+[[planning-and-design-phase]]
 === Planning and Design Phase
-1.  [[quality-assurance-in-the-planning-and-design-phase]]
+
+[[quality-assurance-in-the-planning-and-design-phase]]
 === Quality Assurance in the Planning and Design Phase
 
 The QAR shall conduct software quality assurance activities throughout the software life cycle in accordance with the following requirements:
@@ -513,9 +521,10 @@ During the software architectural design phase and during audits, the following 
 
 This task is done by QAR, and findings are summarized in audit reports.
 
-1.  [[implementation-phase]]
+[[implementation-phase]]
 === Implementation Phase
-1.  [[quality-assurance-in-the-implementation-phase]]
+
+[[quality-assurance-in-the-implementation-phase]]
 === Quality Assurance in the Implementation Phase
 
 During the MSO4SC systems implementation phase, the software quality assurance activity shall audit:
@@ -533,9 +542,10 @@ This task is done by providers’ team, reviewed by QAR. Deliverables D3.4, D4.4
 
 The QAR will examine of the MSO4SC services and the integration procedure in the form of code walkthrough.
 
-1.  [[software-integration-and-test-phase]]
+[[software-integration-and-test-phase]]
 === Software Integration and Test Phase
-1.  [[quality-assurance-in-the-integration-and-test-phase]]
+
+[[quality-assurance-in-the-integration-and-test-phase]]
 === Quality Assurance in the Integration and Test Phase
 
 During the *MSO4SC systems integration and test phase*, the software quality assurance activity shall:
@@ -627,9 +637,10 @@ Each Service Provider shall provide a User Documentation (UD). User documentatio
 
 This document contains all essential information about the software. All corrective actions to correct the errors causing the error messages shall be described. The documentation shall be applicable to any portion of the software with which the user interacts directly. (see IEEE 26511:2012, user documentation shall follow the guidelines and recommendations stated in the standard).
 
-1.  [[tools-for-quality-management-reviews]]
+[[tools-for-quality-management-reviews]]
 === Tools for quality management – Reviews
-1.  [[end-user-review]]
+
+[[end-user-review]]
 === End user review
 
 Certain deliverable classes must be reviewed by at least one PER who is familiar with the software product under development. The PER will examine the deliverable for the presence of attributes specific to each class of deliverable, as described in the DDS. The intent of the end user review is to ensure that each deliverable is examined from the point of view of the ultimate users of the system, by someone who is knowledgeable about the process being automated. Notice that in the Project we call this method “independent testing”.
@@ -644,10 +655,7 @@ Each class of deliverable must be reviewed by at least one development team memb
 
 [cols=",,,,",options="header",]
 |=============================================================================================================================================================
-a|
-___________________________________
-*Quality Assurance Activity number*
-___________________________________
+a|*Quality Assurance Activity number*
 
  |*Type of Activity* |*Description* |*Qualification method* |*Acceptance criteria*
 |QA1.1 |Document |Initial Technology Readiness Assessment report |Review |All underlying activity is documented.
