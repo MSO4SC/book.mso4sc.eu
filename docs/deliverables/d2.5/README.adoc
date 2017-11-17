@@ -1916,42 +1916,21 @@ a|
 
 [cols=",,,",]
 |================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-____________
-HIFIMAGNET-2
-____________
+ a|HIFIMAGNET-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ HIFIMAGNET performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following benchmark scenario must be supported by the allocated computational resources:
@@ -1960,46 +1939,25 @@ The following benchmark scenario must be supported by the allocated computationa
 * Number of cores: 1-1024
 * Memory cost: up to 2 TB (Terabyte) RAM
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The end users need the above performance (size of problem, time frame, accuracy) to get adequate and reliable results. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |UNISTRA - LNCMI – EMFL, Feel++ developers and users
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |LNCMI - EMFL
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the HIFIMAGNET pilot tests will be run from scripts to ensure the proper functioning.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Feel++ MADF, HIFIMAGNET
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FeelPP-1, HIFIMAGNET-1, Cloud-5
 |================================================================================================================================================================================================
@@ -2008,42 +1966,21 @@ _______________
 
 [cols=",,,",]
 |===========================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-___________
-EYE2BRAIN-3
-___________
+ a|EYE2BRAIN-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ EYE2BRAIN performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following scenario must be supported by the allocated computational resources:
@@ -2054,46 +1991,25 @@ The following scenario must be supported by the allocated computational resource
 * scalability: very good speed-up, from 80 to 100% expected speed-up, depending on the step
 * accuracy: controlled by mesh
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The end user need the above performance (size of problem, time frame, accuracy) to get adequate and reliable results. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |Feel++ developers and users – UNISTRA – GLICK INSTITUTE
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |GLICK INSTITUTE
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |For the EYE2BRAIN pilot validated results from patient data exist. The simulation will be configured accordingly and these results must be reproduced within minutes per patients depending on the performance of the computing resources.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Feel++ MADF, EYE2BRAIN
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FeelPP-1, EYE2BRAIN-1, Cloud-5
 |===========================================================================================================================================================================================================================================
@@ -2102,84 +2018,42 @@ _______________
 
 [cols=",,,",]
 |=========================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-___________
-EYE2BRAIN-4
-___________
+ a|EYE2BRAIN-4
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |EYE2BRAIN simple web interface
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |EYE2BRAIN requires that the pilot can be run and controlled by a simple web interface.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users want easy access to the pilot without having to deal with an abundance of choices.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |UNISTRA and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |EYE2BRAIN
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |EYE2BRAIN users will be asked to test the interface.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FEELPP-1, EYE2BRAIN-1
 |=========================================================================================
@@ -2188,42 +2062,21 @@ _______________
 
 [cols=",,,",]
 |============================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-____________
-HIFIMAGNET-3
-____________
+ a|HIFIMAGNET-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ HIFIMAGNET web interface
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The MSO4SC e-infrastructure must provide the end user with an easy way to create or upload input data needed to run the simulations.
@@ -2237,46 +2090,25 @@ It is required that HIFIMAGNET End Users can easily:
 
 from a web interface
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |End user wants to easily create and/or upload inputs data to run smoothly the simulations without having to deal with details.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |LNCMI - EMFL
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |A test cases for the pilot application HIFIMAGNET will be used to validate the web interface. Details are described in [6] D5.1/HIFIMAGNET.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Feel++ MADF, HIFIMAGNET
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FeelPP-1, HIFIMAGNET-1
 |============================================================================================================================================
@@ -2285,84 +2117,42 @@ _______________
 
 [cols=",,,",]
 |=====================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-____________
-HIFIMAGNET-4
-____________
+ a|HIFIMAGNET-4
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ HIFIMAGNET manage permissions
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |HIFIMAGNET pilot requires that the end user can control the permissions on the inputs and outputs data.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The end user need the above feature to manage permissions on the inputs and outputs generated by the simulations to get control on the potential credentials or confidential issues.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |LNCMI - EMFL
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |Automated tests will validate this requirement: open and closed dataset will be used to tests the functionalities of the permission management interface.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Feel++ MADF, HIFIMAGNET
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FeelPP-1, HIFIMAGNET-1, Cloud-17, Cloud-3
 |=====================================================================================================================================================================================
@@ -2371,42 +2161,21 @@ _______________
 
 [cols=",,,",]
 |====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-____________
-HIFIMAGNET-5
-____________
+ a|HIFIMAGNET-5
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Feel++ HIFIMAGNET CAD geometry and mesh generation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following scenario must be supported by the allocated computational resources:
@@ -2426,50 +2195,29 @@ scalability: this is sequential
 
 accuracy: N/A
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The end user need to be able to create Mesh (and eventually CAD geometry to get before launching the actual simulations. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.  
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |LNCMI - EMFL
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  a|
 During the HIFIMAGNET pilot, prior running the simulation Mesh (and eventually CAD geometry) will be provided following the proposed scenario. Mesh generation (and eventually CAD Geometry) will be reported to have succeeded or not to the monitoring system. This operation is sequential and shall finish within the time frame in 90 out of 100 cases, and 100% of the computed cases must compute the given problem size without errors that are related to lack of resources.
 
 We have tests to run from scripts to ensure the proper functioning.
 
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP3, WP4, WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Feel++ MADF, HIFIMAGNET
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FeelPP-1, HIFIMAGNET-1, Cloud-3
 |====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
@@ -2478,84 +2226,42 @@ _______________
 
 [cols=",,,",]
 |=======================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-1
-_________
+ a|OPMFlow-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The MSO4SC e-infrastructure will provide OPM flow. OPM Flow must run on the CESGA HPC infrastructure
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |OPM Flow is one of the pilots described in the original project proposal.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SINTEF, OPM Flow users
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The single-model test cases described in D5.1 [6]: Norne case, CO2 injection on Norwegian Continental Shelf; must run with to completion with results equivalent to reference results.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |OPM MADF
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1
 |=======================================================================================================================================================================================
@@ -2564,84 +2270,42 @@ _______________
 
 [cols=",,,",]
 |===============================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-2
-_________
+ a|OPMFlow-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Ensemble run of OPM Flow
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow must run ensembles of simulations on the CESGA HPC infrastructure.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Ensemble runs of OPM Flow is a natural part one of the pilot scenarios described under task 3 of work package 5.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow pilot
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The ensemble-model test case described in D5.1 [6], the OLYMPIC benchmark, must run successfully in at least 95% of the cases.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1, Cloud-14
 |===============================================================================================================================
@@ -2650,84 +2314,42 @@ _______________
 
 [cols=",,,",]
 |==============================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-3
-_________
+ a|OPMFlow-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow ensemble performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The CPU time spent for ensemble runs of OPM flow should depend linearly on the number of ensemble members.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Ensemble runs are embarrassingly parallel and performance for such cases must scale properly.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The ensemble-model test case will exploit the scaling of hardware resources with ensemble size of 100 models.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1, OPMFlow-2, Cloud-14
 |==============================================================================================================
@@ -2736,84 +2358,42 @@ _______________
 
 [cols=",,,",]
 |===============================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-4
-_________
+ a|OPMFlow-4
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |Parallel OPM Flow simulation performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow must run parallel MPI simulations efficiently on the CESGA HPC infrastructure.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users require efficient scaling of parallel cases to run large cases in a reasonable timeframe.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The pilot of the OPM Flow application will be used as benchmark for this scenario. The OPM Flow application should scale well for a limited number of nodes (e.g, up-to 8 parallel processes).
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |OPM
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1, Cloud-5
 |===============================================================================================================================================================================================
@@ -2822,84 +2402,42 @@ _______________
 
 [cols=",,,",]
 |=========================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-5
-_________
+ a|OPMFlow-5
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow simple web interface
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow requires that the pilot can be run and controlled by a simple web interface.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users want easy access to the pilot without having to deal with an abundance of choices.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |OPM Flow users will be asked to test the interface.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |MSO portal, OPM
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1
 |=========================================================================================
@@ -2908,84 +2446,42 @@ _______________
 
 [cols=",,,",]
 |========================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-6
-_________
+ a|OPMFlow-6
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow one-click
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow requires that models can be uploaded and run with no further user interaction.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users need this functionality.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |This will be validated using test cases 1 and 3, see p.22 of D5.1 [6].
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |MSO portal, OPM
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1
 |========================================================================================
@@ -2994,84 +2490,42 @@ _______________
 
 [cols=",,,",]
 |================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_________
-OPMFlow-7
-_________
+ a|OPMFlow-7
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |OPM Flow minimal user interaction
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |OPM Flow requires that ensembles of models (of up to at least 100 cases) can be uploaded and run with minimal user interaction.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users need this functionality.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SINTEF and CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |OPM Flow
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |This will be validated using test case 2, see p.22 of D5.1 [6].
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP 5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |OPM, MSO portal
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |OPM-1, OPMFlow-1
 |================================================================================================================================
@@ -3080,74 +2534,38 @@ _______________
 
 [cols=",,,",]
 |========================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- |FTW-1 a|
-______
-*Name*
-______
+ |FTW-1 a|*Name*
 
  |FloatingWindTurbine installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- |High a|
-___________
-*Req. Type*
-___________
+ |High a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The MSO4SC e-infrastructure will provide the FloatingWindTurbine pilot in its catalogue for end user applications. The pilot must be deployed on an HPC infrastructure.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |FloatingWindTurbine is one of the pilot scenarios described in the project proposal.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |BCAM, KTH, ATOS
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |Nautilus platform pilot case for marine energy environment (WP5)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The MARIN test case will be used for validation with acceptable error tolerances. The details of the MARIN benchmark can be found in [7].
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |FEniCS-HPC MADF
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FEniCS-1
 |========================================================================================================================================================================
@@ -3156,32 +2574,17 @@ _______________
 
 [cols=",,,",]
 |=====================================================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- |FWT-2 a|
-______
-*Name*
-______
+ |FWT-2 a|*Name*
 
  |FloatingWindTurbine performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- |High a|
-___________
-*Req. Type*
-___________
+ |High a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following scenario must be supported by the computational resources allocated:
@@ -3191,46 +2594,25 @@ The following scenario must be supported by the computational resources allocate
 * ca. 100000 time steps
 * The wall clock time allocated must be 24hours.
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The users need this mesh size to get reliable results, and the proposed time steps must finish in the given time frame to make the MSO4SC e-infrastructure attractive to the stakeholder.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |Floating Wind Turbine pilot owners (BCAM, KTH)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the Floating Wind Turbine pilot, the simulation will be configured to use the proposed scenario (vertices, cell, time). The MADF execution will be monitored. Test computations must finish within the time frame in 90 out of 100 cases, and 100% of the cases must compute the configured mesh without errors related to lack of resources.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |FEniCS MADF
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FWT-1
 |=====================================================================================================================================================================================================================================================================================================================================================
@@ -3239,84 +2621,42 @@ _______________
 
 [cols=",,,",]
 |==============================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-FWT-3
-_____
+ a|FWT-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |FloatingWindTurbine User interface
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Users must be able to interact with the system by giving a list of parameters (including specification of a mesh file defining the geometry).
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Users need this functionality to define different simulation cases.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |FEniCS users.- BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |Nautilus platform pilot case for marine energy environment.
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |One of the end users will validate the requirement.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FWT-1, Cloud-7, Cloud-11
 |==============================================================================================================================================
@@ -3325,84 +2665,42 @@ _______________
 
 [cols=",,,",]
 |==========================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-3DAIR-1
-_______
+ a|3DAIR-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction-CFD installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The MSO4SC e-infrastructure will provide the 3DAirQualityPrediction-CFD pilot in its catalogue for end user applications.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |3DAirQualityPrediction-CFD is one of the pilot scenarios described in the project proposal.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |BCAM, KTH, ATOS
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |3DAirQualityPrediction pilot (WP5)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |A standard validation case of a street canyon will be used.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |FEniCS-HPC MADF
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |FEniCS-1
 |==========================================================================================================================
@@ -3411,42 +2709,21 @@ _______________
 
 [cols=",,,",]
 |==========================================================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-3DAir-2
-_______
+ a|3DAir-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction-CFD performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional/performance
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following scenario must be supported by the computational resources allocated:
@@ -3454,46 +2731,25 @@ The following scenario must be supported by the computational resources allocate
 * Global number of vertices: ca 5000000
 * ca. 100000 time steps in a fixed time frame
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |The users need this mesh size to get reliable results, and the proposed time steps must finish in the given time frame to make the MSO4SC e-infrastructure attractive to the stakeholder.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |BCAM & KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |3DAirQualityPrediction-CFD pilot owners (BCAM, KTH)
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the 3DAirQualityPrediction-CFD pilot, the simulation will be configured to use the proposed scenario (vertices, time steps). The MADF execution will be monitored. Test computations must finish within the time frame in 90 out of 100 cases, and 100% of the cases must compute the configured mesh without errors related to lack of resources.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |FEniCS MADF
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |3DAir-1
 |==========================================================================================================================================================================================================================================================================================================================================================
@@ -3502,74 +2758,38 @@ _______________
 
 [cols=",,,",]
 |======================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- |ZIB-1 a|
-______
-*Name*
-______
+ |ZIB-1 a|*Name*
 
  |ZIBaffinity installation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- |High a|
-___________
-*Req. Type*
-___________
+ |High a|*Req. Type*
 
  |Functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The MSO4SC e-Infrastructure will provide the ZIBaffinity pilot application and perform executions of the application in a transparent way and independently on the hardware where it will be running.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Simulations done with the pilot application will demonstrate to the stakeholders and the end user the feasibility of the MSO4SC e-infrastructure.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIB, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |ZIB, ZIBaffinity stakeholders
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |A test case for the pilot application ZIBaffinity will be set by the users, the simulations will be configured and the execution will be monitored.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |ZIBaffinity, MSO portal
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |ZIB-2
 |======================================================================================================================================================================================================
@@ -3578,42 +2798,21 @@ _______________
 
 [cols=",,,",]
 |===================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-ZIB-2
-_____
+ a|ZIB-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |ZIBaffinity performance
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-______
-Medium
-______
+ a|Medium
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  a|
 The following scenario must be met:
@@ -3622,46 +2821,25 @@ The following scenario must be met:
 * Using 61 computing nodes consisting of 24 cores each, given a predefined time frame, the resulting output (the binding free energy and the conformation of one protein-ligand complex) must be comparable to previously computed results.
 * 
 
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Accurate results within a reasonable time frame.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIB, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |ZIB, ZIBaffinity
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the ZIBaffinity pilot runtime, the simulation will be configured to the scenario described above. The result will be compared to values calculated by another HPC system (HLRN North-German Supercomputing Alliance) which in turn were approved by laboratory experiments.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |NA
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |ZIB-1, Cloud-5
 |===================================================================================================================================================================================================================================================================================
@@ -3670,84 +2848,42 @@ _______________
 
 [cols=",,,",]
 |======================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_____
-ZIB-3
-_____
+ a|ZIB-3
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |ZIBaffinity data protection/security
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- a|
-____
-High
-____
+ a|High
 
- a|
-___________
-*Req. Type*
-___________
+ a|*Req. Type*
 
  |Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |The MSO4SC e-infrastructure must be able to provide a very high level of data protection (against loss as well as theft).
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |A high level of data security is necessary since the data created with this pilot is extremely valuable for pharmaceutical companies.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |ZIB, CESGA
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |ZIB, ZIBaffinity, stakeholders, end users
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |The data security must be validated by experts for cloud computing infrastructure.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Cloud, Orchestrator
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |ZIB-1, Cloud-17
 |======================================================================================================================================
@@ -3756,79 +2892,40 @@ _______________
 
 [cols=",,,",]
 |================================================================================================================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-3DAQP-1
-_______
+ a|3DAQP-1
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction performance with statistical data
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- |High a|
-___________
-*Req. Type*
-___________
+ |High a|*Req. Type*
 
  |Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |Optimal performance of 3DAirQualityPrediction for what-if scenario analysis with multiple data (scenarios) resulting from statistical databases for traffic and meteorology while the dispersion is simulated via 3DAirQualityPrediction-CFD for each scenario is needed with finding suitable workflow in the cloud infrastructure. This work can be formed as an embarrasingly parallel task.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Have results for scenario analysis within a reasonable time frame.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SZE, CESGA, ATOS
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SZE, external users
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the first 3DAirQualityPrediction pilot runtime, the simulation will be configured according to the scenario analysis described above. Scenario analysis with 3 instances for traffic and 4 instances of meteorology should have reasonable overall computational time.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5, WP3
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Orchestrator
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |3DAQP-2, 3DAir-2
 |================================================================================================================================================================================================================================================================================================================================================================================================
@@ -3837,79 +2934,40 @@ _______________
 
 [cols=",,,",]
 |===========================================================================================================================================================================================================================================================================================================
-a|
-______
-*# Id*
-______
+a|*# Id*
 
- a|
-_______
-3DAQP-2
-_______
+ a|3DAQP-2
 
- a|
-______
-*Name*
-______
+ a|*Name*
 
  |3DAirQualityPrediction performance with full simulation
-a|
-__________
-*Priority*
-__________
+a|*Priority*
 
- |High a|
-___________
-*Req. Type*
-___________
+ |High a|*Req. Type*
 
  |Functional/Non-functional
-a|
-_____________
-*Description*
-_____________
+a|*Description*
 
  |3DAirQualityPrediction requires that all components as detailed simulations and measurement data resulting from traffic and meteorology can be run with minimal parameter setting within reasonable running time.
-a|
-_________
-*Purpose*
-_________
+a|*Purpose*
 
  |Have results for continuous running within a reasonable time frame.
-a|
-________
-*Actors*
-________
+a|*Actors*
 
  |SZE, CESGA, ATOS, KTH
-a|
-___________
-*Requester*
-___________
+a|*Requester*
 
  |SZE, external users
-a|
-_____________________
-*Validation scenario*
-_____________________
+a|*Validation scenario*
 
  |During the 3DAirQualityPrediction pilots runtime, the simulation will be configured according to the setting with detailed simulation models (both traffic and dispersion) using measurement data for traffic and meteorology; the operation must be stable and the overall computational time reasonable.
-a|
-_____________
-*Related WPs*
-_____________
+a|*Related WPs*
 
  |WP5, WP3
-a|
-____________
-*Components*
-____________
+a|*Components*
 
  |Orchestrator
-a|
-_______________
-*Relationships*
-_______________
+a|*Relationships*
 
  |3DAQP-1, 3DAir-1, 3DAir-2, Cloud-10
 |===========================================================================================================================================================================================================================================================================================================
