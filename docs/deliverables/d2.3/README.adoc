@@ -34,11 +34,11 @@ Dissemination and Collaboration Plan
 |Submission Date: |_31/01/2017_
 |Version: |_05_
 |Status |_Final for submission_
-|Author(s): |_Ton Langendorff (EU-MATHS-IN), Julia Wells (ATOS) _
+|Author(s): | _Ton Langendorff (EU-MATHS-IN), Julia Wells (ATOS)_
 |Reviewer(s) a|
-_Wil Schilders (EU-MATHS-IN),Zoltán Horváth (SZE), _
+_Wil Schilders (EU-MATHS-IN),Zoltán Horváth (SZE)_,
 
-_Volker Mehrmann (MATHEON) _
+_Volker Mehrmann (MATHEON)_
 
 |================================================================
 
@@ -140,20 +140,9 @@ All deliverables will include a glossary of Acronyms of terms used within the do
 |*PO* |Project Officer
 |*STM* |Scientific and Technical Manager
 |*SPR* |Semester Progress Report
-|*WP* a|
-____________
-Work Package
-____________
-
-|*WPL* a|
-___________________
-Work Package Leader
-___________________
-
-|*WPR* a|
-___________________
-Work Package Report
-___________________
+|*WP* a| Work Package
+|*WPL* a| Work Package Leader
+|*WPR* a| Work Package Report
 
 |===============================================================
 
@@ -202,9 +191,10 @@ Cemosis with IUPUI and the Glick Institute will demonstrate the MSO4SC/Eye2brain
 
 Communication and dissemination are two activities that are related. For the sake of clearness the two activities are described separately.
 
-1.  [[dissemination]]
+[[dissemination]]
 === Dissemination
-1.  [[stakeholders]]
+
+[[stakeholders]]
 === Stakeholders
 
 The project has three major audiences: the HPC/Cloud providers, the MADF users and the users of the MADF, users of the platform and catalogue, respectively, as represented in the following diagram.
@@ -319,7 +309,8 @@ _Peer reviewed journals to target _
 * Advances in Water Resources (Elsevier)
 * SIAM Scientific Computing Journal
 * ACM TOMS
-1.  [[key-performance-indicators]]
+
+[[key-performance-indicators]]
 === Key Performance Indicators
 
 A subset of indicative KPIs is shown below. A more complete set will be developed as part of the process of maturing this initial dissemination and communication plan. Each activity undertaken will be evaluated with respect to relevant KPIs.
@@ -341,9 +332,10 @@ A subset of indicative KPIs is shown below. A more complete set will be develope
 
 The intention of the project is to expand on the number and specificity of the KPIs in accordance with a detailed plan for communication. Preparation of that plan will involve detailing a timeline of opportunities (publication dates, events calendar ...) and a clearer understanding of what the project will have to show at each point in time. Deeper understanding of the opportunities and who is best placed to exploit them (often having an “insider” can make all the difference) is required and this will be an ongoing process. As this analysis becomes clear, bespoke KPIs can be established that make the most strategic sense for the project (in the case of web, backlinks, referrals), in social media (key people to have following or retweeting) or physical (number of stand attendees or documents distributed or follow up inquiries),
 
-1.  [[communication-activities]]
+[[communication-activities]]
 === Communication activities
-1.  [[stakeholders-1]]
+
+[[stakeholders-1]]
 === Stakeholders
 
 Stakeholders for the communication of MSO4SC include: The wider maths sector, the wider IT industry, the wider scientific community, policy makers, relevant undergraduates and the general public.
@@ -370,17 +362,17 @@ Communication also follows the same *Plan – Act – Observe – Replan* cycle,
 
 Two key communication tools are social media and the website.
 
-_*Social Media *_
+*Social Media*
 
 In particular LinkedIn and Twitter will be used by the project. Dedicated accounts will be created for both. Both were mentioned under dissemination and the role is dual: they can be used to spread news of more in depth informational resources, or to share light news on achievements, observations, events, relevant third party content and so on. In particular Twitter can be used to identify and follow significant individuals and organisations that are relevant to commercial and scientific impact. The project can engage with these Twitter accounts in discussion, with the benefit of potential endorsement and of reaching the other’s followers and in turn, follower’s followers. Social media can also be considered in the case of all feedback solicited from the community at large: polls, comments, questionnaires, etc.
 
-_*Website *_
+*Website*
 
 The website is a key communication and dissemination point for the project. It is where stakeholders can have a first introduction to the project, where interested stakeholders can be directed for concrete documents or downloads, where the community can be consulted through polls. Different landing pages can be created for different entry points (word of mouth, backlinks, search engine results… The use of the site made by visitors will be tracked and analysed and the content will be optimised for search engine results pages.
 
 The domain http://www.mso4sc.eu[www.mso4sc.eu] has been registered and the website is under construction.
 
-_*Other* communication means are_:
+*Other* communication means are:
 
 * *Videos* – videos introducing the project and business case can be produced
 * *Posters* – Eye catching posters to quickly capture attention and transmit core messages
@@ -505,16 +497,6 @@ Rasmussen
 
 [[_Toc473641232]]Table 6: Presentations
 
-[cols=",,,",]
-|======
-| | | |
-|======
-
-[cols=",,,",]
-|======
-| | | |
-|======
-
 [cols=",,,",options="header",]
 |============================================================================================================
 |*Name* |*Poster* | |*Organisation*
@@ -569,12 +551,8 @@ http://www.sintef.no/projectweb/opm/
 
 [[_Toc473641234]]Table 8: Collaboration with industry and organisations
 
-[cols=",,,",]
-|======
-| | | |
-|======
 
-_*Key performance indicators*_
+*Key performance indicators*
 
 Several performance indicators have been listed in this document. The diversity of the indicators can cause some problems:
 
@@ -601,9 +579,10 @@ The partners will report about the following items:
 * what means have been used to reach them?
 * what indicators are suitable to measure the impact?
 
-1.  [[collaboration]]
+[[collaboration]]
 == Collaboration
-1.  [[collaboration-activities-by-mso4sc-partners]]
+
+[[collaboration-activities-by-mso4sc-partners]]
 === Collaboration activities by MSO4SC partners
 
 Each partner of the MSO4SC project has identified unique achievements and assets that are relevant for dissemination and communication. In most cases these have been upgraded to collaboration on a national and international level. An overview of some of these activities is given below.
@@ -639,24 +618,12 @@ For further information:
 
 This last action is of considerable relevance for EU-Maths-IN and MSO4SC. The process of this action towards a Strategic Research Agenda of ETP4MSO is as follows:
 
-* _______________________________
-A writing team has been formed.
-_______________________________
-* _______________________________________________________________________________________
-Members of the extensive EU-MATHS-IN network will be consulted on a face-to-face basis.
-_______________________________________________________________________________________
-* __________________________________________________________________________________________________________________
-Some representatives of science policy, advisory councils, universities and research instituted will be consulted.
-__________________________________________________________________________________________________________________
-* _________________________________________________________________________
-Two or three workshops with mathematicians and stakeholders will be held.
-_________________________________________________________________________
-* ____________________________________________________________________________________________________________________________________________________________________
-At the end of 2017 or the beginning of 2018 a general assembly of the members of EU-MATHS-IN and stakeholders will discuss the draft of this vision paper of ETP4MSO
-____________________________________________________________________________________________________________________________________________________________________
-* _______________________________________________________________________________
-Strategic Research Agenda for ETP4MSO will be formed based on this vision paper
-_______________________________________________________________________________
+* A writing team has been formed.
+* Members of the extensive EU-MATHS-IN network will be consulted on a face-to-face basis.
+* Some representatives of science policy, advisory councils, universities and research instituted will be consulted.
+* Two or three workshops with mathematicians and stakeholders will be held.
+* At the end of 2017 or the beginning of 2018 a general assembly of the members of EU-MATHS-IN and stakeholders will discuss the draft of this vision paper of ETP4MSO
+* Strategic Research Agenda for ETP4MSO will be formed based on this vision paper
 
 Further collaboration activities will be identified throughout the project.
 
