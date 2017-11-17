@@ -150,25 +150,13 @@ Deliverable D3.2 describes how these components are implemented and integrated, 
 |*V&V* |Verification and Validation
 |*IaaS* |Infrastructure as a Service
 |*PaaS* |Platform as a Service
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
-|*PRACE* a|
-____________________________________________
-Partnership for Advanced Computing in Europe
-____________________________________________
+|*PRACE* a|Partnership for Advanced Computing in Europe
 
-|*EGI* a|
-________________________
-European Grid Initiative
-________________________
+|*EGI* a|European Grid Initiative
 
-|*MSO* a|
-______________________________________
-Modelling, Simulation and Optimization
-______________________________________
+|*MSO* a|Modelling, Simulation and Optimization
 
 |========================================================================
 
