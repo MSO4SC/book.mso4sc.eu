@@ -1,4 +1,4 @@
-= MSO4SC: media/d2.2 MSO4SC e-Infrastructure Definition
+= MSO4SC: D2.2 MSO4SC e-Infrastructure Definition
 :page-root: ../../../
 :page-permalink: /deliverables/d2.2/
 :page-layout: manual
@@ -91,9 +91,10 @@ link:#_Toc479011397[_Table 1. Acronyms_ 8]
 
 This document provides a definition of the MSO4SC e-Infrastructure, in such a way the features, stakeholders and required architecture are defined. The document extracts the requirements for the e-Infrastructure, describing the desired features from the stakeholders’ point of view. Such stakeholders and their needs are identified, as well as the different functional blocks of the e-Infrastructure which will implement the required features. The document provides different levels of detail for describing the MSO e-Infrastructure, even including some examples of operations. Finally, the document provides a vision about the expected deployment of the identified functional blocks.
 
-1.  [[introduction]]
+[[introduction]]
 == Introduction
-1.  [[purpose]]
+
+[[purpose]]
 === Purpose
 
 Once the first set of requirements have become available, it is important to perform a deep analysis in order to determine the features to be provided by the MSO4SC e-Infrastructure, as described in the Description of Action [1]. Even if there were already some ideas about the main functionalities to be covered, stakeholders’ input is important in order to focus the developments. The main purpose of this document is to take those inputs and determine the features and services to be provided through the e-Infrastructure, as well as to define how such e-Infrastructure will be implemented.
@@ -135,50 +136,23 @@ This is the list of acronyms to be taken into account in this document.
 |*MSO* |Modelling, Simulation and Optimization
 |*OpenMP* |Open Multi-Processing
 |*OPM* |Open Porous Media
-|*PaaS* a|
-_____________________
-Platform as a Service
-_____________________
+|*PaaS* a|Platform as a Service
 
-|*PRACE* a|
-____________________________________________
-Partnership for Advanced Computing in Europe
-____________________________________________
+|*PRACE* a|Partnership for Advanced Computing in Europe
 
-|*Q&A* a|
-_____________________
-Questions and Answers
-_____________________
+|*Q&A* a|Questions and Answers
 
-|*REST* a|
-_______________________________
-Representational State Transfer
-_______________________________
+|*REST* a|Representational State Transfer
 
-|*SQL* a|
-_________________________
-Structured Query Language
-_________________________
+|*SQL* a|Structured Query Language
 
-|*SSL* a|
-____________________
-Secure Sockets Layer
-____________________
+|*SSL* a|Secure Sockets Layer
 
-|*SVN* a|
-__________
-Subversion
-__________
+|*SVN* a|Subversion
 
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
-|*WPL* a|
-___________________
-Work Package Leader
-___________________
+|*WPL* a|Work Package Leader
 
 |======================================================
 
@@ -236,7 +210,8 @@ Specific requirements on the MSO Portal are:
 9.  "One single button to run the whole simulation"-type interface. Additionally the possibility for interactive simulation should be investigated, e.g. to change MADF or Pilot parameters while the simulation is running.
 
 * *Computing Infrastructure:* The project partners should set up an initial infrastructure using HPC and Clouds from ATOS and CESGA. The initial infrastructure may be limited, and further infrastructure should be sought from external organizations such as PRACE and EGI FedCloud.
-1.  [[software-management]]
+
+[[software-management]]
 === Software Management
 
 There are several aspects about software management that the e-Infrastructure should deal with. It is necessary not only to facilitate the publication and access to software, but also to support the management of code in those situations in which the re-compilation and deployment of software is mandatory (in order to support several target hardware platforms).
@@ -315,7 +290,8 @@ We identify the following requirements for supporting these communities:
 * Developer community liaison with a Gitter [8] type forum
 * Specific "math user community liaison" targeting the specific needs and interests of the typical math community which may not be advanced in software development.
 * Training for developer and user communities
-1.  [[mathematical-frameworks-as-a-service]]
+
+[[mathematical-frameworks-as-a-service]]
 === Mathematical Frameworks as a Service
 
 The Mathematical frameworks available by default with the standard MSO4SC e-Infrastructure are: FEniCS-HPC, Feel++ and OPM.
@@ -468,9 +444,10 @@ image:media/d2.2/image7.png[image,width=566,height=502]
 
 [[_Toc479011393]]Figure : High level interactions for executing simulations
 
-1.  [[detailed-design-of-main-mso4sc-components]]
+[[detailed-design-of-main-mso4sc-components]]
 == Detailed Design of Main MSO4SC Components
-1.  [[mso-portal]]
+
+[[mso-portal]]
 === MSO Portal
 
 The MSO Portal will be the user-friendly interaction mechanism between the end users and the MSO4SC platform. From its frontend the user will be able to use all the functionalities the project provides: run the MSO4SC experiments software with pre and post operations and monitor it while executing, apart from login into the system, manage the data available, visualize it, etc. Its components are described below.
@@ -501,7 +478,8 @@ The components included in the data repository are:
 
 * *Heterogeneous data storage:* To adequate the repository to the different characteristics and formats of the datasets, this component will be formed of several storage units based on different paradigms, such as array databases, relational and no-sql databases, storage servers, etc.
 * *Data Movement Tool:* Relying on specific protocols and tools as GridFTP, the component will take orders from the orchestrator to move data from and to the different storage units as efficient as possible. To connect to the heterogeneous data storage, this component will use the Authentication & Authorization module.
-1.  [[software-repository]]
+
+[[software-repository]]
 === Software Repository
 
 As a part of the communication mechanisms supporting the project structure, a set of public domain repositories has been created taking advance of the services and collaborative tools (like wikis, issue tracking, continuous integration, etc.) provided by GitHub.
