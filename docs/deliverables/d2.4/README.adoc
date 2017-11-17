@@ -123,9 +123,10 @@ The major objective of the project MSO4SC is to construct an e-infrastructure fo
 
 The present deliverable D2.4 reports on the execution of the plan in D2.3 [1] during the first 12 months of the project. It discusses how the plans for the communication and dissemination of project results were carried out, and also discusses changes that turned out to be necessary after the project was fully operational. Both for communication and dissemination, activities are listed that were carried out by the various teams in the consortium. For communication, the kit used is presented, as well as the activities regarding online and social media. For dissemination, which is mainly scientific in nature, results achieved are presented in several tables. An analysis is given of the key performance indicators that have been defined for the assessment of the impact of the project. Finally, the collaboration activities within the project are described. The conclusion is that the project communication, dissemination and collaboration have gained considerable momentum in the first year, and that everything is in place to sustain this in the second year of the project.
 
-1.  [[introduction]]
+[[introduction]]
 == Introduction
-1.  [[purpose]]
+
+[[purpose]]
 === Purpose
 
 This series of deliverables (submitted at M12 and M24) explains the communication, collaboration and dissemination activities followed during the reporting periods as well as the results from these activities. Furthermore, updates of the project’s plans are presented. As the project evolves and in synchronization with the exploitation team, the sequence of reports will include sections covering the dissemination strategy under a more commercial and/or marketing oriented perspective.
@@ -156,20 +157,9 @@ All deliverables will include a glossary of Acronyms of terms used within the do
 |*PO* |Project Officer
 |*STM* |Scientific and Technical Manager
 |*SPR* |Semester Progress Report
-|*WP* a|
-____________
-Work Package
-____________
-
-|*WPL* a|
-___________________
-Work Package Leader
-___________________
-
-|*WPR* a|
-___________________
-Work Package Report
-___________________
+|*WP* a|Work Package
+|*WPL* a|Work Package Leader
+|*WPR* a|Work Package Report
 
 |==========================================================
 
@@ -199,15 +189,9 @@ The project has made significant efforts to address several stakeholders’ comm
 
 All the activities performed so far had three main objectives:
 
-* ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-*Create awareness of the MSO4SC e-Infrastructure:* We wanted potential stakeholders to know that the MSO4SC initiative is active and that they will be able to use our services for their daily work, easing the way of access to computation resources, and to run complex pieces of software (such as the MADFs);
-___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-* ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-*Retrieve feedback from stakeholders’ side:* It was important to understand the real needs and priorities of those stakeholders who could benefit from MSO4SC, so we can focus our development efforts during the project, creating a set of services which are expected to fulfil their requirements;
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-* __________________________________________________________________________________________________________________________________________________________________________________
-*Build communication channels:* Engaging stakeholders encouraged us to prepare the necessary communication channels that will allow us to also address other research communities.
-__________________________________________________________________________________________________________________________________________________________________________________
+* *Create awareness of the MSO4SC e-Infrastructure:* We wanted potential stakeholders to know that the MSO4SC initiative is active and that they will be able to use our services for their daily work, easing the way of access to computation resources, and to run complex pieces of software (such as the MADFs);
+* *Retrieve feedback from stakeholders’ side:* It was important to understand the real needs and priorities of those stakeholders who could benefit from MSO4SC, so we can focus our development efforts during the project, creating a set of services which are expected to fulfil their requirements;
+* *Build communication channels:* Engaging stakeholders encouraged us to prepare the necessary communication channels that will allow us to also address other research communities.
 
 Project efforts will keep the line of contacting more stakeholders (update the already contacted communities, engage new communities), and more effort will be spent to address open source communities, trying to bring to MSO4SC new tools and pilot applications, as a way to validate the utility of MSO4SC services.
 
@@ -225,33 +209,17 @@ This phase has been carried out during the first months of the project (M0 to M7
 
 The main key activities are:
 
-* _____________________________________________________________________________________________________________________________________________
-Create initial dissemination and communication materials and channels (project website, flyer, presentation, factsheet, poster and brochure);
-_____________________________________________________________________________________________________________________________________________
-* _____________________________________________________________________________________________________________________________________________________________
-Identify those communities related to the project, as potential communication targets, in research domains, standardization bodies, industrial domains, etc.;
-_____________________________________________________________________________________________________________________________________________________________
-* ________________________________________________________________________________________________________________________________
-Initiate dissemination and communication activities, especially among the math community, to create awareness about the project;
-________________________________________________________________________________________________________________________________
-* _______________________________________________________________________________________
-Arrange interviews and engage stakeholders, for project awareness and inputs gathering;
-_______________________________________________________________________________________
-* __________________________________________________________________________
-Carry out mass-media activities, such as the website and the social media.
-__________________________________________________________________________
+* Create initial dissemination and communication materials and channels (project website, flyer, presentation, factsheet, poster and brochure);
+* Identify those communities related to the project, as potential communication targets, in research domains, standardization bodies, industrial domains, etc.;
+* Initiate dissemination and communication activities, especially among the math community, to create awareness about the project;
+* Arrange interviews and engage stakeholders, for project awareness and inputs gathering;
+* Carry out mass-media activities, such as the website and the social media.
 
 *Achievements:* This phase was carried out with minor deviations to the plan, achieving the objectives:
 
-* _____________________________________________________________________________________________
-Dissemination and communication materials are ready and have been updated whenever necessary;
-_____________________________________________________________________________________________
-* _________________________________________________________________________________________________________________________________________
-Stakeholders were identified and several communities were engaged, mainly of MADFs developers and end users (i.e. the Budapest workshop);
-_________________________________________________________________________________________________________________________________________
-* ______________________________________________________________________________
-The consortium keeps active in social media and updates the website regularly.
-______________________________________________________________________________
+* Dissemination and communication materials are ready and have been updated whenever necessary;
+* Stakeholders were identified and several communities were engaged, mainly of MADFs developers and end users (i.e. the Budapest workshop);
+* The consortium keeps active in social media and updates the website regularly.
 
 *Corrective Actions:* some of the activities (stakeholder engagement and mass-media activities) of this phase will be continued during the next year, but more focused on MSO4SC services promotion, usage of our open source solutions and integration/provision of new services coming from third parties, extending the impact and usage of MSO4SC materials.
 
@@ -262,18 +230,10 @@ The second phase (M7 to M24) takes advantage of the materials and contacts from 
 
 Key activities in this phase are:
 
-* ___________________________________________________________________________________________________________________________________________________________________________________________________
-Keep developing MSO4SC awareness and visibility through MADFs communities, other open source communities and other stakeholders communities related to the pilots and to mathematics (EU-MATHS-IN);
-___________________________________________________________________________________________________________________________________________________________________________________________________
-* ___________________________________________________________________________________________
-Joint efforts to gather attention in target stakeholders’ communities and create relevance;
-___________________________________________________________________________________________
-* _____________________________________________________________________________________________________________________________________
-Promote MSO4SC technologies, demonstrators, tools and services, in general, as a way to show the MSO4SC e-Infrastructure added value;
-_____________________________________________________________________________________________________________________________________
-* ______________________________________________________________________________________________________
-Move to a more business oriented communication strategy, based on the initial outcomes of the project.
-______________________________________________________________________________________________________
+* Keep developing MSO4SC awareness and visibility through MADFs communities, other open source communities and other stakeholders communities related to the pilots and to mathematics (EU-MATHS-IN);
+* Joint efforts to gather attention in target stakeholders’ communities and create relevance;
+* Promote MSO4SC technologies, demonstrators, tools and services, in general, as a way to show the MSO4SC e-Infrastructure added value;
+* Move to a more business oriented communication strategy, based on the initial outcomes of the project.
 
 *Achievements:* This phase has just started, mainly increasing the number of communities engaged, even in domains not present initially in the consortium (i.e. eLearning). Future events aim at addressing more stakeholders in the identified communities, even showing demos as a way to promote the project. The first iteration has not yet finished and, therefore, only some partial results are available and the promotion has to be focus on these ones.
 
@@ -286,24 +246,12 @@ This phase will be carried out when the project is closer to its end and most of
 
 The key activities to be carried out are:
 
-* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-Continue with the efforts to promote MSO4SC, focused on the adoption of the proposed solutions, the usage of the e-Infrastructure by external parties and the transition to the body in charge of the sustainability of the e-Infrastructure;
-_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-* _____________________________________________________________________________________
-Perform several marketing and communication efforts with the latest project outcomes;
-_____________________________________________________________________________________
-* _____________________________________________________________________________________________________________________________________________________________________________________________
-Increase the participation in events, especially in those in which relevant scientific communities participate, disseminating latest progress with a business and scientific oriented vision;
-_____________________________________________________________________________________________________________________________________________________________________________________________
-* ______________________________________________________________________________________________________________
-Increase the activity in any relevant standardization body and open source community (i.e. MADFs communities);
-______________________________________________________________________________________________________________
-* ____________________________________________________________________________________________________________________________________
-Define the final marketing strategy for the project outcomes and, more specifically, for the MSO4SC e-Infrastructure services offer;
-____________________________________________________________________________________________________________________________________
-* __________________________________________________________________________________________________________
-Capitalize stakeholders and open source communities’ contacts, in order to guarantee the uptake of MSO4SC.
-__________________________________________________________________________________________________________
+* Continue with the efforts to promote MSO4SC, focused on the adoption of the proposed solutions, the usage of the e-Infrastructure by external parties and the transition to the body in charge of the sustainability of the e-Infrastructure;
+* Perform several marketing and communication efforts with the latest project outcomes;
+* Increase the participation in events, especially in those in which relevant scientific communities participate, disseminating latest progress with a business and scientific oriented vision;
+* Increase the activity in any relevant standardization body and open source community (i.e. MADFs communities);
+* Define the final marketing strategy for the project outcomes and, more specifically, for the MSO4SC e-Infrastructure services offer;
+* Capitalize stakeholders and open source communities’ contacts, in order to guarantee the uptake of MSO4SC.
 
 As this phase has not started yet, there is no achievement to report.
 
@@ -314,18 +262,10 @@ This phase is performed after the project finishes and the MSO4SC e-Infrastructu
 
 The main activities that will be performed are:
 
-* _____________________________________________________________________________________
-Initiate the marketing and communication activity of MSO4SC, a self-sustainable body;
-_____________________________________________________________________________________
-* __________________________________________________________________________________________________________________________________________
-Start promotion of the MSO4SC e-Infrastructure as a sustainable body, by exploiting the communication channels created during the project;
-__________________________________________________________________________________________________________________________________________
-* ______________________________________________________________________________________________________________________________________________________________________________
-Intensify the business and scientific/research oriented marketing and communication efforts to promote final versions of the project, and the MSO4SC services for researchers;
-______________________________________________________________________________________________________________________________________________________________________________
-* __________________________________________________________________________________________________________________________________________
-Maintain, support and evolve open source solutions, involving the OS communities in any new achievement, with especial focus on the MADFs.
-__________________________________________________________________________________________________________________________________________
+* Initiate the marketing and communication activity of MSO4SC, a self-sustainable body;
+* Start promotion of the MSO4SC e-Infrastructure as a sustainable body, by exploiting the communication channels created during the project;
+* Intensify the business and scientific/research oriented marketing and communication efforts to promote final versions of the project, and the MSO4SC services for researchers;
+* Maintain, support and evolve open source solutions, involving the OS communities in any new achievement, with especial focus on the MADFs.
 
 [[communication-kit]]
 == Communication Kit
@@ -342,7 +282,8 @@ The list of the main materials is the following:
 * Project presentations, to create general awareness of the project, to be shared with interested stakeholders and to show a general view of MSO4SC in certain events;
 * Videos, available at YouTube and to be referenced when showing MSO4SC capabilities to stakeholders, especially when no live demo is possible;
 * Whitepapers, to be shared with the general public, so they can understand the benefits of using MSO4SC.
-1.  [[project-branding-and-logo]]
+
+[[project-branding-and-logo]]
 === Project Branding and Logo
 
 The project logo aims at showing that MSO4SC is a one-stop-shop for researchers from different domains, who can use the e-Infrastructure to run simulations based on complex mathematical tools in an easy way. The different circles aim at showing heterogeneity of the stakeholders, who can be of different kinds (resource providers, MADFs providers, pilot application providers, end users of the pilot applications, etc.), from different domains (agriculture, environment and marine sustainability, health, energy, etc) and for solving problems of different sizes. All of them, part of an integrated world.
@@ -590,9 +531,10 @@ MSO4SC is following the Open Container Initiative (OCI)footnote:[https://www.ope
 
 Additionally, in WP6, for the definition of quality assurance process, several standards have been applied (IEEE 730:2014, IEEE 1058:1998, IEEE 1016:2009, IEEE 1012:2016, IEEE 26511:2012). Deliverable D6.1 [2] explains in detail how such standards are being applied in the context of MSO4SC.
 
-1.  [[online-and-social-media-communication]]
+[[online-and-social-media-communication]]
 == Online and Social Media Communication
-1.  [[website]]
+
+[[website]]
 === Website
 
 The website offers information on the overall project, the partners, the MADFs and the pilot applications, the MSO4SC GitHub repository, MOS4SC on Gitter as well as on news & events, see Figure 11. The information on the pilot applications are presented starting with a short description intended for a general audience and continuing with more details as well as secondary links for the professional audience. Figure 12 shows a screenshot of the topmost part of the website of the EYE2BRAIN pilot application.
@@ -650,9 +592,10 @@ image:media/d2.4/image17.png[Bildschirmfoto 2017-10-24 um 14.19.29.png,width=566
 
 [[_Toc370479358]][[_Toc497252969]]Figure : MSO4SC LinkedIn group
 
-1.  [[impact-assessment]]
+[[impact-assessment]]
 == Impact assessment
-1.  [[dissemination-and-communication-impact-assessment]]
+
+[[dissemination-and-communication-impact-assessment]]
 === Dissemination and Communication impact assessment
 
 We have initially defined the several KPIs for monitoring and assessing all dissemination and communication activities. Most of them come from the original proposal, but they have been reviewed and updated according to the project requirements. The following tables show the current status with respect to the defined KPIs, so it is possible to determine the activities which require more effort from now to the end of the project.
