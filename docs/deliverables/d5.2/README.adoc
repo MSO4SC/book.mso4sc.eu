@@ -109,62 +109,38 @@ A first implementation and integration of the technologies is described in D3.2 
 [cols=",",options="header",]
 |========================================================================
 |*Acronym* |*Definition*
-|*A&A* a|
-________________________________
-Authentication and Authorization
-________________________________
+|*A&A* a|Authentication and Authorization
 
-|*CAD* a|
-_____________________
-Computer Aided Design
-_____________________
+|*CAD* a|Computer Aided Design
 
-|*CI* a|
-______________________
-Continuous Integration
-______________________
+|*CI* a|Continuous Integration
 
 |*CKAN* |Comprehensive Knowledge Archive Network
 |*D* |Deliverable
 |*EC* |European Commission
-|*EGI* a|
-________________________
-European Grid Initiative
-________________________
+|*EGI* a|European Grid Initiative
 
 |*FAQ* |Frequently Asked Questions
 |*FEM* |Finite Element Methods
 |*HGS* |Host-guest systems
 |*HPC* |High Performance Computing (or Computer)
 |*IaaS* |Infrastructure as a Service
-|*IDM* a|
-________________
-Identity Manager
-________________
+|*IDM* a|Identity Manager
 
 |*MADF* |Mathematics Application Development Frameworks
 |*MD* |Molecular Dynamics
-|*MSO* a|
-______________________________________
-Modelling, Simulation and Optimization
-______________________________________
+|*MSO* a|Modelling, Simulation and Optimization
 
 |*MSO4SC* |Modelling, simulation and optimization for societal challenges
 |*MPI* |Message Passing Interface
 |*PaaS* |Platform as a Service
-|*PRACE* a|
-____________________________________________
-Partnership for Advanced Computing in Europe
-____________________________________________
+|*PRACE* a|Partnership for Advanced Computing in Europe
 
 |*Q&A* |Questions and answers
 |*TOSCA* |Topology and Orchestration Specification for Cloud Applications
 |*VM* |Virtual Machine
 |*V&V* |Verification and Validation
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a|Work Package
 
 |*YAML* |Yet Another Markup Language
 |========================================================================
@@ -433,38 +409,40 @@ image:media/d5.2/image11.png[Zibaffinity_user_workflow_update.png,width=567,heig
 
 The sequences of steps that must be followed by users to repeat the process of launching ZibAffinity pilot are:
 
-1.  *Portal authentication*:
+* *Portal authentication*:
 
 The Portal is the main entry point for getting access to all services and tools under the e-Infrastructure. Users must be logged in to get access. They will easily identify the *Login* button to enter the site and then they must sign-in into it. After authentication, the Dashboard containing all tools is shown.
 
-1.  *Purchase ZibAffinity:*
+*  *Purchase ZibAffinity:*
 
 From the Dashboard users must click on the MarketPlace. Then, in the Marketplace, users must select ZibAffinity and purchase it from the list of applications. Once this is done, ZibAffinity will be available and selectable from the Experiments tool in order to be used in user defined experiments.
 
-1.  *Create input dataset:*
+*  *Create input dataset:*
 
 This is an optional step. ZibAffinity provides a totally functional test dataset, available though the Data repository to reproduce this experiment.
 
 To create a new dataset, users must select the Data repository from the Dashboard. Then the user will easily identify the *New dataset* button. Then after clicking on the button they can upload custom data to be later used in the experiment definition. This particular dataset must contain:
 
-1.  Target molecule files database
-2.  Ligand molecule files
+. Target molecule files database
+. Ligand molecule files
 
-1.  *Create and launch the experiment: *
+//-
+
+*  *Create and launch the experiment:*
 
 Users must access the Experiments tool from the Dashboard. Users create an experiment through the *New experiment* button. Then they must select the ZibAffinity application and the dataset to be used. Some data is also required for running the application, in particular ZibAffinity requires:
 
-1.  Formal charge of ligand molecule.
+. Formal charge of ligand molecule.
 
 This data is filled with a default value and can be modified by users.
 
 Now, all requirements are already satisfied, users can click on the *Run* button to execute the simulation. Once the execution succeeds users can access the results of the simulation
 
-1.  *Follow the progress of the simulation: *
+*  *Follow the progress of the simulation:*
 
 Users have to enter the Monitor tool from the main Dashboard to follow the progress of the simulation. Selecting the monitor-dashboard assigned to their running experiment allows users to follow the progress of the execution, view information about the execution, computational resources used, etc.
 
-1.  *Retrieve the output data:*
+*  *Retrieve the output data:*
 
 Output data is now available from the Data repository. Users must enter the Data repository and select the dataset containing the output data. Now they can inspect and analyze the results, download and manage their data.
 
