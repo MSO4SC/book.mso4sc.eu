@@ -1,0 +1,718 @@
+= MSO4SC: D6.1 MSO4SC Qualification Method
+:page-root: ../../../
+:page-permalink: /deliverables/d6.1/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+
+image:media/d6.1/image1.PNG[image,width=177,height=167]
+
+MSO4SC
+
+D6.1 MSO4SC Qualification Method
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|================================================================
+|Work Package |WP6 Service Qualification and Quality Assurance
+|Due Date: |_M8_
+|Submission Date: |_30/10/2017_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Zoltán Horváth (SZE); Attila Molnár (SZE)_
+|Reviewer(s) |_F. Javier Nieto (ATOS); Carlos Fernández (CESGA) _
+|================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d6.1/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|==================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.05 |13/07/2017 |Initial version (draft) |Zoltán Horváth (SZE);
+|0.1 |21/08/2017 |Initial version |Zoltán Horváth (SZE);
+|0.2 |28/08/2017 |Improved initial version |Zoltán Horváth (SZE);
+|0.4 |27/09/2017 |Restructured and revised document |Attila Molnár (SZE)
+|0.8 |28/09/2017 |Revised document |Attila Molnár (SZE)
+|1.0 |30/09/2017 |Revised document |Zoltán Horváth (SZE)
+|==================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc497235094[Figure 1 – Functionality and quality in TRL 9]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc497235089[Table 1. Glossary of Acronyms 8]
+
+link:#_Toc497235090[Table 2 - The MSO4SC services 15]
+
+link:#_Toc497235091[Table 3 - Qualification protocol of Services 25]
+
+link:#_Toc497235092[Table 4 – Requirement Traceability Matrix Example 28]
+
+link:#_Toc497235093[Table 5 – Test Case Template 29]
+
+[[executive-summary]]
+= Executive Summary
+
+The Project will deliver an e-infrastructure with services of mathematical development frameworks and their particular end-user applications. All services will be at technology readiness level of 8, which is very demanding requirement. This document is defining the overall process of quality assurance and the associated documentation structure, which has the aim of underpinning the TRL8 of the MSO4SC system. This document will provide the outline of the protocols of qualification procedures of the MSO4SC services. This document will also provide methodology of independent testing of functions (i.e. tests performed by external stakeholders) for pilots that will guarantee audit of MSO4SC. Notice that as planned in the Grant Agreement the protocols will be detailed and applied in further tasks of WP6 in the Project.
+
+1.  [[introduction]]
+= Introduction
+1.  [[purpose]]
+=== Purpose
+
+The purpose of this document is to give an overview of the quality assurance method of the Project. The quality assurance method explains the overall protocol of the qualification and how compliance to the protocol ensures a system which meets the quality and Technology Readiness Level 8 requirements. Does not provide precise reference to verification and validation of the underlying services, and the end-user audits or user acceptance tests of them, which will be explained in the following documentations, as described in D1.1 Project Management Plan:
+
+* D6.2: Test and qualify the Cloud services of MSO4SC,
+* D6.3 Test and qualify the MADFs,
+* D6.4 Test and qualify the End-User Application.
+
+The documents produced during the qualification procedures will be a significant part of the TRL 8 documentation as well. It verifies module and system performance prior to being placed online according to a standard operating procedure. This level of validation agrees with the requirements from the Grant Agreement that services have to be at TRL 8.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+In this document acronyms of terms are used of which definitions are provided in the table below.
+
+[cols=",",options="header",]
+|=================================================
+|*Acronym* |*Definition*
+|*CA* |Consortium Agreement
+|*CTE* |Critical Technology Element
+|*DDS* |Design Document Specification
+|*EUS* |End-user Service
+|*ICD* |Interface Control Document
+|*IQ* |Installation Qualification
+|*MADF* |Mathematics Developing Framework
+|*OQ* |Operational Qualification
+|*PDR* |Primary Developer Representative
+|*PER* |Primary End user Representative
+|*PQ* |Performance Qualification
+|*QAM* |Quality Assurance Manager
+|*QAR* |Quality Assurance Reviewer
+|*QMD* |Qualification Method Document
+|*SDLC* |Software Development Life Cycle
+|*SME* |Subject Matter Expert
+|*SP* |Service Provider
+|*SQAP* |Software Quality Assurance Plan
+|*SRS* |Service/Software Requirement Specification
+|*TRL* |Technology Readiness Level
+|*UAT* |User Acceptance Test
+|*SVVP* |Software Verification and Validation Plan
+|*WP* |Work Package
+|=================================================
+
+[[_Toc497235089]]Table . Glossary of Acronyms
+
+[[organization-of-the-document]]
+=== Organization of the document
+
+Section 1 deals with the introduction of the document with purpose, notations and summary of organization of the document. Then in section 2 an overview of the qualification methodology is given. This section formulates the structure of Software Quality Assurance Plan (SQAP), the main qualification document that has to be generated for the qualification of the MSO4SC project and for all of its modules (D6.2, D6.3, D6.4). The core of the SQAP are the description of the qualification method processes, of which protocol is presented in Section 3.5. The document closes with the section for conclusions and further work.
+
+[[definitions]]
+=== Definitions
+
+*Critical Technology Element:* The term Critical Technology Element - will be used throughout this documentation to denote the underlying Services, introduced in more detail in section 3.2. Sometimes CTE will be replaced by the term subsystem or module.
+
+*Service Provider:* Consortium partner responsible for a given task, module, subsystem.
+
+*Systems review:* A systems review is a process or meeting during which a software product or the system is examined by PER, PDR, QAR, or other interested parties for comment or approval.
+
+[[overview-the-quality-assurance-method]]
+= Overview the Quality Assurance Method
+
+The MSO4SC project will deliver e-infrastructure with services of mathematical development frameworks and their particular end-user applications, as introduced in D2.2. In order to introduce services which are useful to a larger scientific community and for the ease of prototyping, all services and the underlying infrastructure must be at Technology Readiness Level of 8, which means the system is tested for its intended use, and in its final environment. The MSO4SC project qualification is based on the suggestions of IEEE 730:2014 standard. One must note the link between Technology Readiness Levels, and quality assurance is not defined properly by standards, therefore we use the following model throughout the project to make the necessary link.
+
+image:media/d6.1/image3.jpeg[image,width=423,height=308]
+
+[[_Toc497235094]]Figure – Functionality and quality in TRL
+
+The figure above represents our view, that TRL8 can be measured along the achieved functionality and the non-functional requirements (quality). If it reaches the expected levels of both, and this is validated and verified properly, it can be stated TRL8 is reached. (The MSO4SC system’s initial functional and non-functional requirements can be found in D5.2.)
+
+This document clearly defines:
+
+* Managerial roles and functions.
+* Standards governing the qualification and the integration
+* The contents of the various documents.
+* Verification and validation plan templates
+* The quality attributes used through the validation.
+* How Technology Readiness Assessment works in our special case.
+
+If all the above mentioned aspects are defined, the quality assurance method is in compliance with the IEEE 730:2014 standard, and provides guidelines for Technology Readiness Level Assessment at the same time.
+
+As introduced in D2.2 in more details, the MSO4SC can be best described by the term “system-of-systems” or “SoS”. The various subsystems, or services are handled independently therefore a good quality assurance method shall have different levels:
+
+* Subsystem Level,
+* Integration Level.
+
+The novelty of the process is that the compliance to the described standard procedures shall be followed by each independently managed tasks (subsystems), and on the integration level in parallel.
+
+This document furthermore provides information on what areas are under close supervision in order to produce TRL 8 services.
+
+The aim of this document is not describing the testing procedures in details, but introducing the four sublevels of quality assurance, for subsystems and integration as well:
+
+* Quality assurance of the user requirements (D2.5)
+* Quality assurance of the architecture (D2.6)
+* Quality assurance of the implemented technology (D3.4, D4.4, D5.6)
+* Quality assurance of the documentation (D3.3, D4.3, D5.5)
+
+All CTEs have been at the technology readiness level, where pilots were open for closed user community. But at the end of this MSO4SC project all services will be available for a larger research community, which represents a different level. The following list describes the various levels in our “SoS” case (the CTEs and the integrated MSO4SC shall follow separate qualification procedures):
+
+* User requirement assurance (level 1) - the end user and business requirements for Services are clear and concise.
+* User requirement assurance (level 2) - the technological requirements of the Services for HPC and cloud infrastructure is clear and concise.
+* Quality assurance of the architecture: the integrated MSO4SC architecture.
+* Quality assurance of the architecture: the CTE architectures.
+* Quality Assurance of the development or modification of CTEs.
+* Quality assurance of the MSO4SC as integrated system.
+* Quality assurance of the user documentation (level 1 and 2).
+
+The SQAP has the following structure:
+
+1.  Organizational background
+2.  The MSO4SC Services
+3.  Basic terms for having a common understanding of TRL and SDLC (TRL - Technology Readiness Level and SDLC - Software Development Life Cycle)
+4.  Quality attributes,
+5.  Quality assurance process according to IEEE 730:2014 with references to criteria of TRL8,
+6.  Documentation requirements,
+7.  Tools of quality management.
+1.  [[basic-terms]]
+== Basic terms
+
+In this section of the SQAP a summary of the following terms will be given in order show their usage throughout this documentation:
+
+* Software Development Life Cycle (SDLC)
+
+* Technology Readiness Level (TRL)
+1.  [[sdlc-and-qualification-summary]]
+=== SDLC and qualification summary
+
+Since MSO4SC is a project of development and integration type of nature, from the qualification point of view it is important to define the Software Development Life Cycle. This consists of the following stages:
+
+*Stage 1,* Planning and Stakeholders’ Requirement Analysis: Requirement analysis is the most important and fundamental stage in SDLC. It shall be performed with inputs from the final users the scientific community, and domain experts of the field. In MSO4SC Project this step shall be done internally for each CTE, no documentation and communication with the Quality Assurance Manager (Management) is required. End-user service providers shall articulate detailed requirements towards MADF, and MSO4SC cloud.
+
+*Stage 2,* Defining Requirements: Once the requirement analysis is done the next step is to clearly define and document the requirements and get them approved from the PER and QAR. The output shall be an SRS (Software Requirement Specification) document which consists of all the product requirements to be designed and developed during the project life cycle. (The results of this stage are formulated in D2.5.)
+
+*Stage 3,* Designing the Product Architecture: D2.6 shall be the reference for product architecture. Based on the requirements specified in D2.5, design for the product architecture is proposed and documented in a DDS - Design Document Specification. Quality assurance of the Architectures is part of the verification process (verification of a product means checking if all the required functionalities are covered). This DDS shall be reviewed by QAR. DDS shall clearly define the followings:
+
+* All the architectural modules of the product,
+* Its communication and data flow representation (ICD - Interface Control Document),
+* External and third party modules (if any).
+
+*Stage 4,* Building or Developing the Product: In this stage of SDLC the actual development starts and the product is built. The programming code is generated, systems integration is conducted as per DDS during this stage. Developers must follow the coding guidelines defined in DDS (to be checked in D3.4 and D4.4). The compliance of the document will be checked by QAR according to the Qualification Process description. Reviews will be made periodically in the form of code walkthroughs.
+
+*Stage 5,* Testing the Product: As described above, testing activities are involved in all the stages of SDLC. This reviews and tests shall refer to only stage of the product where product defects are reported, tracked, fixed and retested, until the product reaches the quality standards defined in the SRS. Independent audits, tests of the various services are done by QAR.
+
+*Stage 6,* Market Deployment: Once the product is tested and ready to be deployed it shall be formally introduced to the intended market of scientists. The product may first be released in a limited segment and tested in the real business environment after UAT is done by PER and QAR. (UAT - User Acceptance Testing), in line with D5.5 statements.
+
+Quality assurance covers all the above mentioned steps. In the following sections we use the following naming conventions:
+
+* Stage 1-3: Planning and design phase,
+* Stage 4: Implementation phase,
+* Stage 5-6: Testing and audit phase
+1.  [[technology-readiness-level-trl]]
+=== Technology Readiness Level (TRL)
+
+There are no clear guidelines how TRL can be applied in software development and cloud service development frameworks. The proposed documentation will be necessary to underpin each TRL at the Technology Readiness Assessment Reviews. The documents required for assessment are broader than quality testing, since the development of the functionality is also required. (See Figure 1 in Section 1.)
+
+Definition of TRL levels applied through the Project, and their connection to the Qualification Process are as follows:
+
+*TRL0 -* Unproven idea: No analysis/testing performed. All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL1 -* Basic Principles observed and reported. Scientific research begins to be translated into applied research and development. The outcome is published research that identified the principles that underlie the concept. All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL2 -* Concept formulated and practical application is invented based on TRL 1. The outcome is published research that outlines the application and initial analysis of underlying principles. All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL3 -* Proof-of-concept. Analytical and experimental studies are performed on a lab scale to validate analytical predictions. Work is done on various components of the potential technology (which are not yet integrated). The documentation provided for assessment shall contain the followings:
+
+* Experimental data,
+* Measured parameters of interest in comparison with analytical predictions.
+
+All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL4 -* Low-fidelity lab-scale demonstration. Basic technological components are integrated to establish that they will work together. This is relatively “low fidelity” compared with the eventual system. The documentation provided for assessment shall contain the following:
+
+* Results of laboratory testing,
+* Comparison with system performance goals.
+
+All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL5 -* High-fidelity lab-scale demonstration. The basic technological components are integrated with reasonably realistic supporting elements so they can be tested in a simulated environment. The documentation provided for assessment shall contain the following:
+
+* Results of laboratory testing in simulated environment,
+
+* Identified barriers for target performance goals and plans to overcome them.
+
+All CTE’s and the MSO4SC have surpassed this stage.
+
+*TRL6 -* Prototype system designed. The system is integrated with support elements, and model design is created to be tested in simulated or operational environment. The documentation provided for assessment shall contain the following:
+
+* Results of the prototype testing in simulated lab environment,
+
+* Data shall be close to target expectations.
+
+The MSO4SC and its end user applications are in this stage.
+
+*TRL7 -* Prototype system tested in operational environment. Prototype near or at planned operational system. Represents a major step up from TRL 6 by requiring demonstration of an actual system prototype in an operational environment (e.g., in the field, on aircraft, in a vehicle, or in space). The documentation provided for assessment shall contain the following: results of the prototype testing in operational environment which demonstrates success.
+
+*TRL8 -* Actual system completed. The system is qualified through test and demonstration. Technology has been proven to work in its final form and under expected conditions. The documentation provided for assessment shall contain the following:
+
+* Results of testing in its final configuration,
+* User documentation,
+* Training documentation,
+* Maintenance documentation completed.
+
+All functionality tested in simulated and operational scenarios. Consecutively performing the steps of D6.2, D6.3, D6.4 will underpin the TRL8 of MSO4SC.
+
+[[the-software-quality-assurance-plan-document-sqap]]
+= The Software Quality Assurance Plan Document (SQAP)
+
+In this section we give details of the Software Quality Assurance Plan introduced in the previous section.
+
+[[organizational-background]]
+=== Organizational background
+
+[[organization]]
+=== Organization
+
+ATOS and SZE as parts of the project integration task monitor the overall software quality attributes, and provide guidelines to the service developers and integrators in order to ensure quality code and system will be delivered. Software Quality Assurance office will be set up at SZE, WP6 leader.
+
+[[roles-and-responsibilities]]
+=== Roles and responsibilities
+
+* Primary End User Representative (PER): the primary point of contact and principal approver on behalf of the end user community. The PER is responsible for ensuring that end user reviews are conducted on time and by appropriate subject matter experts. (Every CTE developer has to appoint a PER, and assign a project plan to it.)
+* Primary Developer Representative (PDR): The PDR acts as the primary point of contact and principal approver on behalf of the Service Providers. The PDR is responsible for the conduct of technical reviews in a timely manner and by appropriate development team members.
+* Quality Assurance Reviewer (QAR): The QAR acts as the independent quality assurance reviewer for the project. The QAR will work independently from the Service Provider’s team to ensure objective audits and reviews of the work products and processes of this software development and integration project. Quality Assurance Review shall perform the tasks of independent functionality testing.
+1.  [[quality-assurance-estimated-resources]]
+=== Quality assurance estimated resources
+
+The Quality Assurance process shall run through the Project and requires the above mentioned team members.
+
+[[the-mso4sc-services]]
+=== The MSO4SC Services
+
+MSO4SC is a HPC and cloud-based e-infrastructure bringing simulation services through development of Mathematics Development Frameworks, MADFs and end user applications. The definition of the services is given in D3.1 (the cloud infrastructure), D4.1 (MADFs) and D5.1 (end user applications) of the project. Table 2 contains the service names and responsibilities of the various MSO4SC services.
+
+[[list-of-services]]
+=== List of services
+
+[cols=",,,",options="header",]
+|===========================================================
+|*Service Number* |*Service Name* |*Provider* |*Responsible*
+|1 |The MSO4SC infrastructure |CESGA, ATOS a|
+Carlos Fernandez,
+
+Javier Carnero
+
+|2 |MSO4SC Feel++ |UNISTRA |Christophe Prud’homme
+|3 |MSO4SC FEniCS-HPC |KTH |Johan Hoffman
+|4 |MSO4SC OPM |SINTEF |Atgeirr Rasmussen
+|5 |MSO4SC Eye2Brain |UNISTRA |Christophe Prud’homme
+|6 |MSO4SC HifiMagnet |UNISTRA |Christophe Prud’homme
+|7 |MSO4SC FloatingWindTurbine |BCAM |Johan Jansson
+|8 |MSO4SC 3DAirQualityPrediction-HPC |KTH |Johan Hoffman
+|9 |MSO4SC 3DairQualityPrediction |SZE |Zoltán Horváth
+|10 |MSO4SC OPM Flow |SINTEF |Atgeirr Rasmussen
+|11 |MSO4SC ZIB Affinity |ZIB |Marcus Weber
+|===========================================================
+
+[[_Toc497235090]]Table - The MSO4SC services
+
+The services 2-11 are based on the existing corresponding services with the same providers, although with lower Technology Readiness Level than 8. Sometimes services will be referred to as subsystems, throughout this documentation, and service provider as subsystems developer.
+
+[[service-quality-attributes]]
+== Service Quality Attributes
+
+The following list describes the quality attributes covered in this section. It categorizes the attributes in four specific areas linked to design, runtime, system, and user qualities. (The quality attributes are treated as non-functional requirements in D2.5).
+
+The following sections describe each of the quality attributes in more detail, and provide guidance on the key issues and the decisions you must make for each one as follow:
+
+* Availability
+* Conceptual Integrity
+* Interoperability
+* Maintainability
+* Manageability
+* Performance
+* Reliability
+* Scalability
+* Security
+* Supportability
+* Testability
+* User Experience / Usability
+1.  [[availability]]
+=== Availability
+
+Availability defines the proportion of time that the system is functional and working. It can be measured as a percentage of the total system downtime over a predefined period. Applies to all CTE. Metrics to be used is: MTBF/(MTBF+MTTR). Will be assessed by PDR, and results reviewed by QAR.
+
+[[conceptual-integrity]]
+=== Conceptual Integrity
+
+Conceptual integrity defines the consistency and coherence of the overall design. This includes the way that components or modules are designed, as well as factors such as coding style and variable naming. Applies to MSO4SC cloud. The conceptual integrity will be assessed by QAR, based on the system architecture plans.
+
+[[interoperability]]
+=== Interoperability
+
+Interoperability is the ability of a system or different systems to operate successfully by communicating and exchanging information with other external systems written and run by external parties. An interoperable system makes it easier to exchange and reuse information internally as well as externally. Interoperability will be assessed according to LISI framework, system shall reach Level 3. It is assessed by QAR based on system walkthrough led by PDR.
+
+[[maintainability]]
+=== Maintainability
+
+Maintainability is the ability of the system to undergo changes with a degree of ease. These changes could impact components, services, features, and interfaces when adding or changing the application’s functionality in order to fix errors, or to meet new business requirements. Maintainability will be measured by Cyclometric complexity. Low cyclometric complexity will be required, and will be assessed by QAR.
+
+[[manageability]]
+=== Manageability
+
+Manageability defines how easy it is for system administrators to manage the application. Sufficient and useful instrumentation shall be provided in monitoring systems and for debugging and performance tuning. The manageability will be measured in time, for random debugging and performance tuning tasks. The manageability will be assessed by the QAR.
+
+[[performance]]
+=== Performance
+
+Performance is an indication of the responsiveness of a system to execute specific actions in a given time interval. It will be measured in terms of latency and throughput. Shall be done by PDR and results reviewed by QAR.
+
+[[reliability]]
+=== Reliability
+
+Reliability is the ability of a system to continue operating in the expected way over time. Reliability is measured as the probability that a system will not fail and that it will perform its intended function for a specified time interval. Applies to all CTE and MSO4SC. Reliability features testing, load testing and regression testing. Fault/normal operation metrics will be used on all features. Shall be done by PDR, and results reviewed QAR.
+
+[[scalability]]
+=== Scalability
+
+Scalability is ability of a system to either handle increases in load without impact on the performance of the system, or the ability to be readily enlarged. Applies to all CTE and MSO4SC. The system will be measured based on the number of the concurrent tasks.
+
+[[security]]
+=== Security
+
+Security is the capability of a system to reduce the chance of malicious or accidental actions outside of the designed usage affecting the system, and prevent disclosure or loss of information. Applies to all CTE and MSO4SC.
+
+The following will be examined:
+
+* Have we followed security design principles?
+* Is the design sufficiently detailed to meet the security requirements placed on it?
+* Can the design be analyzed to verify that it meets the security policy and requirements?
+* What external systems and interfaces does this system depend on for security risk mitigation?
+* Has each unit complied with the secure coding practices?
+* Have bugs been identified, classified, and traced to requirements?
+* Do we have adequate coverage of security in user aids (help files, manuals, training, etc.)?
+* Have we completed security testing (e.g., attacks, penetration)?
+* Have all identified security issues been resolved?
+* How broad is the security testing?
+* Does it include tools and people?
+* How many attack patterns are evaluated?
+* Are we testing at the unit, subsystem, system-of-system level?
+* Is the testing static or dynamic?
+
+Measure: The measure will be used is security defects per thousands of lines of code (KLOC)
+
+[[supportability]]
+=== Supportability
+
+Supportability is the ability of the system to provide information helpful for identifying and resolving issues when it fails to work correctly. Average time will be measured, how long it takes to resolve an issue.
+
+[[testability]]
+=== Testability
+
+Testability is a measure of how well system or components allow you to create test criteria and execute tests to determine if the criteria are met. Testability allows faults in a system to be isolated in a timely and effective manner. It applies to all CTEs and MSO4SC. It will be measured with the following terms:
+
+* Efficiency: average tests per unit of man-day.
+* Effectiveness: average probability of killing a bug per unit of man-day.
+1.  [[user-experience-usability]]
+=== User Experience / Usability
+
+The application interfaces must be designed with the user and consumer in mind so that they are intuitive to use, can be localized and globalized, provide access for disabled users, and provide a good overall user experience. It applies to end user applications, and MSO4SC. Effectiveness (number of tasks completed successfully/number of tasks undertaken), efficiency (time needed for a specific task) and satisfaction will be measured. Satisfaction will be measured by reporting initial users.
+
+[[quality-assurance-process-with-references-to-criteria-of-trl]]
+=== Quality assurance process with references to criteria of TRL
+
+The SQAP describes the applied quality assurance process with references to criteria of TRL. Here, in this section of the deliverable document D6.1 we shall provide the process in general so this section serves as the detailed qualification method for all of the MSO4SC services.
+
+As discussed previously, we shall follow the IEEE 730:2014 standard for the quality assurance method. MSO4SC falls into the category of the System-of-Systems, which complicates the assembly of any Software Quality Assurance Plan (SQAP). The document covers the whole lifecycle of the MSO4SC system, and underlying services. The software items covered by the SQAP were listed in Section 4.1.
+
+It is assumed, that the development of the various subsystems, or CTE elements will follow the development model described above.
+
+The Quality Assurance Method described in this document has the following steps:
+
+* Produce the Software Quality Assurance Plan assembled according to IEEE standard 730:2014.
+* Produce Technology Readiness Assignment documentation, for each subsystem, and the integration project. A team of PER, PDR, QAR will do the assessment based on the documentation and reviews.
+* Perform steps described in the Software Quality Assurance Plan (D6.1), for each subsystem, and the integration project.
+
+Ensuring the TRL 8 level will be done by conducting proper architecture, software, and documentation reviews.
+
+1.  [[planning-and-design-phase]]
+=== Planning and Design Phase
+1.  [[quality-assurance-in-the-planning-and-design-phase]]
+=== Quality Assurance in the Planning and Design Phase
+
+The QAR shall conduct software quality assurance activities throughout the software life cycle in accordance with the following requirements:
+
+During the *software requirements phase*, the software quality assurance activity shall assure that the software requirements:
+
+* Complete,
+* Testable
+* Properly expressed as functional, non-functional (performance), and interface requirements (IRS – Interface Requirements Specifications).
+
+The software requirements are summarized in D2.5 deliverable.
+
+During the *software architectural (preliminary) design phase*, the software quality assurance activity shall:
+
+* Assure adherence to design standards;
+* Assure that all software requirements are allocated to software components;
+* Assure that a Requirement Traceability Matrix exists and is kept up to date;
+* Assure that Interface Control Documents (goes-into, comes-out document) are created and are in agreement with the SDR;
+* Review Preliminary Design Review (PDR) documentation and assure that all action items are resolved; and
+* Assure that the approved design is placed under configuration control.
+
+This is done by guaranteeing all the required information is contained in the next version of the MSO4SC e-Infrastructure architecture, in D2.6.
+
+During the *software detailed design phase*, the software quality assurance activity shall:
+
+* Assure that approved design standards are followed;
+* Assure that the results of design inspections are included in the design; and
+* Review Critical Design Review documentation and assure that all action items are resolved.
+
+The MSO4SC project detailed design can be found in D3.1, D4.1, D5.1 and, for the second iteration, it will be provided by D3.3, D4.3 and D5.5.
+
+[[process-techniques]]
+=== Process Techniques
+
+The Project will use an audit guides and checklists to perform scheduled audits of the provider's software process, products, and status report.
+
+During the software requirements phase, during audits the following will be checked:
+
+* Analysing software requirements to determine if they are consistent with, and within the scope of, system requirements.
+* Assuring that the requirements are testable and capable of being satisfied.
+* A preliminary version of formal test plans exists, including a requirements traceability matrix (a table that lists each requirement and the method that is used to verify the requirement).
+
+The above mentioned tasks are performed by the QAR and findings are summarized in audit reports.
+
+During the software architectural design phase and during audits, the following will be checked:
+
+* Updating of the preliminary version of the formal test plan, including the requirement traceability matrix;
+* Conducting informal technical reviews or formal inspections of the preliminary software and data base designs;
+
+This task is done by QAR, and findings are summarized in audit reports.
+
+1.  [[implementation-phase]]
+=== Implementation Phase
+1.  [[quality-assurance-in-the-implementation-phase]]
+=== Quality Assurance in the Implementation Phase
+
+During the MSO4SC systems implementation phase, the software quality assurance activity shall audit:
+
+* The results of coding activities;
+* Status of all deliverable items;
+* Configuration management activities and the software development library;
+* The non-conformance reporting and corrective action system,
+* Development of test procedures.
+
+This task is done by providers’ team, reviewed by QAR. Deliverables D3.4, D4.4 and D5.6 will provide valuable information for the mentioned auditing activities.
+
+[[process-techniques-1]]
+=== Process Techniques
+
+The QAR will examine of the MSO4SC services and the integration procedure in the form of code walkthrough.
+
+1.  [[software-integration-and-test-phase]]
+=== Software Integration and Test Phase
+1.  [[quality-assurance-in-the-integration-and-test-phase]]
+=== Quality Assurance in the Integration and Test Phase
+
+During the *MSO4SC systems integration and test phase*, the software quality assurance activity shall:
+
+* Assure readiness for testing,
+* Assure that all tests are run according to approved test plans and procedures and that any non-conformance is reported and resolved,
+* Assure that test reports are complete and correct,
+* Certify that testing is complete and software and documentation are ready for delivery,
+* Participate in the Test Readiness Review and assure all action items are completed.
+
+This task is done by providers’ team, reviewed by QAR.
+
+[[process-techniques-2]]
+=== Process Techniques
+
+During the *MSO4SC system integration and test phase*, the software quality assurance activity shall assure that final functional and physical configuration audits are conducted in accordance with Project-approved standards and procedures. During the MSO4SC system acceptance and delivery phase, verification and validation activities include:
+
+* Conducting formal testing, according to the formal test plan and procedures, to demonstrate that the developed system meets its functional, performance, and interface requirements,
+* Locating, recording, correcting, and retesting non-conformances.
+
+This task is done by providers’ team, reviewed by QAR.
+
+During MSO4SC project three levels of testing will be performed:
+
+* Unit,
+* Integration,
+* User Acceptance Testing (independent testing).
+
+Unit and integration testing shall be informal testing conducted by the provider. Acceptance readiness testing shall be formal testing conducted by QAR and witnessed by the Project. The purpose of acceptance testing shall be to show that the software is ready for acceptance testing by the Project. Test planning shall be done for all levels of testing. The provider shall submit to the Project for review and approval test plans for the formal testing, such as the acceptance readiness testing. An example test case can be found in Annex 1.
+
+[[documentation-requirements]]
+=== Documentation requirements
+
+In order to produce system which reaches TRL 8 level, and performs according to pre-agreed metrics, each CTE and working group shall compile appropriate documentation and shall provide it to the QAR. The various documents are listed and described below.
+
+[[management]]
+=== Management
+
+Each Service provider shall describe the project’s management structure, its tasks, and its roles and responsibilities. Planning process will yield Management Documentation for each Service Provider. The QAR will check if the documentation exists. WP1 plans and components roadmaps (in WP3, WP4 and WP5) shall be continuously updated to reflect potential changes.
+
+[[input-documentation]]
+=== Input Documentation
+
+Each subsystem shall provide documentation list, where the documents governing the development, veriﬁcation and validation, use, and maintenance of the software are introduced. The existence of the input documentation list will be inspected by QAR.
+
+[[software-requirements-description-srd]]
+=== Software requirements description (SRD)
+
+This document specifies the requirements for a particular software product:
+
+* Functionality,
+* External interfaces,
+* Performance,
+* Quality attributes (see Section 1)
+* Design constraints imposed on implementation.
+
+Each requirement should be uniquely identiﬁed and deﬁned in such a way that its achievement is capable of being objectively veriﬁed and validated. This software requirement description is based on D2.5. Requirement Traceabiltiy Matrix will govern the qualification, verification and validation. (Annex 2.) SRD shall continuously reviewed by QAR and updated by PDR.
+
+[[software-design-description-sdd]]
+=== Software design description (SDD)
+
+An architectural view of the subsystem, the SDD should depict how the software will be structured to satisfy the requirements in the SRD. The SDD should describe the components and subcomponents of the software design, including databases and internal interfaces. SDD shall be continuously updated and updated by PDR.
+
+[[systems-veriﬁcation-and-validation-plans-svvp]]
+=== Systems Veriﬁcation and validation plans (SVVP)
+
+MSO4SC Project and the Services shall have separate verification and validation plans, which shall be complied in D6.2. The structure V&V plan will follow IEEE 1016:2014 standard. The veriﬁcation plan should document the veriﬁcation tasks and the validation plan should document the validation tasks.
+
+Veriﬁcation and validation processes are used to determine if developed software products or the integrated system components conform to their requirements, and whether the software products fulﬁll the intended use and user expectations. This shall mean the followings:
+
+* Analysis,
+* Evaluation,
+* Review,
+* Inspection,
+* Assessment,
+* Testing of the software products and the processes that produced the products.
+
+One must note the software testing, validation, and veriﬁcation processes apply when integrating purchased or customer-supplied software products into the developed product. Veriﬁcation and validation will be done via test cases (see Annex 2.).
+
+[[user-documentation]]
+=== User documentation
+
+Each Service Provider shall provide a User Documentation (UD). User documentation guides the users in installing, operating, managing, and maintaining software products. The user documentation should contain the following elements:
+
+* Data control inputs,
+* Input sequences,
+* Program limitations,
+* All error messages should be identiﬁed and described.
+
+This document contains all essential information about the software. All corrective actions to correct the errors causing the error messages shall be described. The documentation shall be applicable to any portion of the software with which the user interacts directly. (see IEEE 26511:2012, user documentation shall follow the guidelines and recommendations stated in the standard).
+
+1.  [[tools-for-quality-management-reviews]]
+=== Tools for quality management – Reviews
+1.  [[end-user-review]]
+=== End user review
+
+Certain deliverable classes must be reviewed by at least one PER who is familiar with the software product under development. The PER will examine the deliverable for the presence of attributes specific to each class of deliverable, as described in the DDS. The intent of the end user review is to ensure that each deliverable is examined from the point of view of the ultimate users of the system, by someone who is knowledgeable about the process being automated. Notice that in the Project we call this method “independent testing”.
+
+[[technical-review]]
+=== Technical review
+
+Each class of deliverable must be reviewed by at least one development team member who is familiar with the product under development. This review will be conducted from a technical point of view, with the reviewer examining the deliverable for the presence of attributes specific to each class of deliverable, as described in the DDS. The intent of the technical review is to ensure that each deliverable is examined for technical accuracy by someone who is familiar with the processes and development tools for the project. In other development methodologies, technical reviews may be known as "peer reviews," or “code walk-throughs," depending on the lifecycle stage of the project.
+
+[[the-general-qualification-protocol-of-services]]
+=== The general qualification protocol of Services
+
+[cols=",,,,",options="header",]
+|=============================================================================================================================================================
+a|
+___________________________________
+*Quality Assurance Activity number*
+___________________________________
+
+ |*Type of Activity* |*Description* |*Qualification method* |*Acceptance criteria*
+|QA1.1 |Document |Initial Technology Readiness Assessment report |Review |All underlying activity is documented.
+|QA1.2 |Document |SRS |Review |Compliance with IEEE 830
+|QA1.3 |Document |DDS |Architecture design review (DDS review) |Compliance with design standards, ICDs and test verification exists
+|QA1.4 |Document |Organization documentation |Review |Primary End user Representative and Primary Developers Representative is named. Organization is defined.
+|QA2.1 |Document |Verification Plan |Review |Compliance with D6.2.
+|QA2.2 |Document |Validation Plan |Review |Compliance with D6.2.
+|QA2.3 |Action |Code walk through |Review |Compliance with D6.2
+|QA2.4 |Document |Technology Readiness Assessment report |Review |All underlying activity is documented.
+|A2.5 |Document |Software Test Readiness Report |Review |Test procedures are complete and their compliance with test plans and descriptions is verified.
+|QA3.1 |Document |Test Conformance Report |Review |Testing results are conform with expected results.
+|QA3,2 |Document |UAT |Review |UAT conform with expectations, commented parts are corrected.
+|QA3.2 |Action |Independent testing |Report |Independent audit of the conformance of the Service to the SRS.
+|QA3.3 |Document |Final Technology Readiness Assessment report |Review |All underlying activity is documented to ensure TRL8.
+|QA3.3 |Document |User Documentation |Review |Compliance with D6.2.
+|=============================================================================================================================================================
+
+[[_Toc497235091]]Table - Qualification protocol of Services
+
+[[conclusions-and-further-work]]
+= Conclusions and further work
+
+In this document, the D6.1 deliverable of the Project, we provided the qualification method of the MSO4SC infrastructure and its services. The methodology is based on standards, namely it applies the standard IEEE 730:2014 for the whole qualification process and other standards for the component processes such as documentation, verification and validation. These all will be suitable to ensure qualification of MSO4SC system to TRL8, which is the ultimate goal of the whole method. In the forthcoming part of the Project we shall apply the qualification method to each service of the Project, i.e. to the MSO4SC modules which will be detailed in D6.2.
+
+[[_Toc368494036]]
+
+[[references]]
+= References
+
+1.  [[_Ref467573084]]MSO4SC Description of Work (DoA). Annex I to the EC Contract.
+2.  IEEE 730:2014: IEEE Standard for Software Quality Assurance Processes.
+3.  IEEE1058:1998: IEEE Standard for Software Project Management Plans
+4.  IEEE1016:2009: IEEE Standard for Software Design Specification
+5.  IEEE 1012:2016: IEEE Standard for System, Software and Hardware Verification and Validation
+6.  IEEE 26511:2012: IEEE Standard for Systems and Software Engineering – Requirements for Managers of User Documentation
+7.  D2.5 End User’s Requirement Report
+8.  D1.1 Project Management Plan
+9.  D2.2 MSO4SC e-Infrastructure Definition
+10. D4.1 Detailed Specification for the MADFS
+11. D5.1 Case study extended design and evaluation strategy
+
+[[annex-1-requirement-traceability-matrix]]
+= Annex 1 – Requirement Traceability Matrix
+
+[cols=",,,,,,,",options="header",]
+|==========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+|*Doc. ID* |*Req. descript.* |*Level* |*Modul ID* |*Functional Req.* |*Non-Functional Req.* |*Test case ID* |*Success*
+|Where the requirement is initiated. |Describe the requirement, or refer to the requirement ID if defined. |MSO4SC portal, or module |Which modul achieves this requirement. |If it is a functional requirement, name the function |If it is a non-functional requirement, indicate the type according to D6.1. (security, mantainabiltiy, etc) |The following will be contained in the test case list: test type, tester, who will accept the test, etc. |If the tests are successful, requirement passed.
+|D2.5 |  |Level 1 |Orchestrator |x |  |T001 |Yes
+|==========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497235092]]Table – Requirement Traceability Matrix Example
+
+[[annex-2-test-case-template]]
+= Annex 2 – Test Case template
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Test type: System/Integration/Module (Unit) (Underline which applies)
+|RTM ID: The requirements ID as in RTM of D6.2. |Purpose: What is the purpose of the test, and the method of testing.
+|Testers name: |Prerequisites: What are the conditions of starting the test.
+|Date on test: dd/mm/yy |Software versions: Application, database, operating system
+| |Required configuration: The precise hw and sw environment the test is run
+|Results: How the system has been performed regarding the requirement under test.
+|====================================================================================================================
+
+[[_Toc497235093]]Table – Test Case Template

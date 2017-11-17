@@ -1,0 +1,504 @@
+= MSO4SC: D5.2 Operational MSO4SC e-Infrastructure
+:page-root: ../../../
+:page-permalink: /deliverables/d5.2/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d5.2/image1.png[image,width=178,height=168]
+
+MSO4SC
+
+D5.2 Operational MSO4SC e-Infrastructure
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|============================================================================
+|Work Package |WP3 CLOUD TECHNOLOGY
+|Due Date: |_M12 (+1) _
+|Submission Date: |_30/10/2017_
+|Version: |_1_
+|Status |_Final_
+|Author(s): |_Carlos Fernández, Victor Sande (CESGA); Javier Carnero (ATOS);_
+|Reviewer(s) |_Zoltán Horváth (SZE); Esther Klann (TUB)_
+|============================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d5.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",options="header",]
+|===================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |1/10/2017 |Preliminary TOC |_Carlos Fernández (CESGA)_
+|0.2 |18/10/2017 |Document refactoring |Carlos Fernández (CESGA)
+|0.3 |20/10/2017 |Portal, A&A and Marketplace |Javier Carnero (ATOS)
+|0.4 |20/10/2017 |Accounting |Carlos Fernández (CESGA)
+|0.5 |20/10/2017 |Software repository |Víctor Sande (CESGA)
+|0.6 |23/10/2017 |Experiments, monitoring and data repository |Javier Carnero (ATOS)
+|0.7 |24/10/2017 |Pre and Post-process |Victor Sande (CESGA)
+|0.8 |24/10/2017 |Use case |Victor Sande (CESGA)
+|0.9 |30/10/2017 |Changes from reviewers |Victor Sande and Carlos Fernández (CESGA)
+|1.0 |30/10/2017 |Minor updates |Victor Sande (CESGA), Javier Carnero (ATOS)
+| | | |
+|===================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc497231844[Figure 1. The four layers of the MSO4SC e-Infrastructure 9]
+
+link:#_Toc497231845[Figure 2 Main components of the MSO4SC e-Infrastructure 10]
+
+link:#_Toc497231846[Figure 3. GitLab hosted at CESGA cloud 14]
+
+link:#_Toc497231847[Figure 4. Salome running in an interactive noVNC remote desktop in the browser 17]
+
+link:#_Toc497231848[Figure 5. Web showing Paraview running in interactive noVNC remote desktop 19]
+
+link:#_Toc497231849[Figure 6. Dashboard of Finis Terrae II om CESGA 20]
+
+link:#_Toc497231850[Figure 7. Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right). 22]
+
+link:#_Toc497231851[Figure 8. ZIBAffinity work-flow 22]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc497231852[Table 1. Acronyms 8]
+
+[[executive-summary]]
+= Executive Summary
+
+This deliverable represents the provision of the e-Infrastructure integrated with MADFs and other components and tools of the MSO Cloud and Portal, which will be available for independent testers to validate the proposed solution. D3.2 [3] was a description about the technical integration and implementation of the MSO Cloud and Portal components, including low-level details about how the components were implemented; and D4.2 [4] was the description of the MADFs adaptation to the e-Infrastructure. D5.2 describes how these functionalities will be used by the final users and stakeholders of the infrastructure. It includes a list of functionalities and some use cases representing the typical usage of the pilots.
+
+[[introduction]]
+= Introduction
+
+[[purpose]]
+== 1.1 Purpose
+
+Once the first set of requirements was available and a deep analysis was performed to determine the features and services to be provided through the e-Infrastructure in D2.1 [1], in D2.2 [2] those features were analysed, identifying the conceptual layers they belong to, and defining the high-level architecture of the e-Infrastructure. This definition includes high-level components and examples about how they are expected to interact when providing the functionalities.
+
+D2.2 provides a detailed design of the high-level components of the e-Infrastructure. Such detailed design still is high level and it is the purpose of this document to provide an even more detailed view on the components as a base for the implementation.
+
+To produce a more detailed design of the components, in many cases a study of the available technologies was performed. In other cases a pilot implementation was performed to verify that the design will be suitable. Also a benchmarking of the technologies was performed to demonstrate that there will be no performance degradation.
+
+A first implementation and integration of the technologies is described in D3.2 [3]. Now in this deliverable we explain what has been implemented so far in the project and how to get access and how to use the MSO4SC services.
+
+[[glossary-of-acronyms]]
+== 1.2 Glossary of Acronyms
+
+[cols=",",options="header",]
+|========================================================================
+|*Acronym* |*Definition*
+|*A&A* a|
+________________________________
+Authentication and Authorization
+________________________________
+
+|*CAD* a|
+_____________________
+Computer Aided Design
+_____________________
+
+|*CI* a|
+______________________
+Continuous Integration
+______________________
+
+|*CKAN* |Comprehensive Knowledge Archive Network
+|*D* |Deliverable
+|*EC* |European Commission
+|*EGI* a|
+________________________
+European Grid Initiative
+________________________
+
+|*FAQ* |Frequently Asked Questions
+|*FEM* |Finite Element Methods
+|*HGS* |Host-guest systems
+|*HPC* |High Performance Computing (or Computer)
+|*IaaS* |Infrastructure as a Service
+|*IDM* a|
+________________
+Identity Manager
+________________
+
+|*MADF* |Mathematics Application Development Frameworks
+|*MD* |Molecular Dynamics
+|*MSO* a|
+______________________________________
+Modelling, Simulation and Optimization
+______________________________________
+
+|*MSO4SC* |Modelling, simulation and optimization for societal challenges
+|*MPI* |Message Passing Interface
+|*PaaS* |Platform as a Service
+|*PRACE* a|
+____________________________________________
+Partnership for Advanced Computing in Europe
+____________________________________________
+
+|*Q&A* |Questions and answers
+|*TOSCA* |Topology and Orchestration Specification for Cloud Applications
+|*VM* |Virtual Machine
+|*V&V* |Verification and Validation
+|*WP* a|
+____________
+Work Package
+____________
+
+|*YAML* |Yet Another Markup Language
+|========================================================================
+
+[[_Toc497231852]]Table 1. Acronyms
+
+[[mso4sc-e-infrastructure-architecture-components]]
+= MSO4SC e-Infrastructure: Architecture & Components
+
+The proposed architecture of the e-Infrastructure was presented and described in D3.1. In this section we review this architecture for consistency.
+
+The architecture of the MSO4SC infrastructure is based on four main conceptual layers. These layers are represented in Figure 1 and described below:
+
+image:media/d5.2/image3.png[https://lh5.googleusercontent.com/y2dr0jYbM7BhUXdcdnC1fek_epbMa2lkyNLOZxoqx_V6Hzt8DPQx3h0VQDGUW43C7CqkpRUdNmI4werhB7Bb6-lUIGt4qTEeeG3lxDq-JDyDv9gg4My1rxvIfdF4Rn5Yu_sulocI,width=491,height=353]
+
+[[_Toc497231844]]Figure 1. The four layers of the MSO4SC e-Infrastructure
+
+·       *End User Applications Layer:* This is the layer in which MSO4SC end users provide their applications on top of the Application Development layer. This layer enables the publication, deployment and monitoring of complex applications, as well as the design of experiments for running several simulations in an automated way.
+
+·       *Application Development Layer:* This layer facilitates the implementation of applications based on MADFs, by providing a set of tools which can be used together in workflows, such as pre/post-processing and visualization. It also provides access to functionalities from the Cloud Management layer, such as monitoring, accounting, orchestration, etc.
+
+·       *Cloud Management Layer:* This is the layer which provides services such as monitoring (of the infrastructure, applications and management software), applications orchestration and deployment, following a Platform as a Service (PaaS) model.
+
+·        *Infrastructure Layer:* This layer provides access to the computation capabilities, which may come from HPC centres (by means of an HPC-as-a-Service model) or from Cloud providers, depending on what the Cloud Management layer demands.
+
+Taking into account these four layers, the main components have been identified and their relations are described in Figure 2 and in deeper detail in deliverable D2.2:
+
+image:media/d5.2/image4.png[https://lh4.googleusercontent.com/DLUx7HpDByVlK_D2W-9OREmSyNTaBMfwpGCfh6fdIlAo-aU77IqYOSainW1v48SNL-FUt2O-jG3jmXhtDbqO3u_VBX5rU_sjBhR1xmuyAT4xTdM1wV39q6WOTbJ5jIe8qpsjRJIz,width=489,height=358]
+
+[[_Toc497231845]]Figure 2 Main components of the MSO4SC e-Infrastructure
+
+·      *Authentication & Authorization:* This component is in charge of users management, single sign-on and authorization. It will interact with the rest of components in order to confirm users’ rights and access to functionalities, depending on roles assigned.
+
+·        *Data Repository:* It deals with the data storage and management, so it will be available as the software running in the e-Infrastructure operates. It is related to the MSO Portal (enabling access to a datasets catalogue) and the Orchestrator, which may require performing some data movement operations.
+
+·       *Software Repository:* The repository aims at storing the software provided from the e-Infrastructure, as well as pre-built containers, so the Orchestrator may access easily to the software to be deployed. It is intended also to easing software testing through automated operations.
+
+·         *MSO Portal:* This component is the frontend which enables access to the main functionalities and services of MSO4SC, as a one-stop-shop. It integrates tools for datasets management and search, experiments management, results visualization, data pre/post processing, automated deployment and e-Infrastructure monitoring.
+
+·         *Monitoring & Accounting:* This component aims at retrieving information useful for different kinds of stakeholders. From the monitoring perspective, it retrieves information about the applications and the status of the infrastructure (available resources, HPC queues status, etc.). From the accounting perspective, it reports about the resources used by stakeholders.
+
+·         *Orchestrator:* This is the component which enables deployment at Cloud and HPC by selecting the most adequate target for the software. It takes into account monitoring information and software requirements, and interprets TOSCA files representing the workflow to be executed.
+
+[[the-integrated-mso4sc-e-infrastructure]]
+= The integrated MSO4SC e-Infrastructure
+
+The MSO4SC e-infrastructure will provide to the users a complete set of services to simplify the usage of mathematical applications and to use them in an efficient way, making usage of HPC and cloud resources in a transparent way. It will provide not only access to codes, applications and hardware infrastructure, but it will make available tools to prepare the simulations, up- and download the input and output datasets and visualize the results, among other.
+
+The complete list of services that will be provided to the user based on the requirements collected previously in D2.1 and D2.2 will be:
+
+* *MSO4SC portal:* The MSO4SC is the user portal, a web interface publicly accessible that is the main entry point for every MSO4SC user to the platform services.
+* *Authentication & Authorization:* This module has two parts, the server and client. The server will be based on the Fiware Lab IDM (Keyrock) while the client is embedded in the MSO4SC user portal and in every other module accessed by it.
+* *Marketplace:* Entry point to manage the applications available in the platform, as well as purchases and invoices related to them.
+* *Software repository:* The Software repository provides an integrated cloud service for the whole development cycle.
+* *Data repository:* Manages the datasets available in the platform, being able to create new ones, revise, filter, add information, etc.
+* *Pre-processing:* Deal with input data generation, manipulation and visualization. User interaction can be performed in unattended or interactive mode by means of remote visualization tools.
+* *Experiments Tool:* From this module the user is able to start a simulation, get some basic monitoring information, and pause/stop it.
+* *Post-processing:* Deal with output data visualization and treatment. User interaction can be performed in unattended or interactive mode by means of remote visualization tools.
+* *Monitoring:* Visualization of infrastructure and application metrics, divided in dashboards.
+* *Accounting service:* will provide information about the computational resources used, mainly CPU hours and storage used.
+* *Community Tool:* Reference for MSO4SC users to learn about the platform and share their knowledge.
+
+In the next sections a complete description of the usage of these services associated with the MSO4SC Portal and from the *point of view of the users* is provided. Services based on MADFs are also introduced in this document by mean of an implementation example based on ZIBAffinity Pilot.
+
+As expected, and described in D4.2 [4], this version of the MSO4SC e-Infrastructure already includes the three MADFs modified in the project: *FEniCS*, *Feel++* and *OPM*. The containers for deploying such MADFs are ready, and they can make use of the orchestration mechanisms, so stakeholders will be able to use them. Based on these MADFs, we will prepare the rest of pilot applications, that will be available for usage at the MSO4SC Portal as well.
+
+[[mso4sc-portal]]
+= MSO4SC Portal
+
+The front page of the MSO4SC portal holds some general information and gives access to the login service (section 5). The portal can be accessed connecting to http://www.mso4sc.cesga.es[http://www.mso4sc.cesga.es]
+
+Once the user is logged in, he/she is redirected to a user-friendly dashboard which presents quick access to all the functionalities of MSO4SC separated into different specific modules. Those modules are the Marketplace, Software and Data repositories, Experiments Tool, Monitoring, Accounting, Pre/Post-processing Tool, and the Community Tool, described below.
+
+Apart from that the user is able to access a settings page in which he/she can revise his/her account data (like name, organization or last connection time) and in the future customize some parameters of the portal.
+
+ 
+
+The dashboard and some modules are not implemented yet. Precisely the marketplace, software and data repositories and monitoring modules and pre/post tools are already available. While the marketplace and data repository are integrated in the portal and can be accessed by a navigation bar instead of the future dashboard, software repository, monitoring and pre/post tools are not yet integrated and can be accessed only by their IPs (in CESGA private cloud). Therefore the frontend is still in heavy development and it is not yet publicly available.
+
+[[authentication-authorization]]
+= Authentication & Authorization
+
+Before using any service of MSO4SC, the user needs to be registered in Fiware Lab. To do this the user has to navigate to https://account.lab.fiware.org/[https://account.lab.fiware.org/], click on the sign up button in the middle-right of the page, and follow the instructions (it will ask for a user name, email and password). Once he/she is registered, the portal will provide a quick link to send an email to the MSO4SC administrator's account to be authorized to use the services.
+
+After the registration process is finished, the user can log in into the system using the login button in the front page of the MSO4SC-Portal. It will then redirect the user to Fiware Lab where he/she can introduce the credentials (name/email & password). If the log in success, the browser will be redirected again to the MSO4SC portal, where he/she can see the dashboard and access the different services.
+
+However, every service, as an independent module embedded in the portal, needs to check the authentication credentials and if the user has authorization to use the concrete functionalities. This means that when a user clicks on a module like, for example, the marketplace, the portal will redirect to Fiware Lab where the user will have to authorize the module to access his/her user private data, after which he/she will be finally redirected to the marketplace and will have access to all the functionalities.
+
+[[marketplace]]
+= Marketplace
+
+In this service the MSO4SC user can browse the different applications available. These applications are arranged in categories created by the administrators of MSO4SC, and are added to them by each developer. In accordance with the main objective of the platform, the proposed categories are Modeling, Simulation and Optimization. Marketplace has metadata attached linking with the software repository sources and other information useful to identify and filter each application among the others.
+
+Regular users of MSO4SC take the role of “consumers” in the marketplace, being able to revise the applications that can be used, and other ones available to purchase (they can be free also). Purchased applications invoices can be accessed through the user menu on the left of the Marketplace.
+
+New software can be included in the Marketplace to support new MADFs and applications. In this case, MADFs developers have to take the role of “software suppliers”, providing a valid Singularity container with the software, and an execution workflow defined with a TOSCA file. Developer users can also assign a price to their applications. With this information the users will be able to access new MADFs and applications.
+
+The marketplace is implemented by the Fiware Biz-Ecosystem [6] generic enabler.
+
+[[software-repository]]
+= Software Repository
+
+Providing a software repository accessible from a single place (the Portal) will help to homogenize application work-flows and to increase the visibility and the impact of the provided data and applications. Users can access this service from the portal using the previously introduced authentication and authorization service.
+
+This service is based in GitLab [7], a popular, mature, scalable and open-source project supported by GitLab inc. and a huge community. One of the benefits of providing a software repository service relying on this tool is to provide a familiar user experience. Developers accustomed to deal with BitBucket [8], GitHub [9] or even SourceForge [10] can quickly start using the repository and taking advantage of all its features. See a running instance of GitLab at CESGA cloud in the following https://docs.google.com/document/d/1_P54wc4qHSBXm5gqJfq8uNj3QwZMB9X1f6XmSwcRdEY/edit#bookmark=kix.zcycepu2q2ts[Figure 3]. This service is currently under deployment but not yet integrated.
+
+image:media/d5.2/image5.png[MAO4SC_Gitlab.png,width=567,height=344]
+
+[[_Toc497231846]]Figure 3. GitLab hosted at CESGA cloud
+
+The Software repository is an integrated cloud service for the whole development life-cycle and accessible from the MSO4SC Portal. Through this service users can manage the development, store their software source code and publish up-to-date documentation. Official GitLab basic user documentation describes some features and the user interaction at https://docs.gitlab.com/ce/gitlab-basics/README.html[https://docs.gitlab.com/ce/gitlab-basics/README.html]**.**
+
+*Privacy*
+
+Groups of users, project members, roles, and project visibility can be managed by users. Users can create internal, private and public projects, include other collaborators within the project and manage their assigned roles and permissions. Users can also create groups or organizations to share permissions between several projects. This means that the end-user has the power to control several levels of privacy for all his/her data.
+
+*Development*
+
+The main objective of the MSO4SC Software Repository is to provide a remote code repository based on Git. Users can create or modify source code directly using the web service, but they can also develop locally, in their laptops or PCs, using their preferred editors, and submit their code to a remote repository through computer networks, via _HTTP_ and _SSH_ protocols. The repository allows them to get access to their work from any connected computer or to share its work with other collaborators or stakeholders.
+
+*Management*
+
+Users can also control, supervise and plan the evolution of their projects using this web service. It provides a set of tools to create and manage the project backlog and milestones, and also register future features or fixes through the issue tracker. Regarding the code management itself, project owners and developers can use common practices like branching, merging, tagging and code reviewing to control the history of changes.
+
+*Documentation*
+
+A project can also support friendly wikis to provide documentation, tutorials, FAQs, or any other useful information. Users can easily edit these wikis - using lightweight markup languages like Markdown [11], RDoc [12] or Asciidoc [13] - directly on the web or use them like a code repository from their local computers (https://docs.gitlab.com/ce/user/project/wiki/index.html[https://docs.gitlab.com/ce/user/project/wiki/index.html]). In addition to wikis, GitLab can host and deploy user defined static web pages. Both features help to enrich the communication process of the developer team itself and also with a users’ community.
+
+*Continuous integration*
+
+GitLab also provides built-in continuous integration (CI). Software projects can configure and automate the building process pipeline with every submitted change. It supports a Docker [14] based CI to define and control the building environment during the CI process. Users can specify the project building environment through public DockerHub [15] containers or using a private Docker registry. Together with GitLab pages, users can also publish up-to-date software documentation, projects, groups or personal info with every submitted change.
+
+[[data-repository]]
+= Data repository
+
+This module holds the management of the datasets available in the MSO4SC platform. Once the user is logged in, he/she can navigate to the data repository where he/she will find the datasets available for him/her, categorized in several organizations. Each organization can include several datasets. A dataset is at the same time a set of one or more data files.
+
+Administrators and developer users can create new organizations, which are attached with useful metadata as an image, author, maintainer, etc, as well as add new datasets to them. A dataset has as well metadata attached like the owner, license, maintainer and other custom information (for example the simulation from where it was generated). Similarly files of data are added to a dataset, but the files are not actually stored in the tool, only a reference to them and a source link. Again, each data file has attached metadata to help its identification and filter it among others.
+
+On the other hand, regular users can only revise the datasets available and their metadata, and only generate new ones indirectly by running new executions. To manually download them to their own computers / infrastructure, they have to follow their sources links.
+
+The data repository is implemented by CKAN [16], which have interesting and powerful search capabilities for retrieving metadata and datasets.
+
+[[pre-processing]]
+= Pre-processing
+
+Once users are signed-in to MSO4SC, they can use the Experiments tool, described in the next section, to get access to a set of Pre-processing applications. Pre-processing is a preliminary step in which the data is generated, manipulated or analysed to be used during the simulation process. In particular, when finite elements methods are involved, it usually refers to dealing with CAD geometries and generation of finite element meshes, and this is why remote visualization is a key feature for pre-processing. Currently a prototype of this service is already implemented, but not yet integrated into the e-Infrastructure.
+
+Pre-process will be managed from the Experiments tool as a stand-alone process or involved, together with more steps, in a complex work-flow. Pre-processing stage is strongly related with the data repository. Users can reference datasets from the data repository where to load some input data (e.g. CAD geometries) or to store the output results or files (e.g. FEM meshes).
+
+Pre-processing applications can be used in both, unattended and interactive modes. Unattended mode does not differ much from any other experiment execution. The complexity of this step can vary a lot, but in general users will choose the application, the input data, the output data location and, optionally (depending on the application) submit a script containing the particular implementation of their required pre-processing.
+
+If users choose Interactive pre-processing, a web service based on noVNC [17] remote desktop is launched on a HPC interactive session. This web service provides a desktop-like user experience to interact with the selected application on a particular cluster. With this solution the user can interact as usual with the graphical interface of the application, but taking advance of the HPC resources. This solution provides flexibility and homogeneous user experience for an heterogeneous set of tools.
+
+*Salome use case*
+
+As an example, Salome [18] platform is one of the tools already available for the pre-processing stage. Any user can choose this tool after sign-in into the Portal to implement the previously mentioned pre-process work-flows.
+
+For using the unattended mode, users must provide at least an input CAD geometry, a Salome-python script and the output path. The CAD geometry file could be selected from the Data repository, and the results could be uploaded to the Data repository after a successful execution. After providing all requirements, users can launch their customized pre-processing in batch mode and use the Monitor to check the execution status.
+
+If the user selects an interactive pre-processing, a VNC remote desktop will be shown in the web browser. Using this remote desktop, users can interact with Salome graphical interface as if they were working with their laptop and also take advantage of Salome scripting capabilities. They can create geometries from scratch, modify already existing geometries, generate custom meshes using several algorithms, etc. An instance of a noVNC remote desktop running Salome is shown in https://docs.google.com/document/d/1_P54wc4qHSBXm5gqJfq8uNj3QwZMB9X1f6XmSwcRdEY/edit#bookmark=id.8xsel1qmhwup[figure 4].
+
+image:media/d5.2/image6.png[Captura de pantalla_salome.png,width=567,height=344]
+
+[[_Toc497231847]]Figure 4. Salome running in an interactive noVNC remote desktop in the browser
+
+[[experiments-tool]]
+= Experiments Tool
+
+The aim of this module is to provide the user with the interface necessary to manage a simulation / application execution. Being the user logged in the system, he/she can navigate to the experiments tool and select an application from the ones available in the marketplace. Similarly, the user has then to select the inputs necessary to run the simulation; that is, the dataset(s) from a list of ones available in the data repository, and other parameters like the credentials of the HPCs to be used and specific application configuration.
+
+Once every input is selected, the user is able to start the execution. A window in the same page provides basic information about each part of the execution, showing in a text box the status of the operations involved (if they are waiting, pending / running in a HPC and which one…). More detailed information about the HPCs and application performance can be seen in the monitoring tool.
+
+While the application is running (it can take hours or days), the user can decide to pause or stop the simulation, and reconfigure it (for example, change the dataset, an HPC or the specific parameters). Then, if the simulation was paused it can be restarted using most of the previous work done, while if it is stopped it will start again from the beginning.
+
+It is important to notice that, the feature related to pause/reconfigure/restart the execution, as well as specific monitoring capabilities for each application, will be implemented in the second iteration of the project. Therefore at the end of first iteration only basic monitoring of an application and cancel/restart operations will be available.
+
+Finally when the execution finishes it will be reflected in the monitor window in the tool, and the resulting dataset(s) and detailed monitor information can be found in the data repository and monitoring tool respectively.
+
+[[post-processing]]
+= Post-processing
+
+Once users are signed-in, they can use the Experiments tool to get access to a set of post-processing applications. Traditionally, post-processing is the last step after a successful simulation in which the data is manipulated or analysed in order to get human readable or understandable information and, in particular, to visualize complex data. Nowadays, visualizing the results while the simulation is being performed (in-situ visualization) is also very important to avoid data moving and storing and to get early information. Remote visualization is a key feature for the post-processing tool.
+
+Post-processing work-flow is very similar to pre-processing, but with some extended alternatives. Post-processing tools can be used in unattended or interactive mode and can also use the data repository for loading and saving data.
+
+An unattended post-processing will require the selection of the proper tool, setting the inputs and outputs and, optionally, a script implementing the custom post-process. After providing all requirements, users can launch their customized post-processes in batch mode and use the Monitor to check the execution status. Once the simulation was executed users are able to access the data of the simulation, including the results, but also information about the execution time, where the simulation was executed, processors used, etc.
+
+There will be two alternatives for interactive post-processing, remote desktop and ParaviewWeb [19]. With both solutions users can visualize and interact remotely with their results through the web browser without the need of downloading the data. On one hand, all experiments exporting data formats supported by Paraview [20] will be able to use the ParaviewWeb service to interact with results through the browser. On the other hand, the remote desktop solution provides more flexible scenarios in which users can use more post-processing or visualization tools. The implementation of this feature is scheduled for the second version of the e-Infrastructure.
+
+*Paraview use case*
+
+As an example, Paraview is one of the tools already available for the post-processing stage. Any user can choose this tool after sign-in into the MSO-portal to implement the previously mentioned post-processing work-flows.
+
+If the user selects an interactive post-processing, a remote desktop will be shown in the web browser. Using this remote desktop, users can interact with Paraview graphical interface as if they were working with their laptop. They can visualize the input files, modify their datasets to get derived quantities, apply filters to fields, etc. An instance of a noVNC remote desktop running Paraview is shown in https://docs.google.com/document/d/1_P54wc4qHSBXm5gqJfq8uNj3QwZMB9X1f6XmSwcRdEY/edit#bookmark=kix.m1zst9s6td79[figure 5].
+
+image:media/d5.2/image7.png[image21.png,width=567,height=344]
+
+[[_Toc497231848]]Figure 5. Web showing Paraview running in interactive noVNC remote desktop
+
+[[monitoring]]
+= Monitoring
+
+Monitor visualization relies on Grafana [21]. This open source tool allows the creation of nice dashboards with different visualization mechanisms like graphs, tables or heat maps. Regular users are able to access to several dashboards to monitor their applications and HPCs, while administrators can also modify/create new ones as well as have access to restricted dashboards that show the performance of MSO4SC.
+
+Before executing an application (experiments tool), a user can revise the performance of the HPCs that are permanently monitored by MSO4SC. While the application is running, or when it is finished, the user can access a dashboard that shows the load of the HPCs as well as a dashboard created by the developer of the application showing useful specific monitoring data of it, based on the logs generated by the application itself.
+
+Currently only HPC related dashboard is implemented, showing the average wait time and node allocation per partition and the status of any job (below). The dashboards made by the developers will integrate the specific metrics obtained for the logs of each application.
+
+image:media/d5.2/image8.png[https://lh4.googleusercontent.com/y0wka_65xmmfa5SyER3ebrY4rQQdLOg51GLvmVfWNRxXVSa8uYAToYnsckxJgP4fOtRseq86qsI2cyZrP1_iCKSSPT6X9JTY9NYPc_WuAYPZcel8p_yzF_r1YwSyvz-ipavLR7KO,width=567,height=285]
+
+[[_Toc497231849]]Figure 6. Dashboard of Finis Terrae II om CESGA
+
+[[accounting]]
+= Accounting
+
+From the providers of resources to the MSO4SC e-Infrastructure, it is very important to know how many resources a particular user has been using, for many reasons. From the user perspective, this information will provide knowledge about how many computational resources have been used and in which infrastructure. This information could be used to know future computational needs based on past simulations.
+
+The MSO4SC e-Infrastructure will provide to the users accounting information describing how many computational hours he/she has used during a period of time and which type of resources (Cloud, HPC,…) and also in which site. The user will have also the information about how much storage he/she is using and how much is left to him/her to use.
+
+The computational hours used will be obtained based on the core-hours used. This will be calculated as the product of the elapsed time the simulation has been running in the infrastructure and the cores used during this time. The user will then know how many computational hours has consumed in a particular simulation and this could be very useful to estimate the resources used for other simulations.
+
+Different types of reports will be available from the MSO4SC, for example a report providing the monthly consumption of the user.
+
+In the first implementation of the MSO4SC e-infrastructure, this accounting module will not be available, but it is expected to be provided in the final version of the integration.
+
+[[community-tool]]
+= Community Tool
+
+The community tool provides different functionalities that encourage the development and maintenance of a scientific community around MSO4SC. These functionalities are covered by two well-known open source tools: Askbot [22] and Moodle [23].
+
+Askbot is a Q&A tool in the same way as other online tools like stackexchange. Using this tool, MSO4SC users can ask new questions, answer other, and revise/search the current ones. Askbot supports karma, which means that when the answer of one user are rated positively by other users this user can then get access to new features in the system like moderate other questions, or edit/clarify some answers.
+
+To complete the community tool, Moodle provides an online learning management system in which developers of MSO4SC can create courses, tutorials or documentation content with a wide range of tools, supporting from word or pdf documents to videos, blackboards or real-time conversations. All this features will be available to the MSO4SC users, in order to quickly enable them to use the whole system and its applications.
+
+[[use-case-example-zibaffinity]]
+= Use case example: ZIBaffinity
+
+The MSO4SC project is composed of several high-quality simulation software packages, MADFs and pilots. Among all these projects, for its maturity and complexity, here we describe the ZIBAffinity pilot, as described in D5.1 [5] and D3.2 [3], and the required user interaction to run it successfully.
+
+ZIBAffinity uses molecular dynamics (MD) simulations and methods of statistical thermodynamics in order to estimate binding affinities for biological host–guest systems (HGS), see Figure 7. The binding affinity is estimated as a linear combination of averages of molecular observables according to a linear interaction energy model.
+
+ZIBAffinity requires as input a small drug-like molecule under observation and one or more protein target structures from a database of force field-parameterized models.
+
+Ensuing from the uploaded small molecule, GROMACS [24] MD simulations, with at most 61 different starting positions, are performed in parallel. The optimal binding position (binding mode) is then extracted from that data and provided as a 3D molecular structure serving, along with thermo-statistical data as the basis for absolute or relative binding affinity estimation. After the execution, the results are made available to the user.
+
+image:media/d5.2/image9.png[https://lh3.googleusercontent.com/Q6O_FJhZIqNuQ9sHX_INmZRrwOEOcgpjheIc7DYt8f-cXmt0baS2xZZV47eiPvKxeVadhzWbwn59lEnWP1Buz8lqzfbhCzJgRUQalm6CqmAmrr1v5uIcPf9vi-MTCuxvrQhor_5b,width=567,height=200]
+
+[[_Toc497231850]]Figure 7. Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).
+
+User interaction in order to define and execute new problems based on ZiBAffinity is explained in this section. This interaction includes at least the definition of the input data and properties in order to satisfy the requirements of the entire work-flow of ZibAffinity, but some optional tools provided through the MSO4SC Portal will help to enrich the user experience.
+
+The execution of the ZIBAffinity pilot relies on a work-flow involving a sequence of several interrelated steps. The correct execution of the entire work-flow depends on the successful execution of each step, which is controlled and reported by the Monitor. A basic knowledge about this work-flow is required in order to understand the information reported from the Monitor. A graphical representation of this work-flow is shown in https://docs.google.com/document/d/1_P54wc4qHSBXm5gqJfq8uNj3QwZMB9X1f6XmSwcRdEY/edit#bookmark=kix.byv9srtyu36p[Figure 8].
+
+image:media/d5.2/image10.png[zibaffinity_flow_update.png,width=567,height=265]
+
+[[_Toc497231851]]Figure 8. ZIBAffinity work-flow
+
+It is important to remark that both, pre-process and post-process steps of ZibAffinity work-flow run in unattended mode as they do not require user interaction or visualization.
+
+The user interaction with the e-Infrastructure components such as the Marketplace, the Experiment tool, the Data repository and the Monitor to create, execute and trace a new experiment using ZibAffinity Pilot is shown in https://docs.google.com/document/d/1_P54wc4qHSBXm5gqJfq8uNj3QwZMB9X1f6XmSwcRdEY/edit#bookmark=kix.7l1v62ci32yv[figure 9]. Then, a more detailed explanation of the user interaction with these components is explained.
+
+image:media/d5.2/image11.png[Zibaffinity_user_workflow_update.png,width=567,height=503]
+
+*Figure 9: ZIBAffinity work-flow*
+
+The sequences of steps that must be followed by users to repeat the process of launching ZibAffinity pilot are:
+
+1.  *Portal authentication*:
+
+The Portal is the main entry point for getting access to all services and tools under the e-Infrastructure. Users must be logged in to get access. They will easily identify the *Login* button to enter the site and then they must sign-in into it. After authentication, the Dashboard containing all tools is shown.
+
+1.  *Purchase ZibAffinity:*
+
+From the Dashboard users must click on the MarketPlace. Then, in the Marketplace, users must select ZibAffinity and purchase it from the list of applications. Once this is done, ZibAffinity will be available and selectable from the Experiments tool in order to be used in user defined experiments.
+
+1.  *Create input dataset:*
+
+This is an optional step. ZibAffinity provides a totally functional test dataset, available though the Data repository to reproduce this experiment.
+
+To create a new dataset, users must select the Data repository from the Dashboard. Then the user will easily identify the *New dataset* button. Then after clicking on the button they can upload custom data to be later used in the experiment definition. This particular dataset must contain:
+
+1.  Target molecule files database
+2.  Ligand molecule files
+
+1.  *Create and launch the experiment: *
+
+Users must access the Experiments tool from the Dashboard. Users create an experiment through the *New experiment* button. Then they must select the ZibAffinity application and the dataset to be used. Some data is also required for running the application, in particular ZibAffinity requires:
+
+1.  Formal charge of ligand molecule.
+
+This data is filled with a default value and can be modified by users.
+
+Now, all requirements are already satisfied, users can click on the *Run* button to execute the simulation. Once the execution succeeds users can access the results of the simulation
+
+1.  *Follow the progress of the simulation: *
+
+Users have to enter the Monitor tool from the main Dashboard to follow the progress of the simulation. Selecting the monitor-dashboard assigned to their running experiment allows users to follow the progress of the execution, view information about the execution, computational resources used, etc.
+
+1.  *Retrieve the output data:*
+
+Output data is now available from the Data repository. Users must enter the Data repository and select the dataset containing the output data. Now they can inspect and analyze the results, download and manage their data.
+
+[[summary-and-conclusions]]
+= Summary and Conclusions
+
+This document presents the first implementation of the operational MSO4SC e-Infrastructure. As of October 2017 all the MADFs are integrated and so are the Portal and the Orchestrator. A full example of a MSO problem solved using the MSO4SC e-Infrastructure is presented, from the user perspective. During the next phase of the project, the other pilots will be integrated and a revised version with additional features of the e-Infrastructure will be available, including resources from other centres.
+
+[[_Toc368494036]]
+
+[[references]]
+= References
+
+1.  MSO4SC D2.1, End User’s Requirements Report
+2.  MSO4SC D2.2, MS=4SC e-Infrastructure Definition
+3.  MSO4SC D3.2, Integrated infrastructure, Cloud Management and MSO Portal
+4.  [[_Ref497204831]]MSO4SC D4.2, Adapted MADFs for MSO4SC
+5.  MSO4SC D5.1, Case study extended design and evaluation strategy
+6.  Biz Ecosystem: http://business-api-ecosystem.readthedocs.io/en/latest/user-programmer-guide.html[http://business-api-ecosystem.readthedocs.io/en/latest/user-programmer-guide.html]
+7.  GitLab: http://www.gitlab.com[http://www.gitlab.com]
+8.  BitBucket: https://bitbucket.org[https://bitbucket.org]
+9.  Github: http://github.com/[http://github.com]
+10. SourceForge: https://sourceforge.net/[https://sourceforge.net/]
+11. Markdown: https://daringfireball.net/projects/markdown/[https://daringfireball.net/projects/markdown]
+12. Rdoc: https://ruby.github.io/rdoc[https://ruby.github.io/rdoc]
+13. Asciidoc: http://asciidoc.org[http://asciidoc.org]
+14. Docker: https://www.docker.com[https://www.docker.com]
+15. DockerHub: https://hub.docker.com[https://hub.docker.com]
+16. CKAN: http://docs.ckan.org[http://docs.ckan.org]
+17. noVNC: http://novnc.com[http://novnc.com]
+18. Salome: http://www.salome-platform.org[http://www.salome-platform.org]
+19. ParaviewWeb: http://www.paraview.org/web[http://www.paraview.org/web]
+20. Paraview: https://www.paraview.org[https://www.paraview.org]
+21. Grafana: https://grafana.com/[https://grafana.com]
+22. Askbot: https://askbot.com[https://askbot.com]
+23. Moodle: https://moodle.org[https://moodle.org]
+24. Gromacs: http://www.gromacs.org[http://www.gromacs.org]

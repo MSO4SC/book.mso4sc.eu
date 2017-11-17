@@ -1,0 +1,5619 @@
+= MSO4SC: D2.5 End Users’ Requirements Report
+:page-root: ../../../
+:page-permalink: /deliverables/d2.5/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d2.5/image1.PNG[image,width=172,height=162]
+
+D2.5 End Users’ Requirements Report
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|=================================================================================================================================================================================================================================================================================================================================
+|Work Package |WP2 User Requirements and Dissemination
+|Due Date: |_M10 (+1)_
+|Submission Date: |_31/10/2017_
+|Version: |_1.1_
+|Status |_Final_
+|Author(s): |_Esther Klann (TUB); Francisco Javier Nieto De Santos (ATOS), Javier Carnero (ATOS); Christophe Prud’homme (UNISTRA), Christophe Trophime (UNISTRA); Atgeirr Rasmussen (SINTEF); Vedat Dumaz (ZIB), Marcus Weber (ZIB); Johan Jansson (BCAM); Johan Hoffmann (KTH); Victor Sande Veiga (CESGA); Zoltán Horváth (SZE)_
+|Reviewer(s) |_Atgeirr Rasmussen (SINTEF); Zoltán Horváth (SZE)_
+|=================================================================================================================================================================================================================================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d2.5/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",options="header",]
+|==============================================================================================================================================================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |18/07/2017 |Preliminary TOC |F. Javier Nieto (ATOS)
+|0.2 |02/08/2017 |Preliminary version |E. Klann (MATHEON-TUB)
+|0.3 |11/09/2017 |Input on distribution and communication; update requirements table (Cloud tables added by ATOS, ZIB and SINTEF changed after discussion) |C. Prud’homme (UNISTRA), V. Sande (CESGA), M. Weber (ZIB); J. Carnero (ATOS), A. Rasmussen (SINTEF), V. Dumaz (ZIB), E. Klann (TUB)
+|0.4 |15/09/2017 |Appendix on the results of the survey added; Input regarding requirements |E. Klann (TUB); J. Jansson (BCAM), J. Hoffmann (KTH, SZE), C. Prud’homme (UNISTRA)
+|0.5 |18/09/2017 |Comments integrated; summary added; general formating |F. Javier Nieto (ATOS), E. Klann (TUB)
+|0.6 |21/09/2017 |Update from SINTEF/OPM and UNISTRA (Feel++, Eye2Brain, HIFIMagnet) |C. Prud’homme, C. Trophime (UNISTRA), E. Klann (TUB)
+|0.7 |16/10/2017 |Update from UNISTRA |C. Prud’homme, C. Trophime (UNISTRA), E.Klann (TUB)
+|0.8 |23/10/2017 |Requirements: integrating input, unifying; in order to finish in time, this version was sent to the first reviewer (A. Rasmussen, SINTEF) on Oct, 23rd although some input is still missing. |E. Klann (MATHEON-TUB)
+|0.9 |27/10/2017 a|
+Incorporated remarks from reviewer 1 (A. Rasmussen);
+
+Added connection to D6.1 and WP6
+
+ |E. Klann (MATHEON-TUB)
+|1.0 |29/10/2017 |Updating requirement tables and other SZE related contributions |Z. Horváth (SZE)
+|1.1 |31/10/2017 |Minor updates and formatting |F. Javier Nieto (ATOS)
+| | | |
+|==============================================================================================================================================================================================================================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc497257358[Figure 1: Layers in the MSO e-infrastructure vision 11]
+
+link:#_Toc497257359[Figure 2: MSO4SC survey – ease of deployment of MSO-software 16]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc497257297[Table 1. Acronyms 9]
+
+link:#_Toc497257298[Table 2. VOLERE Requirements table template 12]
+
+link:#_Toc497257299[Table 3. MADFs, Pilots and End-users 18]
+
+link:#_Toc497257300[Table 4. Requirement table Cloud-1 Generic application support 23]
+
+link:#_Toc497257301[Table 5. Requirement table Cloud-2 Multiple infrastructure support 23]
+
+link:#_Toc497257302[Table 6. Requirement table Cloud-3 Data management 23]
+
+link:#_Toc497257303[Table 7. Requirement table Cloud-4 Licenses and software restrictions 24]
+
+link:#_Toc497257304[Table 8. Requirement table Cloud-5 Support MPI Applications 24]
+
+link:#_Toc497257305[Table 9. Requirement table Cloud-6 Visualization 25]
+
+link:#_Toc497257306[Table 10. Requirement table Cloud-7 Simulation monitoring 25]
+
+link:#_Toc497257307[Table 11. Requirement table Cloud-8 Automate applications deployment and execution 25]
+
+link:#_Toc497257308[Table 12. Requirements table Cloud-9 Decoupling of simulations and visualization 26]
+
+link:#_Toc497257309[Table 13. Requirements table Cloud-10 Optimize data management 26]
+
+link:#_Toc497257310[Table 14. Requirements table Cloud-11 Pause/Restart/Recover simulation 27]
+
+link:#_Toc497257311[Table 15. Requirements table Cloud-12 Community Support 27]
+
+link:#_Toc497257312[Table 16. Requirements table Cloud-13 Data categorization 27]
+
+link:#_Toc497257313[Table 17. Requirements table Cloud-14 Multi-Simulation 28]
+
+link:#_Toc497257314[Table 18. Requirements table Cloud-15 Containers support 28]
+
+link:#_Toc497257315[Table 19. Requirements table Cloud-16 Open development. 28]
+
+link:#_Toc497257316[Table 20. Requirement table Cloud-17 Private data and security. 29]
+
+link:#_Toc497257317[Table 21. Requirement table Cloud-18 Pre- and post-processing. 29]
+
+link:#_Toc497257318[Table 22. Requirement table FeelPP-1 Feel++ installation. 30]
+
+link:#_Toc497257319[Table 23. Requirement table FeelPP-2 Feel++ scriptability. 30]
+
+link:#_Toc497257320[Table 24. Requirement table FeelPP-3 Feel++ monitoring. 30]
+
+link:#_Toc497257321[Table 25. Requirement table FeelPP-4 Feel++ software quality. 31]
+
+link:#_Toc497257322[Table 26. Requirement table FeelPP-5 Feel++ post processing. 31]
+
+link:#_Toc497257323[Table 27. Requirement table FeelPP-6 Feel++ benchmarking system. 32]
+
+link:#_Toc497257324[Table 28. Requirements table FEniCS-1 FEniCS-HPC installation. 32]
+
+link:#_Toc497257325[Table 29. Requirements table FEniCS-2 FEniCS-HPC performance. 32]
+
+link:#_Toc497257326[Table 30. Requirements table FEniCS-3 FEniCS Post-processing. 33]
+
+link:#_Toc497257327[Table 31. Requirement table OPM-1 OPM installation. 33]
+
+link:#_Toc497257328[Table 32. Requirement table OPM-2 OPM Scriptabiliy. 34]
+
+link:#_Toc497257329[Table 33. Requirement table OPM-3 OPM Usability. 34]
+
+link:#_Toc497257330[Table 34. Requirements table HIFIMAGNET-1 Feel++ HIFIMAGNET installation. 34]
+
+link:#_Toc497257331[Table 35. Requirements table EYE2BRAIN-1 Feel++ EYE2BRAIN installation. 35]
+
+link:#_Toc497257332[Table 36. Requirements table EYE2BRAIN-2 EYE2BRAIN User interaction. 35]
+
+link:#_Toc497257333[Table 37. Requirements table HIFIMAGNET-2 Feel++ HIFIMAGNET performance. 36]
+
+link:#_Toc497257334[Table 38. Requirements table EYE2BRAIN-3 Feel++ EYE2BRAIN performance. 36]
+
+link:#_Toc497257335[Table 39. Requirement table EYE2BRAIN-4 Simple web interface. 36]
+
+link:#_Toc497257336[Table 40. Requirement table HIFIMAGNET-3 Feel++ HIFIMAGNET web interface. 37]
+
+link:#_Toc497257337[Table 41. Requirement table HIFIMAGNET-4 Feel++ HIFIMAGNET manage permissions. 37]
+
+link:#_Toc497257338[Table 42. Requirement table HIFIMAGNET-5 Feel++ HIFIMAGNET CAD geometry and mesh generation. 38]
+
+link:#_Toc497257339[Table 43. Requirement table OPMFlow-1 OPM Flow installation. 38]
+
+link:#_Toc497257340[Table 44. Requirement table OPMFlow-2 Ensemble run of OPM Flow. 39]
+
+link:#_Toc497257341[Table 45. Requirement table OPMFlow-3 OPM Flow ensemble performance. 39]
+
+link:#_Toc497257342[Table 46. Requirement table OPMFlow-4 Parallel OPM Flow performance. 39]
+
+link:#_Toc497257343[Table 47. Requirement table OPMFlow-5 OPM Flow simple web interface. 40]
+
+link:#_Toc497257344[Table 48. Requirements table OPMFlow-6 OPM Flow One-click. 40]
+
+link:#_Toc497257345[Table 49. Requirements table OPMFlow-7 OPM Flow minimal user interaction. 40]
+
+link:#_Toc497257346[Table 50. Requirement table FWT-1 FloatingWindTurbine installation. 40]
+
+link:#_Toc497257347[Table 51. Requirements table FWT-2 FloatingWindTurbine performance. 41]
+
+link:#_Toc497257348[Table 52. Requirements table FWT-3 FloatingWindTurbine User interface. 41]
+
+link:#_Toc497257349[Table 53. Requirements table 3DAIR-1 3DAirQualityPrediction-CFD installation. 42]
+
+link:#_Toc497257350[Table 54. Requirement table 3DAir-2 3DAirQualityPrediction-CFD performance. 42]
+
+link:#_Toc497257351[Table 55. Requirements table ZIB-1 ZIBaffinity installation. 42]
+
+link:#_Toc497257352[Table 56. Requirements table ZIB-2 ZIBaffinity performance. 43]
+
+link:#_Toc497257353[Table 57. Requirements table ZIB-3 ZIBaffinity data protection and security. 43]
+
+link:#_Toc497257354[Table 58. Requirements table 3DAQP-1: 3DAirQualityPrediction performance with statistical data. 44]
+
+link:#_Toc497257355[Table 59. Requirements table 3DAQP-1: 3DAirQualityPrediction performance with full simulation. 44]
+
+link:#_Toc497257356[Table 60. Relation of requirements to D2.1 46]
+
+link:#_Toc497257357[Table 61. Sketch of requirement traceability matrix (RTM) 46]
+
+[[executive-summary]]
+= Executive Summary
+
+This document reports on the end users’ requirements gathered by MSO4SC in the first ten (10) months of the project. It updates the initial end users’ requirements report [3]. User requirements are an essential part in the development of complex e-infrastructures such as the intended MSO-portal. They describe the necessary and desired features and functionalities that assure that the MSO4SC e-infrastructure is working properly as well as its usability to the intended audience. The document reports on the various means that were used to ask stakeholders, project partners and future users to contribute their wishes to and demands of the MSO-portal. Furthermore, this document presents the analysis of the gathered information into a set of new and modified end users’ requirements for the MSO4SC project.
+
+[[introduction]]
+= Introduction
+
+[[purpose]]
+== 1.1 Purpose
+
+This document reports on the end user requirements gathered by MSO4SC in the first ten (10) months of the project. User requirements are an essential part in the development of complex e-infrastructures such as the intended MSO-portal. This document takes into account the previously performed analysis of end users’ requirements, see D.2.1 [3]. This previous analysis was performed during the first three months of the project and was based on an internal gathering procedure.
+
+After this first internal gathering of requirements we have extended the gathering procedure to an online survey addressing a broader audience (existing and potential stakeholders as well as persons and company with expertise with MSO-software). The survey was advertised through different networks and by addressing potential candidates directly via email. The purpose of the survey is to learn about peoples’ experience, plans and obstacles regarding MSO software. We chose an online survey in contrast to a face-to-face or telephone survey for two reasons. Firstly, it provides a non-intimidating environment that best suits the privacy needs of the survey respondents, and secondly, it is a feasible method to gain the appropriate reach for an EU project.
+
+In addition to the survey, also further feedback from stakeholders and the pilots were collected, analysed and incorporated in the list of end users’ requirements. Stakeholders were invited to an informative workshop in Budapest in May providing networking opportunities and also gathering of said stakeholders’ requirements.
+
+Moreover, further work in the different Joint Research Activities (WP3 and WP4) and Service Activities (WP5) of the project have facilitated more requirements from the different project partners, since cross-WP discussions raised different needs and possibilities with respect to the MSO4SC e-Infrastructure.
+
+All this information has been analysed by the WP2 partners, in such a way it was possible to identify new requirements while, at the same time, we were able to modify some existing ones.
+
+The document is organized as follows. Section 2 describes vision and purpose of the MSO4SC e-infrastructure. Section 3 deals with the requirement gathering. Section 4 describes how stakeholders were involved in the definition of the MSO4SC e-infrastructure. Section 5 gives a high-level view of the MSO4SC pilot scenarios as well as the pilots’ main feedback in terms of requirements. Section 6 presents the list of MSO4SC e-infrastructure requirements. Section 7 summarizes and concludes the report. Appendix A provides the MSO4SC survey (the questions) and Appendix B provides the results of the survey.
+
+[[glossary-of-acronyms]]
+== 1.2 Glossary of Acronyms
+
+[cols=",",options="header",]
+|===========================================================================================================================
+|*Acronym* |*Definition*
+|*API* |Application Programming Interface
+|*CA* |Consortium Agreement
+|*CAD* |Computer Aided Design
+|*D* |Deliverable
+|*DoA* |Description of Action
+|*EC* |European Commission
+|*EMFL* |European Magnetic Field Laboratory
+|*EOR* |Enhanced Oil Recovery
+|*FWT* |FloatingWindTurbine
+|*MADF* |Mathematics Application Development Frameworks
+|*LNCMI* |Laboratoire National des Champs Magnétiques Intenses (LNCMI for the French National High Magnetic Field Laborator)
+|*MPI* |Message Passing Interface
+|*MSO* |Mathematical Modelling, Simulation and Optimization
+|*NAFEMS* |International Association for the Engineering Modelling, Analysis and Simulation Community
+|*OPM* |Open Porous Media
+|*RAM* |Random-Access Memory
+|*RTM* |Requirements Traceability Matrix
+|*WP* a|
+____________
+Work Package
+____________
+
+|===========================================================================================================================
+
+[[_Toc497257297]]Table . Acronyms
+
+[[the-mso4sc-e-infrastructure-vision]]
+= The MSO4SC e-Infrastructure Vision
+
+This section describes the MSO4SC e-infrastructure vision, starting from its initial version, and reporting on changes and updates of the vision after analyzing and incorporating the developments done so far and the received feedback from stakeholders.
+
+[[initial-vision-and-purpose]]
+== 2.1 Initial Vision and Purpose
+
+Methods using mathematical modelling, simulation and optimization (MSO) algorithms and computational techniques are used more and more in all fields of science, technology, industry, health and public service. Many challenges of society, e.g., climate change, low carbon energy, sustainability, global health care, urbanization, but also big data, can be addressed by MSO techniques. These challenges are often highly complex and the successful MSO approach demands fast prototyping as well as parallel scalability and ease of deployment to suitable high performance (HPC) hardware or cloud computing.
+
+These demands, on the one hand fast prototyping and on the other hand parallel scalability and ease of deployment to suitable high performance (HPC) hardware or cloud computing, are conflicting objectives. Existing approaches are either very slow, require special staff with lots of experience and knowledge, or are not easily accessible.
+
+The initial vision and purpose of the MSO4SC project was to meet the described needs by providing an infrastructure that supports both MSO application development and HPC performance for the developed applications.
+
+The envisioned MSO4SC e-infrastructure solution is divided in several layers, each layer taking into account features that have to be covered. According to the DoA [1], the following layers were planned: infrastructure, cloud management, application development, and end user application.
+
+[[updated-vision-of-the-e-infrastructure]]
+== 2.2 Updated Vision of the e-Infrastructure
+
+The updated version of the e-infrastructure is described in detail in D2.2 The MSO4SC e-infrastructure definition [4]. The four main conceptual layers of the e-infrastructure are the End User Application Layer, the Application Development Layer, the Cloud Management Layer, and the Infrastructure Layer. These four layers are retained from the DoA [1]. The following changes emerged during the project runtime so far and yield the updated version of the e-Infrastructure.
+
+The MSO portal was originally thought to be a part of the Application Development Layer, see p.13 of the DoA [1]. As displayed in Figure 1, it is now not only part of the Application Development Layer but also of the End User Application Layer. The MSO portal is the access point for stakeholders, and as such it is formed by a frontend and a set of tools (e.g., dataset catalogue, visualization of results, data pre/post-processing, experiments management, automated deployment and status monitoring). Similarly, the MSO portal uses services provided by the Orchestrator and Monitoring and Accounting component. So, the central role of the MSO portal is reflected in its new location.
+
+Also, it is interesting to highlight the more service-oriented vision of the MADFs that will be accessed not only by some scripts, but they plan also now to offer some kind of service API, as a way to facilitate their usage and the external interaction with them. Moreover, they are now closer to the Monitoring component, enabling the retrieval of metrics about the applications that will support stakeholders in their decision making (i.e. stop a simulation if a certain error metric is too high).
+
+image:media/d2.5/image3.png[image,width=519,height=373]
+
+[[_Toc497257358]]Figure : Layers in the MSO e-infrastructure vision
+
+[[requirements-gathering-in-the-mso4sc-development]]
+= Requirements Gathering in the MSO4SC Development
+
+Requirements describe the desired features and functionality of a product, here the MSO4SC e-infrastructure. A requirement is something that the e-infrastructure must do or a quality that is must have (it is also possible to consider constraints); either the e-infrastructure demands certain functionalities or qualities, or the stakeholders (clients) want that requirement to be part of the e-infrastructure. Requirements are divided into two classes. A *functional requirement* is something that the e-infrastructure must do if it is to be useful within its intended context. *Non-functional requirements* are properties, or qualities, that the e-infrastructure must have. An important example for a non-functional requirement in the context of the intended MSO4SC e-infrastructure with its mathematical application frameworks are performance requirements (how fast, big, accurate, safe, reliable, scalable).
+
+In order to gather and write the requirements we use the VOLERE Requirements Specification Template, see Table 2 as well as [2] and Table 2 in D2.1[3].
+
+[cols=",,,",]
+|==================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+__
+ID
+__
+
+ a|
+______
+*Name*
+______
+
+ |Name for the requirement
+a|
+__________
+*Priority*
+__________
+
+ a|
+_______________
+Low/Medium/High
+_______________
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional/Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ |Definition of the requirement. Describe what it is about.
+a|
+_________
+*Purpose*
+_________
+
+ |Reason to include the requirement. Justify why the requirement should be taken into account.
+a|
+________
+*Actors*
+________
+
+ |Actors involved in the requirement, taking into account stakeholders related to it. The ones who must deal with it.
+a|
+___________
+*Requester*
+___________
+
+ |List of pilots or entities which proposed or are related to the requirement and that can validate the requirement.
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done).
+a|
+_____________
+*Related WPs*
+_____________
+
+ |Which WPs we expect to work on this requirement
+a|
+____________
+*Components*
+____________
+
+ |Include some mapping with the parts of the high level architecture which are affected by this requirement
+a|
+_______________
+*Relationships*
+_______________
+
+ |List here those requirements related to this one
+|==================================================================================================================================================
+
+[[_Toc497257298]]Table . VOLERE Requirements table template
+
+As reported in D2.1 [3], in the first three months, the requirement gathering was done mainly internally and requirements were derived from functional properties of the envisioned MSO4SC e-infrastructure. After that initial period, we started involving stakeholders in the definition of the e-infrastructure by various means: face-2-face meetings, a workshop, the requirements table and an online survey, see Section 4 for more details. The resulting input is incorporated in the list of requirements as well as in the development of the MSO4SC e-infrastructure. It can be thought of as an iterative and incremental process: as stakeholders envision what they want or need from the infrastructure, these user needs must be analysed and turned into requirements. The development of the MSO4SC infrastructure then takes into account these demands to accommodate them. After some time, this process is repeated, more user needs might show up, or already existing ones become more refined and precise.
+
+[[involving-stakeholders-in-the-e-infrastructure-definition]]
+= Involving Stakeholders in the e-Infrastructure Definition
+
+This section describes how stakeholders are involved in the definition of the design and properties of the MSO4SC e-infrastructure. Besides face-to-face meetings with stakeholders, there was an informative workshop in Budapest in May, and several more events are planned.
+
+[[meetings-and-workshops]]
+== 4.1Meetings and Workshops
+
+ 
+
+[[_Toc497257373]]**Dedicated MSO4SC Workshop in Budapest**
+
+The MSO4SC project held a workshop on May 22-24, 2017 in Budapest, Hungary hosted by SZE. The goal of the workshop was twofold: firstly, to present the project and the results already achieved regarding the infrastructure, the MSO frameworks and the pilot applications, and secondly, to provide a networking opportunity and to gather user requests from stakeholders. The latter point was performed also in form of an online survey, see Section 4.2. The workshop had 53 participants on-site. The presentations were also streamed online and can still be accessed via the webpage. Registered participants could contribute to the discussions remotely. Two sessions were especially reserved to gather input from the participants of the workshop. The results of these innovation games are depicted in Appendix 3. The diagram depicts what people connect with and wish for regarding math application frameworks in an HPC environment such as intended by the MSO4SC e-infrastructure.
+
+They confirmed that the tools proposed by MSO4SC are important, since they need to focus on the research and not on how things work. Stakeholders just want to run simulations easily (but in an optimal way) and get results. Some of them also mentioned that they wanted flexibility in terms of pre/post-processing and visualization tools, since not all of them wanted ParaView, for instance.
+
+[[other-events-used-by-project-partners-to-address-stakeholders]]
+=== Other events used by project partners to address stakeholders
+
+ZIB addressed stakeholders directly at the following events: BB3R: Risk assessment on sulfamethoxazole and carbamazepine transformation products using molecular dynamics simulations, poster presentation, German Pharm-Tox Summit, Berlin, 2016 // Computer Aided Drug Design, invited minisymposium talk, EFIC 2017, Copenhagen, Denmark, September 2017. In September 2017, this will be continued at a workshop on simulation in Magdeburg, Germany.
+
+The OPM meeting for 2017 was held in Bergen, Norway on October 18-19. At the meeting, the work being done in the MSO4SC project to enable cloud and HPC usage of OPM software was brought up during talks and during group discussions. Participants that expressed interest in the results include: A large engineering company, considering using OPM Flow in their consulting work on CO2 EOR and CO2 storage; A large European research institute, already using OPM Flow for history matching and field optimization; A small European research institute, using OPM Flow for history matching. 
+
+MSO4SC was also presented in the European HPC Summit Week, held in Barcelona in May 2017 (15th to 19th May). In the context of a track dedicated to mathematics and HPC, EU-MATHS-IN showed the MSO4SC vision and the role of HPC stakeholders in our e-Infrastructure.
+
+ATOS and KTH also attended an event organized by NAFEMS in Bilbao on the 25th May 2017, showing how to use FEniCS in the MSO4SC context. Such event was focused on industrial stakeholders, so it was possible to understand the kind of simulations the industry requires and the constraints they usually have (in terms of resources and time). It is interesting to highlight they expect simulations running in short times and with a limited amount of resources, so they will be cheaper and they will be able to retrieve the results very fast, applying required modifications to their processes as soon as possible.
+
+SZE has been preparing a lecture to the 43rd Conference on Meteorology – Modelling Micro and Meso Scale Flows in the Atmosphere organized by the Hungarian Academy of Sciences on 23-24 November 2017. This is the leading conference of the stakeholders of air quality predictions in Hungary. SZE will use this event as user request gathering forum with utilizing the MSO4SC survey and a special survey fit to 3DAirQualityPrediction.
+
+This presentation will be followed by contribution to FAIRMODE (Forum for Air Quality Modelling in Europe) Annual Plenary Meeting to be held at Joint Research Centre of EC in Ispra, Italy in the February 2018.
+
+EU-MATHS-IN has been organizing the conference “Future and Emerging Mathematical Technologies in Europe”, December 11 – 15, 2017, Lorentz Center, Leiden, Netherlands. The primary objective of the meeting is to discuss success stories and share experience and best practices of organizing collaborative research projects with industry, as well as to discuss and brainstorm about joint future activities. One of the major obstacles to be addressed is the low visibility of mathematical technologies in European programs. We will also discuss measures facilitating awareness about existing expertise in Europe and knowledge transfer. All of these objectives are very important for the MSO4SC project as well. Thus MSO4SC will present a plenary lecture on infrastructure with integration of MADF and end-user applications and a session with several MSO4SC related lectures including a demonstration.
+
+[[_Toc497257375]]**Face-to-face meetings**
+
+ZIB held regular F2F meetings with specialists from hydrometry (http://www.bafg.de/DE/08_Ref/G2/03_Fachgremien/fachgremien.html) as well as with members from Charite Berlin. The meetings with the experts from hydrometry will go on further in 2017. SINTEF addressed OPM stakeholders in industry and research institutes through video and face-to-face meetings. Stakeholders (users) at various universities have been contacted through email, but this was not very effective in terms of engagement. Discussions in-person at conferences and workshops have been more successful.
+
+EU-MATHS-IN has also carried out some face-to-face meetings with MSO stakeholders in the context of the preparation of the ETP4MSO. During such meetings, they provided some overview about MSO4SC and encouraged stakeholders to fill in the project survey, in order to know more about their interests.
+
+[[survey]]
+== 4.2 Survey
+
+ Two different kinds of surveys are used as tools to get feedback from MSO-users and to define the requirements for the MSO4SC e-infrastructure. A first internal survey was conducted to learn more about the cloud and HPC requirements coming from project partners, i.e., the mathematicians using MSO-software as well as the cloud and HPC providers. More on this first, internal survey can be found in the first report on end users’ requirements D2.1 [3]. Since then, a new survey, the MSO4SC survey was created taking into account the following major topics:
+
+* _General:_ role of MSO software (four questions), experience with MSO software (five statements), and importance of MSO software for the business (four statements)
+* _Data:_ source (four statements), management tools (four statements), pre/post-processing (four statements) and visualization (four statements)
+* _Interaction with the simulation:_ control and interact (four statements), monitor (four statements)
+* _Interaction with the platform_ providing the resources (HPC and Cloud) (four statements).
+
+The 41 statements can be found in Appendix A. For each statement, there was a scale with seven steps from fully disagree to fully agree. The actual survey was done as an online form. There are several tools for doing online surveys, most of them have restrictions on how many statements and answers you will get for free. One tool that does not have these restrictions and which we used in the end is google forms. We had an internal trial run, estimating the necessary time to fill in the survey to 15 minutes. Another reason to use such an online tool is that the data can be downloaded directly and used for statistics without manually counting the answers. However, since some companies do not allow google tools within their intranet, we also created a pdf form that can be filled in, saved and send back. Also, doing a printout and filling it in is always an option. These data have to be incorporated manually in the data set.
+
+The survey was distributed using several channels: networks, Twitter, Facebook, LinkedIn as well as personal contacts with stakeholders were exploited. A web search was conducted to find more possible candidates, who were then contacted via email.
+
+The following channels were used to distribute the survey:
+
+* KoMSO – The Committee for Mathematical Modelling, Simulation and Optimization (www.komso.org) serves as network within the “Mathematics for Innovations in Industry and Services” program established by the Federal Ministry of Education and Research in Germany (BMBF).
+* EU-MATHS-IN has contacted stakeholders mainly through project partners yet. The communication channels of EU-MATHS-IN have significant potential which will be used in the near future when calibrating the business for the infrastructure.
+* Spanish outreach: Math-in: (Spanish Network of Mathematics for Industry, http://www.math-in.net/), CIMNE (International Center for Numerical Methods in Engineering, http://www.cimne.com/), ITMATI (Technological Institute for Industrial Mathematics, http://www.itmati.com/), USC-DMA (Applied Mathematics Department of the University of Santiago de Compostela, http://www.usc.es/dmafm/ENGLISH/index_english.htm)
+* French outreach: Groupe Calcul in France (mailing list: calcul@listes.math.cnrs.fr; twitter through the accounts prudhomm, feelpp and cemosis; facebook through the cemosis account; linkedin through the prudhomme and cemosis accounts as well as the LinkedIn group AMIES https://www.linkedin.com/groups/4367213
+* ZIB used their own mailing lists as well as individual telephone calls
+* The OPM web site and mailing list
+* SZE used the list of its industrial partners
+
+The MSO survey was sent to participants of the Budapest workshop by the project partners who have invited them. However, the external, not MSO oriented people (e.g. doctors, meteorologists) who are just end-users of MSO and have no precise idea about the MSO related queries in the survey seem not participated intensively.
+
+The survey has reached mainly entities that already work with MSO-software. Therefore, it is no surprise that MSO-software is considered as very important to the entities answering the survey. A list of all statements together with the distribution of the answers can be found in Appendix B. In the next section we describe the main feedback, referring the reader to the corresponding figures in the appendix.
+
+The distribution of respondents to the survey regarding countries and entity type are shown in Figure B. 1 and Figure B. 2, respectively. 
+
+[[main-feedback-from-the-survey]]
+== 4.3 Main Feedback from the Survey
+
+In the following, we present the main feedback from the survey and the end users’ requirement that can be deduced from it. The corresponding figures can be found in Appendix B at the end of this document. As an example figure, we present here the distribution of responses (level of agreement) regarding the deployment of MSO software, see Figure 2.
+
+ image:media/d2.5/image4.png[image,width=291,height=230]image:images/media/image5.png[image,width=268,height=229]
+
+[[_Toc497257359]]Figure : MSO4SC survey – ease of deployment of MSO-software
+
+The main feedback and its representation in the list of requirements from the survey is as follows.
+
+Data protection as well as tools for data management are important, see:
+
+* Figure B. 20. Data management tools.
+* Figure B. 22. The used data is open and does not need protection.
+
+These statements are represented in Table 6. Requirement table Cloud-3 Data management, Table 13. Requirements table Cloud-10 Optimize data management, Table 16. Requirements table Cloud-13 Data categorization and Table 20. Requirement table Cloud-17. Private data and security.
+
+Pre- as well as post-processing tools are important for the respondents of the MSO4SC survey, SALOME seems to be a reasonable first approach that can be further improved on, see
+
+* Figure B. 26. Pre- and post-processing tools are important, in general.
+* Figure B. 27. SALOME is sufficient.
+
+This statement is represented in Table 21. Requirement table Cloud-18. Pre- and post-processing.
+
+Visualization is an essential part for all respondents of the survey, PARAVIEW seems to be a reasonable first approach that can be further improved on, see
+
+* Figure B. 29. Visualization is essential.
+* Figure B. 31. Paraview is sufficient as visualization tool.
+
+This statement is represented in Table 9. Requirement table Cloud-6 Visualization.
+
+The survey respondents also asked for interaction with the simulation. This is represented in Table 10 Requirement table Cloud-7. Simulation monitoring and Table 14. Requirements table Cloud-11 Pause/Restart/Recover simulation.
+
+We also intended to perform an analysis with structural equation modelling (SEM) based on partial least squares (PLS), but it turned out that the available answers are not enough (they do not reached 50 by the time this deliverable is released) and some of the answers were missing some aspects. The purpose was to determine whether all the sentences were relevant for the corresponding MSO aspects and to highlight which MSO aspects had more influence in entities, in terms of role of MSO and impact of MSO in their customers. This could be a very innovative way of prioritising certain developments and identifying key aspects in MSO which deserve more attention.
+
+Unfortunately, the models were too unstable and the lack of samples was generating several errors, especially in the bootstrapping phase. As we receive more answers to the survey, we will try to make such analysis again.
+
+[[mso4sc-pilot-scenarios]]
+= MSO4SC Pilot Scenarios
+
+The MSO4SC e-infrastructure will feature several pilot scenarios described in detail in D5.1 [6]. The following subsections provide an overview of these pilot scenarios as well as requirements coming directly from the pilots.
+
+[[high-level-view-of-the-pilot-scenarios]]
+== 5.1 High Level View of the Pilot Scenarios
+
+The MSO4SC e-infrastructure will feature three MADFs, namely FEniCS, Feel++ and OPM, and seven pilot scenarios, namely FloatingWindTurbine, 3DAirQualityPrediction-CFD, HifiMagnet, Eye2Brain, OPM Flow, ZIBaffinity and 3DAirQualityPrediction. The pilots are partly based on the MADFs and partly on other applications, see Table 3.
+
+[cols=",,",options="header",]
+|===================================================================================================================================
+|*MADF* |*Pilot Scenario* |*End-user*
+|FEniCS |FloatingWindTurbine |Tecnalia
+| |3DAirQualityPrediction-CFD |OMSZ (The Hungarian Meteorological Service)
+|Feel++ |HifiMagnet |LNCMI (Laboratoire National des Champs Magnetique Intenses)
+| |Eye2Brain |Eugene and Marilyn Glick Eye Institute in Indianapolis, and The Eye Clinic of Lithuanian University of Health Sciences
+|OPM |OPM Flow |Statoil, IRIS, TNO
+|Other |ZIBaffinity |Pharmaceutical companies
+| |3DAirQualityPrediction |OMSZ (The Hungarian Meteorological Service)
+|===================================================================================================================================
+
+[[_Toc497257299]]Table . MADFs, Pilots and End-users
+
+The two pilots based on FEniCS are FloatingWindTurbune and 3DAirQualityPrediction-CFD. The *FloatingWindTurbine* pilot addresses the societal challenge of renewable energy. Its aim is to function as a software tool for the virtual design of floating wind turbines. It is based on the FEniCS MADF, and it is a key driver in the collaborative ELKARTEC “ICERMAR” project between BCAM and the end-user Tecnalia. The *3DAirQualityPrediction-CFD* pilot addresses the societal challenge of air quality, especially in urban areas. The simulation of the dispersion of polluting emissions is of major interest for urban planning and also for local forecasts of the air quality, linking the dispersion to the weather forecast. This pilot is done in collaboration with OMSZ, the Hungarian Meteorological service. In addition, the pilot 3DAirQualityPrediction-CFD functions as the CFD simulation engine for the pilot 3DAirQualityPrediction.
+
+The two pilots based on Feel++ are HifiMagnet and Eye2Brain. The *HifiMagnet* pilot aims at robust designs of high field magnets with numerical precisions outside the currently available methodology. High field magnets are essential for various research areas in physics, chemistry, biology, and material science. This pilot’s end user is the LNCMI (Laboratoire National des Champs Magnetique Intenses). The *Eye2Brain* pilot looks at ocular biomarkers for the early diagnosis and clinical care of neuro degenerative disorders (NDD) by using large-scale modeling of fluid-dynamical and metabolic links between eye and brain. End users will be the Eugene and Marilyn Glick Eye Institute in Indianapolis, and The Eye Clinic of Lithuanian University of Health Sciences.
+
+The OPM Flow pilot is based on OPM. *OPM Flow* addresses subsurface flow simulations that are important for a wide range of environmental management applications, e.g., groundwater flows or large-scale storage of CO2, as well as for the oil and gas industry. The end users include for example Statoil (industry), IRIS, TNO (research institutes).
+
+The *ZIBaffinity* pilot estimates binding affinities for biological host-guest systems by molecular dynamics simulations and methods of statistical thermodynamics. End users are pharmeceutical companies.
+
+The *3DAirQualityPrediction* uses 3DAirQualityPrediction-CFD as module for computational models of the dispersion of air pollutants in urban environments.
+
+[[main-feedback-from-the-pilots-and-the-madfs]]
+== 5.2 Main Feedback from the Pilots and the MADFs
+
+The feedback from the pilots and the MADFs were gathered through telephone meetings as well as from [5] D4.1 Detailed specifications for the MADFs Adaptation and [6] D5.1 Case study extended design and evaluation strategy. In general, there are a few aspects that are mentioned by all the pilots:
+
+Deployment: All pilots require that the pilot and the underlying MADF must be deployed at the MSO4SC infrastructure easily. All pilots require post-processing and visualization as part of the MSO-portal, with ParaViewWeb being a strong suggestion as the tool to be used.
+
+Scriptability: The MADFs Feel++ and OPM ask for providing ways to be used interactively, e.g., via C++ or Python.
+
+Usability: The MADFs Feel++ and OPM ask for increasing the readability as well as providing documentation.
+
+In the following, requirements are presented as asked by the pilot scenarios. This is a preliminary prose-like form close to the way in which they were first given as feedback from the pilots. They have been further analyzed, summarized, and are presented in the form of the VOLERE template in Section 6.
+
+[[feedback-from-floatingwindturbine]]
+==== Feedback from FloatingWindTurbine
+
+Performance: FloatingWindTurbine requires that an unstructured tetrahedral mesh of ca. 10 million vertices must be supported by the computational resources of the MSO4SC e-infrastructure.
+
+[[feedback-from-3dairqualityprediction-cfd]]
+==== Feedback from 3DAirQualityPrediction-CFD
+
+Performance: 3DAirQualityPrediction-CFD requires that an unstructured tetrahedral mesh of ca. 10 million vertices must be supported by the computational resources of the MSO4SC e-infrastructure.
+
+[[feedback-from-hifimagnet]]
+==== Feedback from HIFIMAGNET
+
+Interface: HIFIMAGNET requires that the pilot can be run and controlled by a web interface. This is a new requirement, see Table 40. Requirement table HIFIMAGNET-3. Feel++ HIFIMAGNET web interface.
+
+Monitoring simulation: HIFIMAGNET requires that users are able to monitor simulation progress with intermediary results. This requirement is taken into account by requirements for the Cloud layer, see Table 10 Requirement table Cloud-7. Simulation monitoring.
+
+User-Interaction (one-click): HIFIMAGNET requires that data coming from the LNCMI Material properties data can be either uploaded and/or entered manually and/or automatically by the user. Note that in the future these data (and also geometry CAD files) may be generated or extracted from a custom database run by the LNCMI.
+
+Data management: HIFIMAGNET requires that the user can upload simple data, run with no further user interaction, and perform online visualisation of some quantities of interest. This requirement is taken into account by requirements for the Cloud layer, see Table 6. Requirement table Cloud-3 Data management and Table 12. Requirements table Cloud-9 Decoupling of simulations and visualization. The user also requires to be able to generate CAD geometry and/or create meshes. The requirement in term of CAD and mesh is formulated as new requirement, see Table 42. Requirement table HIFIMAGNET-5. Feel++ HIFIMAGNET CAD geometry and mesh generation. Note that a license for proprietary meshing software shall be used. This is covered by requirements for the Cloud layer, see Table 7. Requirement table Cloud-4 Licenses and software. Both the input data and output results may be private in the sense that it contains sensitive data for the end user. Users can control and manage permissions on the inputs and outputs. This is formulated in a new requirement, see Table 41. Requirement table HIFIMAGNET-4. Feel++ HIFIMAGNET manage permissions.
+
+Performance: HIFIMAGNET requires that large simulation can be run efficiently in order for the user (the magnet designers) to provide results and metrics (within few hours) to the designer. Different complexity levels are provided that could be run to provide detailed insights for a better modelling and to achieve more robust designs. This is formulated as new requirement, see Table Table 37. Requirements table HIFIMAGNET-2. Feel++ HIFIMAGNET performance. As FeniCs Pilots, HIFIMAGNET requires that large unstructured meshes (up to hundreds of millions of tetrahedra) are supported by the computational resources of the e-infrastructure of MSO4SC. Corollary simulation may require up to 2 TB (Terabyte) RAM for the biggest and most complete models. Again, this needs to be supported by the e-infrastructure.
+
+[[feedback-from-eye2brain]]
+==== Feedback from Eye2Brain
+
+Interface: Eye2brain requires that the pilot can be run and controlled by a simple web interface. This is a new requirement, see Table 39. Requirement table EYE2BRAIN-4. Simple web interface.
+
+Monitoring simulation: Eye2brain requires that users are able to monitor the progress. This requirement is taken into account by requirements for the Cloud layer, see Table 10 Requirement table Cloud-7. Simulation monitoring and Table 14. Requirements table Cloud-11 Pause/Restart/Recover simulation.
+
+User-Interaction: Eye2brain requires that data coming from measurement tools can be entered manually and/or automatically by the user. These requirement is taken into account by Table 36. Requirements table EYE2BRAIN-2. EYE2BRAIN User interaction.
+
+Data management: Eye2brain requires that the user can upload simple data, and online visualisation of some quantities of interest This requirement is taken into account by requirements for the Cloud layer, see Table 6. Requirement table Cloud-3 Data management and Table 12. Requirements table Cloud-9 Decoupling of simulations and visualization.
+
+Performance: Eye2brain requires that large simulation (millions to tens of millions of tetrahedron) can be run efficiently in order for the user (the ophthalmologist) to provide diagnostic rapidly (within seconds or a few minutes) to the patient. Different complexity levels are provided than could be run to provide incremental diagnostic. This is formulated as new requirement, see Table 38. Requirements table EYE2BRAIN-3. Feel++ EYE2BRAIN performance.
+
+[[feedback-from-opm-flow]]
+==== Feedback from OPM Flow
+
+Interface: OPM Flow requires that the pilot can be run and controlled by a simple web interface. This is a new requirement, see Table 47. Requirement table OPMFlow-5. OPM Flow simple web interface.
+
+Monitoring simulation: OPM Flow requires that users are able to monitor simulations as they progress. This requirement is taken into account by requirements for the Cloud layer, see Table 10 Requirement table Cloud-7. Simulation monitoring.
+
+User-Interaction (one-click): OPM Flow requires that models can be uploaded and run with no further user interaction (test case 1 and 3, see p.22 of D5.1 [6]). OPM-Flow requires that ensembles of models can be uploaded and run with only minimal user interaction (test case 2, see p.22 of D5.1 [6]). These requirements are taken into account by Table 48. Requirements table OPMFlow-6. OPM Flow One-click and Table 49. Requirements table OPMFlow-7. OPM Flow minimal user interaction.
+
+Data management: OPM Flow requires that users can upload their own data, and access results in bulk after the simulation is completed. This requirement is taken into account by requirements for the Cloud layer, see Table 6. Requirement table Cloud-3 Data management and Table 12. Requirements table Cloud-9 Decoupling of simulations and visualization.
+
+Performance: OPM Flow requires that large ensembles must run effectively. This is formulated as new requirement, see Table 45. Requirement table OPMFlow-3. OPM Flow ensemble performance.
+
+[[feedback-from-zibaffinity]]
+==== Feedback from ZIBaffinity
+
+Data storage and protection: ZIBaffinity requires a very high level of protection against loss of data. This is due to the fact that the data created with this pilot is extremely valuable for pharmaceutical companies. This is a new requirement, see Table 57. Requirements table ZIB-3. ZIBaffinity data protection and security.
+
+Run time/performance: ZIBaffinity requires a comparison of its runtime on the cloud system to running it on HLRN (North-German Supercomputing Alliance). This is a specification of the performance requirement, see Table 56. Requirements table ZIB-2. ZIBaffinity performance.
+
+[[feedback-from-3dairqualityprediction]]
+==== Feedback from 3DAirQualityPrediction
+
+Data movement and protection: 3DAirQualityPrediction requires a high level of security of traffic and meteorology measurement data provided by national authorities due to their request. In addition, data movement from external servers dedicated to manage and store measurement data, which can be online produced (i.e. in simulation time) to the MSO4SC infrastructure must be stable. In certain setting of the simulation
+
+Run time/performance: 3DAirQualityPrediction requires a comparison of its runtime on the cloud system to that of the existing version on local cluster. Performance can be a bottleneck when 3DAirQualityPrediction is used in scenario analysis mode. 
+
+[[mso4sc-e-infrastructure-requirements]]
+= MSO4SC e-Infrastructure Requirements
+
+This section presents the updated set of requirements in the form of the VOLERE requirements template, see Table 2. These requirements build on the previous analysis, see deliverable D2.1[3], and take into account the above described information. Existing requirements were completed and revised to match better the template. New requirements were added as result of the analysis of the survey, as well as feedback from the stakeholders and pilots. The changes to the requirements are summarized at the end of this section, see 6.4 Requirements Relation to D2.1 [3] with Table 58. Relation of requirements to D2.1.
+
+[[requirements-for-the-cloud-management-layer]]
+== 6.1 Requirements for the Cloud Management Layer
+
+[cols=",,,",]
+|==============================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-1 a|
+______
+*Name*
+______
+
+ |Generic application support
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure should provide support to other MADFs and applications not described in the project. This means that it should be flexible and generic enough that it will not stick to a concrete domain or set of tools.
+a|
+_________
+*Purpose*
+_________
+
+ |For the sustainability of the project the infrastructure should have the availability to provide support to other user communities beyond those which are part of the consortium.
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |Stakeholders
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |New stakeholders will be invited to use the MSO4SC which should be able to run the new simulations. At least one external application will be executed correctly.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator, Monitor, MSO portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|==============================================================================================================================================================================================================================
+
+[[_Toc497257300]]Table . Requirement table Cloud-1 Generic application support
+
+[cols=",,,",]
+|=======================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-2 a|
+______
+*Name*
+______
+
+ |Multiple infrastructures support
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The software developed to manage and orchestrate the infrastructure should be portable and capable to manage other infrastructures, not only the ones and the beginning of the project (CESGA & ATOS).
+a|
+_________
+*Purpose*
+_________
+
+ |Some use cases are very restricted in terms of data confidentiality, so some parts of the software have to run in local clusters of the users. This should be supported.
+a|
+________
+*Actors*
+________
+
+ |ATOS, CESGA, SINTEF
+a|
+___________
+*Requester*
+___________
+
+ |SINTEF (OPM Flow use case)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The OPM Flow use case will be able to execute part of the scenario in an infrastructure different from the ones provided by CESGA and ATOS.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=======================================================================================================================================================================================================
+
+[[_Toc497257301]]Table . Requirement table Cloud-2 Multiple infrastructure support
+
+[cols=",,,",]
+|=======================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-3 a|
+______
+*Name*
+______
+
+ |Data management
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures in a secure way, especially when different parts of the application are running in different hardware infrastructures.
+a|
+_________
+*Purpose*
+_________
+
+ |This functionality is needed to provide the data for the simulations and the output results in the different places where the simulations might take place
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, SZE
+a|
+___________
+*Requester*
+___________
+
+ |SZE (3DAirqualityprediction use case), survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |In the 3DAirqualityprediction use case, the application will be split in two hardware infrastructures for its execution, and all the data will be moved correctly from one infrastructure to the other one, as required by the application components.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-2
+|=======================================================================================================================================================================================================================================================
+
+[[_Toc497257302]]Table . Requirement table Cloud-3 Data management
+
+[cols=",,,",]
+|=================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-4 a|
+______
+*Name*
+______
+
+ |Cloud-4
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Medium
+a|
+_____________
+*Description*
+_____________
+
+ |The software developed to manage and orchestrate the infrastructure should support proprietary software and the restrictions that it might impose.
+a|
+_________
+*Purpose*
+_________
+
+ |Some use cases make use of proprietary software. This software is not installed in all the clusters because of license restrictions so the orchestration must take this in account when deploying and running the simulations
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, SZE
+a|
+___________
+*Requester*
+___________
+
+ |SZE (3DAirqualityprediction use case) and UNISTRA (Eye2Brain and HIFIMAGNET uses cases)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+[[_Toc497257303]]Table . Requirement table Cloud-4 Licenses and software restrictions
+
+[cols=",,,",]
+|=================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-5 a|
+______
+*Name*
+______
+
+ |Support MPI Applications
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The software developed to manage and orchestrate the infrastructure should support proprietary software and the restrictions that it might impose.
+a|
+_________
+*Purpose*
+_________
+
+ |Some use cases make use of proprietary software. This software is not installed in all the clusters because of license restrictions so the orchestration must take this in account when deploying and running the simulations
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, SZE
+a|
+___________
+*Requester*
+___________
+
+ |SZE (3DAirqualityprediction use case) and UNISTRA (Eye2Brain and HIFIMAGNET uses cases)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+[[_Toc497257304]]Table . Requirement table Cloud-5 Support MPI Applications
+
+[cols=",,,",]
+|====================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-6 a|
+______
+*Name*
+______
+
+ |Visualization
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure should support remote visualization capabilities, so it will be possible to load the results of a simulation and watch them. The infrastructure should support an integrated use of visualization software as part of the services to the users.
+a|
+_________
+*Purpose*
+_________
+
+ |Many use cases require visualization software in different parts of the simulation: pre-processing and post-processing, mainly.
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, UNISTRA
+a|
+___________
+*Requester*
+___________
+
+ |ZIBaffinity users, ZIB, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|====================================================================================================================================================================================================================================================================
+
+[[_Toc497257305]]Table . Requirement table Cloud-6 Visualization
+
+[cols=",,,",]
+|====================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-7 a|
+______
+*Name*
+______
+
+ |Simulation monitoring
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure should support remote visualization capabilities, so it will be possible to load the results of a simulation and watch them. The infrastructure should support an integrated use of visualization software as part of the services to the users.
+a|
+_________
+*Purpose*
+_________
+
+ |Many use cases require visualization software in different parts of the simulation: pre-processing and post-processing, mainly.
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, UNISTRA
+a|
+___________
+*Requester*
+___________
+
+ |ZIBaffinity users, ZIB, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|====================================================================================================================================================================================================================================================================
+
+[[_Toc497257306]]Table . Requirement table Cloud-7 Simulation monitoring
+
+[cols=",,,",]
+|==========================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-8 a|
+______
+*Name*
+______
+
+ |Automate applications deployment and execution
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-Infrastructure will provide a rich GUI in order to submit jobs to HPC systems and tasks to Cloud providers. A process in the background will be responsible to prepare the application, deploy it and run it in the corresponding context (HPC and/or Cloud) without the need of user intervention in the technical aspects.
+a|
+_________
+*Purpose*
+_________
+
+ |MSO4SC stakeholders do not need to be aware of the technical details when asking for the execution of an application. Therefore, MSO4SC e-Infrastructure should ease such task by abstracting the technical complexity, with the proper mechanisms running in the background.
+a|
+________
+*Actors*
+________
+
+ |ATOS, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC partners, Stakeholders
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |All the project pilots will evaluate the functionality. Stakeholders will run the applications through a GUI from the MSO Portal, and the right deployment and execution will be done by MSO4SC in 100% of the cases (without any error related to the orchestration mechanism itself).
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator, MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|==========================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257307]]Table . Requirement table Cloud-8 Automate applications deployment and execution
+
+[cols=",,,",]
+|=========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-9 a|
+______
+*Name*
+______
+
+ |Decoupling of simulations and visualization
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Non-Functional
+a|
+_____________
+*Description*
+_____________
+
+ |Simulations run in MSO4SC should provide the possibility to use any tool for visualization, instead of a concrete one for all the cases. This means that it will be possible to generate the simulation outcome and just download it if desired, so the stakeholders will be able to select the visualization tool they want and provide such outcome as input. All the MADFs will store simulation outcomes in a location from which the MSO Portal will be able to access to serve it to stakeholders.
+a|
+_________
+*Purpose*
+_________
+
+ |MSO4SC stakeholders want to avoid vendor lock-in in the case of visualization, since each one may have their own preferences in term of post-processing and visualization tools.
+a|
+________
+*Actors*
+________
+
+ |ATOS, CESGA, KTH, BCAM, UNISTRA, SINTEF
+a|
+___________
+*Requester*
+___________
+
+ |Stakeholders
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Several simulations will generate outcomes that can be retrieved directly by stakeholders. Such functionality will be tested separately with all the pilots, checking that in 100% of the cases it is possible to retrieve the simulation result, and use it in the desired visualization tool (after some post-processing, if required).
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal, MADFs
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257308]]Table . Requirements table Cloud-9 Decoupling of simulations and visualization
+
+[cols=",,,",]
+|==================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-10 a|
+______
+*Name*
+______
+
+ |Optimize Data Management
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional/Non Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures, some of them dedicated to particular tasks so that optimise data movement times.
+a|
+_________
+*Purpose*
+_________
+
+ |This functionality is needed to ensure movement of measured data of the end-user application represented on dedicated servers to the MSO4SC infrastructure while keeping good overall execution times.
+a|
+________
+*Actors*
+________
+
+ |SZE, CESGA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |external parties, SZE
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |3DAirQualityPrediction pilot
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |3DAQP-2
+|==================================================================================================================================================================================================================
+
+[[_Toc497257309]]Table . Requirements table Cloud-10 Optimize data management
+
+[cols=",,,",]
+|==================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-11 a|
+______
+*Name*
+______
+
+ |Pause/Restart/Recover simulation
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The users request a way to pause or stop a simulation in order to reconfigure it and start again, from the beginning or a certain point, from an adequate GUI.
+a|
+_________
+*Purpose*
+_________
+
+ |In some simulations, it is very useful to recalibrate the simulation if something is wrong or could be improved, and restart it without starting over again, especially if the resources consumed during the simulation are high.
+a|
+________
+*Actors*
+________
+
+ |MADF owners, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |Stakeholders, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A modularized simulation using one of the MADFs will be stopped, reconfigured and restarted from the same point, and the results obtained will be the expected ones.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |MADFs, MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-7
+|==================================================================================================================================================================================================================================
+
+[[_Toc497257310]]Table . Requirements table Cloud-11 Pause/Restart/Recover simulation
+
+[cols=",,,",]
+|=================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-12 a|
+______
+*Name*
+______
+
+ |Community Support
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |Different mechanisms should be provided to allow users an easy learning curve of MSO4SC, such as Q&A, Wikis or forums. These mechanisms will be the way to articulate the community around MSO4SC.
+a|
+_________
+*Purpose*
+_________
+
+ |Stakeholders (members and no-members of the project) will have questions about how the different parts of MSO4SC work, as well as need some kind of training to start using it quickly. Such functionality will allow a higher level of software maturity (TRL).
+a|
+________
+*Actors*
+________
+
+ |ATOS, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC partners
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Users will be able to post/answer more than 3 questions, read and edit the wikis, and participate in, at least one learning event. The MSO Portal will reach, at least, TRL 8.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP2, WP6
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+[[_Toc497257311]]Table . Requirements table Cloud-12 Community Support
+
+[cols=",,,",]
+|=========================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-13 a|
+______
+*Name*
+______
+
+ |Data categorization
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The data management system should provide a way to easily find the different datasets available and generated in the infrastructure. That means that there should be available metadata about the datasets and that a search mechanism will be in place.
+a|
+_________
+*Purpose*
+_________
+
+ |MSO4SC users need to navigate through the data catalogue available in the portal, quickly finding the dataset they need.
+a|
+________
+*Actors*
+________
+
+ |ATOS
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC Partners, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Concrete datasets are found in only one query.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=========================================================================================================================================================================================================================================================
+
+[[_Toc497257312]]Table . Requirements table Cloud-13 Data categorization
+
+[cols=",,,",]
+|=========================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-14 a|
+______
+*Name*
+______
+
+ |Multi-Simulation
+a|
+__________
+*Priority*
+__________
+
+ |Medium a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The data management system should provide a way to easily find the different datasets available and generated in the infrastructure. That means that there should be available metadata about the datasets and that a search mechanism will be in place.
+a|
+_________
+*Purpose*
+_________
+
+ |MSO4SC users need to navigate through the data catalogue available in the portal, quickly finding the dataset they need.
+a|
+________
+*Actors*
+________
+
+ |ATOS
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC Partners, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Concrete datasets are found in only one query.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=========================================================================================================================================================================================================================================================
+
+[[_Toc497257313]]Table . Requirements table Cloud-14 Multi-Simulation
+
+[cols=",,,",]
+|=======================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-15 a|
+______
+*Name*
+______
+
+ |Containers support
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Non-Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure must run HPC jobs inside containers with no significant latency.
+a|
+_________
+*Purpose*
+_________
+
+ |Containers will include the application to run and the right combination of libraries and versions, in such a way it will not be necessary to reconfigure the target hardware every time an application is deployed.
+a|
+________
+*Actors*
+________
+
+ |All MSO4SC Partners
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC Partners
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Stakeholders providing its simulations with all their dependencies packed in a container should be able to execute them without perceiving delays. There will be containers for all the pilots and the MADFs, and performance loss should be below 5%.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator, MADFs, Pilots
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|=======================================================================================================================================================================================================================================================
+
+[[_Toc497257314]]Table . Requirements table Cloud-15 Containers support
+
+[cols=",,,",]
+|===========================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-16 a|
+______
+*Name*
+______
+
+ |Open development
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Non-Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure source code and the evolution of its development should be open and hosted in common public repositories (e.g. github).
+a|
+_________
+*Purpose*
+_________
+
+ |Internal and external developers can collaborate and help to improve, maintain and fix the E-Infrastructure itself.
+a|
+________
+*Actors*
+________
+
+ |MSO4SC Partners and external developers
+a|
+___________
+*Requester*
+___________
+
+ |MSO4SC Partners
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Developers community can access to the source code, submit improvements and issues.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3
+a|
+____________
+*Components*
+____________
+
+ |Portal, orchestrator, monitor
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|===========================================================================================================================================
+
+[[_Toc497257315]]Table . Requirements table Cloud-16 Open development.
+
+[cols=",,,",]
+|===========================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-17 a|
+______
+*Name*
+______
+
+ |Private data and security
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |Users should require to work with private or confidential data for both inputs and outputs. Users can decide the visibility of the input and output data, and the e-infrastructure must ensure the required security level for these data.
+a|
+_________
+*Purpose*
+_________
+
+ |The end user need the above feature to manage permissions on the inputs and outputs generated by the simulations to get control on the potential credentials or confidentials issues.
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS, SZE, End-users, survey
+a|
+___________
+*Requester*
+___________
+
+ |All use cases
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |If the end-user does not explicitly share any particular owned file or directory, these files are only accessible for him or her. If the end user share a file or folder them will be publicly available for all users.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Cloud, Data repository
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-3, Cloud-10, Cloud-13
+|===========================================================================================================================================================================================================================================
+
+[[_Toc497257316]]Table . Requirement table Cloud-17 Private data and security.
+
+[cols=",,,",]
+|==========================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Cloud-18 a|
+______
+*Name*
+______
+
+ |Pre- and postprocessing
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The infrastructure should support remote as well as integrated pre- and postprocessing capabilities as part of the services to the users.
+a|
+_________
+*Purpose*
+_________
+
+ |Many use cases require pre- and/or postprocessing for their simulation.
+a|
+________
+*Actors*
+________
+
+ |CESGA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |FEniCS users, survey
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |At least 1 pilot will use pre- and/or postprocessing tools for their simulation results.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |MSO Portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |NA
+|==========================================================================================================================================
+
+[[_Toc497257317]]Table . Requirement table Cloud-18 Pre- and post-processing.
+
+[[requirements-for-the-application-development-layer]]
+== 6.2 Requirements for the Application Development Layer
+
+[cols=",,,",]
+|========================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ installation a|
+______
+*Name*
+______
+
+ |FeelPP-1
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide Feel++ in its catalogue for stakeholders. It will be provisioned in such a way that it will be possible to select this MADF, integrate it with a pilot application and perform executions of the applications in a transparent way and independently of the hardware where it will be running.
+a|
+_________
+*Purpose*
+_________
+
+ |Docker and Singularity are the container technologies supported by Feel++.
+a|
+________
+*Actors*
+________
+
+ |Some of the pilots require Feel++ as the MADF for doing the simulation, but they lack knowledge about its installation and execution. Therefore, it is necessary that the MSO4SC e-infrastructure guarantees that the MADF will be available and its usage will be transparent to the end users.
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, ATOS
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________
+*Related WPs*
+_____________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component and confirm the successful installation.
+a|
+____________
+*Components*
+____________
+
+ |WP3, WP4, WP5
+a|
+_______________
+*Relationships*
+_______________
+
+ |Feel++ MADF
+|========================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257318]]Table . Requirement table FeelPP-1 Feel++ installation.
+
+[cols=",,,",]
+|==================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ Monitoring a|
+______
+*Name*
+______
+
+ |FeelPP-2
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ a|
+Scriptability involves:
+
+• scriptability of input data. Input data can be obtained from say Python scripts to prepare simulations processes
+
+• scriptability of some components of Feel++ toolboxes
+
+• scriptability of output data
+
+a|
+_________
+*Purpose*
+_________
+
+ |Scriptability is required to empower users and applications to extend further from the original usage of applications.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component. In each pilot, end users will define the scriptability of Feel++, the simulations will be configured and the execution will be monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-5, FeelPP-6, Cloud-3, Cloud-13
+|==================================================================================================================================================================================================================================
+
+[[_Toc497257319]]Table . Requirement table FeelPP-2 Feel++ scriptability.
+
+[cols=",,,",]
+|==================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ Monitoring a|
+______
+*Name*
+______
+
+ |FeelPP-3
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ a|
+Monitoring Feel++ processe involves:
+
+• knowing at which step we are
+
+• accessing different levels of information
+
+• get warning, fatal_errors...
+
+a|
+_________
+*Purpose*
+_________
+
+ |Monitoring purpose is to provide feedback to the end-user and eventually the MADF developers if debugging is required.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component. In each pilot, end users will define a test run using Feel++ that requires the monitoring of the simulations. The monitoring testrun will then be executed and monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-7, Cloud-11; FeelPP-4
+|==================================================================================================================================================================================================================================================================
+
+[[_Toc497257320]]Table . Requirement table FeelPP-3 Feel++ monitoring.
+
+[cols=",,,",]
+|==========================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ Software Quality a|
+______
+*Name*
+______
+
+ |FeelPP-4
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ a|
+Software quality is defined by:
+
+• documentation
+
+• coding rules
+
+• development process
+
+• continuous integration and deployment processes
+
+• tests
+
+• support
+
+a|
+_________
+*Purpose*
+_________
+
+ |The purpose is to enhance and document the Feel++ ecosystem to improve attractivity, enable/empower new users, provide high quality software for the pilots.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component. In each pilot, end users will define the usage of Feel++, the simulations will be configured and the execution will be monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-6, Cloud-12
+|==========================================================================================================================================================================================================================
+
+[[_Toc497257321]]Table . Requirement table FeelPP-4 Feel++ software quality.
+
+[cols=",,,",]
+|================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ Post processing a|
+______
+*Name*
+______
+
+ |FeelPP-5
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |Postprocessing is a part of the simulation process, it can involve visualisation of some physical or mathematical fields but also it can involve computing extra information that are relevant to the final application and it may or may not involve visualization components.
+a|
+_________
+*Purpose*
+_________
+
+ |The purpose is to provide the basic tools to be able to connect to visualisation tools and deliver a wide range of post-processing quantities.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component. In each pilot, end users will define the usage of Feel++ postprocessing. After configuring and executing the simulations the postprocessing step will be checked.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-9; Cloud-6; FeelPP-6; Cloud-3; Cloud-5; Cloud-18
+|================================================================================================================================================================================================================================================================================
+
+[[_Toc497257322]]Table . Requirement table FeelPP-5 Feel++ post processing.
+
+[cols=",,,",]
+|==========================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |Feel++ Benchmarking System a|
+______
+*Name*
+______
+
+ |FeelPP-6
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |The benchmarking system is the environment to verify and validate Feel++ based software.
+a|
+_________
+*Purpose*
+_________
+
+ a|
+The benchmarking system is an essential component in order to scientific reproductibility and verify the installation process. The Benchmarking system allows to run a set of test to :
+
+• verify installation
+
+• verify the integrity of the mathematical framework
+
+• verify on physical simulation that validated results are obtained.
+
+a|
+________
+*Actors*
+________
+
+ |UNISTRA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA, Feel++ users and pilots Eye2brain & HIFIMAGNET
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component. In each pilot, end users will define the usage of Feel++, the simulations will be configured and the execution will be monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |
+a|
+____________
+*Components*
+____________
+
+ |WP3, WP4, WP5
+a|
+_______________
+*Relationships*
+_______________
+
+ |Feel++ MADF
+|==========================================================================================================================================================================================================================
+
+[[_Toc497257323]]Table . Requirement table FeelPP-6 Feel++ benchmarking system.
+
+[cols=",,,",]
+|============================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |FEniCS-HPC installation a|
+______
+*Name*
+______
+
+ |FEniCS-1
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide FEniCS-HPC in its catalogue for stakeholders. It will be provisioned in such a way that it will be possible to select this MADF, integrate it with a pilot application and perform executions of the applications in a transparent way and independently of the hardware where it will be running.
+a|
+_________
+*Purpose*
+_________
+
+ |Some of the pilots require to use FEniCS-HPC as the MADF for doing the simulation, but they lack knowledge about its installation and execution. Therefore, it is necessary that the MSO4SC e-infrastructure guarantees that the MADF will be available and its usage will be transparent to the end users.
+a|
+________
+*Actors*
+________
+
+ |BCAM, KTH, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |SZE, BCAM and KTH, FloatingWindTurbine and 3DAirQualityPrediction-CFD pilots
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The standard cube benchmark will be used for validation with acceptable error tolerances and successful completion. Output data should be generated in compatible format with the MSO4SC visualization layer.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-2, Cloud-6,Cloud-9
+|============================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257324]]Table . Requirements table FEniCS-1 FEniCS-HPC installation.
+
+[cols=",,,",]
+|======================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |FEniCS-HPC performance a|
+______
+*Name*
+______
+
+ |FEniCS-2
+a|
+__________
+*Priority*
+__________
+
+ |Non-Functional/performance a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide FEniCS-HPC in its catalogue for stakeholders. It will be provisioned in such a way that it will provide verified performance.
+a|
+_________
+*Purpose*
+_________
+
+ |Some of the pilots require to use FEniCS-HPC as the MADF for doing the simulation, but they lack knowledge about its performance. Therefore, it is necessary that the MSO4SC e-infrastructure guarantees the performance of the MADF.
+a|
+________
+*Actors*
+________
+
+ |BCAM, KTH, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |SZE, BCAM and KTH, FloatingWindTurbine and 3DAirQualityPrediction-CFD pilots
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The standard cube benchmark will be used for validation with runtime. The standard scaling test will be verified to acceptable tolerance.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FEniCS-1
+|======================================================================================================================================================================================================================================
+
+[[_Toc497257325]]Table . Requirements table FEniCS-2 FEniCS-HPC performance.
+
+[cols=",,,",]
+|================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |FEniCS-3 a|
+______
+*Name*
+______
+
+ |FEniCS Postprocessing
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |Postprocessing is a part of the simulation process, it can involve visualisation of some physical or mathematical fields but also it can involve computing extra information that are relevant to the final application and it may or may not involve visualization components.
+a|
+_________
+*Purpose*
+_________
+
+ |The purpose is to provide the basic tools to be able to connect to visualisation tools and deliver a wide range of post-processing quantities.
+a|
+________
+*Actors*
+________
+
+ |FEniCS users.- BCAM & KTH
+a|
+___________
+*Requester*
+___________
+
+ |3DAirQualityPrediction pilot and the Nautilus platform pilot case for marine energy environment (WP5)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A standard validation case of a street canyon as well as the pilot of the Nautilus platform simulation will be used as benchmark.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |Cloud-9, Cloud-6, Cloud-7, Cloud-3, Cloud-13, Cloud-18
+a|
+_______________
+*Relationships*
+_______________
+
+ |FEniCS-3
+|================================================================================================================================================================================================================================================================================
+
+[[_Toc497257326]]Table . Requirements table FEniCS-3 FEniCS Post-processing.
+
+[cols=",,,",]
+|=====================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |OPM installation a|
+______
+*Name*
+______
+
+ |OPM-1
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide OPM in its catalogue for stakeholders. It will be provisioned in such a way that it will be possible to select this MADF, integrate it with a pilot application and perform executions of the applications in a transparent way and independently of the hardware where it will be running.
+a|
+_________
+*Purpose*
+_________
+
+ |Some of the pilots require using OPM as the MADF for doing the simulation, but they lack knowledge about its installation and execution. Therefore, it is necessary that the MSO4SC e-infrastructure guarantees that the MADF will be available and its usage will be transparent to the end users.
+a|
+________
+*Actors*
+________
+
+ |SINTEF, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |SINTEF, OPM users, pilot OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot application OPM Flow will integrate OPM as one component. In the pilot application, end users will define the usage of OPM, the simulations will be configured and the execution will be monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |OPM MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |Cloud-8
+|=====================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257327]]Table . Requirement table OPM-1 OPM installation.
+
+[cols=",,,",]
+|=======================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |OPM Scriptability a|
+______
+*Name*
+______
+
+ |OPM-2
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |Scriptability involves providing ways to use OPM components interactively via C++ or Python.
+a|
+_________
+*Purpose*
+_________
+
+ |Scriptability is required to empower users and applications to extend further from the original usage of applications.
+a|
+________
+*Actors*
+________
+
+ |SINTEF, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |SINTEF, OPM users and pilot OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |End users of the pilot application OPM Flow based on the MADF OPM will test scripting.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |OPM MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, Cloud-2, Cloud-13
+|=======================================================================================================================
+
+[[_Toc497257328]]Table . Requirement table OPM-2 OPM Scriptabiliy.
+
+[cols=",,,",]
+|=====================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |OPM Usability a|
+______
+*Name*
+______
+
+ |OPM-3
+a|
+__________
+*Priority*
+__________
+
+ |Functional a|
+___________
+*Req. Type*
+___________
+
+ |High
+a|
+_____________
+*Description*
+_____________
+
+ |Usabilty requires a good readability and ease of understanding of the software itself as well as the availability of good documentation.
+a|
+_________
+*Purpose*
+_________
+
+ |The purpose is to enhance and document the OPM MADF to improve attractivity, enable/empower new users, provide high quality software for the pilots.
+a|
+________
+*Actors*
+________
+
+ |SINTEF, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |SINTEF, OPM users and pilot OPM
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |OPM will provide documentation as well as open data sets [8] together with instructions how to use these datasets with the OPM software.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |OPM MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, Cloud-12, Cloud-16
+|=====================================================================================================================================================
+
+[[_Toc497257329]]Table . Requirement table OPM-3 OPM Usability.
+
+[[requirements-for-the-end-user-applications-layer]]
+== 6.3 Requirements for the End User Applications Layer
+
+[cols=",,,",]
+|=================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |HIFIMAGNET-1 a|
+______
+*Name*
+______
+
+ |Feel++ HIFIMAGNET installation
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide the HIFIMAGNET pilot application. It is required that HIFIMAGNET runs in parallel with the following configuration:
+a|
+_________
+*Purpose*
+_________
+
+ a|
+The MSO4SC e-infrastructure will provide the HIFIMAGNET pilot application. It is required that HIFIMAGNET runs in parallel with the following configuration:
+
+* Number of cores: from a few cores to 1024 cores
+* Memory: from 4GB to 8GB of memory per core
+
+a|
+________
+*Actors*
+________
+
+ |The pilot application HIFIMAGNET will demonstrate that Feel++ is successfully provisioned by the MSO4SC e-infrastructure. Simulations done with the pilot application in a parallel environment will demonstrate to the end user the feasibility of the MSO4SC e-infrastructure.
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA - LNCMI – EMFL, Feel++ developers and users
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |LNCMI - EMFL
+a|
+_____________
+*Related WPs*
+_____________
+
+ |Test cases for the pilot application HIFIMAGNET will be used to validate the installation. Details are described in [6] (i.e., D5.1/HIFIMAGNET).
+a|
+____________
+*Components*
+____________
+
+ |WP3, WP4, WP5
+a|
+_______________
+*Relationships*
+_______________
+
+ |Feel++ MADF, HIFIMAGNET
+|=================================================================================================================================================================================================================================================================================
+
+[[_Toc497257330]]Table . Requirements table HIFIMAGNET-1 Feel++ HIFIMAGNET installation.
+
+[cols=",,,",]
+|======================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+___________
+EYE2BRAIN-1
+___________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ EYE2BRAIN installation
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The MSO4SC e-infrastructure will provide the EYE2BRAIN pilot application. It is required that EYE2BRAIN runs in parallel with the following configuration
+
+* Time of execution: must run from a minute to an hour depending on the level of accuracy required and the computing capabilities
+* Number of cores: From a few cores to possibly about 1024 cores
+* Memory: 4 to 8GB memory per core
+
+a|
+_________
+*Purpose*
+_________
+
+ |The pilot application EYE2BRAIN will demonstrate that Feel++ is successfully provisioned by the MSO4SC e-infrastructure. Simulations done with the pilot application will demonstrate to the end user the feasibility of the MSO4SC e-infrastructure.
+a|
+________
+*Actors*
+________
+
+ |Feel++ developers and users – UNISTRA – GLICK INSTITUTE
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA – GLICK INSTITUTE
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A test case for the pilot application EYE2BRAIN will be used to validate the installation.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, EYE2BRAIN
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, Cloud-5
+|======================================================================================================================================================================================================================================================
+
+[[_Toc497257331]]Table . Requirements table EYE2BRAIN-1 Feel++ EYE2BRAIN installation.
+
+[cols=",,,",]
+|=================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |EYE2BRAIN-2 a|
+______
+*Name*
+______
+
+ |EYE2BRAIN User interaction
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |It is required to be able to enhance the models with patient specific data coming from ophthalmologist measurements.
+a|
+_________
+*Purpose*
+_________
+
+ |Incorporating patient specific data into the model will help further the diagnostic of the doctor and enhance the end user feasibility of this pilot application of the MSO4SC e-infrastructure.
+a|
+________
+*Actors*
+________
+
+ |Feel++ developers and users – UNISTRA – GLICK INSTITUTE
+a|
+___________
+*Requester*
+___________
+
+ |UNISTRA – GLICK INSTITUTE
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Different patient specific data are provided to validate the installation requirement. Details can be found in D5.1/EYE2BRAIN [L1, L2, L3]
+a|
+_____________
+*Related WPs*
+_____________
+
+ |
+a|
+____________
+*Components*
+____________
+
+ |WP3, WP4, WP5
+a|
+_______________
+*Relationships*
+_______________
+
+ |Feel++ MADF, EYE2BRAIN
+|=================================================================================================================================================================================================
+
+[[_Toc497257332]]Table . Requirements table EYE2BRAIN-2 EYE2BRAIN User interaction.
+
+[cols=",,,",]
+|================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+____________
+HIFIMAGNET-2
+____________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ HIFIMAGNET performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following benchmark scenario must be supported by the allocated computational resources:
+
+* Time of execution: up to 10h
+* Number of cores: 1-1024
+* Memory cost: up to 2 TB (Terabyte) RAM
+
+a|
+_________
+*Purpose*
+_________
+
+ |The end users need the above performance (size of problem, time frame, accuracy) to get adequate and reliable results. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA - LNCMI – EMFL, Feel++ developers and users
+a|
+___________
+*Requester*
+___________
+
+ |LNCMI - EMFL
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the HIFIMAGNET pilot tests will be run from scripts to ensure the proper functioning.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, HIFIMAGNET
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, HIFIMAGNET-1, Cloud-5
+|================================================================================================================================================================================================
+
+[[_Toc497257333]]Table . Requirements table HIFIMAGNET-2 Feel++ HIFIMAGNET performance.
+
+[cols=",,,",]
+|===========================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+___________
+EYE2BRAIN-3
+___________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ EYE2BRAIN performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following scenario must be supported by the allocated computational resources:
+
+* execution time: From a minute to an hour depending on the accuracy and computing capabilities
+* number of cores: up to 1024 cores
+* memory cost: 4 to 8 Go by core
+* scalability: very good speed-up, from 80 to 100% expected speed-up, depending on the step
+* accuracy: controlled by mesh
+
+a|
+_________
+*Purpose*
+_________
+
+ |The end user need the above performance (size of problem, time frame, accuracy) to get adequate and reliable results. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.
+a|
+________
+*Actors*
+________
+
+ |Feel++ developers and users – UNISTRA – GLICK INSTITUTE
+a|
+___________
+*Requester*
+___________
+
+ |GLICK INSTITUTE
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |For the EYE2BRAIN pilot validated results from patient data exist. The simulation will be configured accordingly and these results must be reproduced within minutes per patients depending on the performance of the computing resources.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, EYE2BRAIN
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, EYE2BRAIN-1, Cloud-5
+|===========================================================================================================================================================================================================================================
+
+[[_Toc497257334]]Table . Requirements table EYE2BRAIN-3 Feel++ EYE2BRAIN performance.
+
+[cols=",,,",]
+|=========================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+___________
+EYE2BRAIN-4
+___________
+
+ a|
+______
+*Name*
+______
+
+ |EYE2BRAIN simple web interface
+a|
+__________
+*Priority*
+__________
+
+ a|
+______
+Medium
+______
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |EYE2BRAIN requires that the pilot can be run and controlled by a simple web interface.
+a|
+_________
+*Purpose*
+_________
+
+ |Users want easy access to the pilot without having to deal with an abundance of choices.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |EYE2BRAIN
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |EYE2BRAIN users will be asked to test the interface.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |NA
+a|
+_______________
+*Relationships*
+_______________
+
+ |FEELPP-1, EYE2BRAIN-1
+|=========================================================================================
+
+[[_Toc497257335]]Table . Requirement table EYE2BRAIN-4 Simple web interface.
+
+[cols=",,,",]
+|============================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+____________
+HIFIMAGNET-3
+____________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ HIFIMAGNET web interface
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The MSO4SC e-infrastructure must provide the end user with an easy way to create or upload input data needed to run the simulations.
+
+It is required that HIFIMAGNET End Users can easily:
+
+* configure simulations to be run,
+* provide and/or create files needed for the simulations setup,
+* provide or create the mesh (and eventually the geometry),
+* run HIFIMAGNET
+
+from a web interface
+
+a|
+_________
+*Purpose*
+_________
+
+ |End user wants to easily create and/or upload inputs data to run smoothly the simulations without having to deal with details.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
+a|
+___________
+*Requester*
+___________
+
+ |LNCMI - EMFL
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A test cases for the pilot application HIFIMAGNET will be used to validate the web interface. Details are described in [6] D5.1/HIFIMAGNET.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, HIFIMAGNET
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, HIFIMAGNET-1
+|============================================================================================================================================
+
+[[_Toc497257336]]Table . Requirement table HIFIMAGNET-3 Feel++ HIFIMAGNET web interface.
+
+[cols=",,,",]
+|=====================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+____________
+HIFIMAGNET-4
+____________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ HIFIMAGNET manage permissions
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ |HIFIMAGNET pilot requires that the end user can control the permissions on the inputs and outputs data.
+a|
+_________
+*Purpose*
+_________
+
+ |The end user need the above feature to manage permissions on the inputs and outputs generated by the simulations to get control on the potential credentials or confidential issues.
+a|
+________
+*Actors*
+________
+
+ |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
+a|
+___________
+*Requester*
+___________
+
+ |LNCMI - EMFL
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |Automated tests will validate this requirement: open and closed dataset will be used to tests the functionalities of the permission management interface.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, HIFIMAGNET
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, HIFIMAGNET-1, Cloud-17, Cloud-3
+|=====================================================================================================================================================================================
+
+[[_Toc497257337]]Table . Requirement table HIFIMAGNET-4 Feel++ HIFIMAGNET manage permissions.
+
+[cols=",,,",]
+|====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+____________
+HIFIMAGNET-5
+____________
+
+ a|
+______
+*Name*
+______
+
+ |Feel++ HIFIMAGNET CAD geometry and mesh generation
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following scenario must be supported by the allocated computational resources:
+
+size of problem:
+
+* generate automatically new magnet design from script from geometrical parametrisation
+* generate from millions to a hundred million cells in complex magnet geometries
+
+execution time: up to a day
+
+number of cores 1
+
+memory cost: up to 16GB
+
+scalability: this is sequential
+
+accuracy: N/A
+
+a|
+_________
+*Purpose*
+_________
+
+ |The end user need to be able to create Mesh (and eventually CAD geometry to get before launching the actual simulations. Otherwise the MSO4SC e-infrastructure is of no interest to the end user.  
+a|
+________
+*Actors*
+________
+
+ |UNISTRA -  LNCMI – EMFL, Feel++ developers and users
+a|
+___________
+*Requester*
+___________
+
+ |LNCMI - EMFL
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ a|
+During the HIFIMAGNET pilot, prior running the simulation Mesh (and eventually CAD geometry) will be provided following the proposed scenario. Mesh generation (and eventually CAD Geometry) will be reported to have succeeded or not to the monitoring system. This operation is sequential and shall finish within the time frame in 90 out of 100 cases, and 100% of the computed cases must compute the given problem size without errors that are related to lack of resources.
+
+We have tests to run from scripts to ensure the proper functioning.
+
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP3, WP4, WP5
+a|
+____________
+*Components*
+____________
+
+ |Feel++ MADF, HIFIMAGNET
+a|
+_______________
+*Relationships*
+_______________
+
+ |FeelPP-1, HIFIMAGNET-1, Cloud-3
+|====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257338]]Table . Requirement table HIFIMAGNET-5 Feel++ HIFIMAGNET CAD geometry and mesh generation.
+
+[cols=",,,",]
+|=======================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-1
+_________
+
+ a|
+______
+*Name*
+______
+
+ |OPM Flow installation
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide OPM flow. OPM Flow must run on the CESGA HPC infrastructure
+a|
+_________
+*Purpose*
+_________
+
+ |OPM Flow is one of the pilots described in the original project proposal.
+a|
+________
+*Actors*
+________
+
+ |SINTEF, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |SINTEF, OPM Flow users
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The single-model test cases described in D5.1 [6]: Norne case, CO2 injection on Norwegian Continental Shelf; must run with to completion with results equivalent to reference results.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |OPM MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1
+|=======================================================================================================================================================================================
+
+[[_Toc497257339]]Table . Requirement table OPMFlow-1 OPM Flow installation.
+
+[cols=",,,",]
+|===============================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-2
+_________
+
+ a|
+______
+*Name*
+______
+
+ |Ensemble run of OPM Flow
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |OPM Flow must run ensembles of simulations on the CESGA HPC infrastructure.
+a|
+_________
+*Purpose*
+_________
+
+ |Ensemble runs of OPM Flow is a natural part one of the pilot scenarios described under task 3 of work package 5.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow pilot
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The ensemble-model test case described in D5.1 [6], the OLYMPIC benchmark, must run successfully in at least 95% of the cases.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |NA
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1, Cloud-14
+|===============================================================================================================================
+
+[[_Toc497257340]]Table . Requirement table OPMFlow-2 Ensemble run of OPM Flow.
+
+[cols=",,,",]
+|==============================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-3
+_________
+
+ a|
+______
+*Name*
+______
+
+ |OPM Flow ensemble performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The CPU time spent for ensemble runs of OPM flow should depend linearly on the number of ensemble members.
+a|
+_________
+*Purpose*
+_________
+
+ |Ensemble runs are embarrassingly parallel and performance for such cases must scale properly.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The ensemble-model test case will exploit the scaling of hardware resources with ensemble size of 100 models.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |NA
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1, OPMFlow-2, Cloud-14
+|==============================================================================================================
+
+[[_Toc497257341]]Table . Requirement table OPMFlow-3 OPM Flow ensemble performance.
+
+[cols=",,,",]
+|===============================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-4
+_________
+
+ a|
+______
+*Name*
+______
+
+ |Parallel OPM Flow simulation performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ |OPM Flow must run parallel MPI simulations efficiently on the CESGA HPC infrastructure.
+a|
+_________
+*Purpose*
+_________
+
+ |Users require efficient scaling of parallel cases to run large cases in a reasonable timeframe.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The pilot of the OPM Flow application will be used as benchmark for this scenario. The OPM Flow application should scale well for a limited number of nodes (e.g, up-to 8 parallel processes).
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |OPM
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1, Cloud-5
+|===============================================================================================================================================================================================
+
+[[_Toc497257342]]Table . Requirement table OPMFlow-4 Parallel OPM Flow performance.
+
+[cols=",,,",]
+|=========================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-5
+_________
+
+ a|
+______
+*Name*
+______
+
+ |OPM Flow simple web interface
+a|
+__________
+*Priority*
+__________
+
+ a|
+______
+Medium
+______
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |OPM Flow requires that the pilot can be run and controlled by a simple web interface.
+a|
+_________
+*Purpose*
+_________
+
+ |Users want easy access to the pilot without having to deal with an abundance of choices.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |OPM Flow users will be asked to test the interface.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |MSO portal, OPM
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1
+|=========================================================================================
+
+[[_Toc497257343]]Table . Requirement table OPMFlow-5 OPM Flow simple web interface.
+
+[cols=",,,",]
+|========================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-6
+_________
+
+ a|
+______
+*Name*
+______
+
+ |OPM Flow one-click
+a|
+__________
+*Priority*
+__________
+
+ a|
+______
+Medium
+______
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |OPM Flow requires that models can be uploaded and run with no further user interaction.
+a|
+_________
+*Purpose*
+_________
+
+ |Users need this functionality.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |This will be validated using test cases 1 and 3, see p.22 of D5.1 [6].
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |MSO portal, OPM
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1
+|========================================================================================
+
+[[_Toc497257344]]Table . Requirements table OPMFlow-6 OPM Flow One-click.
+
+[cols=",,,",]
+|================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_________
+OPMFlow-7
+_________
+
+ a|
+______
+*Name*
+______
+
+ |OPM Flow minimal user interaction
+a|
+__________
+*Priority*
+__________
+
+ a|
+______
+Medium
+______
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |OPM Flow requires that ensembles of models (of up to at least 100 cases) can be uploaded and run with minimal user interaction.
+a|
+_________
+*Purpose*
+_________
+
+ |Users need this functionality.
+a|
+________
+*Actors*
+________
+
+ |SINTEF and CESGA
+a|
+___________
+*Requester*
+___________
+
+ |OPM Flow
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |This will be validated using test case 2, see p.22 of D5.1 [6].
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP 5
+a|
+____________
+*Components*
+____________
+
+ |OPM, MSO portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |OPM-1, OPMFlow-1
+|================================================================================================================================
+
+[[_Toc497257345]]Table . Requirements table OPMFlow-7 OPM Flow minimal user interaction.
+
+[cols=",,,",]
+|========================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |FTW-1 a|
+______
+*Name*
+______
+
+ |FloatingWindTurbine installation
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide the FloatingWindTurbine pilot in its catalogue for end user applications. The pilot must be deployed on an HPC infrastructure.
+a|
+_________
+*Purpose*
+_________
+
+ |FloatingWindTurbine is one of the pilot scenarios described in the project proposal.
+a|
+________
+*Actors*
+________
+
+ |BCAM, KTH, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |Nautilus platform pilot case for marine energy environment (WP5)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The MARIN test case will be used for validation with acceptable error tolerances. The details of the MARIN benchmark can be found in [7].
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS-HPC MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FEniCS-1
+|========================================================================================================================================================================
+
+[[_Toc497257346]]Table . Requirement table FWT-1 FloatingWindTurbine installation.
+
+[cols=",,,",]
+|=====================================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |FWT-2 a|
+______
+*Name*
+______
+
+ |FloatingWindTurbine performance
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following scenario must be supported by the computational resources allocated:
+
+* Global number of vertices: 2297827
+* Global number of cells: 13343443
+* ca. 100000 time steps
+* The wall clock time allocated must be 24hours.
+
+a|
+_________
+*Purpose*
+_________
+
+ |The users need this mesh size to get reliable results, and the proposed time steps must finish in the given time frame to make the MSO4SC e-infrastructure attractive to the stakeholder.
+a|
+________
+*Actors*
+________
+
+ |BCAM & KTH
+a|
+___________
+*Requester*
+___________
+
+ |Floating Wind Turbine pilot owners (BCAM, KTH)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the Floating Wind Turbine pilot, the simulation will be configured to use the proposed scenario (vertices, cell, time). The MADF execution will be monitored. Test computations must finish within the time frame in 90 out of 100 cases, and 100% of the cases must compute the configured mesh without errors related to lack of resources.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FWT-1
+|=====================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257347]]Table . Requirements table FWT-2 FloatingWindTurbine performance.
+
+[cols=",,,",]
+|==============================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_____
+FWT-3
+_____
+
+ a|
+______
+*Name*
+______
+
+ |FloatingWindTurbine User interface
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |Users must be able to interact with the system by giving a list of parameters (including specification of a mesh file defining the geometry).
+a|
+_________
+*Purpose*
+_________
+
+ |Users need this functionality to define different simulation cases.
+a|
+________
+*Actors*
+________
+
+ |FEniCS users.- BCAM & KTH
+a|
+___________
+*Requester*
+___________
+
+ |Nautilus platform pilot case for marine energy environment.
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |One of the end users will validate the requirement.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |NA
+a|
+_______________
+*Relationships*
+_______________
+
+ |FWT-1, Cloud-7, Cloud-11
+|==============================================================================================================================================
+
+[[_Toc497257348]]Table . Requirements table FWT-3 FloatingWindTurbine User interface.
+
+[cols=",,,",]
+|==========================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_______
+3DAIR-1
+_______
+
+ a|
+______
+*Name*
+______
+
+ |3DAirQualityPrediction-CFD installation
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure will provide the 3DAirQualityPrediction-CFD pilot in its catalogue for end user applications.
+a|
+_________
+*Purpose*
+_________
+
+ |3DAirQualityPrediction-CFD is one of the pilot scenarios described in the project proposal.
+a|
+________
+*Actors*
+________
+
+ |BCAM, KTH, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |3DAirQualityPrediction pilot (WP5)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A standard validation case of a street canyon will be used.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS-HPC MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |FEniCS-1
+|==========================================================================================================================
+
+[[_Toc497257349]]Table . Requirements table 3DAIR-1 3DAirQualityPrediction-CFD installation.
+
+[cols=",,,",]
+|==========================================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_______
+3DAir-2
+_______
+
+ a|
+______
+*Name*
+______
+
+ |3DAirQualityPrediction-CFD performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional/performance
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following scenario must be supported by the computational resources allocated:
+
+* Global number of vertices: ca 5000000
+* ca. 100000 time steps in a fixed time frame
+
+a|
+_________
+*Purpose*
+_________
+
+ |The users need this mesh size to get reliable results, and the proposed time steps must finish in the given time frame to make the MSO4SC e-infrastructure attractive to the stakeholder.
+a|
+________
+*Actors*
+________
+
+ |BCAM & KTH
+a|
+___________
+*Requester*
+___________
+
+ |3DAirQualityPrediction-CFD pilot owners (BCAM, KTH)
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the 3DAirQualityPrediction-CFD pilot, the simulation will be configured to use the proposed scenario (vertices, time steps). The MADF execution will be monitored. Test computations must finish within the time frame in 90 out of 100 cases, and 100% of the cases must compute the configured mesh without errors related to lack of resources.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |FEniCS MADF
+a|
+_______________
+*Relationships*
+_______________
+
+ |3DAir-1
+|==========================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257350]]Table . Requirement table 3DAir-2 3DAirQualityPrediction-CFD performance.
+
+[cols=",,,",]
+|======================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ |ZIB-1 a|
+______
+*Name*
+______
+
+ |ZIBaffinity installation
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-Infrastructure will provide the ZIBaffinity pilot application and perform executions of the application in a transparent way and independently on the hardware where it will be running.
+a|
+_________
+*Purpose*
+_________
+
+ |Simulations done with the pilot application will demonstrate to the stakeholders and the end user the feasibility of the MSO4SC e-infrastructure.
+a|
+________
+*Actors*
+________
+
+ |ZIB, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |ZIB, ZIBaffinity stakeholders
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |A test case for the pilot application ZIBaffinity will be set by the users, the simulations will be configured and the execution will be monitored.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |ZIBaffinity, MSO portal
+a|
+_______________
+*Relationships*
+_______________
+
+ |ZIB-2
+|======================================================================================================================================================================================================
+
+[[_Toc497257351]]Table . Requirements table ZIB-1 ZIBaffinity installation.
+
+[cols=",,,",]
+|===================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_____
+ZIB-2
+_____
+
+ a|
+______
+*Name*
+______
+
+ |ZIBaffinity performance
+a|
+__________
+*Priority*
+__________
+
+ a|
+______
+Medium
+______
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ a|
+The following scenario must be met:
+
+* 
+* Using 61 computing nodes consisting of 24 cores each, given a predefined time frame, the resulting output (the binding free energy and the conformation of one protein-ligand complex) must be comparable to previously computed results.
+* 
+
+a|
+_________
+*Purpose*
+_________
+
+ |Accurate results within a reasonable time frame.
+a|
+________
+*Actors*
+________
+
+ |ZIB, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |ZIB, ZIBaffinity
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the ZIBaffinity pilot runtime, the simulation will be configured to the scenario described above. The result will be compared to values calculated by another HPC system (HLRN North-German Supercomputing Alliance) which in turn were approved by laboratory experiments.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |NA
+a|
+_______________
+*Relationships*
+_______________
+
+ |ZIB-1, Cloud-5
+|===================================================================================================================================================================================================================================================================================
+
+[[_Toc497257352]]Table . Requirements table ZIB-2 ZIBaffinity performance.
+
+[cols=",,,",]
+|======================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_____
+ZIB-3
+_____
+
+ a|
+______
+*Name*
+______
+
+ |ZIBaffinity data protection/security
+a|
+__________
+*Priority*
+__________
+
+ a|
+____
+High
+____
+
+ a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ |The MSO4SC e-infrastructure must be able to provide a very high level of data protection (against loss as well as theft).
+a|
+_________
+*Purpose*
+_________
+
+ |A high level of data security is necessary since the data created with this pilot is extremely valuable for pharmaceutical companies.
+a|
+________
+*Actors*
+________
+
+ |ZIB, CESGA
+a|
+___________
+*Requester*
+___________
+
+ |ZIB, ZIBaffinity, stakeholders, end users
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |The data security must be validated by experts for cloud computing infrastructure.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5
+a|
+____________
+*Components*
+____________
+
+ |Cloud, Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |ZIB-1, Cloud-17
+|======================================================================================================================================
+
+[[_Toc497257353]]Table . Requirements table ZIB-3 ZIBaffinity data protection and security.
+
+[cols=",,,",]
+|================================================================================================================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_______
+3DAQP-1
+_______
+
+ a|
+______
+*Name*
+______
+
+ |3DAirQualityPrediction performance with statistical data
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ |Optimal performance of 3DAirQualityPrediction for what-if scenario analysis with multiple data (scenarios) resulting from statistical databases for traffic and meteorology while the dispersion is simulated via 3DAirQualityPrediction-CFD for each scenario is needed with finding suitable workflow in the cloud infrastructure. This work can be formed as an embarrasingly parallel task.
+a|
+_________
+*Purpose*
+_________
+
+ |Have results for scenario analysis within a reasonable time frame.
+a|
+________
+*Actors*
+________
+
+ |SZE, CESGA, ATOS
+a|
+___________
+*Requester*
+___________
+
+ |SZE, external users
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the first 3DAirQualityPrediction pilot runtime, the simulation will be configured according to the scenario analysis described above. Scenario analysis with 3 instances for traffic and 4 instances of meteorology should have reasonable overall computational time.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5, WP3
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |3DAQP-2, 3DAir-2
+|================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257354]]Table . Requirements table 3DAQP-1: 3DAirQualityPrediction performance with statistical data.
+
+[cols=",,,",]
+|===========================================================================================================================================================================================================================================================================================================
+a|
+______
+*# Id*
+______
+
+ a|
+_______
+3DAQP-2
+_______
+
+ a|
+______
+*Name*
+______
+
+ |3DAirQualityPrediction performance with full simulation
+a|
+__________
+*Priority*
+__________
+
+ |High a|
+___________
+*Req. Type*
+___________
+
+ |Functional/Non-functional
+a|
+_____________
+*Description*
+_____________
+
+ |3DAirQualityPrediction requires that all components as detailed simulations and measurement data resulting from traffic and meteorology can be run with minimal parameter setting within reasonable running time.
+a|
+_________
+*Purpose*
+_________
+
+ |Have results for continuous running within a reasonable time frame.
+a|
+________
+*Actors*
+________
+
+ |SZE, CESGA, ATOS, KTH
+a|
+___________
+*Requester*
+___________
+
+ |SZE, external users
+a|
+_____________________
+*Validation scenario*
+_____________________
+
+ |During the 3DAirQualityPrediction pilots runtime, the simulation will be configured according to the setting with detailed simulation models (both traffic and dispersion) using measurement data for traffic and meteorology; the operation must be stable and the overall computational time reasonable.
+a|
+_____________
+*Related WPs*
+_____________
+
+ |WP5, WP3
+a|
+____________
+*Components*
+____________
+
+ |Orchestrator
+a|
+_______________
+*Relationships*
+_______________
+
+ |3DAQP-1, 3DAir-1, 3DAir-2, Cloud-10
+|===========================================================================================================================================================================================================================================================================================================
+
+[[_Toc497257355]]Table . Requirements table 3DAQP-1: 3DAirQualityPrediction performance with full simulation.
+
+[[requirements-relation-to-d2.1]]
+== Requirements Relation to D2.1
+
+The following table relates the requirements of this document to the ones given in D2.1 [3]. The first column contains the identifier of the requirement in this document, the second contains the identifier of one (or multiple) requirements from D2.1 that are related to it. The third column indicates how the requirement changed; with the possible options `identical’, `new’, `modified’, `complemented’, `split’, `merge’, and if this requirements was also asked for externally (e.g., stakeholders, survey). Starting from 21 requirements in D2.1 we are now at 56 requirements. Almost all requirements were at least slightly modified (more specific name, empty fields were filled-in), quite a few requirements were heavily updated, and several new ones were introduced. The identifiers of the requirements were changed to connect them better to their respective MSO layer: Cloud, a specific MADF (FeeLPP, FEniCS, OPM) or a pilot (EYE2BRAIN, HIFIMAGNET, OPM Flow, FWT, ZIB, 3DAIR).
+
+[cols=",,",options="header",]
+|==========================================================================================
+|*Req. Id* |*Req. Id in D2.1* |*Description of Change*
+|Cloud-1 |Cloud-1 |Mostly identical; complemented
+|Cloud-2 |Cloud-2 |Mostly identical; complemented
+|Cloud-3 |Cloud-3 |Mostly identical; requested through survey
+|Cloud-4 |Cloud-4 |Mostly identical
+|Cloud-5 |Cloud-5 |Mostly identical
+|Cloud-6 |Cloud-6 |Mostly identical; requested through survey
+|Cloud-7 |Cloud-7 |Mostly identical; requested through survey
+|Cloud-8 | |New
+|Cloud-9 | |New
+|Cloud-10 | |New
+|Cloud-11 | |New; requested through survey
+|Cloud-12 | |New
+|Cloud-13 | |New; requested through survey
+|Cloud-14 | |New
+|Cloud-15 | |New
+|Cloud-16 | |New
+|Cloud-17 | |New; requested through survey
+|Cloud-18 | |New; requested through survey
+|FeelPP-1 |UNISTRA-1 |Identical
+|FeelPP-2 | |New
+|FeelPP-3 | |New
+|FeelPP-4 | |New
+|FeelPP-5 | |New
+|FeelPP-6 | |New
+|FEniCS-1 |KTH-1 |Identical
+|FEniCS-2 | |New
+|FEniCS-3 |BCAM-2 (partly) |New
+|OPM-1 |SINTEF-0 |Mostly identical; complemented
+|OPM-2 | |New
+|OPM-3 | |New
+|HIFIMAGNET-1 |UNISTRA-2 |Modified; complemented
+|HIFIMAGNET-2 | |New
+|HIFIMAGNET-3 | |New
+|HIFIMAGNET-4 | |New
+|HIFIMAGNET-5 | |New
+|EYE2BRAIN-1 |UNISTRA-3 |Modified; complemented
+|EYE2BRAIN-2 | |New
+|EYE2BRAIN-3 | |New
+|EYE2BRAIN-4 | |New
+|OPM Flow-1 |SINTEF-1 |Modified; complemented
+|OPM Flow-2 |SINTEF-2 |Modified; complemented
+|OPM Flow-3 | |New
+|OPM Flow-4 |SINTEF-3 |Modified; complemented
+|OPM Flow-5 | |New
+|OPM Flow-6 | |New
+|OPM Flow-7 | |New
+|FWT-1 |BCAM-1 |Modified; complemented
+| |BCAM-2 |Merged into a general FEniCS postprocessing and CLOUD visualization requirement;
+|FWT-2 | |New
+|FWT-3 | |New
+|3DAIR-1 | |New
+|3DAIR-2 | |New
+|ZIB-1 |ZIB-1 |Modified; complemented
+|ZIB-2 | |New
+|ZIB-3 | |New
+|3DAQP-1 |SZE-1 |Modified
+|3DAQP-2 |SZE-2 |Modified
+|==========================================================================================
+
+[[_Toc497257356]]Table . Relation of requirements to D2.1
+
+[[relation-to-the-mso4sc-qualification-method]]
+== 6.5 Relation to the MSO4SC Qualification Method
+
+As mentioned in the introduction, end user requirements are an essential part in the development of complex e-infrastructures such as the intended MSO-portal. They describe the necessary and desired features and functionalities that assure that the MSO4SC e-infrastructure is working properly as well as its usability to the intended audience. Whereas WP2 deals with the gathering and the analysis of end user requirements, WP6 deals with service qualification and quality assurance from a broader perspective, also addressing end user and software requirements. D6.1 [7] gives an overview of the Quality Assurance Method of the project. This Quality Assurance Method explains the protocol of the qualification and how compliance to the protocol ensures that the MSO4SC services reach TRL 8 (Technology Readiness Level). D6.1 [7] introduces four sublevels of quality assurance, with the `Quality assurance of the user requirements’ being one of them. The others are `Quality assurance of the architecture’, Quality assurance of the implemented technology’ and `Quality assurance of the documentation’. D6.1 [7] is not yet describing the testing procedures in detail as this is ongoing work. This will be done and then described in the future deliverable D6.2 Qualification of the Project Assets. One part of assessing and guaranteeing the quality of the user requirements and the system as a whole is a so-called requirement traceability matrix (RTM), a preview is given in Table 59. This will be further elaborated on in D6.2 using test cases, which might in turn also influence the requirements again, thus ensuring that high quality criteria are met. As mentioned at the end of Section 3, gathering requirements itself can be thought of as an iterative and incremental process: as stakeholders envision what they want or need from the infrastructure, these user needs must be analysed and turned into requirements. With the progressing development of the MSO4SC infrastructure, user requirements are further refined through test cases.
+
+[cols=",,,,,",options="header",]
+|==============================================================================================================================================================
+|*Doc ID* |*Req. ID* |*Req. Type* |*Modul-ID/ Components* |*Test case-ID* |*Passed*
+| | | | | |
+|e.g., D2.5 |e.g., Cloud-1 |Functional/ non-functional; further specifications acc. to D6.1 |Orchestrator, Monitor, MSO portal |Will be defined in D6.2 |yes/no
+| | | | | |
+|==============================================================================================================================================================
+
+[[_Toc497257357]]Table . Sketch of requirement traceability matrix (RTM)
+
+[[summary-and-conclusions]]
+= Summary and Conclusions
+
+[[_Toc368494036]]In this document, we reported on the end users’ requirements for the MSO4SC e-infrastructure as gathered in the first ten (10) months of the project. These requirements describe the necessary and desired features and functionalities that assure that the MSO4SC e-infrastructure is working properly as well as its usability to the intended audience. The document reported on the various means that were used to gather the requirements and presented the analysis of the gathered information into a set of new and modified end users’ requirements for the MSO4SC project. Further update of these requirements might be necessary as the project progresses. Especially WP6 Quality assurance will have an impact here as testing the quality of user requirements is part of it.
+
+[[references]]
+= References
+
+1.  MSO4SC Description of Action (DoA). Annex I to the EC Contract.
+2.  Robertson, S. and Robertson, J. Mastering the Requirements Process.
+3.  MSO4SC D2.1: End Users’ Requirements Report
+4.  MSO4SC D2.2: MSO4SC e-Infrastructure Definition
+5.  MSO4SC D4.1: Detailed specifications for the MADFs Adaptation
+6.  MSO4SC D5.1: Case study extended design and evaluation strategy
+7.  MSO4SC D6.1: MSO4SC Qualification Method
+
+[[appendix-a.-mso4sc-survey]]
+= Appendix A. MSO4SC-survey
+
+[[a.1-gathered-data]]
+== A.1 Gathered data
+
+The survey gathered the following data: Name (optional), entity (optional), email (optional), type of entity (Large Company, small company, research centre, university). A data disclaimer was included as follows:
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_The data collected through the survey identifying the entity or person will only be used and processed by the MSO4SC project and will not be disclosed to any third party or organization outside MSO4SC. The main purpose of this survey is evaluating and assessing the current use of MSO-software. The data will be used for (anonymous) statistics that will also be made available for public reports as required by the EU H2020 rules. A summary of the survey will be made available on the website www.mso4sc.eu. For doing this, we would appreciate the type and size of your entity. Please feel free to enter "anonymous" in the fields for name and entity. However, these information will not show up in the mentioned statistics or anywhere else in the report unless you explicitly state otherwise. Original data will be kept only during the project lifetime and preserved data will be only the anonymized one. Please provide your email if you want to be contacted by someone from the MSO4SC project. Your email address will not be disclosed to any third party._
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+The questions have been designed in such a way that they are statements to be evaluated from 0 to 6, indicating whether the respondent agrees or disagrees with the statement. The meaning of the values changes during the questioner, since some questions are defined in a positive way and others in a negative one, as a way to maintain respondents’ attention.
+
+[[a.2-list-of-questions]]
+== A.2 List of Questions
+
+*Role of MSO software in your entity*
+
+1.  MSO-software is essential for the normal operation of my entity.
+2.  MSO-software is important in our research and development activities.
+3.  MSO-software has nothing to do with my entity.
+4.  MSO-software is part of the products or services we provide to our customers.
+
+*Experience with MSO software*
+
+1.  We have a lot of experience with MSO-software.
+2.  We do not have issues when using MSO-software.
+3.  It is easy to deal with the MSO-software configuration and execution.
+4.  It is not complex to integrate MSO-software in our applications/services.
+5.  We obtain successful results with MSO-software.
+
+*Importance of MSO software for your business*
+
+1.  The adequate usage of MSO-software involves an increase on the entity incomes.
+2.  Using MSO-software with the adequate results causes our stakeholders to have a more positive opinion of our entity.
+3.  We increase the number of customers thanks to using MSO-software (among the most important reasons).
+4.  MSO-software reduces time-to-market of our products and/or services.
+
+*Source of the data used for your simulations or your applications*
+
+1.  We use an important number of datasets which belong to our entity.
+2.  We use datasets belonging to third parties.
+3.  The license of the datasets we use, in most cases, is open (i.e. Creative Commons).
+4.  We are willing to make open the data we use.
+
+*Tools are necessary or convenient for data management*
+
+1.  We consider it necessary and convenient to use tools for data management.
+2.  Moving data from its source to the place where the MSO-software is run is easy.
+3.  The data we use is open in general and it does not need specific protection from data management tools.
+4.  We need the datasets to be accompanied with metadata, so it is easier to search and understand data.
+
+*Usage of pre/post processing tools for data*
+
+1.  It is necessary to do some pre-processing of data before we run MSO-software.
+2.  It is necessary to do some post-processing of data after we run MSO-software.
+3.  We consider pre/post processing tools important, in general.
+4.  Pre/Post processing tools, such as SALOME, provide all the functionality we need.
+
+*Usage of visualization tools*
+
+1.  It is not necessary to use specific visualization tools after our simulations (text files are fine).
+2.  Visualization is an essential part in our simulation workflow/application.
+3.  It is easier to understand the MSO-software results using visualization tools.
+4.  Tools such as Paraview provide the visualization functionality we need.
+
+*Control and interact with the simulation*
+
+1.  We just launch simulations and then we wait until they are finished.
+2.  We understand the simulation and we can determine whether it is running as expected.
+3.  The option of stopping a simulation would not be useful in our case.
+4.  Changing simulation parameters while running would allow us to improve the results.
+
+*Monitor the application and simulation execution*
+
+1.  It is necessary to monitor certain parameters of the MSO-software and the application.
+2.  We need to retrieve information about resources usage, because of accounting reasons.
+3.  We cannot obtain any benefit from retrieving monitoring aspects from the running infrastructure.
+4.  We need a monitoring portal, showing the most important aspects of our simulations and applications.
+
+*Interaction with the platform providing the resources (HPC and Cloud)*
+
+1.  We are not aware, in general, of the resources required for running the MSO-software we want.
+2.  We want to manage the MSO-software compilation and deployment ourselves, instead of doing it automatically.
+3.  We are interested in having a report of the resources used by our simulations.
+4.  It is easy for us to get access to computation resources and to execute our applications and MSO-software there.
+
+[[a.3-your-input]]
+== A.3 Your Input
+
+The respondents of the survey have been asked their input to the following two questions:
+
+* What MSO software do you use?
+* What are your suggestions for the MSO4SC e-infrastructure?
+
+[[appendix-b.-mso4sc-survey-results]]
+= Appendix B. MSO4SC-survey results
+
+This appendix shows the result of the MSO4SC survey, starting with the distribution of answers regarding countries and entities.
+
+image:media/d2.5/image6.png[countries.png,width=518,height=335]
+
+[[_Ref367369721]][[_Toc370388722]][[_Ref367369695]]Figure B. . Participating countries
+
+image:media/d2.5/image7.png[entity_type.png,width=489,height=331]
+
+[[_Ref367369738]][[_Toc370388723]]Figure B. . Participating entities
+
+[[b.1-role-of-mso-software-in-the-entity]]
+== B.1 Role of MSO software in the entity
+
+image:media/d2.5/image8.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question1.png,width=516,height=366]
+
+[[_Ref367369730]][[_Toc370388724]]Figure B. . MSO-software plays an essential role.
+
+image:media/d2.5/image9.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question2.png,width=545,height=386]
+
+[[_Toc370388725]]Figure B. . MSO-software in research and development activities.
+
+image:media/d2.5/image10.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question3.png,width=567,height=402]
+
+[[_Toc370388726]]Figure B. . Role of MSO-software in the entity.
+
+image:media/d2.5/image11.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question4.png,width=552,height=391]
+
+[[_Toc370388727]]Figure B. . Role of MSO-software as part of products or services.
+
+[[b.2-experience-with-mso-software]]
+== B.2 Experience with MSO software
+
+image:media/d2.5/image12.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question5.png,width=476,height=338]
+
+[[_Toc370388728]]Figure B. . Experience with MSO-software.
+
+image:media/d2.5/image13.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question6.png,width=473,height=335]
+
+[[_Toc370388729]]Figure B. . Issues with MSO-software
+
+image:media/d2.5/image14.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question7.png,width=548,height=388]
+
+[[_Toc370388730]]Figure B. . MSO-software configuration and execution
+
+image:media/d2.5/image15.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question8.png,width=528,height=374]
+
+[[_Toc370388731]]Figure B. . Integrating MSO-software in existing applications and services.
+
+image:media/d2.5/image16.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question9.png,width=541,height=383]
+
+[[_Toc370388732]]Figure B. . Successful results with MSO-software.
+
+[[b.3-importance-of-mso-software-for-your-business]]
+== B.3 Importance of MSO software for your business
+
+image:media/d2.5/image17.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question10.png,width=538,height=382]
+
+[[_Toc370388733]]Figure B. . MSO-software yields an increase of the income of the entity
+
+image:media/d2.5/image18.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question11.png,width=540,height=382]
+
+[[_Toc370388734]]Figure B. . MSO-software gives stakeholders a more positive opinion of the entity.
+
+image:media/d2.5/image19.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question12.png,width=567,height=402]
+
+[[_Toc370388735]]Figure B. . MSO-software increases the number of customers.
+
+image:media/d2.5/image20.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question13.png,width=567,height=402]
+
+[[_Toc370388736]]Figure B. . MSO-software reduces time-to-market.
+
+[[b.4-source-of-the-data-used-for-your-simulations-or-your-applications]]
+== B.4 Source of the data used for your simulations or your applications
+
+image:media/d2.5/image21.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question14.png,width=508,height=360]
+
+[[_Toc370388737]]Figure B. . Usage of datasets that belong to the entity.
+
+image:media/d2.5/image22.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question15.png,width=516,height=366]
+
+[[_Toc370388738]]Figure B. . Usage of datasets that belong to third parties.
+
+image:media/d2.5/image23.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question16.png,width=553,height=394]
+
+[[_Toc370388739]]Figure B. . The used datasets are open (Creative Commons).
+
+image:media/d2.5/image24.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question17.png,width=553,height=393]
+
+[[_Toc370388740]]Figure B. . We are willing to make open the data we use.
+
+[[b.5-tools-are-necessary-or-convenient-for-data-management]]
+== B.5 Tools are necessary or convenient for data management
+
+image:media/d2.5/image25.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question18.png,width=478,height=340]
+
+[[_Toc370388741]][[_Ref367370289]]Figure B. . Data management tools.
+
+image:media/d2.5/image26.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question19.png,width=486,height=345]
+
+[[_Toc370388742]]Figure B. . Moving data is easy.
+
+image:media/d2.5/image27.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question20.png,width=567,height=401]
+
+[[_Toc370388743]][[_Ref367370297]]Figure B. . The used data is open and does not need protection.
+
+image:media/d2.5/image28.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question21.png,width=549,height=389]
+
+[[_Toc370388744]]Figure B. . Metadata is necessary.
+
+[[b.6-usage-of-prepost-processing-tools-for-data]]
+== B.6 Usage of pre/post processing tools for data
+
+image:media/d2.5/image29.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question22.png,width=489,height=347]
+
+[[_Toc370388745]]Figure B. . Pre-processing of data is necessary.
+
+image:media/d2.5/image30.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question23.png,width=485,height=342]
+
+[[_Toc370388746]]Figure B. . Post-processing of data is necessary.
+
+image:media/d2.5/image31.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question24.png,width=534,height=377]
+
+[[_Toc370388747]][[_Ref367370377]]Figure B. . Pre- and post-processing tools are important, in general.
+
+image:media/d2.5/image32.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question25.png,width=529,height=376]
+
+[[_Toc370388748]][[_Ref367370381]]Figure B. . SALOME is sufficient.
+
+[[b.7-usage-of-visualization-tools]]
+== B.7 Usage of visualization tools
+
+image:media/d2.5/image33.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question26.png,width=500,height=353]
+
+[[_Toc370388749]]Figure B. . Text files are enough, visualization is not necessary.
+
+image:media/d2.5/image34.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question27.png,width=525,height=372]
+
+[[_Toc370388750]][[_Ref367370427]]Figure B. . Visualization is essential.
+
+image:media/d2.5/image35.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question28.png,width=567,height=402]
+
+[[_Toc370388751]]Figure B. . Visualization makes it easier to understand the results.
+
+image:media/d2.5/image36.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question29.png,width=552,height=391]
+
+[[_Toc370388752]][[_Ref367370435]]Figure B. . Paraview is sufficient as visualization tool.
+
+[[b.8-control-and-interact-with-the-simulation]]
+== B.8 Control and interact with the simulation
+
+image:media/d2.5/image37.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question30.png,width=497,height=352]
+
+[[_Toc370388753]]Figure B. . Simulations run without interaction.
+
+image:media/d2.5/image38.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question31.png,width=504,height=358]
+
+[[_Toc370388754]]Figure B. . We understand the simulation and we can determine whether it is running as expected.
+
+image:media/d2.5/image39.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question32.png,width=553,height=394]
+
+[[_Toc370388755]]Figure B. . Stopping a simulation is not a useful option.
+
+image:media/d2.5/image40.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question33.png,width=552,height=392]
+
+[[_Toc370388756]]Figure B. . Changing parameters during the simulation is a useful option.
+
+[[b.9-monitor-the-application-and-simulation-execution]]
+== B.9 Monitor the application and simulation execution
+
+image:media/d2.5/image41.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question34.png,width=476,height=338]
+
+[[_Toc370388757]]Figure B. . Parameter monitoring is necessary.
+
+image:media/d2.5/image42.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question35.png,width=496,height=351]
+
+[[_Toc370388758]]Figure B. . Information about the usage of resources are necessary.
+
+image:media/d2.5/image43.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question36.png,width=567,height=401]
+
+[[_Toc370388759]]Figure B. . Retrieving monitoring aspects from the running infrastructure is not beneficial.
+
+image:media/d2.5/image44.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question37.png,width=546,height=387]
+
+[[_Toc370388760]]Figure B. . A monitoring portal is needed.
+
+[[b.10-interaction-with-the-platform-providing-the-resources-hpc-and-cloud]]
+== B.10 Interaction with the platform providing the resources (HPC and Cloud)
+
+image:media/d2.5/image45.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question38.png,width=510,height=361]
+
+[[_Toc370388761]]Figure B. . Awareness of required resources for running MSO-software.
+
+image:media/d2.5/image46.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question39.png,width=513,height=364]
+
+[[_Toc370388762]]Figure B. . Management of MSO-software compilation and deployment.
+
+image:media/d2.5/image47.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question40.png,width=567,height=401]
+
+[[_Toc370388763]]Figure B. . A report of the resources used by the simulations is interesting.
+
+image:media/d2.5/image48.png[\\localhost\Users\eklann\MSO4SC\Dissemination\Question41.png,width=548,height=389]
+
+[[_Toc370388764]]Figure B. . Access to computational resources and the execution of software there is easy.
+
+[[b.11-input-from-the-respondents-of-the-survey]]
+== B.11 Input from the respondents of the survey
+
+*What MSO software do you use?*
+
+* DUNE, KNITRO, IPOPT, Matlab (fmincon, ode15s, etc.), NPSOL
+* Custom
+* NASTRAN, OPTISTRUCT
+* Nastran/Patran, Abaqus, Hypermesh suite
+* we code ourselves
+* SCiLS Lab, MATLAB, several visualization software packages
+* Individual SW + Matlab
+* matlab, comsol, own developments
+* Feel++, Paraview, Gmsh, OpenTURNS
+* 3D Multiphysics, 1D Systemsimulation, Optimization (Inhouse and Open Source)
+* iThink
+
+*What are your suggestions for the MSO4SC e-infrastructure?*
+
+* Integration with PLM and CAD software. Licensing and training are very expensive.
+* You could try to build on Octave, because it is open source and it already provides a huge amount of useful tools!
+* Provide monitoring, automated testing, possibility of change parameters during running, possibility of change parameter and/or configuration files in the infrastructure (prior to running), workflow management, workflow for coupling solvers, guaranteed data security, deployment of the infrastructure to own HW, built-in postprocessing, automated reporting, reproducibilty, efficiency.
+* Open data
+* We have already now an excellent MSO4SC e-infrastructure.
+* Engage more with potential users/customers.
+* FreeFem++ with MPI and paraller linear solvers
+* consider both proximity and reactivity as essential for success
+* renforcer les aspects sécurité (authentification) et confidentialité des données type santé
+
+The following picture shows which statements were not quantified by the respondents of the survey (it was not obligatory to agree or disagree with a statement).
+
+image:media/d2.5/image49.png[\\localhost\Users\eklann\MSO4SC\Dissemination\no_answer.png,width=567,height=380]
+
+[[_Toc370388765]]Figure B. . Statements that were not responded to in the survey.
+
+[[appendix-c.-maths-hpc-at-mso4sc]]
+= Appendix C. Maths + HPC at MSO4SC
+
+image:media/d2.5/image50.png[image,width=900,height=468]

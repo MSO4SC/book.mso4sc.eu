@@ -1,0 +1,813 @@
+= MSO4SC: D2.4 Communication, Dissemination and Collaboration Report
+:page-root: ../../../
+:page-permalink: /deliverables/d2.4/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d2.4/image1.PNG[image,width=172,height=163]
+
+MSO4SC
+
+D2.4 Communication, Dissemination and Collaboration Report
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|============================================================================================================================
+|Work Package |WP2 User Requirements and Dissemination
+|Due Date: |_M12 (+1)_
+|Submission Date: |_31/10/2017_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Wil H.A. Schilders (EU-MATHS-IN); F. Javier Nieto (ATOS); Zoltan Horvath (SZE); ALL (individual dissemination)_
+|Reviewer(s) |_Atgeirr Rasmussen (SINTEF); Zoltan Horvath (SZE); _
+|============================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d2.4/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|=====================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |09/10/2017 |Table of contents |_F. Javier Nieto (ATOS) _
+|0.2 |19/10/2017 |Some inputs and comments |_C Prud'homme (Unistra)_
+|0.3 |24/10/2017 |Chapter 2 updated |_F. Javier Nieto (ATOS)_
+|0.4 |25/10/2017 |Incorporated partner contribut. |_Wil Schilders (EU-MATHS-IN)_
+|0.5 |29/10/2017 |Further development |_Wil Schilders (EU-MATHS-IN)_
+|0.6 |30/10/2017 |Standards, publications, KPIs and collaboration updates |_Wil Schilders (EU-MATHS-IN), F. Javier Nieto (ATOS), Zoltán Horvath (SZE)_
+|1.0 |31/10/2017 |Updates in collaboration, communication kit and online metrics |_F. Javier Nieto (ATOS), Zoltán Horvath (SZE)_
+|=====================================================================================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc497252954[Figure 1: MSO4SC Logo 12]
+
+link:#_Toc497252955[Figure 2: Screenshot of the MSO4SC website including the logo 13]
+
+link:#_Toc497252956[Figure 3: Logo “Maths inside” 13]
+
+link:#_Toc497252957[Figure 4: MSO4SC poster prepared for Budapest workshop 14]
+
+link:#_Toc497252958[Figure 5: MSO4SC flyer, front page 15]
+
+link:#_Toc497252959[Figure 6: MSO4SC flyer, back page 16]
+
+link:#_Toc497252960[Figure 7: MSO4SC brochure, outside 17]
+
+link:#_Toc497252961[Figure 8: MSO4SC brochure, inside 17]
+
+link:#_Toc497252962[Figure 9: MSO4SC presentation 18]
+
+link:#_Toc497252963[Figure 10: MSO4SC mentioned on KoMSO web page 19]
+
+link:#_Toc497252964[Figure 11: Screenshot of the main menu of the MSO4SC website 25]
+
+link:#_Toc497252965[Figure 12: Screenshot of the topmost part of the EYE2BRAIN pilot website 25]
+
+link:#_Toc497252966[Figure 13: Screenshot of MSO4SC news on website 26]
+
+link:#_Toc497252967[Figure 14: MSO4SC Twitter account 27]
+
+link:#_Toc497252968[Figure 15: Screenshot of the MSO4SC YouTube channel. Budapest workshop 28]
+
+link:#_Toc497252969[Figure 16: MSO4SC LinkedIn group 28]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc497252970[Table 1. Acronyms 7]
+
+link:#_Toc497252971[Table 2. Scientific Publications 20]
+
+link:#_Toc497252972[Table 3. Planned Scientific Publications 20]
+
+link:#_Toc497252973[Table 4. Participation in Conferences, Workshops and Events 23]
+
+link:#_Toc497252974[Table 5. Incoming Conferences, Workshops and Events 24]
+
+link:#_Toc497252975[Table 5. Number of views of Budapest sessions on YouTube 28]
+
+link:#_Toc497252976[Table 7. Dissemination activities KPIs 29]
+
+link:#_Toc497252977[Table 8. Communication Activities KPIs 29]
+
+link:#_Toc497252978[Table 9. Dissemination & Communication Impact KPIs 30]
+
+link:#_Toc497252979[Table 10. Monthly summary of website metrics 31]
+
+link:#_Toc497252980[Table 11. Daily average of website metrics 31]
+
+[[executive-summary]]
+= Executive Summary
+
+The major objective of the project MSO4SC is to construct an e-infrastructure for MSO. Deliverable D2.3 [1] contained the plan for the project communication, dissemination, and collaboration strategy, which will be periodically refined throughout the project lifetime as a living document. It identified the main stakeholders and user communities and laid out the dissemination, communication and collaboration plan for activities to reach out, communicate, and engage with stakeholders.
+
+The present deliverable D2.4 reports on the execution of the plan in D2.3 [1] during the first 12 months of the project. It discusses how the plans for the communication and dissemination of project results were carried out, and also discusses changes that turned out to be necessary after the project was fully operational. Both for communication and dissemination, activities are listed that were carried out by the various teams in the consortium. For communication, the kit used is presented, as well as the activities regarding online and social media. For dissemination, which is mainly scientific in nature, results achieved are presented in several tables. An analysis is given of the key performance indicators that have been defined for the assessment of the impact of the project. Finally, the collaboration activities within the project are described. The conclusion is that the project communication, dissemination and collaboration have gained considerable momentum in the first year, and that everything is in place to sustain this in the second year of the project.
+
+1.  [[introduction]]
+== Introduction
+1.  [[purpose]]
+=== Purpose
+
+This series of deliverables (submitted at M12 and M24) explains the communication, collaboration and dissemination activities followed during the reporting periods as well as the results from these activities. Furthermore, updates of the project’s plans are presented. As the project evolves and in synchronization with the exploitation team, the sequence of reports will include sections covering the dissemination strategy under a more commercial and/or marketing oriented perspective.
+
+The document is organized in such a way that we describe the strategy towards the end of the project (and beyond), analysing the activities already carried out and those planned for the next months. Section 2 describes the overall strategy and how it is carried out during the project lifetime. Section 3 presents the communication kit of the MSO4SC project. Section 4 describes the scientific dissemination we have carried out (from scientific publications to presentations and courses). Section 5 discusses the online communication and dissemination means while, Section 6 analyses the proposed KPIs and their current fulfilment. Finally, Section 7 presents ongoing and planned collaboration activities.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+All deliverables will include a glossary of Acronyms of terms used within the document.
+
+[cols=",",options="header",]
+|==========================================================
+|*Acronym* |*Definition*
+|*CA* |Consortium Agreement
+|*D* |Deliverable
+|*DoA* |Description of Action
+|*DRS* |Document Review Sheet
+|*EC* |European Commission
+|*ECMI* |European Consortium for Mathematics in Industry
+|*EMS* |European Mathematical Society
+|*MADF* |Math Application Development Frameworks
+|*MSO* |Mathematical Modelling, Simulation and Optimization
+|*PAR* |Periodic Activity Report
+|*PC* |Project Coordinator
+|*PM * |Project Manager
+|*PMB* |Project Management Board
+|*PO* |Project Officer
+|*STM* |Scientific and Technical Manager
+|*SPR* |Semester Progress Report
+|*WP* a|
+____________
+Work Package
+____________
+
+|*WPL* a|
+___________________
+Work Package Leader
+___________________
+
+|*WPR* a|
+___________________
+Work Package Report
+___________________
+
+|==========================================================
+
+[[_Toc497252970]]Table . Acronyms
+
+[[plans-for-implementing-communication-and-dissemination-activities]]
+== Plans for Implementing Communication and Dissemination Activities
+
+MSO4SC proposed a first communication and dissemination plan at the beginning of the project (available in the deliverable D2.3 [1]). Such plans were very preliminary and, after the project has progressed and several contacts with stakeholders have been undertaken, there have been several modifications to the proposed plans. These are included in the present deliverable.
+
+[[strategy-assessment]]
+=== Strategy Assessment
+
+As defined in D2.3 [1], and in the Grant Agreement initially [4], the main strategy for dissemination and communication is based on the standard approach of “PAOR”: PLAN, ACT, OBSERVE, REPLAN.
+
+The consortium already planned several activities, identifying the WHO? (a list of target stakeholders was prepared), WHAT? (we identified the messages to be shared and the list of materials required for it), WHY? (we were clear about our interests from stakeholders: feedback about the e-Infrastructure and potential ‘recruitment’ for more users), WHEN? (we identified several opportunities for engaging stakeholders and publishing our progress) and HOW? (several means were planned for dissemination and communication). As a result of the planning activities, a set of phases were defined, each one with concrete objectives and activities (described in subsection 2.2).
+
+Once we had the plans, we carried out the required activities, in order to prepare the communication and dissemination materials and to organize events or contributions to events, as well as to scientific publications. Project partners have been contributing to the material development and they have participated in several events, as reported in the following sections.
+
+During the last month of the first year, we have been gathering all the actions done and this information has been used to evaluate the KPIs defined in D2.3 [1] (see section 6), in order to determine which actions need more support and activity, and which aspects can be improved.
+
+Such observation has been used as the input for re-planning activities, with the purpose of identifying new opportunities, new activities or even new materials to be produced or updated. The next sections (sections 3, 4 and 5) show the plans for the following months in different areas.
+
+The main focus during the first year has been on the involvement of stakeholders in those domains related to the project pilots for several reasons: i) they can be reached and engaged easily by project partners; ii) there exists a real interest in this kind of solutions; and iii) we already have arguments and customized material to share with them, targeting those domains.
+
+The project has made significant efforts to address several stakeholders’ communities, especially those who potentially would be end users of the pilot applications or of the MADFs. Also, the MADFs communities (especially in the case of Feel++ and OPM) have been addressed, although this is an initial effort towards involving open source communities.
+
+All the activities performed so far had three main objectives:
+
+* ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+*Create awareness of the MSO4SC e-Infrastructure:* We wanted potential stakeholders to know that the MSO4SC initiative is active and that they will be able to use our services for their daily work, easing the way of access to computation resources, and to run complex pieces of software (such as the MADFs);
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+* ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+*Retrieve feedback from stakeholders’ side:* It was important to understand the real needs and priorities of those stakeholders who could benefit from MSO4SC, so we can focus our development efforts during the project, creating a set of services which are expected to fulfil their requirements;
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+* __________________________________________________________________________________________________________________________________________________________________________________
+*Build communication channels:* Engaging stakeholders encouraged us to prepare the necessary communication channels that will allow us to also address other research communities.
+__________________________________________________________________________________________________________________________________________________________________________________
+
+Project efforts will keep the line of contacting more stakeholders (update the already contacted communities, engage new communities), and more effort will be spent to address open source communities, trying to bring to MSO4SC new tools and pilot applications, as a way to validate the utility of MSO4SC services.
+
+[[phases]]
+=== Phases
+
+During the initial plan we provided a first approach of the activities that were planned for dissemination and communication in the project. Now, after the first year, this view has been consolidated and more concrete phases have been identified, in order to be more focused on the next tasks to be done.
+
+The purpose is to start creating awareness, in order to, later on, plan actions more focused on the sustainable operation of the e-Infrastructure, in such a way that more researchers will know about MSO4SC and will be interested in using the tools it provides.
+
+[[phase-1-take-off-creating-awareness-channel-building]]
+=== Phase 1 – Take-Off – Creating Awareness & Channel Building
+
+This phase has been carried out during the first months of the project (M0 to M7). The main purpose of this phase was to identify the main groups of stakeholders (target audiences) and prepare the initial communication and dissemination materials, setting up the communication channels.
+
+The main key activities are:
+
+* _____________________________________________________________________________________________________________________________________________
+Create initial dissemination and communication materials and channels (project website, flyer, presentation, factsheet, poster and brochure);
+_____________________________________________________________________________________________________________________________________________
+* _____________________________________________________________________________________________________________________________________________________________
+Identify those communities related to the project, as potential communication targets, in research domains, standardization bodies, industrial domains, etc.;
+_____________________________________________________________________________________________________________________________________________________________
+* ________________________________________________________________________________________________________________________________
+Initiate dissemination and communication activities, especially among the math community, to create awareness about the project;
+________________________________________________________________________________________________________________________________
+* _______________________________________________________________________________________
+Arrange interviews and engage stakeholders, for project awareness and inputs gathering;
+_______________________________________________________________________________________
+* __________________________________________________________________________
+Carry out mass-media activities, such as the website and the social media.
+__________________________________________________________________________
+
+*Achievements:* This phase was carried out with minor deviations to the plan, achieving the objectives:
+
+* _____________________________________________________________________________________________
+Dissemination and communication materials are ready and have been updated whenever necessary;
+_____________________________________________________________________________________________
+* _________________________________________________________________________________________________________________________________________
+Stakeholders were identified and several communities were engaged, mainly of MADFs developers and end users (i.e. the Budapest workshop);
+_________________________________________________________________________________________________________________________________________
+* ______________________________________________________________________________
+The consortium keeps active in social media and updates the website regularly.
+______________________________________________________________________________
+
+*Corrective Actions:* some of the activities (stakeholder engagement and mass-media activities) of this phase will be continued during the next year, but more focused on MSO4SC services promotion, usage of our open source solutions and integration/provision of new services coming from third parties, extending the impact and usage of MSO4SC materials.
+
+[[phase-2-increasing-the-awareness-influencing-open-source-and-showing-examples]]
+=== Phase 2 – Increasing the awareness, influencing Open Source and showing examples
+
+The second phase (M7 to M24) takes advantage of the materials and contacts from the phase 1, in order to extend the awareness of the project among more communities, achieve some impact in open source communities (especially, in the case of the MADFs) and prepare demonstrations so target communities will realize about MSO4SC e-Infrastructure capabilities.
+
+Key activities in this phase are:
+
+* ___________________________________________________________________________________________________________________________________________________________________________________________________
+Keep developing MSO4SC awareness and visibility through MADFs communities, other open source communities and other stakeholders communities related to the pilots and to mathematics (EU-MATHS-IN);
+___________________________________________________________________________________________________________________________________________________________________________________________________
+* ___________________________________________________________________________________________
+Joint efforts to gather attention in target stakeholders’ communities and create relevance;
+___________________________________________________________________________________________
+* _____________________________________________________________________________________________________________________________________
+Promote MSO4SC technologies, demonstrators, tools and services, in general, as a way to show the MSO4SC e-Infrastructure added value;
+_____________________________________________________________________________________________________________________________________
+* ______________________________________________________________________________________________________
+Move to a more business oriented communication strategy, based on the initial outcomes of the project.
+______________________________________________________________________________________________________
+
+*Achievements:* This phase has just started, mainly increasing the number of communities engaged, even in domains not present initially in the consortium (i.e. eLearning). Future events aim at addressing more stakeholders in the identified communities, even showing demos as a way to promote the project. The first iteration has not yet finished and, therefore, only some partial results are available and the promotion has to be focus on these ones.
+
+*Corrective Actions:* This phase will require more activity in the social media (not only Twitter) and more material for engaging more communities (i.e. whitepapers and demo videos). Also, after the first exploitation and sustainability report is available, the business vision must be taken into account for re-planning the promotion activities.
+
+[[phase-3-adoption-transition-adoption-of-results-and-transition-to-global-e-infrastructure]]
+=== Phase 3 – Adoption & Transition– Adoption of Results and Transition to global e-Infrastructure
+
+This phase will be carried out when the project is closer to its end and most of the e-Infrastructure features are available (M18 to M24). Its purpose is to prepare the transition to a formal sustainability e-Infrastructure once the project is finished, so the provided services will be kept operative. It aims at promoting the adoption of the project results (for instance, certain individual components such as the monitoring) and also at promoting the usage of MSO4SC as a complete e-Infrastructure.
+
+The key activities to be carried out are:
+
+* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Continue with the efforts to promote MSO4SC, focused on the adoption of the proposed solutions, the usage of the e-Infrastructure by external parties and the transition to the body in charge of the sustainability of the e-Infrastructure;
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+* _____________________________________________________________________________________
+Perform several marketing and communication efforts with the latest project outcomes;
+_____________________________________________________________________________________
+* _____________________________________________________________________________________________________________________________________________________________________________________________
+Increase the participation in events, especially in those in which relevant scientific communities participate, disseminating latest progress with a business and scientific oriented vision;
+_____________________________________________________________________________________________________________________________________________________________________________________________
+* ______________________________________________________________________________________________________________
+Increase the activity in any relevant standardization body and open source community (i.e. MADFs communities);
+______________________________________________________________________________________________________________
+* ____________________________________________________________________________________________________________________________________
+Define the final marketing strategy for the project outcomes and, more specifically, for the MSO4SC e-Infrastructure services offer;
+____________________________________________________________________________________________________________________________________
+* __________________________________________________________________________________________________________
+Capitalize stakeholders and open source communities’ contacts, in order to guarantee the uptake of MSO4SC.
+__________________________________________________________________________________________________________
+
+As this phase has not started yet, there is no achievement to report.
+
+[[phase-4-become-self-sustainable-leverage-adoption-influence-and-knowledge-transfer-beyond-the-project]]
+=== Phase 4 – Become self-sustainable, Leverage Adoption, Influence, and Knowledge Transfer (beyond the project)
+
+This phase is performed after the project finishes and the MSO4SC e-Infrastructure is expected to operate. It is focused on the promotion, evolution and adoption of the final outcomes of the project, aligned with the partners’ exploitation plans and the MSO4SC e-Infrastructure sustainability.
+
+The main activities that will be performed are:
+
+* _____________________________________________________________________________________
+Initiate the marketing and communication activity of MSO4SC, a self-sustainable body;
+_____________________________________________________________________________________
+* __________________________________________________________________________________________________________________________________________
+Start promotion of the MSO4SC e-Infrastructure as a sustainable body, by exploiting the communication channels created during the project;
+__________________________________________________________________________________________________________________________________________
+* ______________________________________________________________________________________________________________________________________________________________________________
+Intensify the business and scientific/research oriented marketing and communication efforts to promote final versions of the project, and the MSO4SC services for researchers;
+______________________________________________________________________________________________________________________________________________________________________________
+* __________________________________________________________________________________________________________________________________________
+Maintain, support and evolve open source solutions, involving the OS communities in any new achievement, with especial focus on the MADFs.
+__________________________________________________________________________________________________________________________________________
+
+[[communication-kit]]
+== Communication Kit
+
+Following the activities of phase 1 described above, several dissemination and communication material shave been prepared during the first months of the project. The following subsections show such materials, which have been put together as a communication kit.
+
+The list of the main materials is the following:
+
+* The project branding and logo, to be used in all the dissemination and communication materials, as a way to identify the project;
+* A more general logo which, at the same time, is a quality stamp for the use of MSO methods;
+* The factsheet, highlighting the main characteristics of the project, to be shared with stakeholders as a first entry point;
+* A poster, to be used in events that MSO4SC organizes and participate;
+* A brochure and a flyer, to be printed and shared in events;
+* Project presentations, to create general awareness of the project, to be shared with interested stakeholders and to show a general view of MSO4SC in certain events;
+* Videos, available at YouTube and to be referenced when showing MSO4SC capabilities to stakeholders, especially when no live demo is possible;
+* Whitepapers, to be shared with the general public, so they can understand the benefits of using MSO4SC.
+1.  [[project-branding-and-logo]]
+=== Project Branding and Logo
+
+The project logo aims at showing that MSO4SC is a one-stop-shop for researchers from different domains, who can use the e-Infrastructure to run simulations based on complex mathematical tools in an easy way. The different circles aim at showing heterogeneity of the stakeholders, who can be of different kinds (resource providers, MADFs providers, pilot application providers, end users of the pilot applications, etc.), from different domains (agriculture, environment and marine sustainability, health, energy, etc) and for solving problems of different sizes. All of them, part of an integrated world.
+
+image:media/d2.4/image1.PNG[image,width=164,height=154]
+
+[[_Toc497252954]]Figure : MSO4SC Logo
+
+The used colours are green, blue and white, aiming at referring to societal challenges, especially from the mentioned domains (land, marine…), being the white more representative of the purity of mathematics, which is the base of the MSO4SC services.
+
+Below is a screenshot of the MSO4SC website, showing the logo in use.
+
+image:media/d2.4/image3.png[image,width=566,height=318]
+
+[[_Toc497252955]]Figure : Screenshot of the MSO4SC website including the logo
+
+[[logo-maths-inside]]
+=== Logo “Maths inside”
+
+Already for many years, reports have been made and published on the importance of mathematics for industrial and societal challenges. The acronym MSO is or a more recent date, but is rapidly become known in the community to stress the importance of the entire machinery of the mathematical sciences, needed to address the aforementioned challenges. Recently approved European projects, as well as proposals that are still in the pipeline, use the acronym: **MSO**4SC, RO**MSO**C, **MSO**EN-2050. In order to stress the importance even more, EU-MATHS-IN has developed a logo which is also used as a quality stamp for work that makes use of MSO. The logo was initially derived directly from the well-known Intel logo, but as more researchers started to use this logo, a professional designer was asked to make a new logo, which is shown below. We are currently contacting Intel in order to get their approval, as there are still some similarities, but we are quite confident this logo can be used in the future. It should get widespread use, via all our communication channels, of which MSO4SC is one. But also the organisations EU-MATHS-IN, ECMI and EMS will actively promote the use of this logo.
+
+image:media/d2.4/image4.jpg[image,width=199,height=151]
+
+[[_Toc497252956]]Figure : Logo “Maths inside”
+
+[[poster]]
+=== Poster
+
+In preparation of the Budapest workshop (May 22-24, 2017) a poster was created introducing the project idea together with the six pilots addressing societal challenges from different fields; see Figure 5, and also http://mso4sc.elmerex.hu/?page_id=613[http://mso4sc.elmerex.hu/?page_id=613]
+
+image:media/d2.4/image5.png[MSO4S0C_Posterv010_EK_JW_AK.pdf,width=410,height=580]
+
+[[_Toc497252957]]Figure : MSO4SC poster prepared for Budapest workshop
+
+[[brochureflyer]]
+=== Brochure/Flyer
+
+In preparation of the Budapest workshop a flyer as well as a brochure was prepared to inform about the project. The brochure is a six-side version to be folded twice. It is shown below, but also available on the website.
+
+image:media/d2.4/image6.png[MSO4S0C_flyer%2003.pdf,width=530,height=751]
+
+[[_Toc497252958]]Figure 5: MSO4SC flyer, front page
+
+image:media/d2.4/image7.png[MSO4S0C_flyer_page2.pdf,width=591,height=836]
+
+[[_Toc497252959]]Figure : MSO4SC flyer, back page
+
+image:media/d2.4/image8.png[Brochure_outside.pdf,width=566,height=400]
+
+[[_Toc497252960]]Figure : MSO4SC brochure, outside
+
+image:media/d2.4/image9.png[Brochure_inside.pdf,width=566,height=400]
+
+[[_Toc497252961]]Figure : MSO4SC brochure, inside
+
+[[project-presentations]]
+=== Project Presentations
+
+The project was briefly presented at the EU HPC Summit in Barcelona (see tables in Section 4), and will also be presented at the research workshop in Leiden on “Future and emerging mathematical technologies for Europe”. The project has also been presented to the council members of EU-MATHS-IN at the annual meeting in December 2016. These presentations are available on the website of MSO4SC.
+
+image:media/d2.4/image10.png[image,width=566,height=246]
+
+[[_Toc497252962]]Figure : MSO4SC presentation
+
+Additionally, we have prepared a more complete presentation about the main features of MSO4SC, as seen in the previous figure.
+
+[[videos]]
+=== Videos
+
+For this, we refer to the YouTube channel presented in 5.4 (Social media). Several videos are already available, thanks to one of the workshops we organized. Moreover, new videos are planned, focused on how to use the MSO4SC e-Infrastructure and the services it provides, including not only the MSO Portal, but also the MADFs and the pilot applications.
+
+[[press-releases]]
+=== Press Releases
+
+No official press releases have been sent out so far, this will mainly be opportune at the end of the project. However, several websites of organisations related to the topic of the MSO4SC project have a link on their website. Below is an example for the KoMSO website (KoMSO is the national German organisation for MSO).
+
+image:media/d2.4/image11.png[Bildschirmfoto 2017-10-24 um 13.58.11.png,width=566,height=211]
+
+[[_Toc497252963]]Figure : MSO4SC mentioned on KoMSO web page
+
+[[whitepapers]]
+=== Whitepapers
+
+Although scientific publications are important, we consider it is also important to provide some business oriented documents which will describe the MSO4SC added value and the benefits when using the e-Infrastructure under development. They will target not only IT stakeholders, but also researchers from several scientific domains (especially related to social challenges) who may be willing to access MSO4SC services for their research.
+
+Once we have released a first version of the e-Infrastructure, with some pilots able to demonstrate the validity and maturity level of the e-Infrastructure services, we plan to release the following whitepapers:
+
+* In February 2018, the WP3 team (mainly CESGA and ATOS) will prepare a whitepaper highlighting the benefits of using the MSO4SC solutions from the HPC and Cloud (resource providers) perspectives;
+* In March 2018, the WP4 team (lead by UNISTRA) will release a whitepaper about how the MADFs can benefit from MSO4SC and the kind of added value services provided for this kind of software;
+* In April 2018, the WP3 team will prepare another whitepaper (if possible, with the collaboration of other EGI and Indico members), describing the role of MSO4SC with respect to platforms such as PRACE, EGI, EUDAT, etc.;
+* In May 2018, WP5 partners (lead by KTH) will release a whitepaper about the benefit of using MSO4SC for running the pilots and also the benefit for the stakeholders, as success stories;
+* In September 2018, all the consortium partners will produce a whitepaper about the complete offering of MSO4SC, how it will benefit researchers in different domains and how other stakeholders might get integrated in the MSO4SC e-Infrastructure.
+
+[[scientific-dissemination]]
+== Scientific Dissemination
+
+As explained in D2.3 [1], dissemination is different from communication in that it is mainly of a scientific nature. Therefore, in this section, we present the scientific events and publications, conferences and workshops, courses and standardization work.
+
+[[scientific-events-and-publications]]
+=== Scientific Events and Publications
+
+The consortium has published 2 scientific publications up to now. 2 more publications have been prepared but are pending to be approved; so far, none have been rejected.
+
+[cols=",,,",options="header",]
+|========================================================================================================================================================================
+|*Title* |*Target publications and conferences* |*Publication details* |*Partners Involved*
+|A nontoxic pain killer designed by modeling of pathological receptor conformations |Science (Journal) |March 2017, Vol. 355, issue 6328, pp. 966-969 |ZIB
+|Comparison of Different Linux Containers |40th International Conference on Telecommunications and Signal Processing (TSP) |July 2017, DOI: 10.1109/TSP.2017.8075934 |SZE
+|========================================================================================================================================================================
+
+[[_Toc497252971]]Table . Scientific Publications
+
+[cols=",,,",options="header",]
+|========================================================================================================================================================
+|*Title* |*Target publications and conferences* |*Type* |*Partners Involved*
+|Using HPC and Cloud resources for optimal MADFs execution |International Conference on Performance Engineering (ICPE) 2018 |Work in progress paper |ATOS
+a|
+Time-resolved Adaptive Direct FEM Simulation
+
+of High-lift Aircraft Configurations
+
+ a|
+Springer Brief "Numerical simulation of the aerodynamics
+
+of high-lift configurations", 2017
+
+ |Submitted |KTH and BCAM
+|========================================================================================================================================================
+
+[[_Toc497252972]]Table . Planned Scientific Publications
+
+[[conferences-workshops-and-events]]
+=== Conferences, Workshops and Events
+
+The consortium has participated in 15 conferences, workshops and events related with the scope of the project, not only attending but also presenting and sharing the MSO4SC project in different contexts, covering all the stakeholders identified. There are a number of additional actions planned for the next months that are shown on the future action plan.
+
+[cols=",,,,",options="header",]
+|============================================================================================================================================================================================================================================================
+|*Conference / Workshop / Event* |*Relevant Scientific / Impact Area* |*Audience* |*Partners Involved* |*Date and Venue*
+|SIAM CSEfootnote:[Wil Schilders of EU-MATHS-IN was one of the co-chairs of this conference, which is the largest SIAM conference (1700+ participants)] Atlanta |Scientific Computing |Academia, researchers, industry [1750] |KTH, BCAM |Feb 27 –Mar 3, 2017
+|EU HPC Summit |Mathematics for exascale computing |IT researchers and industry [60] |EU-MATHS-IN |May 17, 2017, Barcelona
+|Workshop on MSO4SC |All MSO4SC areas (resources orchestration, MADFs and pilots) |All stakeholders [53] |ALL |22-24^th^ May 2017, Budapest
+|HiPEAC Autumn Computing Systems Week |Heterogeneous Systems, Monitoring, Resources Management |IT researchers and industry [25] |ATOS |Oct 26, 2017, Stuttgart
+|SIAM GS17 |Mathematics a|
+Scientists
+
+[50]
+
+ |KTH and BCAM |September 11-14 2017, Erlanger, Germany
+|3rd AIAA High Lift Prediction Workshop |Computational Fluid Dynamics, Aeronautics, Mathematics a|
+Industry and academia in CFD
+
+[100]
+
+ |KTH and BCAM |3-4 June 2017, Denver, USA
+|BCAM Workshop Hydrodynamics of wave energy converters |Engineering, Mathematics a|
+Academia, industry
+
+[50]
+
+ |KTH and BCAM |3-7 April 2017, Bilbao, Spain
+|NAFEMS - How Simulation Helps Manufacturing Processes |Industry, Engineering, Commercialization |Industrial partners [50] |KTH, BCAM and ATOS |25 May 2017, Bilbao, Spain
+|5th International Conference on Human Agent Interaction (HAI 2017) |Medicine, Pharmacy, Mathematics |Academia, researchers [150] |ZIB, Charité, Toxicology- Partners |17.-20. October, 2017, Bielefeld, Germany
+|10th Congress of the European Pain Federation (EFIC 2017) |Medicine, Pharmacy, Mathematics |Healthcare professionals [50] |ZIB, Charité, Toxicology-Partners |6.-9. September, 2017, Copenhagen, Denmark
+|Digital Future |Medicine, Pharmacy, Mathematics a|
+Researchers, start-ups, high-tech
+
+[1000]
+
+ |ZIB, Charité, Toxicology-Partners |12.-13. May, 2017, Berlin, Germany
+|5-th Feel++ User Days |Advances in Feel++ with special sessions on MSO4SC. |Academia + industrial partners + feelpp collaboration partners |Unistra; CESGA; a|
+11-14 Sept 2017
+
+Unistra IRMA Cemosis,
+
+|OPM Meeting - Workshop |Advances in OPM |Academia and industry (OPM) |SINTEF |18-19th October 2017, Bergen
+|Chorus Workshop (2 days) |Common Horizon of Open Research for Uncertainty in Simulation |Academia [30-50] |Unistra a|
+18/10 at Airbus headquarters,
+
+19/10 at Telecom Paristech
+
+|Enumath'17 |The http://www.enumath.eu/link/home.html[European Conference on Numerical Mathematics and Advanced Applications] |Academia and industrial |Unistra a|
+Sept 21-29 2017, Voss Norway
+
+http://www.uib.no/en/enumath2017[http://www.uib.no/en/enumath2017]
+
+|ESBITA 2017 |Biomechanics |Academia and Health sector |Unistra |Sept 28-29^th^ 2017 Roma
+|MT25 |Magnet Technologies |Academia and Industry |Unistra, LNCMI |Aug 27-Sept 1 Amsterdam http://mt-25.org/
+|Workshop on R&D E-Infrastructures in Hungary: KIFÜ-NIIF services |mathematics, computer science |leading politicians of relevant national agency, SZE partners, computer scientists, |SZE |25 October 2017, Győr
+|43rd Conference on Meteorology – Modelling Micro and Meso Scale Flows in the Atmosphere |meteorology, mathematics, computer science |scientists, policy makers |SZE, KTH |22-23 November 2017, The Hungarian Academy of Sciences, Budapest
+|Annual plenary meeting of FAIRMODE (Forum for Air Quality Modelling in Europe |meteorology, mathematics, computer science, natural sciences |scientists, policy makers |SZE,KTH |February 2018, EC Joint Research Centre, Ispra, Italy
+|Kick-off Conference of the project “Deepening of the HU-MATHS-IN activities” |mathematics, computer science, automotive industry |HU-MATHS-IN, Hungarian mathematician community, managers |SZE |12 October 2017, Győr
+|============================================================================================================================================================================================================================================================
+
+[[_Toc497252973]]Table . Participation in Conferences, Workshops and Events
+
+Those with the background in blue have been organized or co-organized by the MSO4SC project, as a way to create more awareness about the project and to retrieve as many inputs as possible from our potential stakeholders (pilots developers, end users and MADFs developers).
+
+Future events, conferences and workshops identified, in which MSO4SC will participate:
+
+[cols=",,,,",options="header",]
+|=====================================================================================================================================================================================
+|*Conference / Workshop / Event* |*Relevant Scientific / Impact Area* |*Audience* |*Partners Involved* |*Date and Venue*
+|SC17 |High Performance Computing |8000 |CESGA |12-17 Nov 2017, Denver, USA.
+|Digital Infrastructures for Research (DI4R) 2017 |e-Infrastructures for research |500 |CESGA, ATOS |30 Nov – 1 Dec
+|Future and emerging mathematical technologies in Europe |Mathematics for industry, computational methods |Researchers, scientists |EU-MATHS-IN |Dec 11-15, 2-017,Leiden (Netherlands)
+|ECCOMAS |Computational Mechanics |Scientists | |Crete, June 5-10 2018
+|FEniCS'18 |Mathematics |200 |KTH and BCAM |21-23 March 2017, Oxford, Great Britain
+|WCCM2018 |Engineering, Mathematics |1000 |KTH and BCAM |22-27 July 2018, New York City, USA
+|SIMAI (Italy) a|
+MSO4SC and math-enterprise Success stories
+
+www.caeconference.com/simai.html
+
+ |Enterprises and academic |Unistra |Nov 7 2017
+|ECMI/ETP4MSO |MSO in Europe |Enterprises and academic |Unistra, EU-Maths-IN(Organizer), Matheon KTH a|
+1 week in December (Dec 13)
+
+In Leiden Netherlands
+
+|EoCOE scientific committee meeting |Scientific committee of the European centre of excellence in Energy. |Enterprises and academia |Unistra |28-30 November in Toulouse
+|=====================================================================================================================================================================================
+
+[[_Toc497252974]]Table . Incoming Conferences, Workshops and Events
+
+[[courses]]
+=== Courses
+
+[[mooc-hpfem]]
+=== MOOC-HPFEM
+
+Johan Jansson (KTH and BCAM) is leading the KTH MOOC project ``High performance finite element modelling'' where students globally are able to carry out basic FEM simulations with FEniCS in a cloud setting and will be able to try HPC simulations with FEniCS-HPC in a pilot version of the MSO4SC system. The MOOC opened on October 17 2017, the opening was very successful with 1000 students enrolled already after one week, with estimated total enrollment count in the thousands for the full 6 month duration of the course. This is an activity that allows MSO4SC to reach out to a vast audience. The link is:
+
+https://www.edx.org/course/high-performance-finite-element-modeling-kthx-hpfem01-1x[https://www.edx.org/course/high-performance-finite-element-modeling-kthx-hpfem01-1x#]
+
+[[solving-pdes-with-feel]]
+=== Solving PDEs with Feel++
+
+UNISTRA organized a 1 day course (8 hours) the 24^th^ January 2017 in Paris (http://www.cemosis.fr/event/course-solving-pdes-with-feelpp/[http://www.cemosis.fr/event/course-solving-pdes-with-feelpp/]). It received 50 attendees, including research engineers, researchers and Phd/Postdocs. The aim of this training was to present several recent tools, which are both innovative in methods, and widely used (FreeFem ++, Feel ++, Firedrake), explaining each time their advantages and disadvantages. They may indeed be complementary to one another depending on the problem under study. Each of these tools has its own programming language. Participants learnt to use each of them correctly by appropriating their language. These tools all offer different solutions to overcome the difficulties of programming the finite element method, and allow researchers, doctoral students and engineers to solve increasingly complex physical problems.
+
+[[standardization]]
+=== Standardization
+
+MSO4SC is following the Open Container Initiative (OCI)footnote:[https://www.opencontainers.org/[https://www.opencontainers.org/]], since we are interested in the proposed standards for containers. Such initiative is focused on the definition of open industry standards in the context of containers. Currently, it contains two specifications for containers: the Runtime Specification (runtime-spec) and the Image Specification (image-spec). While the second one aims at proposing a standardized way to specify container images, the first one defines how to run unpacked images in a runtime filesystem bundle. MSO4SC is interested in the images specification, since we want MSO4SC container images to be as compatible as possible. In order to do so, CESGA and ATOS plan to join the mailing list and attend to some of the open weekly meetings of the group during the second year of the project.
+
+Additionally, in WP6, for the definition of quality assurance process, several standards have been applied (IEEE 730:2014, IEEE 1058:1998, IEEE 1016:2009, IEEE 1012:2016, IEEE 26511:2012). Deliverable D6.1 [2] explains in detail how such standards are being applied in the context of MSO4SC.
+
+1.  [[online-and-social-media-communication]]
+== Online and Social Media Communication
+1.  [[website]]
+=== Website
+
+The website offers information on the overall project, the partners, the MADFs and the pilot applications, the MSO4SC GitHub repository, MOS4SC on Gitter as well as on news & events, see Figure 11. The information on the pilot applications are presented starting with a short description intended for a general audience and continuing with more details as well as secondary links for the professional audience. Figure 12 shows a screenshot of the topmost part of the website of the EYE2BRAIN pilot application.
+
+image:media/d2.4/image12.png[Bildschirmfoto 2017-10-24 um 13.48.55.png,width=566,height=58]
+
+[[_Toc497252964]]Figure : Screenshot of the main menu of the MSO4SC website
+
+image:media/d2.4/image13.png[Bildschirmfoto 2017-10-24 um 13.52.01.png,width=557,height=314]
+
+[[_Toc497252965]]Figure : Screenshot of the topmost part of the EYE2BRAIN pilot website
+
+[[newsletter-blog]]
+=== Newsletter & Blog
+
+Currently, there is no newsletter; most of the news and information is spread via the website. In the future, a newsletter and/or a blog will be started, with active participation of the stakeholders reporting on the use of MSO4SC tools, and with regular contributions by the partners. As a template, the successful ECMI blog may be used.
+
+[[news-events]]
+=== News & Events
+
+The MSO4SC website has a dedicated news & events part. News are posted on the bottom of the main site as well as on the news site. The four latest posts show up on the main site, all posts categorized as news show up on the dedicated news site. There have been 13 posts on the website since March 2017. Figure 13 shows a screenshot of the news site displaying the latest news.
+
+image:media/d2.4/image14.png[Bildschirmfoto 2017-10-24 um 11.10.12.png,width=558,height=602]
+
+[[_Toc497252966]]Figure : Screenshot of MSO4SC news on website
+
+[[social-media]]
+=== Social Media
+
+MSO4SC is using Twitter, YouTube and LinkedIn. The Twitter account @mso4sc for the project was created in June 2017, see Figure 14. The credentials were distributed to all project partners. However, so far, mostly the individual twitter accounts of the partners were used, @cemosis being the most active in also distributing #mso4sc.
+
+We are analysing the convenience to use TweetDeck in order to facilitate the usage of the project Twitter account, avoiding security issues raised by Twitter itself when several partners access to the Twitter account at the same time.
+
+image:media/d2.4/image15.png[Bildschirmfoto 2017-10-24 um 14.08.05.png,width=566,height=318]
+
+[[_Toc497252967]]Figure : MSO4SC Twitter account
+
+The MSO4SC Youtube channel was used for streaming the Budapest workshop that took place May 22-24, 2017. The recordings of the talks can be accessed directly via the MSO4SC website or via Youtube, both in bulk according to the time they took place as well as individually. Figure 13 shows a screenshot of the youtube website of the Monday afternoon opening session featuring both the scientific coordinator, Zoltan Horvath from SZE (left) and the project coordinator Javi Nieto from ATOS (right). The views of the recordings of the morning/afternoon sessions are summarized in Table 5.
+
+image:media/d2.4/image16.png[Bildschirmfoto 2017-10-24 um 14.31.12.png,width=507,height=384]
+
+[[_Toc497252968]]Figure : Screenshot of the MSO4SC YouTube channel. Budapest workshop
+
+[cols=",,,",options="header",]
+|=======================================================================
+|Monday afternoon |Tuesday morning |Tuesday afternoon |Wednesday morning
+|177 views |104 views |164 views |104 views
+|=======================================================================
+
+[[_Toc497252975]]Table . Number of views of Budapest sessions on YouTube
+
+A discussion group on LinkedIN was also created, see Figure 16. So far, it has 13 members.
+
+image:media/d2.4/image17.png[Bildschirmfoto 2017-10-24 um 14.19.29.png,width=566,height=189]
+
+[[_Toc370479358]][[_Toc497252969]]Figure : MSO4SC LinkedIn group
+
+1.  [[impact-assessment]]
+== Impact assessment
+1.  [[dissemination-and-communication-impact-assessment]]
+=== Dissemination and Communication impact assessment
+
+We have initially defined the several KPIs for monitoring and assessing all dissemination and communication activities. Most of them come from the original proposal, but they have been reviewed and updated according to the project requirements. The following tables show the current status with respect to the defined KPIs, so it is possible to determine the activities which require more effort from now to the end of the project.
+
+[cols=",,",options="header",]
+|===============================================
+|*KPI Name* |*Activity Target* |*Achieved*
+|Speaking engagements |13 conferences |14
+|Papers published |4 publications |2
+|Peer reviewed publications |2 publications |2
+|Poster session & event stands |5 events |1
+|Whitepapers |3 whitepapers |0
+|Videos |2 videos |35
+|Workshops and webinars |6 workshops/webinars |8
+|Seminars and training |2 lectures or modules |2
+|===============================================
+
+[[_Toc497252976]]Table . Dissemination activities KPIs
+
+[cols=",,",options="header",]
+|==========================================
+|*KPI Name* |*Activity Target* |*Achieved*
+|Website |Weekly content updates |Bi-Weekly
+|Twitter a|
+3 updates / week
+
+300 “followed”
+
+ |Weekly Update,
+|Newsletters |4 (semester basis) |0
+|Press Releases |3 |0
+|Collaboration Events |3 |1
+|Flyers / Brochures |2 |2
+|==========================================
+
+[[_Toc497252977]]Table . Communication Activities KPIs
+
+The impact expected by these activities is the one showed in the next table.
+
+[cols=",,",options="header",]
+|==================================================================================================
+|*KPI Name* |*Impact Target* |*Achieved*
+|Speaking engagements |1500 audience members total |1025
+|Papers published |350 reads |197
+|Peer reviewed publications |20 citations |12
+|Poster session & event stands |150 in depth discussions and 50 leads for further explorations |N/A
+|Whitepapers |300 reads |N/A
+|Videos |800 views |795
+|Workshops and webinars |600 attendees / views |328
+|Seminars and training |150 students educated |50
+|Website a|
+2000 unique visitors p.a.
+
+Avg. time on site > 4 minutes
+
+150 back links
+
+ |28k visitors
+|Twitter |200 followers |7
+|Newsletters |100 subscribers |N/A
+|Press Releases |30 publications |N/A
+|Collaboration Events |Networking with 75+ scientists |20
+|Flyers / Brochures |150 copy print runs / version |50
+|==================================================================================================
+
+[[_Toc497252978]]Table 9. Dissemination & Communication Impact KPIs
+
+[[online-impact-assessment]]
+=== Online impact assessment
+
+Several metrics have been monitored in order to know about the impact of the project website. The metrics which have been taken are the following:
+
+* *Hits:* Any request made to the server which is logged, is considered a 'hit'. The requests can be for anything... HTML pages, graphic images, audio files, CGI scripts, etc... Each valid line in the server log is counted as a hit. This number represents the total number of requests that were made to the server during the specified report period;
+* *Files:* Some requests made to the server require that the server then send something back, such as an HTML page or graphic image. When this happens, it is considered a 'file'. The relationship between 'hits' and 'files' can be thought of as 'incoming requests' and 'outgoing responses';
+* *Pages:* Pages are just HTML pages. Generally, any HTML document, or anything that generates an HTML document, would be considered a page. This does not include the other stuff that goes into a document, such as graphic images, audio clips, etc... This number represents the number of 'pages' requested only, and does not include the other 'stuff' that is in the page. What actually constitutes a 'page' can vary from server to server;
+* *Visits:* Whenever a request is made to the server from a given IP address (site), the amount of time since a previous request by the address is calculated. If the time difference is greater than a pre-configured 'visit timeout' value, it is considered a 'new visit', and this total is incremented. The default timeout value is 30 minutes, so if a user visits your site at 1:00 in the afternoon, and then returns at 3:00, two visits would be registered. Due to the limitation of the HTTP protocol, log rotations and other factors, this number should not be taken as absolutely accurate, rather, it should be considered a pretty close "guess".
+* *Kbytes:* The KBytes (kilobytes) value shows the amount of data, in KB, that was sent out by the server during the specified reporting period. This value is generated directly from the log file, so it is up to the web server to produce accurate numbers in the logs. In general, this should be a fairly accurate representation of the amount of outgoing traffic the server had, regardless of the web servers reporting quirks.
+
+These metrics have been gathered monthly during the last nine months (from February 2017). They can be found in the following tables.
+
+[cols=",,,,,",options="header",]
+|========================================================
+|*Month* |*KBs* |*Visitors* |*Pages* |*Files* |*Hits*
+|Oct 2017 |702,243 |2,904 |12,868 |18,729 |20,142
+|Sep 2017 |1,046,592 |3,090 |13,272 |21,467 |23,735
+|Aug 2017 |1,046,592 |3,090 |13,272 |21,467 |23,735
+|Jul 2017 |867,297 |7,636 |28,109 |31,830 |35,418
+|Jun 2017 |635,190 |3,717 |13,544 |17,292 |19,892
+|May 2017 |1,060,886 |4,151 |13,208 |22,061 |25,569
+|Apr 2017 |2,694,857 |2,846 |15,434 |48,020 |53,066
+|Mar 2017 |647,798 |613 |3,584 |9,877 |11,467
+|Feb 2017 |1,536,002 |545 |10,442 |30,142 |36,799
+|*Summary* |10,237,457 |28,592 |123,733 |220,885 |249,823
+|========================================================
+
+[[_Toc497252979]]Table . Monthly summary of website metrics
+
+[cols=",,,,",options="header",]
+|=============================================
+|*Month* |*Hits* |*Files* |*Pages* |*Visitors*
+|Oct 2017 |694 |645 |443 |100
+|Sep 2017 |791 |715 |442 |103
+|Aug 2017 |765 |692 |428 |99
+|Jul 2017 |1,142 |1,026 |906 |246
+|Jun 2017 |663 |576 |451 |123
+|May 2017 |824 |711 |426 |133
+|Apr 2017 |1,768 |1,600 |514 |94
+|Mar 2017 |546 |470 |170 |29
+|Feb 2017 |  |  |  |545
+|=============================================
+
+[[_Toc497252980]]Table . Daily average of website metrics
+
+[[conclusions-on-kpis]]
+=== Conclusions on KPIs
+
+During the first year, the communication and dissemination activities have been focused on preparing the necessary material and creating awareness. This is reflected in the KPIs, in the sense that the website was created, as well as a poster, project presentations, flyer and brochure. Although we set up a Twitter account and a LinkedIn group, we need to promote these more during the second year, in order to create more awareness and attract more stakeholders. Also, the update rate of the website and Twitter account were low at the beginning, but they are improving a lot during the last months.
+
+Although we have done an intensive work organizing and participating in workshops and other events, it is clear that we need to increase the number of scientific publications. It is not so unusual, since it is hard to get tangible results that can be published during the first year of the project (due to lack of formal validation). Therefore, we plan to keep giving presentations at events and organizing others, while we increase the number of scientific publications. Also, collaboration events will be increased during year 2.
+
+Newsletters and whitepapers are pending activities. In the case of whitepapers, we have proposed a concrete plan for the following months, while in the case of the newsletters, we believe it is better to publish articles in other existing ones, mainly due to the short nature of the project and the highest impact of other known newsletters we may have access to.
+
+Finally, it would be necessary to improve the metrics we measure about the website. Therefore, we will propose new data to be retrieved, more in line with the original KPIs defined for the website and other media.
+
+[[collaboration-activities]]
+== Collaboration Activities
+
+The results of MSO4SC project form a base for establishing the e-infrastructure of two running Hungarian projects:
+
+* “Deepening of HU-MATHS-IN activities” supported by EFOP 3.6.2.-16-2017-00015 in Hungary (co-sponsored by EC European Structural Funds and the Hungarian Government, €4.7 M, 01.06.2017-30.09.2020)
+* Industrial Mathematics Competence Centre of SZE (from the project “SZE FIEK (University-Industry Collaboration Centre at SZE)” under GINOP-2.3.4-15-2016-00003, (co-sponsored by EC European Structural Funds and the Hungarian Government, total budget €20.7 M, 01.09.2016-31.08.2020, Industrial Mathematics Competence Centre part: €550.000)
+
+The objective is to establish an HPC-oriented cloud based e-infrastructure for mathematical software and mathematics based commercial software for industry. The latter project will set up the tools and they will be used for the whole mathematician community in the first project.
+
+Since these projects are willing to use some MSO4SC e-Infrastructure services and MSO4SC could also benefit from this collaboration, during the following months we will meet in order to discuss about:
+
+* Which features would be useful for these projects and how they could be made available (i.e. Monitoring, Orchestration, etc.);
+* Retrieve more requirements that could be incorporated in MSO4SC developments, as a way to increase the number of stakeholders we can address, during Y2;
+* Identify integration and collaboration mechanisms, including a way to provide some services from MSO4SC that could support the e-Infrastructure sustainability.
+
+On the other hand, we have established collaboration with EGI, in order to find the way to link the MSO4SC e-Infrastructure and the resources provided by EGI. Such collaboration started with several discussions during the Budapest workshop in May, and we are planning teleconferences and meetings with them, in order to define a list of clear points where we need to collaborate.
+
+EGI is able to provide powerful Cloud resources in a federated way and such resources can be used by MSO4SC for executing applications and certain stages of MADFs. Therefore, it is very interesting to find the way to open the access to those resources from MSO4SC.
+
+Technically speaking, we already have a Cloud solution which is able to use different connectors (including OCCI [3]), so it is possible to interact in a standardized way. The main issue is to be able to get the rights to access to the resources through the adequate identification and authorization mechanisms. Therefore, our efforts will be focused on setting up mechanisms enabling credentials sharing with EGI, in such a way it will be easy for our stakeholders to access certain EGI functionalities.
+
+[[summary-and-conclusions]]
+== Summary and Conclusions
+
+After the publication of D2.3 [1], the efforts on communication, dissemination and collaboration were stepped up. The partners organized many physical or virtual meetings, for the overall project as well as for the various work packages. This had a very positive influence on the communication, dissemination and collaboration efforts and tasks. Although not all targets have been achieved, there is considerable momentum and we are confident that the targets set for the second year can be achieved.
+
+[[references]]
+= References
+
+1.  [[_Ref467573084]]MSO4SC; “D2.3: Initial Communication, Dissemination and Collaboration Plan”, January 2017.
+2.  [[_Ref497210088]]MSO4SC; “D6.1: MSO4SC Qualification Method”, October 2017.
+3.  OCCI Working Group; “Open Cloud Computing Interface (OCCI) Specifications, version 1.2”; 2016; http://occi-wg.org/about/specification/[http://occi-wg.org/about/specification/]
+4.  MSO4SC Description of Work (DoA). Annex I to the EC Contract.

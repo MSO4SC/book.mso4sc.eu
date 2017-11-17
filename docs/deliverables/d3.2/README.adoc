@@ -1,0 +1,1022 @@
+= MSO4SC: D3.2 Integrated Infrastructure, Cloud Management and MSO Portal
+:page-root: ../../../
+:page-permalink: /deliverables/d3.2/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d3.2/image1.PNG[image,width=165,height=156]
+
+MSO4SC
+
+D3.2 Integrated Infrastructure, Cloud Management and MSO Portal
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|============================================================================================================================
+|Work Package |WP3 CLOUD TECHNOLOGY
+|Due Date: |_M12 (+1) _
+|Submission Date: |_28/10/2017_
+|Version: |_1.1_
+|Status |_Final_
+|Author(s): |_Carlos Fernández, Victor Sande (CESGA); F. Javier Nieto, Javier Carnero (ATOS); Akos Kovacs, Tamás Budai (SZE)_
+|Reviewer(s) |_Atgeirr Rasmussen (SINTEF); Johan Hoffman (KTH)_
+|============================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d3.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",options="header",]
+|===============================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |1/9/2017 |Preliminary TOC |_Carlos Fernández (CESGA)_
+|0.2 |2/10/2017 |MADFs & Singularity containers |Víctor Sande (CESGA)
+|0.3 |6/10/2017 |Sw repository & CI/CD |Víctor Sande (CESGA)
+|0.4 |9/10/2017 |Pre, Post and visualization tools |Víctor Sande (CESGA)
+|0.5 |13/10/2017 |Review and comments |Carlos Fernández (CESGA)
+|0.6 |16/10/2017 |Orchestrator and Portal |Javier Carnero (ATOS)
+|0.7 |24/10/2017 |Atgeirr Rasmussen Review |Carlos Fernández (CESGA), Atgeirr Rasmussen (SINTEF)
+|0.8 |24/10/2017 |Johann Hoffman Review |Carlos Fernández (CESGA), Johan Hoffman (KTH)
+|1.0 |24/10/2017 |Minor updates from reviews |Carlos Fernández (CESGA)
+|1.1 |26/10/2017 |Several updates and add annex |Carlos Fernández (CESGA), Javier Carnero (ATOS)
+| | | |
+|===============================================================================================
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc496899653[Figure 1. The four layers of the MSO4SC e-Infrastructure 9]
+
+link:#_Toc496899654[Figure 2 Main components of the MSO4SC e-Infrastructure 10]
+
+link:#_Toc496899655[Figure 3. MADFs and pilots integration work-flow 14]
+
+link:#_Toc496899656[Figure 4. Automatic integration and deployment flow chart 15]
+
+link:#_Toc496899657[Figure 5. Orchestrator & Monitor architecture 18]
+
+link:#_Toc496899658[Figure 6. FEniCS Pilot TOSCA example 19]
+
+link:#_Toc496899659[Figure 7. MSO Portal architecture 22]
+
+link:#_Toc496899660[Figure 8. MSO portal login page with different authorization alternatives 23]
+
+link:#_Toc496899661[Figure 9. MSO portal SSO login page with Fiware 24]
+
+link:#_Toc496899662[Figure 10. MSO Portal main page 24]
+
+link:#_Toc496899663[Figure 11. MSO Portal data repository 24]
+
+link:#_Toc496899664[Figure 12. MSO Portal Marketplace 25]
+
+link:#_Toc496899665[Figure 13. Experiments Workflow 25]
+
+link:#_Toc496899666[Figure 14. Web showing Paraview running at Finis Terrae II through noVNC 27]
+
+link:#_Toc496899667[Figure 15. GitLab hosted at CESGA cloud 29]
+
+link:#_Toc496899668[Figure 16. Architecture of the Data Repository 30]
+
+link:#_Toc496899669[Figure 17. Different types of servers, storage and networking system at FinisTerrae 31]
+
+link:#_Toc496899670[Figure 18. Schematic overview of the “plexi” HPC cluster 32]
+
+link:#_Toc496899671[Figure 19. Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right). 34]
+
+link:#_Toc496899672[Figure 20. ZIBAffinity work-flow 35]
+
+link:#_Toc496899673[Figure 21. TOSCA file example 1 37]
+
+link:#_Toc496899674[Figure 22. TOSCA file example 2 40]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc496899675[Table 1. Acronyms 8]
+
+link:#_Toc496899676[Table 2. Available MPI implementations at Finis Terrae II 13]
+
+[[executive-summary]]
+= Executive Summary
+
+This deliverable represents the implementation of all the components belonging to the MSO Cloud and the MSO Portal. Deliverable D3.1 already provided a description of the MSO4SC e-infrastructure components and in this deliverable we describe how these components are integrated and how to use them in the MSO4SC infrastructure, including documentation of the implemented documents.
+
+[[introduction]]
+= Introduction
+
+[[purpose]]
+== 1.1 Purpose
+
+Once the first set of requirements was available and a deep analysis was performed to determine the features and services to be provided through the e-Infrastructure, in D2.2 those features were analysed, identifying the conceptual layers they belong to, and defining the high level architecture of the e-Infrastructure. This definition includes high level components and examples about how they are expected to interact when providing the functionalities.
+
+Deliverable D3.1 provides deeper detail as a base for the implementation of these components. To produce a higher detail of the components, in many cases a study of the available technologies was performed. In other cases a pilot implementation was performed to verify that the design will be suitable. Also a benchmarking of the technologies was performed to demonstrate that there will be no performance degradation when deployed in the e-infrastructure.
+
+Deliverable D3.2 describes how these components are implemented and integrated, taking in account the design described in D3.1. In section 2 of this document we present again the architecture and components of the MSO4SC e-Infrastructure. In section 3 we present how the MADFs are integrated in the MSO4SC e-Infrastructure, with a description of how to build the containers to get the best performance of the HPC infrastructure. In section 4 we describe the implementation of the MSO4SC orchestrator and monitor. Section 5 provides a description of the implemented MSO Portal including the remote visualization and pre and post processing tools. Section 6 provides a description of the software repository and the continuous integration and deployment system. In Section 7 we present the implementation of the data repository and in section 8 we describe the hardware components of the MSO4SC e-Infrastructure and the collaboration with other European e-infrastructures (PRACE and EGI). Finally in section 9 a pilot implementation is presented and section 10 provides the summary and conclusions of this deliverable.
+
+[[glossary-of-acronyms]]
+== 1.2 Glossary of Acronyms
+
+[cols=",",options="header",]
+|========================================================================
+|*Acronym* |*Definition*
+|*MSO4SC* |Modelling, simulation and optimization for societal challenges
+|*D* |Deliverable
+|*HPC* |High Performance Computing (or Computer)
+|*MPI* |Message Passing Interface
+|*EC* |European Commission
+|*MADF* |Mathematics Application Development Frameworks
+|*VM* |Virtual Machine
+|*YAML* |Yet Another Markup Language
+|*TOSCA* |Topology and Orchestration Specification for Cloud Applications
+|*CKAN* |Comprehensive Knowledge Archive Network
+|*V&V* |Verification and Validation
+|*IaaS* |Infrastructure as a Service
+|*PaaS* |Platform as a Service
+|*WP* a|
+____________
+Work Package
+____________
+
+|*PRACE* a|
+____________________________________________
+Partnership for Advanced Computing in Europe
+____________________________________________
+
+|*EGI* a|
+________________________
+European Grid Initiative
+________________________
+
+|*MSO* a|
+______________________________________
+Modelling, Simulation and Optimization
+______________________________________
+
+|========================================================================
+
+[[_Toc496899675]]Table 1. Acronyms
+
+[[mso4sc-e-infrastructure-architecture-components]]
+= MSO4SC e-Infrastructure: Architecture & Components
+
+The proposed architecture of the e-Infrastructure was presented and described in D3.1. In this section we review this architecture for consistency.
+
+The architecture of the MSO4SC infrastructure is based on four main conceptual layers. These layers are represented in https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.i6441dcl8gw[Figure 1] and described below:
+
+image:media/d3.2/image3.png[https://lh5.googleusercontent.com/y2dr0jYbM7BhUXdcdnC1fek_epbMa2lkyNLOZxoqx_V6Hzt8DPQx3h0VQDGUW43C7CqkpRUdNmI4werhB7Bb6-lUIGt4qTEeeG3lxDq-JDyDv9gg4My1rxvIfdF4Rn5Yu_sulocI,width=491,height=353]
+
+[[_Toc496899653]]Figure 1. The four layers of the MSO4SC e-Infrastructure
+
+·         *End User Applications Layer:* This is the layer in which end users provide their applications, based on the MADFs and other available tools at the Application Development layer. In this layer, basically, it is possible to publish, deploy and monitor complex applications, as well as to design experiments for running several simulations (e.g. parameter studies) in an automated way.
+
+·         *Application Development Layer:* The purpose of this layer is to facilitate the implementation of applications based on MADFs, by providing not only the MADFs, but also a set of tools which also can be integrated, such as pre/post-processing and visualization. It also provides access to the services of the Cloud Management layer, so it will be possible to know about monitoring, accounting, current deployment, etc.
+
+·         *Cloud Management Layer:* This is the layer which maps the services of the Platform as a Service (PaaS) layer, where services on top of the IaaS are provided, such as monitoring of the applications running, orchestration with load balancing and deployment of the applications.
+
+·         *Infrastructure Layer:* This layer corresponds to a typical Infrastructure as a Service (IaaS) layer, where access to computation capabilities is given. These computation capabilities may come from Cloud providers or from HPC centres, enabling a HPC as a Service model.
+
+Taking into account these four layers, the main components have been identified and their relations are described in https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.vh4i4plketgx[Figure 2]:
+
+image:media/d3.2/image4.png[https://lh4.googleusercontent.com/DLUx7HpDByVlK_D2W-9OREmSyNTaBMfwpGCfh6fdIlAo-aU77IqYOSainW1v48SNL-FUt2O-jG3jmXhtDbqO3u_VBX5rU_sjBhR1xmuyAT4xTdM1wV39q6WOTbJ5jIe8qpsjRJIz,width=531,height=389]
+
+[[_Toc496899654]]Figure Main components of the MSO4SC e-Infrastructure
+
+·         *Authentication & Authorization:* This component deals with security aspects related to user management, single sign-on and authorization. The rest of the components will interact with it in order to confirm users’ access to functionalities, depending on their assigned roles.
+
+·         *Data Repository:* It is in charge of datasets storage and management both for input and output data. Such data will be used by the software to be run in the e-Infrastructure and, therefore, the Orchestrator may request concrete data movement operations, while the MSO Portal will retrieve information for providing a dataset catalogue.
+
+·         *Software Repository:* This repository not only stores the software that can be used in the context of the e-Infrastructure, but also pre-configured containers that can be used by the Orchestrator when deploying applications. It will also facilitate management and testing of the software code whenever possible.
+
+·         *MSO Portal:* This component is formed by a frontend and a set of tools available for stakeholders, such as a datasets catalogue, experiments execution, results visualization, data pre/post processing, automated deployment and status monitoring.
+
+·         *Monitoring & Accounting:* It retrieves information both about resources usage and about applications execution. It gathers information about the resources spent by users, available resources from infrastructures and current status of the software running.
+
+·         *Orchestrator:* This component decides about the most adequate way to deploy the application taking into account resources availability and software characteristics. Moreover, it takes care of requesting data movement and preparing the software so it will be ready to run in the corresponding system.
+
+In the following sections a detailed description of how these components were implemented is provided. All the components of the e-Infrastructure are being actively developed and managed by MSO4SC in a public repository. This repository is available in a GitHub organization, https://github.com/MSO4SC[https://github.com/MSO4SC], created to host all the components.
+
+[[integration-of-madfs-in-the-architecture]]
+= Integration of MADFs in the architecture
+
+In this section we describe configuration, instructions, good practices, work-flows and processes involved in the validation and execution of Singularity [1] containers at Finis Terrae II in the context of the MSO4SC project. We are taking as starting point the evaluation of the technologies and the final choice of Singularity as one of the container technologies for fast deployment of MSO software presented in deliverable D3.1 [2] and some extended work in “An efficient, portable and flexible container solution for fast deployment in an HPC infrastructure” [3].
+
+[[singularity-configuration-in-the-e-infrastructure]]
+== 3.1 Singularity configuration in the e-Infrastructure
+
+ 
+
+Several Singularity versions (2.2.1, 2.3.1 and 2.3.2) are currently installed at the MSO4SC e-Infrastructure, available for all users through the module system. These versions share the same settings, detailed in this section, to provide transparent access to Singularity containers.
+
+Singularity has been installed in privileged (SUID) mode in order to utilize all its features. Unprivileged containers, only in “user namespace” have limited features, so we are not using this configuration right now.
+
+There are no limitations or restrictions on the users IDs or storage paths where to store Singularity images. This means that any user with read and execution permissions is able to use any Singularity image located in any directory.
+
+Singularity has been configured to allow users to bind custom host directories inside the container. However, the destination directory of a bind-mount action must exist inside the container to access it from the host.
+
+The Singularity installation is configured to automatically share some common directories and files from the host to the container. These directories are _/proc_, _/sys_, _/dev_, _/tmp_, and _/home_. Some files like _/etc/resolv.conf_, __/etc/host__s and _/etc/localtime_ are also automatically mounted inside the container to import host network and timing settings.
+
+Finally, the current user and group info are automatically added into _/etc/passwd_ and _/etc/groups_ files. This means the user and group ids are exactly the same inside and outside the container.
+
+[[instructions-and-good-practices-for-madfs-and-pilots-containers]]
+== 3.2 Instructions and good practices for MADFs and pilots containers
+
+This section describes some instructions and good practices for building Singularity containers. These containers will be used for the integration of the pilots and MADFs. These instructions provide the keys to build valid containers and avoid issues, making the containers completely transparent for users and also for the e-Infrastructure, and easing the usage while dealing with Singularity and contained MADFs at Finis Terrae II, but it can also be applied to other HPC systems.
+
+The first rule is to provide a valid Singularity container. Within the container, an entire distribution of Linux or a very lightweight tuned set of packages can be included, preserving the usual Linux directories hierarchy. It is recommended to set up the required environment variables within the container in order to expose a consistent environment.
+
+To get transparent access to the host e-infrastructure storage (in this case we use Finis Terrae II as an example) from the containers, the /mnt and /scratch directories/paths must exist within the container to be shared with the host. This allows the container to maintain the consistency with the host configuration, environment variables, etc. Applications within a Singularity image must not be installed in any of the automatically mounted devices or directories. If this occurs, applications will be hidden for the end-user and the e-Infrastructure.  
+
+To run parallel applications using multiple nodes with MPI, the container must have installed support for MPI and PMI. Also for taking advantage of some HPC resources like Infiniband networks or GPUs, the container must support them. This means that the container must have installed the proper libraries to communicate with the hardware and also to perform inter-process communications.
+
+In the case of Infiniband support, there are not any known restrictions about the infiniband libraries installed inside the container.
+
+In the particular case of using GPUs from a Singularity container, the contained NVidia driver must exactly match the driver installed at the host. Singularity provides GPU containers portability through the experimental NVidia support option to allow containers to automatically use the host drivers.
+
+Regarding MPI, in the current context, due to the Singularity hybrid MPI approach, it's mandatory to use the same implementation and version of MPI installed at the host and inside the container to run MPI parallel applications, and also to use the corresponding _mpirun_ or _mpiexec_ launcher, instead of _srun_ (Slurm default process manager), as process manager to ensure PMI compatibility. Both OpenMPI and IntelMPI implementations are supported and have been tested.
+
+The currently available MPI implementations at Finis Terrae II are listed below. Singularity images containing MPI applications must contain any of this MPI implementations to properly run at Finis Terrae II:
+
+[cols=",",options="header",]
+|===================
+|*Family* |*Version*
+|OpenMPI |1.10.2
+|OpenMPI |2.0.0
+|OpenMPI |2.0.1
+|OpenMPI |2.0.2
+|OpenMPI |2.1.1
+|IntelMPI |5.1
+|IntelMPI |2017
+|BullMPI |1.2.9.1
+|===================
+
+[[_Toc496899676]]Table 2. Available MPI implementations at Finis Terrae II
+
+This set of recommendations is summarized in two publicly available documents; the recommendations document itself [4] and the bootstrap definition templates [5].
+
+ 
+
+[[madfs-and-pilots-integration-work-flow]]
+== 3.3 MADFs and pilots Integration work-flow
+
+The usage of Singularity containers has been adopted as the way of connecting the MADFs to the other components of the project. The work-flow with Singularity containers can be managed by a normal user of the MSO4SC e-Infrastructure, except the bootstrap process that needs to be called by a superuser. Users can use their own laptop or a virtual machine with superuser privileges to bootstrap, modify or adapt an image to the infrastructure using the bootstrap Singularity subcommand and then transfer it to a cluster.
+
+Apart from transferring images to a particular cluster, there are several ways to build new images in a particular HPC system where the user has no superuser permissions. A normal user can pull images from public registries (like DockerHub [6] or SingularityHub [7]) to the MSO4SC e-Infrastructure. A normal user can also import images from the standard input, using _tar_ (Tape Archive usually referred to as a tarball) or _gzipped-tar_ (compressed) pipes containing a valid OS. In general, valid _tar_ files can be created using Docker [8] or Singularity export commands.
+
+Once the image is available at the HPC system, Singularity allows testing or running any contained application. The work-flow using Singularity containers is shown in the https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.5d87kawzodz9[Figure 3] below.
+
+image:media/d3.2/image5.png[singularity_usage_ft2_draw.io.png,width=567,height=483]
+
+[[_Toc496899655]]Figure 3. MADFs and pilots integration work-flow
+
+An important stage of this work-flow is the one involving the Singularity “usage commands”. With these commands, we can execute any contained application and perform the validation and verification process to ensure the correct function in a particular HPC system. This can be done interactively or using batch systems. Next section shows a more detailed description of this process.
+
+[[madfs-and-pilots-integration-verification-and-validation]]
+== 3.4 MADFs and Pilots integration verification and validation
+
+The correct function of every contained MADF and Pilot will be checked before publication in the Portal. Automatic integration will automate the validation and verification (V&V) process.
+
+The V&V process relies on the integration work-flow (section 3.3) and the underlying configuration (section 3.1). The previously mentioned instructions and good practices when building containers (as described in section 3.2) takes an essential role in this process in order for a successful V&V.
+
+For every MADF and pilot, several ingredients are needed to perform the V&V process. At least, one test and one benchmark should be provided and a formal (and programmatically accessible) description about how to run the contained applications, tests and benchmarks to ensure the proper function and performance of the container. Finally, the acceptance criteria for these tests and benchmarks should also be provided. In order to collect the requirements for this process, a work-flow definition template [9] was created and shared among MADFs and pilots developers.
+
+Once all this data is collected and available in the proper infrastructure, the tests and benchmarks will be executed in unattended mode using the resource manager. Then, to validate the quality of the container, and later the deployment, the specified acceptance criteria will be applied taking into account the exit code, standard output, log files, etc.
+
+[[deployment-of-madfs-and-pilots-in-the-mso4sc-e-infrastructure]]
+== 3.5 Deployment of MADFs and pilots in the MSO4SC e-Infrastructure
+
+MADF and pilot developers will provide the container itself or a process to have it available in the HPC system, e.g. through public container repositories (DockerHub, SingularityHub, etc.) or bootstrap definition files. For MPI parallel containers, the MPI vendor and version must be also provided and match the one provided by the HPC system.
+
+Once the container is available in the HPC system, it will be tested. After a successful V&V, the contained applications will be deployed, available and ready-to-use in the proper production infrastructure and through the Marketplace. The orchestrator will be the e-Infrastructure component in charge to implement and perform the V&V work-flow and, by means of the Monitor, evaluate the results for accepting or rejecting the images. If tests are successful the new container will be available and ready-to-use.
+
+The designed high-level flow for automating the integration and deployment of containers can be seen in https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.idyp8gir7pf2[Figure 4].
+
+image:media/d3.2/image6.png[singularity_integration_deployment.png,width=567,height=341]
+
+[[_Toc496899656]]Figure 4. Automatic integration and deployment flow chart
+
+There are no known issues deploying containers which followed the previously exposed “good practices” (section 3.2). In case of discovering unexpected issues in this process, an automated customization of the images should be included in the deployment process. 
+
+[[the-implementation-of-the-mso4sc-orchestrator-and-monitor]]
+= The implementation of the MSO4SC Orchestrator and Monitor
+
+The orchestrator takes decisions about the best way to deploy the applications taking into account resources availability, software characteristics, and user requirements, based on their experience. This will typically imply operations like data movement and making the software ready to run in the corresponding system. After the deployment, the orchestrator will also run the different components of the applications when needed, managing possible errors and outputs, as well as possible interactions from the end user.
+
+To optimise the deployment of the applications and subsequent executions, the orchestrator is in permanent communication with the monitoring system, to know the status of the different infrastructures and running components (e.g. if there is any issue in the system, the available storage, and other metrics). Therefore the monitor is in charge of reading metrics of the HPC infrastructures (queue status, running jobs, etc), as well as to extract metrics from application logs, which will then be sent to the orchestrator and website portal. 
+
+[[features]]
+== 4.1 Features
+
+ 
+
+The orchestrator is the component which is in charge of performing deployments and execution of all applications and the monitor is the component which knows what is going on in the entire platform. They thus play a key role in achieving the goals of the MSO4SC project.
+
+The features that the orchestrator provides are:
+
+* Hybrid and multi provider cloud (support for multiple HPC and VMs providers).
+* Common deployment operations:
+** Build software.
+** Data movement.
+** Execute/Copy scripts, binary files
+** Virtual Machine creation and provisioning
+
+* Deployment and execution requirements.
+* Communication with an external monitor system.
+* Smart decisions on where to deploy and run what.
+* Re-deploy and re-schedule jobs when infrastructure state changes.
+* Human interaction to reconfigure the executions “on the fly”.
+* Output management:
+** Infrastructure and application logs.
+** Generated data.
+
+On the other side, the monitor functionalities are:
+
+* Collect metrics from different infrastructures, normalized, and gathered into a common storage system:
+** Metrics from different HPC infrastructures and workload managers.
+** Metrics from different Cloud providers (Virtual Machines).
+
+* Collect custom and normalized metrics from the logs generated by the applications.
+* Create, remove, orchestrate and heal all the metrics collectors as needed.
+* Alerts on relevant events:
+** Infrastructure down.
+** Deployment/Execution failed/succeeded.
+* User-friendly visualization.
+
+ 
+
+[[architecture]]
+== 4.2 Architecture
+
+ 
+
+The architecture that provides the features of the orchestrator and monitor subsystems described above is shown in https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.8tke676l5r83[Figure 5], with the monitor and orchestrator themselves as main components, other auxiliary ones that complete the functionalities, and the fundamental interactions between them and the portal.
+
+The orchestrator receives the information about deployment and execution through a series of TOSCA files coming from its command line component, a small client that holds all the logic to communicate with the orchestrator remotely. The web interface takes the information provided by the user, and uses the CLI to communicate with the orchestrator. In it, operations like software compilation, data movements, HPC and Cloud providers to be used, and input datasets and custom parameters of the execution are defined.
+
+The TOSCA files (Yaml) define an application like a graph, describing entities and relationships between them. Each entity has a type, for example, a job type entity represents a job in the HPC, and provides information about this job (number of nodes and cores, max time of execution, etc). Also its relationships define dependencies with other jobs or operations. Among these operations are data movements or group of jobs (for example a group of jobs that executes in a loop).
+
+image:media/d3.2/image7.png[orchestrator-monitor(2).png,width=566,height=658]
+
+[[_Toc496899657]]Figure 5. Orchestrator & Monitor architecture
+
+These files can import other files, a feature that it is used by MSO4SC to modularize and reutilize them. This means that in the first place MSO4SC specific types and relationships (the ones that describes an HPC behaviour) are defined in a file that it is then imported by all others in the project. Secondly MADFs files are defined, where specific jobs or data movement operations are defined (e.g. a job that uses a specific command or settings). Finally the application files import the first two and complete the specific application graph. Other files are required to actually execute the application, that defines the infrastructure credentials, or the datasets used as input.
+
+In the figure 6 below an example of a TOSCA files are shown. The one in the left describes the FEniCS MADF defining two types of operations, a FEniCS iteration job, and a FEniCS post-processing job. Then the file to the right describes a pilot that uses the framework describing a graph of two FEniCS sequential iterations and two parallel post-processing operations for each previous iteration.
+
+image:media/d3.2/image8.png[C:\Users\A645642\Pictures\fenics-types-tosca.PNG,width=407,height=527]image:images/media/image9.png[C:\Users\A645642\Pictures\fenics-tosca.PNG,width=156,height=527]
+
+[[_Toc496899658]]Figure 6. FEniCS Pilot TOSCA example
+
+Therefore, to interpret the TOSCA files the orchestrator communicates with the infrastructure to start executing the simulation, running jobs at the right moment as well as other operations like data movement. While doing that, it is also communicating with the monitor to know the status of every infrastructure and the operations already in place. The orchestrator uses this information to decide the best suitable infrastructure available, and heal or reschedule a simulation at some point if there are errors.
+
+When the orchestrator starts or stops using a new infrastructure or a new application task, it needs to notify the monitor. This is performed through the exporter orchestrator, which receives the information of what needs to be monitored by the orchestrator, and controls that the monitoring is achieved only while it is necessary. When the exporter orchestrator receives a new monitor requirement, it creates an _exporter_ (see below) and notifies the monitor about where this exporter is and how to read it. Likewise, when the orchestrator says that the requirement is no longer needed, the exporter orchestrator notifies the monitor and destroys the related exporters. Additionally, the exporter orchestrator performs heal operations over all the managed exporters, and recreating them if anyone fails. An exporter can also be marked as “permanent” by the orchestrator, which means that the exporter orchestrator will keep the exporter alive even if no operation needs it at the moment. This helps the orchestrator to take better decisions based on the continued data reported by the exporter over time.
+
+An exporter is basically a small web server that, when asked by the monitor, reads the metrics it is in charge of and sends them back. In MSO4SC there are two main types of exporters: The infrastructure exporters (E1, Ex, Ey in the image), and the application log exporters (E1.1, E1.m, Ex.1, Ex.n, Ey.1, Ey.n in the image). The first ones are in charge of reading infrastructure metrics, like HPC partitions load, job status, job time to start executing, etc. There is at most one exporter for each infrastructure that it is being used by the system. The others are exporters that digest specific application logs and transform them into metrics. There can be one of these exporters for each application, or one per job, and their aim is to ultimately provide useful information about the application execution in the web interface. That way the user has concrete information and can decide if the simulation is performing well or it needs to be stopped / reconfigured.
+
+Finally the monitor continuously collects the metrics from the exporters, storing them and exposing the information to the rest of the system (the orchestrator and portal).
+
+ 
+
+[[third-party-software-components]]
+== 4.3 Third-party software components
+
+ 
+
+The Orchestrator & Monitor solution relies on different open source components, as well as our own MSO4SC software, that extends them and enables the overall behavior we need.
+
+Concretely, the orchestrator and orchestrator cli are based on the Cloudify community edition [10] (which is at the same time based on Apache Aria [11], the open source TOSCA description language implementation of reference). MSO4SC adds a new HPC plugin that holds all the logic to work with them, as well as communication with the exporter orchestrator and the monitor.
+
+The monitor is based on Prometheus [12], a novel open source monitoring solution. The infrastructure exporters are developed by the project, using the Prometheus SDK to connect to it, while the application ones are based on Grok [13] an open source log exporter for Prometheus.
+
+ 
+
+[[implementation-and-deployment-of-the-orchestrator-and-monitor]]
+== 4.4 Implementation and deployment of the orchestrator and monitor
+
+ 
+
+Every component except the orchestrator includes a Docker [8] image and a Vagrant [14] file (the orchestrator only includes a Vagrant file, see below). Using docker, the entire architecture can be deployed in production and start working _out of the box._ On the other hand Vagrant can be used to create virtualbox images to quickly deploy a test or development environment.
+
+Particularly the orchestrator is composed by seven services itself, and for security reasons it cannot be embedded into a docker image. For that reason, it is deployed using the orchestrator cli that comes with specific scripts to easily deploy the orchestrator on a remote machine, or in the local Vagrant machine provided by the orchestrator repository.
+
+Deployment examples will be added to a new “examples” repository that it is being developed.
+
+[[integration-of-the-monitoring-in-the-madfs-and-pilots]]
+== 4.5 Integration of the Monitoring in the MADFs and Pilots
+
+ 
+
+Integration of the MADFs/Pilots and the Monitor is done through the application log exporters. From one side the applications (MADFs and Pilots) provide a pattern along with its TOSCA files that defines its own log files (Yaml). With this pattern the application log exporter is able to read the log files that the execution is generating, and to transform them into concrete metrics than are sent to the monitor and visualized in the portal.
+
+However, these patterns are not necessary and only desirable if the application provider wants a detailed monitoring of the execution. A more general monitoring is performed by the infrastructure exporter, which provides basic information about each execution like time of execution, resources or status of each part.
+
+[[mso4sc-portal]]
+= MSO4SC Portal
+
+The MSO Portal is the user-friendly interaction mechanism between the end users and the MSO4SC platform. From its frontend the user will be able to use all the functionalities the project provides: run the MSO4SC simulation software with pre and post operations and monitor it while executing, logging into the system, manage the data available, visualize it, etc. Its components are described below.
+
+The MSO4SC portal provides the following features:
+
+* Execution of applications in parallel
+** In a hybrid, HPC + Cloud infrastructure
+* Select the inputs of an execution
+** Datasets
+** Infrastructures
+** Simulation configuration
+
+* Visualize monitoring data
+** Infrastructures
+** Application executions
+** Customizable dashboards
+* Pause / Reconfigure / Restart application
+* Pre / Post operations over datasets
+** Dataset visualization
+* Upload Applications and Datasets
+* Dataset validation
+* Application testing and validation
+* Community management
+** Learning tool
+** Q&A tool
+
+[[architecture-1]]
+== 5.1 Architecture
+
+The frontend provides a nice interface in which the user is able to access to the different functionalities in the portal. It also holds the authentication and authorization client that connects with an OAuth server (IDM), and retrieves the user information used in the entire web interface.
+
+image:media/d3.2/image10.png[MSOPortal-architecture(3).png,width=566,height=458]
+
+[[_Toc496899659]]Figure 7. MSO Portal architecture
+
+To integrate all the different modules, each one with its own frontend, into one bigger fronted with one point of authentication, a novel solution it is being deployed. This solution first implies log in in the OAuth server from the portal front page as usual. Then, once the user is logged in and navigates to a module, the frontend call the login submodule of each component, hiding the authentication of the module to the user. Finally when the module is authenticated automatically, it returns to the frontend that then call the module front page in an iframe, embedding the content into main MSO4SC frontend. In order for this to work, a small change has to be done in every module to adapt it to work with our platform, keeping the original code of the module as original as possible.
+
+Due to some restrictions in the Marketplace module, Fiware Lab IDM has been chosen in this iteration of the project as the OAuth server.
+
+Therefore, once the user is logged in, he/she can navigate to the different components through the navigation bar shown at the top (it will change to be a more user-friendly dashboard). Typically he/she can manage the datasets in the data catalogue, the simulations in the marketplace, control the simulation in the experiments management tool, checking its performance in the monitor visualization tool, run pre/post processing operations over the datasets in the pre/post processing tool, and finally access the learning tools to ask / answer other users questions or give or take a course.
+
+Examples of the frontend integrating the data catalogue or the marketplace are shown below.
+
+image:media/d3.2/image11.png[C:\Users\instalador\Downloads\portal_login.png,width=601,height=481]
+
+[[_Toc496899660]]Figure 8. MSO portal login page with different authorization alternatives
+
+image:media/d3.2/image12.png[portal_login2.png,width=539,height=189]
+
+[[_Toc496899661]]Figure 9. MSO portal SSO login page with Fiware
+
+image:media/d3.2/image13.png[C:\Users\instalador\Downloads\portal_settings (1).png,width=494,height=386]
+
+[[_Toc496899662]]Figure 10. MSO Portal main page
+
+image:media/d3.2/image14.png[C:\Users\instalador\Downloads\portal_datacatalogue.png,width=443,height=265]
+
+[[_Toc496899663]]Figure 11. MSO Portal data repository
+
+image:media/d3.2/image15.png[C:\Users\instalador\Downloads\portal_market.png,width=538,height=179]
+
+[[_Toc496899664]]Figure 12. MSO Portal Marketplace
+
+The Data Catalogue, Marketplace, Monitoring Dashboard, Community Management and Learning Tools were introduced in deliverable D3.1 and current efforts are being carried out in order to improve the look and feel, as well as adapting the styles to the project branding.
+
+[[experiments-management-tool]]
+== 5.2 Experiments Management Tool
+
+This module supports the deployment and execution of workflows of an application, and communicating with the orchestrator through a REST API. This module is built using the Django framework.
+
+Figure 12 represents the workflow of a typical experiment. The circles represent the input and output information generated in each phase and passed to the next one.
+
+The module lets the user choose an application from the ones available the marketplace for the current user, as well as dataset(s) from the data catalog and other input information like infrastructure credentials. With this information, the tool composes all this information into a set of TOSCA files and sends it to the orchestrator when the user is ready. The orchestrator then will deploy and run the simulation.
+
+ 
+
+image:media/d3.2/image16.png[C:\Users\instalador\Downloads\simulation_workflow (3).png,width=567,height=200]
+
+[[_Toc496899665]]Figure 13. Experiments Workflow
+
+After a simulation has started, its information can be seen in the monitoring dashboard. If the user needs to pause or stop the simulation before it ends, he/she can do it from the tool. Reconfiguration of the simulation will be possible in the second iteration of the project.
+
+Finally when the simulation ends, it appears in the experiments management tool, while more concrete information about the execution can be found in the monitoring dashboard.
+
+[[visualization-and-pre-and-post-processing-tools]]
+== 5.3 Visualization and Pre and Post Processing tools
+
+In order to satisfy the whole MADFs and Pilots life-cycle and taking as starting point their inputs and outputs description exposed in D4.1[15], there are several tools involved with pre-processing, post-processing and visualization stages. Some of the popular chosen tools are Salome [16] and Paraview [17].
+
+*Salome* is a platform for pre-processing, processing and post-processing. The current functionalities used by the MADFs and Pilots are mostly the CAD and mesh capabilities. Thanks to Salome's Python scripting capabilities, Salome can be used by means of its GUI and also in unattended mode (without user interaction) for building complex geometries and their associated meshes.
+
+*ParaView* is an open source multiple-platform application for interactive scientific visualization and post-processing. It has a client–server architecture to facilitate remote visualization and is designed for data parallelism on shared-memory or distributed-memory computers and clusters. It also provides scripting capabilities.
+
+These two tools provide scripting capabilities, which can be used with containers and with batch workflows in unattended mode.
+
+In addition to executing these visualization tools in unattended mode, there are also several strategies in the roadmap of the MSO4SC project to get them integrated in the portal, providing an interactive user experience during the pre-processing, post-processing and visualization stages, but delegating the computational load to the HPC resources.
+
+The first approach to integrate these graphical tools within the cloud services, relies on the remote desktop capabilities of noVNC [18]. noVNC is a VNC client using HTML5 with encryption and is designed to be easily integrated into existing web sites with the existing structure and styling. This tool enables serving a remote desktop through a web browser providing desktop-like access to computational resources of the cluster. This tool solves the problem of providing access to heterogeneous GUI applications though the web. Currently, there is an already working implementation of noVNC running at Finis Terrae II that can be used to launch and remotely interact with Salome and Paraview and avoids data moving, as can be seeing in the Figure 13 below.
+
+As all involved MADFs and Pilots make use of Paraview supported output formats, the alternative approaches for the particular cases of post-processing and visualization relies on the usage of a Paraview server at the HPC infrastructure. Taking advantage of the client-server architecture of Paraview, the end-user can currently connect its Paraview client to the Paraview server running at Finis terrae II in order to visualize the remote rendered results. This solution also satisfies in-situ visualization capabilities provided by some frameworks like Feel++.
+
+image:media/d3.2/image17.png[image21.png,width=567,height=344]
+
+[[_Toc496899666]]Figure 14. Web showing Paraview running at Finis Terrae II through noVNC
+
+In addition, in order to avoid any requirement from the client side, except the web browser, and to enrich the end-user experience, the implementation of a ParaviewWeb based service is proposed. ParaviewWeb [19] is a web framework developed and supported by Kitware to build custom applications with interactive scientific visualization inside web browser. There are several Kitware tools, like Paraview Visualizer or HPC-Cloud that can be used and integrated to satisfy MADFs and Pilot work-flows in terms of post-processing and visualization.
+
+[[implementation-and-deployment]]
+== 5.4 Implementation and deployment
+
+MSO4SC has decided to use Fiware Lab IDM (Keyrock) [20][21] as authentication and authorization component at least during the first iteration of the project. The main reason to do that is that some modules, such as the Marketplace, only provide communication with Fiware Lab, while others can be easily adapted to work with the IDM as it implements OAuth2.0 [22], a well-known authentication protocol. This adds the requirement that, for now, all MSO4SC users need to register first in Fiware Lab, but it simplifies the deployment of the portal as no IDM installation is required.
+
+The frontend also embed the other components of the portal, acting as the “landing page” of the entire platform. To do this, when some component is needed, it relies on the authentication & authorization module of concrete component, allowing it to authenticate itself and then integrating the component frontend inside the main frontend. The experiments management tool is a particular case because it is developed entirely within the project, so it relies on the frontend authentication directly instead of having its own.
+
+The deployment is done through Docker images, where each component has its own MSO4SC image.
+
+[[software-repository-and-continuous-integration-and-deployment]]
+= Software Repository and Continuous Integration and Deployment
+
+The Software repository is the place where to store the development-related environment like source code, metadata, testsuites, benchmarks, software and also the e-Infrastructure itself. It is an integrated cloud service for the whole development life-cycle. Providing a software repository accessible from a single place (the portal) will help to homogenize applications usage and to increase the visibility and the impact of the provided data and applications. All data and applications stored in the repository will be accessed/distributed through computer networks, with _http_ and _ssh_ protocols. Access control to this service will be through the previously exposed authentication and authorization methods.
+
+The technology choice for implementing the software repository relies on GitLab, in particular GitLab Community Edition, a popular, scalable and open-source project supported by GitLab inc. and a huge community. See a running instance of Gitlab at CESGA cloud in the following Figure 14.
+
+Thanks to GitLab we can provide several features to help to create, build, manage and maintain software projects during all the development lifecycle. Some of its features are enumerated in this section, but it is important to remark that GitLab allows managing different user profiles, roles and the repository visibility. This means that the end-user will control several levels of privacy for all its data.
+
+One of the main GitLab features is to provide a code repository based on Git and a set of tools to manage the history of changes, easing some common practices like branching, tagging and code reviewing. Other features like its merge request tool, issue tracking, code snippets and wikis help to enrich the communication process of the developer team itself and also with users community.
+
+GitLab also provides built-in continuous integration. Software projects can configure and automate the building process with every submitted change. It improves failure discovering and fast bug fixing decreasing risks and problems related with the integration and deployment. It also supports a Docker based CI to define and control the building environment during the CI process. GitLab architecture allows separating this component in a different machine to prevent bottlenecks to the main web service due to the load of the CI service.
+
+In addition to wikis, GitLab can host and deploy user defined static web pages. Together with the continuous integration and delivery service this is a suitable tool to publish up-to-date software documentation, projects, groups or personal info.
+
+image:media/d3.2/image18.png[MAO4SC_Gitlab.png,width=567,height=344]
+
+[[_Toc496899667]]Figure 15. GitLab hosted at CESGA cloud
+
+The GitLab software repository will be supported by a backup system, storing redundant information. This information could be retrieved in case of a catastrophic problem, avoiding data losing and helping to mitigate other possible risks.
+
+As a part of the communication mechanisms supporting the project structure, a set of public domain repositories has been created taking advance of the services and collaborative tools (like wikis, issue tracking, continuous integration, etc.) provided by GitHub in order to lead the community oriented development of the e-Infrastructure.
+
+These repositories are currently being used to share the software, metadata and technical documentation, like the deployment process of the frameworks. They are also intended to be the place where to publish the benchmarks for the MADFs. Moreover a special repository built in asciidoc contains general documentation about the project and each MADF and pilot, in a user-friendly presentation as a book.
+
+[[data-repository]]
+= Data Repository
+
+The data repository is composed by two different parts: the data storage and the data movement tool. The first will show the data available in the different storage units (Data catalogue), while the second move datasets from/to the computing infrastructure following the instructions of the orchestrator. 
+
+To adapt the repository to the different characteristics and formats of the datasets, the data storage can be formed of several storage units based on different paradigms, such as array databases, relational and nosql databases, storage servers, etc. Those will be typically the same storage systems that the users uses to store their data in the infrastructure the usually use.
+
+ 
+
+image:media/d3.2/image19.png[https://lh4.googleusercontent.com/u-_Ku_iZ_R5meYOd6hRqTQ64esbPXppOdCpW2UtrNiZE7YuV9Fw2FGxlGGjN9Bitu9UgFqGqZFJJBQm0j6lBxDOJSHM8pd3CNX-NmUIDJxE3SjEBwTHENAJ1WaggPeZhwejVKKwM,width=412,height=230]
+
+[[_Toc496899668]]Figure 16. Architecture of the Data Repository
+
+However for simplicity, only FTP and remote file storage systems over SSH are being tested in the first iteration of the project, as it seems to cover the needs of the MADFs and Pilots for now.
+
+Therefore the orchestrator is using the FTP and SSH protocols to retrieve input data from external repositories and deploy in the correct place (operations defined in the TOSCA files). In the same way, it is using the same protocols to push the output data when it is ready.
+
+As user interface, the data repository relies on the data catalog component in the MSO4SC portal, showing the datasets available and generated. In this sense the orchestrators is responsible of notifying the data catalog about new datasets created.
+
+[[hardware-infrastructure]]
+= Hardware Infrastructure
+
+For the testing, execution and development of the e-Infrastructure, a development and production infrastructure will be available. CESGA will provide access to the FinisTerrae HPC cluster, which is a Singular Research Infrastructure part of the Spanish Supercomputing Network and a Tier-1 PRACE system. This system will be an example on how the complex MADFs and pilots can be deployed in a production HPC system. SZE will provide a test and preproduction infrastructure for testing the software during its development phase and all the changes that cannot be implemented in the production infrastructure. ATOS will also provide a production infrastructure, once the pilots are ready for running. In the next sections we give more details about the systems currently used. 
+
+[[finisterrae-ii-hpc-cluster]]
+== 8.1 FinisTerrae-II HPC cluster
+
+ 
+
+FinisTerrae-II is the main supercomputing system provided by CESGA. It is a Bull/ATOS HPC supercomputer with 306 compute nodes, each of them with 24 cores Haswell 2680v3 Intel processor and 128GB of main memory per server. It is connected to a shared Lustre High-performance Filesystem with 768TB of disk space. The servers are interconnected with a low latency Infiniband FDR with a peak bandwidth of 56Gbps. Additionally, the system has 4 GPU servers with GPUs (NVIDIA K80) and 2 servers with Intel Xeon Phi accelerators. There is also one “Fat” node with 8 Intel Haswell 8867v3 processors, 128 cores and 4TB of main memory.
+
+image:media/d3.2/image20.png[https://lh4.googleusercontent.com/h3xmb9bdTD_KCx1LDeU-A4r_Iadr0WscbtPwpeL71rj2nayH9bh9ti7NwLdTxW96qsqGWYCoJ8lS8s_S1iVL0DBkE9D5qcVWyQR6o-O-pmwFiphsC4UxpEa8EFUtZ6BMjc4QJB6i,width=562,height=350]
+
+[[_Toc496899669]]Figure 17. Different types of servers, storage and networking system at FinisTerrae
+
+This system is used and integrated in the MSO4SC infrastructure, with successful implementation and integration of most of the containers using HPC resources and MPI.
+
+[[sze-hpc-cluster]]
+== 8.2 SZE HPC cluster
+
+The SZE HPC cluster called “plexi”, consist 26 compute nodes, which can be divided in two separate groups. There are 20 normal compute nodes with 12 Cores and 48 GB Memory each, and 6 GPU nodes which are housing more than 12 Nvidia Tesla cards M2050 and M2090 with total of 5888 GPU cores. The nodes are connected with Infiniband QDR interconnect which provides 32Gb/s connection speed. These compute nodes are diskless, so we have a 12TB IBM Fibre-Channel 4Gb/s storage which are used to store the boot images and simulation results.
+
+For testing purposes we use a HUAWEI CH140 Blade Server with 24 Haswell CPU Cores and 128GB DDR4 ECC Memory with VMware virtualization. We generated a virtual infrastructure with a head node and many relatively small worker nodes. This virtual infrastructure is ideal for testing the horizontal scalability of the MSO cluster.
+
+image:media/d3.2/image21.png[plexi_schema.png,width=498,height=302]
+
+[[_Toc496899670]]Figure 18. Schematic overview of the “plexi” HPC cluster
+
+[[cesga-cloud]]
+== 8.3 CESGA Cloud
+
+ 
+
+In addition to the HPC resources, CESGA provides access to cloud resources available in the center. This cloud infrastructure is based on OpenNebula cloud management system and delivers a virtual infrastructure, configurable to the requirements of the final users: operating system, number of processors, memory, disk and number of nodes are configured to the user’s need in a dynamic way.
+
+In addition, this cloud will be used for those parts of the pilots that are not suitable for HPC resources, those that are mostly interactive of need remote visualization and also for storage of data. CESGA is already providing these resources as part of the EGI Fedcloud infrastructure and its integration will be using the orchestrator
+
+This cloud will be used for the services needed in the development of the e-infrastructure. For example, to provide a highly available Portal and Orchestrator, two virtual machines running in this cloud will be used.
+
+[[integration-in-european-hpc-and-cloud-infrastructures-prace-and-egi]]
+== 8.4 Integration in European HPC and cloud Infrastructures: PRACE and EGI
+
+ 
+
+For the sustainability of the project it is fundamental to rely in other European infrastructures that are available to the scientists and other potential users and stakeholders. Two major infrastructures are actually part of the plans to integrate the MADFs and pilots, PRACE and EGI.
+
+With respect to PRACE, the support of container technology will be a fundamental part to support the MADFs and pilots. In this aspect, CESGA participates in PRACE-5IP service 6.2.5. This activity is in charge of the deployment of containers and full virtualized tools into HPC infrastructures and is leaded by University of Oslo (UiO) with the participation of CINECA, EPCC, IDRIS and CESGA. The results achieved so far regarding the integration and performance of the Singularity containers in HPC infrastructures have been shared with this working group and are included in Deliverable 6.3. With the coordination of the activities with this working group we expect to provide a common list of recommendations and best practices for the support of container technologies for HPC infrastructures in Europe, which will ease the technical implementation and extension of the MSO4SC infrastructure.
+
+EGI finished its flagship project EGI-Engage in August 2017 and in January the EOSC-hub project will begin. CESGA participates in this project providing infrastructure and the accounting portal and we expect to also support some common implementations with the Indigo Datacloud project regarding the support of containers. Similar as with PRACE, we expect that the technical implementation and support should be quite straightforward.
+
+In the next phase of the project, a more formal support from these infrastructures is expected.
+
+[[pilot-example]]
+= Pilot Example
+
+The MSO4SC project is composed of several high-quality simulation software packages, MADFs and Pilots. Among all these projects, for its maturity and complexity, we here describe the ZIBAffinity pilot, as described in D5.1 [23], as a representation of the application of most of the MSO4SC e-Infrastructure features.
+
+ZIBAffinity uses molecular dynamics (MD) simulations and methods of statistical thermodynamics in order to estimate binding affinities for biological host–guest systems (HGS). Having uploaded a small drug-like molecule under observation as input, the user selects one or more protein target structures from a database of force field-parameterized models and submits one job per target-ligand combination to the queue of the CESGA high performance computer. After job processing, the results are made available to the user.
+
+The affinity is estimated as a linear combination of averages of molecular observables according to a linear interaction energy model. Ensuing from the uploaded small molecule, GROMACS MD simulations, with at most 61 different starting positions, are performed in parallel. The optimal binding position (binding mode) is then extracted from that data and provided as a 3D molecular structure serving, along with thermo-statistical data as the basis for absolute or relative binding affinity estimation.
+
+image:media/d3.2/image22.png[https://lh5.googleusercontent.com/DR4T7mo_0y0i1E_xUInV0MX1FaO4gHj_SJnvhfWv59s5g9zdCG30LiPbJyg4gJn7goHIXbWbWClF7qMEvnRHak0zLSWFqbHd6AlZZ6JdvohcnmXGkyw0aym47F02NPiyPriO4PRq,width=567,height=200]
+
+[[_Toc496899671]]Figure 19. Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).
+
+Based on the work-flow definition [24] provided by ZIBAffinity team, a more schematic and programmatic description of this use case is explained below from the point of view of the e-Infrastructure, including requirements, inputs and outputs, the work-flow itself and the required computational resources for each step.
+
+Taking into account that Singularity was selected for fast deployment of MSO software, a Singularity image containing all tools and libraries required by ZIBAffinity is the main requirement to implement this use case. This container has been created and provided by ZIB following the rules for the creation of images in the MOS4SC e-infrastructure. For testing purposes, a set of test input data have been also provided for this use case.
+
+Some other important requirements are directly related with the end-user and e-infrastructure interaction. End-user must provide the configuration of a particular simulation via some data, input files and also the destination of the simulation results, more specifically:
+
+* Target molecule files given as user input and selected from database
+* Ligand molecule files given as user input
+* Formal charge of ligand molecule (signed integer)
+* Simulation and analysis output directory
+
+The execution of the ZIBAffiniy pilot relies on a work-flow involving a sequence of several interrelated steps managed by the orchestrator. The correct execution of the entire work-flow depends on the successful execution of each step, which is controlled by the monitor by means of the log files. The formal definition of each one of these steps includes a definition, the amount of computational resources needed, the success definition and the dependency relationship. These sequential steps are:
+
+1.  *Preliminary:* initial checking and creation of input files and directories needed by the simulation. It is a sequential step which requires a single core for a few seconds. If success next step, pre-process, is executed.
+2.  *Pre-process:* Force field parameterization of ligand molecule and composition of initial binding modes of protein-ligand systems in explicit water. This step requires a single core for 3-5 minutes. If success, next step, simulation is executed.
+3.  *Simulation:* Molecular dynamics simulations using GROMACS. This step involves 61 embarrassingly parallel tasks requiring an entire node with 24 cores and using less than 1GB of RAM for almost 2 hours. If success, next step, post-process, is executed.
+4.  *Post-process:* Derives thermodynamic quantities from GROMACS output files, determines favourable binding mode and estimates its binding energy. It requires a single core for 20 minutes. If this step is successfully executed, we can conclude that the entire execution was successful.
+
+The success definition for all these steps relies in log messages that must be managed by the MSO4SC monitoring system.
+
+A graphical representation of this workflow is shown in the https://docs.google.com/document/d/1USEOsmjnGaorfzxrJL5yYGBK0UePLcBOy8Bs8FDsi2I/edit#bookmark=id.dpv7nk4n3q0e[Figure 18] below.
+
+image:media/d3.2/image23.png[zibaffinity_flow_update.png,width=567,height=265]
+
+[[_Toc496899672]]Figure 20. ZIBAffinity work-flow
+
+[[summary-and-conclusions]]
+= Summary and Conclusions
+
+This document presents the implementation of the components that are part of the MSO4SC e-Infrastructure. As of October 2017 all the MADFs are integrated and so are the Portal and the Orchestrator. A full example of a MSO problem solved using the MSO4SC e-Infrastructure is presented. During the next phase of the project, the other pilots will be integrated and a revised version with additional features of the e-Infrastructure will be available, including resources from other centres.[[_Toc368494036]]
+
+[[references]]
+= References
+
+1.  Singularity: http://singularity.lbl.gov
+2.  MSO4SC D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+3.  M. Simon. An efficient, portable and flexible container solution for fast deployment in an HPC infrastructure: https://github.com/MSO4SC/Singularity/blob/master/docs/Openmpi-Singularity_M_Simon.pdf
+4.  MSO4SC Singularity bootstrap recommendations: https://github.com/MSO4SC/Singularity/blob/master/docs/singularity_recommendations.asciidoc
+5.  MSO4SC Singularity bootstrap templates: https://github.com/MSO4SC/Singularity/tree/master/examples
+6.  DockerHub: https://hub.docker.com
+7.  SingularityHub: https://singularity-hub.org
+8.  Docker: https://www.docker.com
+9.  MSO4SC Workflow Definition Template https://github.com/MSO4SC/Singularity/blob/master/docs/Workflow_template.pdf
+10. Cloudify: http://cloudify.co
+11. Apache Aria: http://ariatosca.incubator.apache.org
+12. Prometheus: https://prometheus.io
+13. Grok: https://github.com/fstab/grok_exporter
+14. Vagrant: https://www.vagrantup.com
+15. MSO4SC D4.1 Detailed specifications for the MADFS
+16. Salome: http://www.salome-platform.org/
+17. Paraview: https://www.paraview.org/
+18. noVNC: http://novnc.com
+19. ParaviewWeb: https://www.paraview.org/web/
+20. FiWare: https://account.lab.fiware.org/
+21. KeyRock: https://catalogue.fiware.org/enablers/identity-management-keyrock
+22. OAuth 2.0: https://oauth.net/2/
+23. MSO4SC D5.1 Case study extended design and evaluation strategy
+24. ZIBAffinity work-flow: https://github.com/MSO4SC/Singularity/blob/master/docs/ZiBAffinity_workflow.pdf
+
+[[appendix]]
+= Appendix
+
+The following two figures show TOSCA example files. The first one describes a MADF based in FEniCS, while the second one describes a pilot with two FEniCS iterations and four post-processing operations.
+
+tosca_definitions_version: cloudify_dsl_1_3
+
+imports:
+
+_# to speed things up, it is possible to download this file,_
+
+- http://www.getcloudify.org/spec/cloudify/4.1/types.yaml
+
+_# HPC pluging_
+
+- http://raw.githubusercontent.com/MSO4SC/cloudify-hpc-plugin/master/plugin.yaml
+
+node_types:
+
+hpc.nodes.fenics_iter:
+
+derived_from: hpc.nodes.job
+
+properties:
+
+iter_number:
+
+description: Iteration index (two digits string)
+
+job_options:
+
+default:
+
+type: 'SBATCH'
+
+modules:
+
+- 'gcc/5.3.0'
+
+- 'impi'
+
+- 'petsc'
+
+- 'parmetis'
+
+- 'zlib'
+
+command: \{ concat: ['/mnt/lustre/scratch/home/otras/ari/jci/wing_minimal/fenics-hpc_hpfem/unicorn-minimal/nautilus/fenics_iter.script ', ' ', \{ get_property: [SELF, iter_number] }] }
+
+hpc.nodes.fenics_post:
+
+derived_from: hpc.nodes.job
+
+properties:
+
+iter_number:
+
+description: Iteration index (two digits string)
+
+file:
+
+description: Input file for dolfin-post postprocessing
+
+job_options:
+
+default:
+
+type: 'SBATCH'
+
+modules:
+
+- 'gcc/5.3.0'
+
+- 'impi'
+
+- 'petsc'
+
+- 'parmetis'
+
+- 'zlib'
+
+command: \{ concat: ['/mnt/lustre/scratch/home/otras/ari/jci/wing_minimal/fenics-hpc_hpfem/unicorn-minimal/nautilus/post.script ', \{ get_property: [SELF, iter_number] }, ' ', \{ get_property: [SELF, file] }] }
+
+[[_Toc496899673]]Figure 21. TOSCA file example 1
+
+tosca_definitions_version: cloudify_dsl_1_3
+
+imports:
+
+- maf-types.yaml
+
+inputs:
+
+_# Monitor_
+
+monitor_entrypoint:
+
+description: Monitor entrypoint IP
+
+default: "127.0.0.1"
+
+type: string
+
+_# Job prefix name_
+
+job_prefix:
+
+description: Job name prefix in HPCs
+
+default: "mso4sc"
+
+type: string
+
+_# CESGA FTII parameters_
+
+ft2_config:
+
+description: FTII connection credentials
+
+default: \{}
+
+_# SZE test infrastructure parameters_
+
+sze_config:
+
+description: SZE test infrastructure credentials
+
+default: \{}
+
+node_templates:
+
+ft2_node:
+
+type: hpc.nodes.Compute
+
+properties:
+
+config: \{ get_input: ft2_config }
+
+monitor_entrypoint: \{ get_input: monitor_entrypoint }
+
+monitor_orchestrator_available: True
+
+job_prefix: \{ get_input: job_prefix }
+
+_# simulate: True # COMMENT to test against a real HPC_
+
+first_iter:
+
+type: hpc.nodes.fenics_iter
+
+properties:
+
+iter_number: '00'
+
+_# deployment:_
+
+_# file: 'scripts/deploy.sh'_
+
+_# inputs:_
+
+_# - 'test'_
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+first_velocity_post:
+
+type: hpc.nodes.fenics_post
+
+properties:
+
+iter_number: '00'
+
+file: 'velocity'
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+- type: job_depends_on
+
+target: first_iter
+
+first_pressure_post:
+
+type: hpc.nodes.fenics_post
+
+properties:
+
+iter_number: '00'
+
+file: 'pressure'
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+- type: job_depends_on
+
+target: first_iter
+
+second_iter:
+
+type: hpc.nodes.fenics_iter
+
+properties:
+
+iter_number: '01'
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+- type: job_depends_on
+
+target: first_iter
+
+second_velocity_post:
+
+type: hpc.nodes.fenics_post
+
+properties:
+
+iter_number: '01'
+
+file: 'velocity'
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+- type: job_depends_on
+
+target: second_iter
+
+second_pressure_post:
+
+type: hpc.nodes.fenics_post
+
+properties:
+
+iter_number: '01'
+
+file: 'pressure'
+
+relationships:
+
+- type: job_contained_in_hpc
+
+target: ft2_node
+
+- type: job_depends_on
+
+target: second_iter
+
+outputs:
+
+first_iter:
+
+description: first iter job name
+
+value: \{ get_attribute: [first_iter, job_name] }
+
+first_velocity_post:
+
+description: first velocity postprocessing job name
+
+value: \{ get_attribute: [first_velocity_post, job_name] }
+
+first_pressure_post:
+
+description: first pressure postprocessing job name
+
+value: \{ get_attribute: [first_pressure_post, job_name] }
+
+second_iter:
+
+description: first iter job name
+
+value: \{ get_attribute: [second_iter, job_name] }
+
+second_velocity_post:
+
+description: first velocity postprocessing job name
+
+value: \{ get_attribute: [second_velocity_post, job_name] }
+
+second_pressure_post:
+
+description: first pressure postprocessing job name
+
+value: \{ get_attribute: [second_pressure_post, job_name] }
+
+[[_Toc496899674]]Figure 22. TOSCA file example 2

@@ -1,0 +1,675 @@
+= MSO4SC: D2.3 Initial Communication, Dissemination and Collaboration Plan
+:page-root: ../../../
+:page-permalink: /deliverables/d2.3/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d2.3/image1.PNG[image,width=165,height=156]
+
+MSO4SC
+
+D2.3 Initial Communication,
+
+Dissemination and Collaboration Plan
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|================================================================
+|Work Package |WP2 USER REQUIREMENTS AND DISSEMINATION
+|Due Date: |_M3(+1)_
+|Submission Date: |_31/01/2017_
+|Version: |_05_
+|Status |_Final for submission_
+|Author(s): |_Ton Langendorff (EU-MATHS-IN), Julia Wells (ATOS) _
+|Reviewer(s) a|
+_Wil Schilders (EU-MATHS-IN),Zoltán Horváth (SZE), _
+
+_Volker Mehrmann (MATHEON) _
+
+|================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d2.3/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|======================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|01 |23/01/2017 |Initial version a|
+_Ton Langendorff (EU-MATHS-IN)_
+
+_Wil Schilders (EU-MATHS-IN)_
+
+_Zoltán Horváth (SZE)_
+
+_Volker Mehrmann (MATHEON)_
+
+|02 |24/01/2017 |Revision and update |Julia Wells (Atos), Ton Langendorff (EU-Maths-IN)
+|03-04 |27/01/2017 |Further updates |Julia Wells (Atos)
+|05 |31/01/2017 |Final revisions for submission |Julia Wells (Atos)
+|======================================================================================
+
+[[list-of-figures]]
+= List of Figures
+
+Figure 1: overview of MSO4SC 9
+
+[[list-of-tables]]
+= List of tables
+
+Table 1. Acronyms 6
+
+Table 2: Stakeholders and commercial and academic interest 9
+
+Table 3: Dissemination KPI 13
+
+Table 4: Communcation KPI 15
+
+Table 5: Courses 17
+
+Table 6: Presentations 17
+
+Table 7: Posters 17
+
+Table 8: Collaboration with industry and organisations 18
+
+[[executive-summary]]
+= Executive Summary
+
+The major objective of the project MSO4SC is to construct an e-infrastructure for MSO) (Mathematical Modelling, Simulation and Optimisation. This document details the plan for the project communication, dissemination, and collaboration strategy, which will be periodically refined throughout the project lifetime as a living document. It identifies the main stakeholders and user communities and lays out the dissemination and communication and collaboration plan for activities to reach out, communicate, and engage with stakeholders. The success of this plan is dependent on the participation of all the partners of MSO4SC.
+
+[[introduction]]
+== Introduction
+
+The major objective of the project MSO4SC is to construct an e-infrastructure that provides, in a user-driven, integrative way, tailored access to the necessary services, resources and even tools for fast prototyping, providing the service producers with the mathematical frameworks as well. The e-infrastructure consists of an integrated MSO (Mathematical Modelling, Simulation and Optimisation) application catalogue that contains models, software, validation and benchmarking as well as the MSOcloud: a user friendly cloud infrastructure for selected MSO applications and developing frameworks from the catalogue.
+
+The e-infrastructure will be effective if contacts with the target groups can be realised. First, the results of the research and development must be disseminated to the audience. Secondly, feedback may result in communication that has to be fostered. The effect is optimal if several target groups indeed make use of the e-infrastructure by collaborating with the partners of the MSO4SC project.
+
+Communication and dissemination are very much related. Dissemination is sending a message one-way [  ] and communication is reciprocal [  ]. Often this means overlap. Therefore this plan deals with dissemination and communication together.
+
+As regards collaboration, a separate plan will be presented. This plan contains, among other actions, the first steps towards a vision paper for a European Technology Platform for MSO, ETP4MSO.
+
+[[purpose]]
+=== Purpose
+
+MSO4SC has an audience consisting of three groups (providers, MADF users, end users). Part of this audience is known by the partners of the MSO4SC project, but evidently, new audiences must be recruited. The activities of the Communication and Dissemination plan will be directed to both existing and new audiences.
+
+There are groups of users in the field of MSO with whom the MSO4SC partners are already collaborating. It is also important to recruit new groups for further collaboration.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+All deliverables will include a glossary of Acronyms of terms used within the document.
+
+[cols=",",options="header",]
+|===============================================================
+|*Acronym* |*Definition*
+|*CA* |Consortium Agreement
+|*D* |Deliverable
+|*DoA* |Description of Action
+|*DRS* |Document Review Sheet
+|*EC* |European Commission
+|*ETP* |European Technology Platform
+|*HPC* |High Performance Computing
+|*HPC-aaS* |HPC as a Service
+|*MADF* |Math Application Development Frameworks
+|*MSO* |Mathematical Modelling, Simulation and Optimisation
+|*MSO4SC* |MSO for Societal Challenges with Scientific Computing
+|*PAR* |Periodic Activity Report
+|*PC* |Project Coordinator
+|*PM * |Project Manager
+|*PMB* |Project Management Board
+|*PO* |Project Officer
+|*STM* |Scientific and Technical Manager
+|*SPR* |Semester Progress Report
+|*WP* a|
+____________
+Work Package
+____________
+
+|*WPL* a|
+___________________
+Work Package Leader
+___________________
+
+|*WPR* a|
+___________________
+Work Package Report
+___________________
+
+|===============================================================
+
+[[_Toc473641227]]Table 1. Acronyms
+
+[[partner-networks]]
+== Partner networks
+
+Prior to project start, partner networks were identified. These networks will be leveraged to carry out the communication, dissemination and collaboration throughout the course of the project. These networks are detailed below:
+
+*Atos* chairs the HPC cPPP ETP4HPC and has steering board positions in the Future Internet PPP, the Big Data Value Association and the ETP NESSI. As an industry giant, and Europe’s’ largest commercial HPC player (through the brand Bull), ATOS has strong links to analysts and the press. Through corporate social media tools, the project team can disseminate directly to 100,000 business technologists world-wide. These channels will be leveraged in the project.
+
+*MATHEON*: Based on its proven expertise over the last 15 years in application-oriented mathematical research and its vast experience in industrial cooperation (well over 100 cooperation partners from industry, SMEs, economy and other sciences) MATHEON will be able to effectively contribute to the communication and dissemination of the MSO4SC results
+
+*UNISTRA* with its structure *Cemosis* has a unique entry point for academic and industry collaboration in MSO, not only it is a portal between industry and academia but it is also the regional agency of the french agency for interaction between mathematics and entreprises (AMIES).
+
+Cemosis is deeply connected to the Master in Scientifc Computing and Mathematics of Information and will use MSO4SC in classes to illustrate industrial problems to the students and train them with modern tools.
+
+Cemosis will demonstrate the MSO4SC/Feel++ applications at national/international conferences and in particular the Feel++ User Days.
+
+Cemosis and AMIES will work together to disseminate this MSO4SC throughout other research centers and entreprises in France through _(I)_ training sessions proposed through the MSO french training network FoCal (http://formation-calcul.fr/presentation) , _(ii)_ AMIES monthly newsletter distributed online to several thousand members (entreprises, students, researchers…) for regular spotlight on MSO in entreprises using MSO4SC as well as regular posts on AMIES LinkedIn group (also several thousand members) and _(iii)_ collecting and displaying online success stories of MSO4SC.
+
+Cemosis with LNCMI will ensure the dissemination of MSO4SC/HiFiMagnet applications to EMFL for commissioning and control of resistive magnets and demonstrate the platform at international conferences such as Magnet Technology.
+
+Cemosis with IUPUI and the Glick Institute will demonstrate the MSO4SC/Eye2brain applications to international conferences such as ARVO as well.
+
+*SINTEF:* The participating group has an extensive network of contacts and collaborators from both academia and industry. Success stories are shared with this network and shape future projects. We disseminate our results through scientific articles, conference participation and organizing workshops. The OPM web site and mailing list are also natural marketing channels for the results of this project.
+
+*BCAM's* dissemination strategy aims to maximize the impact of project results among key target audience, particularly in the academic sector. The results of the experiments and the numerical simulations on the application cases will be presented at relevant seminars, workshops and conferences. Our FEniCS software framework has ca. 50000 downloads per year, and high international visibility with several prizes and grants: Wilkinson Prize for numerical software, PRACE Tier-0 supercomputing grant, VINNOVA Swedish Innovation Agency grant, ERC Proof of Concept grant, Best Minisymposterium at SIAM CSE 2015, several best poster awards at high-impact conferences, high-impact journal publications in the top journals of the field, etc. This provides a large audience for dissemination of the results of the project and user-base of the developed software.
+
+*SZE*, situated and built-in into Hungary's leading industrial area acts as a regional centre in technology transfer as well. As managing plenty of projects with industry and being one of the leaders in that activity in Hungary. SZE chairs the Hungarian national network of EU-MATHS-IN, the HU-MATHS-IN and is leading a consortium in a national call for the development of its networking and research activities. This includes exploitation of European project results of the involved partners in particular those by MSO4SC.
+
+*ZIB* supports a lot of training and outreach projects, e.g. by participation in graduate schools and scientific events, or offering lectures and courses (see https://www.zib.de/training-and-outreach). The appointed membership within the DWA (German Association for Water, Wastewater and Waste, the umbrella organization of potential users of ZIBaffinity in Germany) and connections to several industrial partners will help spreading ZIBaffinity. The HPC services offered by ZIB within HLRN (a supercomputing facility of northern German states) are a natural means to promote the frameworks and services developed in MSO4SC.
+
+*CESGA* will disseminate the results among their users, more than 600 from tens of research centres in Spain, and will present the results and achievements of the project in HPC events where it participates usually, as HPC user meetings and PRACE events. Also, CESGA publishes its own newsletter with more than 3000 subscriptions. Finally, those results that can be technically relevant to be published in scientific journals will be documented and submitted to major journals in the HPC field as International Journal of High Performance Computing Applications or Future Generation Computing Systems. However, when possible, open access journals will be used to maximize the impact and public repositories ad Arxiv.org will be used as well.
+
+*KTH* has an extensive network of contacts and collaborators from academia and industry, and is a main developer of the FEniCS project, a large community of users and developers, with annuals meetings, and ca. 50000 downloads of the software per year.
+
+*EU-MATHS-IN*, being a service network of currently 14 national networks in Europe, comprises over 2,000 estimated users for the MSO4SC infrastructure. As these users come both from the mathematical community (“creators” of mathematical innovations) and from industry and other sciences (“users” of mathematical innovations it is predestined to act as a bridge between these two stakeholder groups. Thus, EU-MATHS-IN will effectively contribute to the dissemination and communication of the MSO4SC results.
+
+[[section]]
+==
+
+[[communication-and-dissemination]]
+== Communication and Dissemination
+
+Communication and dissemination are two activities that are related. For the sake of clearness the two activities are described separately.
+
+1.  [[dissemination]]
+=== Dissemination
+1.  [[stakeholders]]
+=== Stakeholders
+
+The project has three major audiences: the HPC/Cloud providers, the MADF users and the users of the MADF, users of the platform and catalogue, respectively, as represented in the following diagram.
+
+[cols="",]
+|========================================================
+|image:media/d2.3/image3.png[image,width=522,height=62]
+|========================================================
+
+[[_Toc473641035]]Figure 1: overview of MSO4SC
+
+The focus on each is distinct, and can be seen from both the commercial and academic perspectives:
+
+[cols=",,",options="header",]
+|==================================================================================================================
+|*Stakeholder* |*Commercial interest* |*Academic interest*
+|Providers |Potential source of revenues (platform) |Amalgamation of Cloud & HPC, high performance cloud and HPCaaS
+|MADFs a|
+Potential source of compute resources (platform)
+
+Potential source of revenues (catalogue)
+
+Potential genesis of new tools (development kit)
+
+ a|
+Migrating from HPC to cloud, when to choose which, optimizing across amalgamated cloud-HPC.
+
+Evolution and commoditization of tools and their potential
+
+|MSOs |Potential source of Math tools-as-a-Service |N/A
+|==================================================================================================================
+
+[[_Toc473641228]]Table 2: Stakeholders and commercial and academic interest
+
+In particular, with an eye to sustainability of the work, MSO4SC must focus on “recruitment”. New providers must be recruited to start providing their resources through the platform. New MADFs must be recruited to populate the catalogue and to build the necessary volume to sustain the provider’s interest. New end users must be recruited to consume resources from the catalogue.
+
+In addition to providers and users, other key targets for dissemination include: researchers, investors, students and standards organisations. Researchers must be informed both of the overall vision for the project, to influence research roadmaps and thinking, and specific results in individual research domains (HPC, HPC-asS, federated/multi cloud, maths frameworks ...).
+
+Investors should be informed of the business case for MSO4SC, which may lead to start-ups and capital flow in order to take advantage of the platform and/or catalogue.
+
+Students at Master and PhD level should be informed of tangible advances in the art and how this affects their research areas and how this will affect the market in the future. In particular, relevant Master students should be aware of the impact of commoditized MADF. Undergraduates should be targeted through communication rather than dissemination. WP2 will lead the MSO4SC Academy by producing a set of training and demonstration materials.
+
+Standards organisations should be informed of the potential uses of upstream products and services, of new knowledge and scenarios stemming from MSO4SC which could require standardisation, and also receive feedback on the adequacy or inadequacy of existing standards for the MSO4SC solution, and what impact that might have on the evolution of the standard in question.
+
+[[approach]]
+=== Approach
+
+Dissemination (and communication) will follow the standard approach of *PLAN, ACT, OBSERVE, REPLAN*, which is common to all mature dissemination and marketing strategies.
+
+*Plan* - The consortium will plan a series of activities, following the WHO?, WHAT?, WHY?, WHEN?, HOW? approach, whereby the answer to each successive question conditions the answer to the next: Who will be targeted? (stakeholder breakdown), What will be disseminated? (knowledge, results, training...), Why does the stakeholder want to know this?, Why does the project want the stakeholder informed? When is the project going to be ready to disseminate this?, Coordination with annual market schedules (expos, conferences, financial year, announcements). How should the result best be communicated, at this time, to this stakeholder for this purpose? (choice of medium, messaging, focus, etc.)
+
+*Act* - The consortium will assign the planned actions according to the Description of Action, the appropriateness of the organisation and the positioning of the organisations and individuals concerned (e.g. role in standards organisation, or experience managing conference stands).
+
+*Observe* - The consortium will develop an extensive set of key performance indicators (a summary of indicative KPIs is shown below). KPIs will exist for breadth and depth of coverage (number of stakeholder segments reached, level of understanding gained), and the comprehensiveness of the campaign (all scientific and exploitable results disseminated). Importantly, the KPIs will focus on impact (e.g. number of article ‘read’s is more relevant than the number of articles published).
+
+*Replan* – The Community Liaison Leader (dissemination manager – EU-Maths-IN) will update the plan periodically with input from all partners, based on the feedback and impact achieved. The plan will be contractually updated according to the deliverable schedule.
+
+The Community Liaison Leader participates in the Project Management Board for close follow-up of activities.
+
+[[means]]
+=== Means
+
+A wide variety of means are established as standard practice in the communication and dissemination of scientific knowledge and the marketing of innovative solutions.
+
+Typically commercial actors are better targeted through articles in the trade press, whitepapers, videos and face to face discussions at conferences and trade shows.Scientific knowledge is most appropriately disseminated through peer reviewed journals and papers at scientific conferences. This is then supplemented through posters, videos, technical documentation, tutorials and workshops.
+
+However in this particular case, the distinction between market and academia is no so discrete: Supercomputing centres are invariably academic by nature. The MADFs are also originating in academia. Even further downstream the simulations are typically developed by academics, and the domain experts are equally likely to be academics.MSO4SC must use a hybrid approach. Furthermore, the communities are not particularly large communities: there is a limited number of supercomputing centres, clusters such as EU-MATHS-IN give access to a large number of the mathematicians working in this field.
+
+Given the relatively short duration of the action, as well as this unusual situation, conferences and similar events are of particular interest because they allow us to address large sections of the community directly, as well as follow-on one-on-one contact to key individuals. Additionally the trade press, in which we include the newsletters and equivalents of the mentioned communities provides an ideal access to them.
+
+The role of the internet and social media is crucial in the above. Documentation can be made available online, including open access repositories for publications. Sites such as YouTube, Slideshare and SCRIBD host videos, presentations and documents respectively. Workshops can be held online, with virtual meetings and webinars. Stakeholders access the material both offline and online, live and in their own time. The project website is a critical reference point for hosting information. Social media, particularly Twitter, but also sites such as LinkedIn provide a crucial role in spreading news and the dissemination (and communication) activities must leverage social media to an optimum point. Finally the use all of these means, both online and offline must be considered from the point of view of receiving feedback from stakeholders. This forms an inherent part of tools such as Twitter and LinkedIn, but can also be fomented through the inclusion of forums, for example, on the website, or participation in other for a, and though cross posting across multiple channels.
+
+Examples of channels to be used
+
+_Following is a list of initially identified channels. _
+
+_Conferences _
+
+* Europar 2017: 23RD International European Conference On Parallel and Distributed Computing. http://europar2017.usc.es/:
+* ILAS 2017
+* SPE Reservoir Simulation Conference (SPE)
+* SIAM Conference on Mathematical and Computational Issues in the Geosciences (SIAM)
+* European Conference on the Mathematics of Oil Recovery (EAGE)
+* Computational Methods in Water Resources
+* FAIRMODE (Forum for Air Quality Modelling in Europe), Technical meeting 2017
+* HARMO18 - The 18th international conference on Harmonisation within Atmospheric Dispersion Modelling for Regulatory Purposes
+* 11th International Conference on Air Quality - Science and Application
+* Magnet Technology Conference
+* ARVO Conference - http://www.arvo.org/
+* National societies for Applied and Industrial mathematics conferences
+* ISC-HPC
+* CloudScape
+
+_Other events _
+
+* FAIRMODE technical and annual meetings - Forum for air quality modelling in Europe, http://fairmode.jrc.ec.europa.eu/
+* Workshops and technical meetings of COST ACTION TD1105 - European Network on New Sensing Technologies for Air-Pollution Control and Environmental Sustainability, EuNetAir
+* UNISTRA regularly organizes workshops (they are a member of the DWA)
+* Mathematics industry meetings organized by EU-MATHS-IN and its national counterparts
+* Societies for Applied and Industrial mathematics events with industry
+* Cloud Expo Europe
+* Supercomputing
+
+_Peer reviewed journals to target _
+
+* Journal of Grid Computing: http://www.springer.com/computer/communication+networks/journal/10723:
+* Atmospheric Environment
+* Environmental Modelling and Software
+* Journal of Computational Physics
+* SPE Journal (SPE)
+* Computational Geosciences (Springer)
+* Advances in Water Resources (Elsevier)
+* SIAM Scientific Computing Journal
+* ACM TOMS
+1.  [[key-performance-indicators]]
+=== Key Performance Indicators
+
+A subset of indicative KPIs is shown below. A more complete set will be developed as part of the process of maturing this initial dissemination and communication plan. Each activity undertaken will be evaluated with respect to relevant KPIs.
+
+[cols=",,,",options="header",]
+|===========================================================================================================================
+|*Activity* |*Stakeholder* |*Activity KPI* |*Impact KPI*
+|_Speaking engagements_ |All |13 conferences |1500 audience members total
+|_Papers published_ |Providers, MADFs |4 publications |350 reads
+|_Peer reviewed publications_ |Providers, MADFs |2 publications |20 citations
+|_Poster session & event stands_ |Providers, MADFs |5 events |150 in depth discussions and 50 leads for further explorations
+|_Whitepapers_ |Providers, MADFs, Simulators |3 whitepapers |300 reads
+|_Videos_ |Providers, MADFs, Simulators |2 videos |800 views
+|_Workshops and webinars_ |Providers, MADFs, Simulators |6 workshops/webinars |600 attendees / views
+|_Seminars and training_ |Providers, MADFs |2 lectures or modules |150 students educated
+|===========================================================================================================================
+
+[[_Toc473641229]]Table 3: Dissemination KPI
+
+The intention of the project is to expand on the number and specificity of the KPIs in accordance with a detailed plan for communication. Preparation of that plan will involve detailing a timeline of opportunities (publication dates, events calendar ...) and a clearer understanding of what the project will have to show at each point in time. Deeper understanding of the opportunities and who is best placed to exploit them (often having an “insider” can make all the difference) is required and this will be an ongoing process. As this analysis becomes clear, bespoke KPIs can be established that make the most strategic sense for the project (in the case of web, backlinks, referrals), in social media (key people to have following or retweeting) or physical (number of stand attendees or documents distributed or follow up inquiries),
+
+1.  [[communication-activities]]
+=== Communication activities
+1.  [[stakeholders-1]]
+=== Stakeholders
+
+Stakeholders for the communication of MSO4SC include: The wider maths sector, the wider IT industry, the wider scientific community, policy makers, relevant undergraduates and the general public.
+
+The wider maths sector should be made aware of what is being done with on demand provisioning of the MADFs, because they can learn lessons for their own areas, or potentially take advantage of the new tools.
+
+The wider IT industry should be made aware of the results of MSO4SC because i) the application area may be ripe for further innovation coming from other areas of IT, and ii) the amalgamation of Cloud and HPC is of significant impact across the industry.
+
+The wider scientific community needs to be made aware, because they are downstream of these innovations and therefore likely to see the impact.
+
+Policy makers should be made aware of i) the existence of the tools and services, which can find use in multiple areas, and ii) the strategy of making a significant change high up the value chain in order to create significant impact further downstream.
+
+Undergraduate students in relevant fields should be made aware of the sort of innovations being created and how they are applied. More advanced learning for postgraduates is covered under dissemination.
+
+The general public should be made aware of how EC funding is targeting all areas of the value chain, how the now popular ‘cloud’ can be applied to maths models with value propagating down the value chain.
+
+[[approach-1]]
+=== Approach
+
+Communication also follows the same *Plan – Act – Observe – Replan* cycle, mentioned above, with the plan based on the same Who?, What?, Why?, When?, How? concept.
+
+[[means-1]]
+=== Means
+
+Two key communication tools are social media and the website.
+
+_*Social Media *_
+
+In particular LinkedIn and Twitter will be used by the project. Dedicated accounts will be created for both. Both were mentioned under dissemination and the role is dual: they can be used to spread news of more in depth informational resources, or to share light news on achievements, observations, events, relevant third party content and so on. In particular Twitter can be used to identify and follow significant individuals and organisations that are relevant to commercial and scientific impact. The project can engage with these Twitter accounts in discussion, with the benefit of potential endorsement and of reaching the other’s followers and in turn, follower’s followers. Social media can also be considered in the case of all feedback solicited from the community at large: polls, comments, questionnaires, etc.
+
+_*Website *_
+
+The website is a key communication and dissemination point for the project. It is where stakeholders can have a first introduction to the project, where interested stakeholders can be directed for concrete documents or downloads, where the community can be consulted through polls. Different landing pages can be created for different entry points (word of mouth, backlinks, search engine results… The use of the site made by visitors will be tracked and analysed and the content will be optimised for search engine results pages.
+
+The domain http://www.mso4sc.eu[www.mso4sc.eu] has been registered and the website is under construction.
+
+_*Other* communication means are_:
+
+* *Videos* – videos introducing the project and business case can be produced
+* *Posters* – Eye catching posters to quickly capture attention and transmit core messages
+* *Press releases* – Wide circulation of relevant news and relevant milestones
+* *Flyers* *–* Pamphlets describing the project for distribution at events with the intention of generating leads.
+* *Branding* *–* a common look and feel to the project’s results and information helps generate an identity and increases the likelihood of engagement.
+* *Newsletter* – a regular update on activity and achievements to send to interested individuals.
+* *Guest blogging and articles* – MSO4SC contributors will write articles and blogs for publication on third party sites, including those of the e-infrastructure community, as well as relevant industry and scientific communities
+
+All of the above list can be applied to both the online and offline communication. Additionally, in the online world we can consider content seeding as an important communication tool. This refers to seeding discussion in third party communities, such as forums, debating boards, Wikipedia and using the comment sections on relevant articles. Naturally this must be done ethically.
+
+[[key-performance-indicators-1]]
+=== Key Performance Indicators
+
+As for dissemination, KPIs will be used to check both the activity and the impact of the consortium’s communication actions. Indicative KPIs are shown:
+
+[cols=",,,",options="header",]
+|=================================================================================
+|*Activity* |*Stakeholder* |*Activity KPI* |*Impact KPI*
+|Website |All |Weekly content updates a|
+2000 unique visitors p.a.
+
+Avg. time on site > 4 minutes
+
+150 back links
+
+|Twitter |All a|
+3 updates / week
+
+300 “followed”
+
+ |200 followers
+|Newsletters |All |4 (semester basis) |100 subscribers
+|Press releases |General industry |3 |30 publications
+|Collaboration events |Wider research community |2 |Networking with 75+ scientists
+|Flyers |All |2 |150 copy print runs / version
+|=================================================================================
+
+[[_Toc473641230]]Table 4: Communcation KPI
+
+[[actions]]
+=== Actions
+
+As already stated, communication is very much related to dissemination in that the material and the means often overlap, that the two activities run side by side (a press release to announce a milestone coupled with a whitepaper or tutorial for more involved stakeholders) and that individual communication targets may well evolve to become dissemination targets.
+
+For this reason, as already mentioned, the two activities will be centrally managed and share the same activity plan. To this end, concrete actions are defined:
+
+*Action 1:* The MSO4SC partners will make and keep current a short list of their most important (existing) providers, MADF users, and end users.
+
+Examples have been mentioned of the means for dissemination and communication (conferences, other events, peer reviewed journals, website, Twitter etcetera).
+
+*Action 2:* the partners of MSO4SC will supplement these lists.
+
+The following tables give a partial impression of the activities in the field of communication and dissemination already initiated by the partners of MSO4SC. It is an initial list and serves as an example.
+
+*Action 3:* other entries will be added continuously by all partners as they contribute to the dissemination and communication activities of MSO4SC.
+
+[cols=",,,",options="header",]
+|=================================================================================================================================================================================================================================================================================================================================================================================================
+|*Name* |*Courses* |*Country* |*Organisation*
+|Christophe Prud’homme a|
+Jan. 25 – one day course on Feel++ in Paris. ‘Solving PDEs with Feel++’ (in French)
+
+We use Feel++ inside Docker for the course and use parallel computing. The Docker images are currently distributed via DockerHub.. We are currently expanding our documentation and preparing a set of slides. This work can be clearly be reused for the project and Cemosis is planning other similar courses .
+
+ |F a|
+Cemosis, U. Strasbourg
+
+http://calcul.math.cnrs.fr/spip.php?article274
+
+a|
+Johan
+
+Jansson
+
+ a|
+The KTH MOOC Steering Committee selected the proposal "High  performance finite element modeling" (MOOC-HPFEM) based on BCAM’s  state-of-the-art research in Finite Element Methods (FEM),  Computational Fluid Dynamics (CFD), High Performance Computing (HPC)  and FEniCS-HPC software, and associated courses given at KTH  and internationally on these topics. The MOOC-HPFEM course will be
+
+developed during spring and summer 2017, launched in September and  be available online for at least one year. The Cloud-HPC infrastructure developed in MSO4SC would be a clear candidate as a computational infrastructure for HPC lab work in the course.
+
+ |ES |BCAM
+|=================================================================================================================================================================================================================================================================================================================================================================================================
+
+[[_Toc473641231]]Table 5: Courses
+
+[cols=",,,",options="header",]
+|===========================================================================================================================================================================================================================================================================
+|*Namem* |*Presentations* | |*Organisation*
+|Christophe Prud’homme |Keynote at at a workshop in Roma in biomedical imaging (related to the mso4sc/eye2brain application) on Feb 9. Demonstrates some MSO4SC work   |F a|
+Cemosis, U. Strasbourg
+
+http://congressi.iac.cnr.it/mathtech-ibm2017
+
+|Christophe Prud’homme |Mso4SC at a math-enterprise workshop at Institut Henri Poincaré in Paris in November 2016 |F |Cemosis U. Strasbourg
+|Christophe Prud’homme |Mso4SC at the scientific council of the French math-enterprise agency at Institut Henri Poincaré in Paris, December 2016 |F |Cemosis, U. Strasbourg
+a|
+Johan
+
+Jansson
+
+ |Invited lecture: description of Floating Wind Turbine pilot in MSO4SC for "Hydrodynamic modelling of wave energy  converters" workshop at BCAM in Bilbao on April 3-7 2017, organised  by University of Bordeaux. |ES |BCAM
+a|
+Johan
+
+Hoffma
+
+N
+
+ |SIAM Conference on Computational Science and Engineering in Atlanta, US: 2 presentations on the FEniCS-HPC framework  |S a|
+KTH
+
+https://www.siam.org/meetings/cse17/[https://www.siam.org/meetings/cse17/] 
+
+a|
+Atgeirr
+
+Rasmussen
+
+ |SIAM GS 2017, Erlangen (Germany) September 11—14, 2017 |NO |SINTEF
+|Marcus Weber |Specifying user requirements for ZIB Affinity (together with possible end users): Dec 6th-7th 2016 meeting with a team of experts for waste water cleaning, "Behörde für Gesundheit und Verbraucherschutz, Institut für Hygiene und Umwelt", Hamburg. |D |ZIB
+|===========================================================================================================================================================================================================================================================================
+
+[[_Toc473641232]]Table 6: Presentations
+
+[cols=",,,",]
+|======
+| | | |
+|======
+
+[cols=",,,",]
+|======
+| | | |
+|======
+
+[cols=",,,",options="header",]
+|============================================================================================================
+|*Name* |*Poster* | |*Organisation*
+a|
+Atgeirr
+
+Rasmussen
+
+ |SIAM CSE 2017, Atlanta (USA), February 27 – March 2, 2017. https://www.siam.org/meetings/cse17/ |NO |SINTEF
+a|
+Atgeirr
+
+Rasmussen
+
+ |Climit Summit, Oslo (Norway) |NO |SINTEF
+|============================================================================================================
+
+[[_Toc473641233]]Table 7: Posters
+
+[cols=",,,",options="header",]
+|============================================================================================================================================================================================
+|*Name* |*Company* */ organization* | |*Organisation*
+a|
+Atgeirr
+
+Rasmussen
+
+ |Statoil (Norway): wide range of improvements for OPM and Flow. |NO |SINTEF
+a|
+Atgeirr
+
+Rasmussen
+
+ |TNO (Netherlands): using Flow for ensemble methods. |NO |SINTEF
+|Christophe Prud’homme |Socomec, Axessim, Burkert: presentation of the project, its objective and why it could be interesting to these companies upon completion.  |F |Cemosis, U. Strasbourg
+a|
+Atgeirr
+
+Rasmussen
+
+ a|
+OPM website: Open Porous Media Simulator.
+
+The OPM website, the OPM mailing list and GitHub discussions are important ways for the OPM community to reach new and existing users of all kinds.
+
+ |NO a|
+SINTEF
+
+http://www.sintef.no/projectweb/opm/
+
+|============================================================================================================================================================================================
+
+[[_Toc473641234]]Table 8: Collaboration with industry and organisations
+
+[cols=",,,",]
+|======
+| | | |
+|======
+
+_*Key performance indicators*_
+
+Several performance indicators have been listed in this document. The diversity of the indicators can cause some problems:
+
+* are some indicators more important than others?
+* is there one Key performance indicator (KPI) or are there more than one?
+* how to weight the importance of the indicators?
+* how to relate the outcomes to some sort of standard (c.f. the citation impact factors of journals)?
+
+*Action 4:* KPI will be revised on an ongoing basis for relevance. Part of the Communication and Dissemination Plan is to investigate whether these indicators can be clustered into a small set. If so. this set can form a dashboard with only three signs: +, 0, − . If the dashboard is final, a zero position can be determined in order to assign the +, 0, − to the indicators in a later position.
+
+_*Stakeholders, means, performance indicators*_
+
+*Action 5:* Every partner of MSO4SC will try to recruit 3 new target groups:
+
+* one HPC/Cloud provider
+* one MADF user
+* one end user
+
+This will result in 30 new target groups. The partners will report the means that have been used in order to reach these groups (conference, twitter etcetera).
+
+The partners will report about the following items:
+
+* the names of the three (or more) target groups
+* what means have been used to reach them?
+* what indicators are suitable to measure the impact?
+
+1.  [[collaboration]]
+== Collaboration
+1.  [[collaboration-activities-by-mso4sc-partners]]
+=== Collaboration activities by MSO4SC partners
+
+Each partner of the MSO4SC project has identified unique achievements and assets that are relevant for dissemination and communication. In most cases these have been upgraded to collaboration on a national and international level. An overview of some of these activities is given below.
+
+MSO4SC will rely on the infrastructure services of *EGI* and *PRACE.* EGI provides the *EGI FedCloud* cloud services, so MSO4SC will request access to some of these resources for running the pilots. One of the partners in MSO4SC (CESGA) is also partner in EGI FedCloud, which will facilitate a good collaboration between MSO4SC and EGI FedCloud.
+
+On the other hand, PRACE provides supercomputing services all over Europe. MSO4SC desires to use these supercomputing services for running large MPI simulations on supercomputers and, therefore, we will request access to some of these resources. Two partners of the consortium (KTH and CESGA) are also partners in PRACE, which will facilitate a good collaboration between MSO4SC and PRACE.
+
+For further information:
+
+* EGI-Engage:  https://wiki.egi.eu/wiki/EGI-Engage:Main_Page
+* PRACE 5IP: https://www.bsc.es/research-and-development/projects/prace-5ip-prace-5th-implementation-phase-project
+
+*Atos* chairs the HPC cPPP ETP4HPC and has steering board positions in the Future Internet PPP, the Big Data Value Association and the ETP NESSI. The TANGO project has also contacted Atos regarding the TANGO Alliance (http://www.tango-project.eu/).
+
+*MATHEON* has a vast experience in industrial cooperation (well over 100 cooperation partners from industry, SMEs, economy and other sciences)
+
+*UNISTRA* with its structure *Cemosis* has a unique entry point for academic and industry collaboration in MSO, not only it is a portal between industry and academia but it is also the regional agency of the french agency for interaction between mathematics and entreprises (AMIES).
+
+*SINTEF:* has an extensive network of contacts and collaborators from both academia and industry. Success stories are shared with this network and shape future projects.
+
+*BCAM's* FEniCS software framework has ca. 50000 downloads per year, and high international visibility with several prizes and grants: Wilkinson Prize for numerical software, PRACE Tier-0 supercomputing grant, VINNOVA Swedish Innovation Agency grant, ERC Proof of Concept grant, Best Minisymposterium at SIAM CSE 2015, several best poster awards at high-impact conferences, high-impact journal publications in the top journals of the field, etc. This provides a large audience for dissemination of the results of the project and user-base of the developed software, which could be further leveraged to explore collaboration opportunities.
+
+*SZE*, situated and built-in into Hungary's leading industrial area acts as a regional centre in technology transfer as well, providing opportunities for collaboration.
+
+*ZIB* supports a lot of training and outreach projects and connections to several industrial partners will help spreading ZIBaffinity. The HPC services offered by ZIB within HLRN (a supercomputing facility of northern German states) are a natural means to promote the frameworks and services developed in MSO4SC and could open doors to collaboration opportunities.
+
+*CESGA* is a partner of PRACE, as detailed above.
+
+*KTH* has an extensive network of contacts and collaborators from academia and industry, and is a main developer of the FEniCS project, a large community of users and developers, with annuals meetings, and ca. 50000 downloads of the software per year.
+
+*EU-Maths-IN* leverages its international network of 14 national networks in Europe, which comprises over 2,000 estimated users for the MSO4SC infrastructure. To _maximise_ the exploitation of the MSO4SC results it was decided at the meeting of the members of EU-MATHS-IN (in December 2016) to work towards a European Technology Platform for MSO, ETP4MSO.
+
+This last action is of considerable relevance for EU-Maths-IN and MSO4SC. The process of this action towards a Strategic Research Agenda of ETP4MSO is as follows:
+
+* _______________________________
+A writing team has been formed.
+_______________________________
+* _______________________________________________________________________________________
+Members of the extensive EU-MATHS-IN network will be consulted on a face-to-face basis.
+_______________________________________________________________________________________
+* __________________________________________________________________________________________________________________
+Some representatives of science policy, advisory councils, universities and research instituted will be consulted.
+__________________________________________________________________________________________________________________
+* _________________________________________________________________________
+Two or three workshops with mathematicians and stakeholders will be held.
+_________________________________________________________________________
+* ____________________________________________________________________________________________________________________________________________________________________
+At the end of 2017 or the beginning of 2018 a general assembly of the members of EU-MATHS-IN and stakeholders will discuss the draft of this vision paper of ETP4MSO
+____________________________________________________________________________________________________________________________________________________________________
+* _______________________________________________________________________________
+Strategic Research Agenda for ETP4MSO will be formed based on this vision paper
+_______________________________________________________________________________
+
+Further collaboration activities will be identified throughout the project.
+
+[[conclusion]]
+== Conclusion
+
+This document has outlined the initial base for the communication, dissemination and collaboration plan. It will be continually updated throughout the project and aligned with project milestones and outcomes.
+
+[[references]]
+= References
+
+1.  [[_Ref467573084]]MSO4SC Description of Work (DoA). Annex I to the EC Contract.
+2.  MSO4SC website: www.mso4sc.eu
+3.  EU-Maths-IN website: http://www.eu-maths-in.eu
+4.  EGI-Engage:  https://wiki.egi.eu/wiki/EGI-Engage:Main_Page
+5.  PRACE 5IP: https://www.bsc.es/research-and-development/projects/prace-5ip-prace-5th-implementation-phase-project
