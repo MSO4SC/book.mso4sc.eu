@@ -155,10 +155,7 @@ Finally, in sections link:#_1y810tw[4], 5 and 6 we describe the MSO4SC current a
 |*OPM* |Open Porous Media
 |*RANS* |Reynolds Averaged Navier-Stokes equations
 |*TRL* |Technology Readiness Level
-|*WP* a|
-____________
-Work Package
-____________
+|*WP* a| Work Package
 
 |=====================================================
 
@@ -338,29 +335,17 @@ The construction of the containers has to be automated within a continuous integ
 |===============================================================================================================================================================================================================================
 |*MADFs* |*CI / CD*
 |FEniCS a|
-* ________________________________________________________________________________________
-*Jenkins* is used for continuous integration testing (CI) of branches in the repository.
-________________________________________________________________________________________
-* ___________________________________________________________________________________________________
-Automatic testing on HPC systems will be completed within MSO4SC. It is currently under development
-___________________________________________________________________________________________________
+* *Jenkins* is used for continuous integration testing (CI) of branches in the repository.
+* Automatic testing on HPC systems will be completed within MSO4SC. It is currently under development
 
 |Feel++ a|
-* ___________________________________________________________________________
-*Travis*: multiple systems (Ubuntu/debian flavors) and compilers are tested
-___________________________________________________________________________
-* __________________________________________________________________________________________________________________________________________
-*Buildkite*: Feel++ and its toolboxes are built and deployed on Docker Cloud(Hub) and Singularity images are generated from Docker images.
-__________________________________________________________________________________________________________________________________________
+* *Travis*: multiple systems (Ubuntu/debian flavors) and compilers are tested
+* *Buildkite*: Feel++ and its toolboxes are built and deployed on Docker Cloud(Hub) and Singularity images are generated from Docker images.
 ** Update since D4.1: A specific singularity build pipeline has been created with latest singularity version support
 
 |OPM a|
-* ________________________________________________________________________________
-Jenkins is used for continuous integration testing (CI) of the software modules.
-________________________________________________________________________________
-* ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-Continuous deployment (CD) is partially realized. Automatic nightly building and testing of Docker and Singularity images is done, but the images are not yet distributed automatically. This will be completed within MSO4SC.
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+* Jenkins is used for continuous integration testing (CI) of the software modules.
+* Continuous deployment (CD) is partially realized. Automatic nightly building and testing of Docker and Singularity images is done, but the images are not yet distributed automatically. This will be completed within MSO4SC.
 
 |===============================================================================================================================================================================================================================
 
@@ -480,31 +465,29 @@ We also support a manual visualization workflow based on ParaView, which is adap
 
 The roadmap for FEniCS-HPC is as follows (T0 is October 1^st^ 2016) and we highlighted in the sub-items the progress since D4.1
 
-_____________________________________________________________________________________________________________________________________________________________________________
-• Update FEniCS-HPC for Monitoring and Logging *[T0+14 months]*
+* Update FEniCS-HPC for Monitoring and Logging *[T0+14 months]*
 
-o The filter development for the FEniCS-HPC log files has started.
+** The filter development for the FEniCS-HPC log files has started.
 
-• New FEniCS-HPC release (2017.1) *[T0+14 months]*
+* New FEniCS-HPC release (2017.1) *[T0+14 months]*
 
-o We are on track for the release.
+** We are on track for the release.
 
-• Link FEniCS-HPC to MSO4SC orchestrator (Generation of Tosca files) *[T0+14 months]*
+* Link FEniCS-HPC to MSO4SC orchestrator (Generation of Tosca files) *[T0+14 months]*
 
-o The formal specification for the TOSCA files has been carried out.
+** The formal specification for the TOSCA files has been carried out.
 
-• Continuous deployment of binaries and containers *[T0+14 months]*
+* Continuous deployment of binaries and containers *[T0+14 months]*
 
-o CD is done using the master branch at the bitbucket repository by providing the source code for the time being. The integration with the orchestration is under discussion.
+** CD is done using the master branch at the bitbucket repository by providing the source code for the time being. The integration with the orchestration is under discussion.
 
-• Documentation *[T0+14]* months including
+* Documentation *[T0+14]* months including
 
-o The FEniCS-HPC online manual is on track.
+** The FEniCS-HPC online manual is on track.
 
-• Postprocessing using ParaviewWeb *[T0+16] months*
+* Postprocessing using ParaviewWeb *[T0+16] months*
 
-o A workflow for ParaView, the adaptation to ParaViewWeb is on track.
-_____________________________________________________________________________________________________________________________________________________________________________
+** A workflow for ParaView, the adaptation to ParaViewWeb is on track.
 
 [[updates-for-feel-adaptation]]
 = Updates for Feel++ Adaptation
