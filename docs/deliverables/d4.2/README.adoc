@@ -1,4 +1,4 @@
-= MSO4SC: D4.2
+= MSO4SC: D4.1 Detailed specifications for the MADFS
 :page-root: ../../../
 :page-permalink: /deliverables/d4.2/
 :page-layout: manual
@@ -8,5 +8,726 @@ include::../../includes/header.adoc[]
 
 image:media/d4.2/image1.PNG[image,width=165,height=156]
 
+MSO4SC
 
-WARNING: TODO
+D4.2 Adapted MADF for MSO4SC
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Work Package |WP4 MATH APPLICATIONS DEVELOPMENT FRAMEWORK
+|Due Date: |_M8 (+1) _
+|Submission Date: |_17/11/2017_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Johan Hoffman (KTH); Johan Jansson (BCAM); Atgeirr Rasmussen (Sintef); Christophe Prud’homme (UNISTRA)_
+|Reviewer(s) a|
+_Francisco Javier Nieto De Santos (ATOS); _
+
+_Zoltán Horváth (SZE)_
+
+|====================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d4.2/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]     
+= Version History
+
+[cols=",,,",]
+|=======================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |12/07/2017 |Initial version |_Christophe Prud’homme_
+|0.2 |1/11/2017 |Version submitted to reviewers a|
+_Christophe Prud'homme_
+
+_Johan Jansson_
+
+_Johan Hoffman_
+
+_Atgeirr Rasmussen_
+
+|0.3 |15/11/2017 |Version after first review and submitted for second review a|
+_Christophe Prud'homme_
+
+_Guillaume Dollé_
+
+_Johan Jansson_
+
+_Atgeirr Rasmussen_
+
+|1.0 |17/11/2017 |Minor changes after second review in the roadmaps as well as explanations regarding MSO4SC MADF documentation |_Christophe Prud'homme_
+|=======================================================================================================================================================
+
+[[list-of-figures]] 
+= List of figures
+
+link:#_Toc498724401[Figure 1. MSO4SC MADFs and associated pilots 8]
+
+link:#_Toc498724402[Figure 2. Screenshot of Salome running in docker at CESGA using VNC 14]
+
+link:#_Toc498724403[Figure 3. Feel++ High Level Architecture 18]
+
+[[list-of-tables]] 
+= List of tables
+
+link:#_Toc498724404[Table 1. Acronyms 8]
+
+link:#_Toc498724405[Table 3. Containers available for the MADFs. 9]
+
+link:#_Toc498724406[Table 4. Description of the MADFS container system images 11]
+
+link:#_Toc498724407[Table 5. Stage level of adaptation and maturity 11]
+
+link:#_Toc498724408[Table 5. Additional deployments of MADFs. 12]
+
+link:#_Toc498724409[Table 6. Continuous Integration and Deployment in MADFs. 13]
+
+link:#_Toc498724410[Table 11. Python scripting support in Feel++. 20]
+
+[[executive-summary]]
+= Executive Summary
+
+WP4 main objective is to adapt the MADFs (FEniCS-HPC, Feel++ and OPM) to the requirements of the MSO4SC architecture so that they can become the mathematical backbone of the infrastructure (WP3) either through the MSO4SC pilots (WP5) or through new applications deployed in the Web Portal.
+
+WP4 will provide an implementation of the MSO4SC specifications for the MADFs. The deliverable D4.1 [17] describes and discusses these specifications. The Deliverable D4.2 describes and discusses the adaptations of the MADFs
+
+WP4 does not evaluate the TRL of the MADFs but will be impacted by the TRL evaluation to ensure that the MADFs reach TRL8 by the end of the project.
+
+This document reflects the adaptations implemented so far as well as the work in progress based on the specifications of D4.1. The adaptations of each MADF are conducted in their respective repository when they require changes in the MADF core or in MSO4SC repositories for specific adaptions.
+
+[[introduction]]
+= Introduction
+
+[[purpose]]
+== 1.1 Purpose
+
+The objectives of this work package WP4 are to first define common and specific specifications for selected MADFs adaptation to MSO4SC which may impact their (i) build and runtime environments as well as (ii) the data flow and (iii) software pipeline. Part of this work will be provided to WP2.
+
+Second this work package implements the required changes to each MADFs in terms of software architecture, usability, packaging, delivery and deployment.
+
+Usability is an important feature and each MADF will provide the proper documentation and increase readability.
+
+Finally, if scriptability (ability to be driven programmatically as well as interactively) was not already a feature of the MADFs, it will be included.
+
+[[overview]]
+== 1.2 Overview
+
+This document provides a description of the current and on-going adaptations of the selected MADFS according to D4.1 specifications [17].
+
+In http://book.mso4sc.cemosis.fr/deliverables/d2.1/[D2.1][1] the pilots were divided into four groups: three groups of pilots based on the MSO4SC MADFs (FEniCS, Feel++ and OPM, respectively) and one group of pilots based on other applications. The functional requirements identified in D2.1 of the envisioned infrastructure were: (i) high performance of the applications; (ii) efficient data flow between the application domain and the e-infrastructure; (iii) fast post-processing including visualization. The main non-functional requirement was (iv) usability of services with one-click deployment from the marketplace, which is of particular importance for non-technical users like authorities applying an end-user application from MSO4SC for a certain addressed societal challenge.
+
+We start by presenting the MADFs. We then discuss the common adaptations between the MADFs in section 4. Indeed the MADFs share commonalities in the choice of the tools such as the container technologies, the documentation, continuous integration and deployment, Pre-Postprocessing as well as the technology linking to WP3 (monitoring&logging, orchestration).
+
+Finally, in sections link:#_1y810tw[4], 5 and 6 we describe the MSO4SC current and on-going adaptations of FEniCS-HPC, Feel++ and OPM respectively.
+
+[[glossary-of-acronyms]]
+== 1.3 Glossary of Acronyms
+
+[cols=",",options="header",]
+|=====================================================
+|*Acronym* |*Definition*
+|*CFD* |Computational Fluid Dynamics
+|*D* |Deliverable
+|*DFS* |Direct FEM Simulation
+|*EC* |European Commission
+|*EOR* |Enhanced Oil Recovery
+|*ESA* |European Space Agency
+|*FEM* |Finite Element Method
+|*FEEL++* |Finite Element Embedded Library in C++
+|*MADF* |Mathematical Development Framework
+|*MPI* |Message Passing Interface
+|*MSO* |Modelling, Simulation and Optimization
+|*NASA* |National Aeronautics and Space Administration
+|*PDE* |Partial Differential Equation
+|*PGAS* |Partitioned global address space
+|*OPM* |Open Porous Media
+|*RANS* |Reynolds Averaged Navier-Stokes equations
+|*TRL* |Technology Readiness Level
+|*WP* a|
+____________
+Work Package
+____________
+
+|=====================================================
+
+[[_Toc498724404]]Table 1. Acronyms
+
+[[madfs-description]]
+= MADFs Description
+
+In this section we recall briefly the MADFS description, highlighting the main features and capabilities of the software. The features to be evaluated correspond to the features listed in the development roadmap in http://book.mso4sc.cemosis.fr/deliverables/d2.2/[D2.2], which will be evaluated in through test cases defined for each pilot. Over the course of the project, the test cases may be modified or new test cases may be added.
+
+The official list of requirements and the objectives of each MADFs are presented in D4.1. These requirements are the general requirements of the MADFs which can then be compared to the MSO4SC requirements and the expected modifications.
+
+The Figure below, from D4.1, displays the MSO4SC MADFs and the associated pilots.
+
+ 
+
+image:media/d4.2/image3.png[image,width=566,height=303]
+
+[[_Toc498724401]]Figure 1. MSO4SC MADFs and associated pilots
+
+[[fenics]]
+== 3.1 FEniCS
+
+FEniCS was started in 2003 as an umbrella for open-source software components with the goal of automated solution of Partial Differential Equations based on the mathematical structure of the Finite Element Method (FEM).
+
+FEniCS-HPC is the collection of FEniCS components around DOLFIN-HPC, a branch of the problem-solving environment DOLFIN with the focus of strong parallel scalability and portability on supercomputers, and Unicorn, the Unified Continuum solver for continuum modelling based on the Direct FEM Simulation (DFS) methodology described below, with breakthrough applications in parameter-free adaptive prediction of turbulent flow and fluid-structure interaction.
+
+[[feel]]
+== 3.2 Feel++
+
+Feel++ is an open-source software gathering scientists, engineers, mathematicians, physicists, medical doctors, computer scientists around applications in academic and industrial projects. Feel++ is the flagship framework for interdisciplinary interaction at http://www.cemosis.fr[Cemosis], the agency for mathematics-enterprise and multidisciplinary research in modelling, simulation and optimisation (MSO) in Strasbourg.
+
+[[opm]]
+== 3.3 OPM
+
+The Open Porous Media (OPM) initiative encourages open innovation and reproducible research for modelling and simulation of porous media processes. OPM coordinates collaborative software development, maintains and distributes open-source software and open data sets, and seeks to ensure that these are available under a free license in a long-term perspective.
+
+[[madfs-common-adaptations]]
+= MADFs Common Adaptations
+
+We assume that the reader is familiar with the concept of container and HPC infrastructure. In particular, it would be profitable to read MSO4SC http://book.mso4sc.cemosis.fr/deliverables/d3.1/[D3.1] prior to reading this section. 
+
+[[container-infrastructure]]
+== 3.1 Container Infrastructure
+
+Each MADF currently provide
+
+* Docker images for Cloud deployment
+* Singularity images for HPC infrastructure deployment
+
+[cols=",,",options="header",]
+|==========================================
+|*MADFs* |*Docker* |*Singularity*
+|FEniCS |OK |OK
+|Feel++ |OK v0.104 alpha3 |OK v0.104 alpha3
+|OPM |OK v2017.10 |OK v2017.10
+|==========================================
+
+[[_Toc498724405]]Table 3. Containers available for the MADFs.
+
+While singularity images are available for the three MADFs, the deployment and execution mechanisms are still in an *alpha stage* and therefore different approaches are being studied.
+
+The scripts for the image build are available on Github.
+
+[cols=",,",options="header",]
+|===============================================================================================================
+|*MADFs* |*Docker* |*Singularity*
+|FEniCS |https://github.com/MSO4SC/fenics-hpc-cesga |https://github.com/MSO4SC/fenics-hpc-cesga
+|Feel++ |http://github.com/feelpp/docker |http://github.com/feelpp/docker
+|OPM |https://github.com/OPM/opm-utilities/tree/master/docker_opm_user |Completed but not yet QA and distributed
+|===============================================================================================================
+
+The table below describes briefly the Docker/Singularity images developed by each MADF. This table was available already in D4.1. They have been no changes since D4.1 except adding support for Ubuntu 16.04 for Feel++. The table will be updated during the project according to the changes.
+
+[cols=",,,,",options="header",]
+|===========================================================================================================================================================================================
+|*MADFs* |*OS Image* |*Image Size* |*Minimum System* |*Contents*
+|FEniCS |RedHat EnterpriseServer 6.7 |~15Gb |1 core, 2GB or RAM |Fenics-HPC framework together with required packages compiled with INTEL compilers 16.0.3 and IntelMPI 5.1
+| |RedHat EnterpriseServer 6.7 |~13Gb |1 core, 2GB or RAM |Fenics-HPC framework together with required packages compiled with GNU compilers 5.3.0 and IntelMPI 5.1
+| |Ubuntu 16.10 | |1 core, 2GB or RAM |Fenics-HPC framework together with required packages compiled with GNU compilers 5.4.0 and openMPI 1.10.2
+|Feel++ a|
+Ubuntu 16.10 (default)/ 17.04 / 16.04
+
+Debian Sid/Testing
+
+Fedora(In progress)
+
+ |~7Gb |1 core, 2 GB of RAM or less if that exists. a|
+Feel++ image feelpp/feelpp-toolboxes provides a complete development and application environment.
+
+see http://book.feelpp.org[http://book.feelpp.org]
+
+|OPM |Ubuntu 17.04 |546 Mb |1 core, 2 GB of RAM |Complete set of libraries and applications of the OPM framework. (Currently no development support such as header files, this will change.)
+|===========================================================================================================================================================================================
+
+[[_Toc498724406]]Table 4. Description of the MADFS container system images
+
+The Table 5. Stage level of adaptation and maturity, displays the status of development of this specification.
+
+[cols=",,",options="header",]
+|===================================
+|*MADFs* |*Stage * |*Maturity level*
+|FEniCS |Test |Alpha
+|Feel++ |Test |
+|OPM |Test |
+|===================================
+
+[[_Ref496078036]][[_Toc498724407]]Table 5. Stage level of adaptation and maturity
+
+[[benchmarking]]
+== 3.2 Benchmarking
+
+MADFs provide small and large test cases for validation and benchmarking. The test cases include a small description or script that explains how the case should be executed (workflow) as well as the expected times and speedup.
+
+Test cases allow
+
+* to conduct strong and weak scalability studies.
+* To verify that between MADFs versions the scalability and physical results are maintained if not improved.
+
+The test cases should be documented from the physical and the scalability point of view through documentation in each MADFs. A list of readily available and in-development test cases is available in D4.1 in the Benchmarking section.
+
+[[deployment]]
+== 3.3 Deployment
+
+[[finis-terrae-ii-ft-ii]]
+=== 3.3.1 Finis Terrae II (FT-II)
+
+Finis Terrae II is one of the HPC infrastructure on which MSO4SC HPC applications and MADFs will be deployed officially.
+
+Fenics-HPC uses autotools for configuration and building of the framework. After providing the required packages and giving the correct configuration parameters (where to find specific libraries, which compiler to choose, which code optimization parameters, etc.), the makefiles targeted for the system are created and code is ready to be compiled.
+
+Fenics-HPC was configured and compiled this on the native system for different setups either with Intel compilers or with GNU compilers and for optimization levels 1,2,3 and results were collected. It was observed that the executables created with Intel compilers and with optimization level 2 gave correct and fastest results.
+
+Fenics-HPC has also been deployed using the singularity container system with an image created on a laptop using GNU compilers and another singularity image created on Finis Terrae II with Intel compilers and performance is reported.
+
+The scripts to install Fenics-HPC with best configuration parameters for Finis Terrae II system are also created and uploaded to the git-hub repository https://github.com/MSO4SC/fenics-hpc-cesga
+
+OPM uses CMake for configuration and building. Prerequisite third-party libraries were loaded using the FTII module system. Some such modules were added to the system to satisfy the OPM requirements. A native build was then performed with the GCC compiler, and was verified to give correct results for all (automated) integration tests as well as the Norne test case.
+
+OPM has also been deployed on FTII natively, and a test run has been performed using a Singularity image. That image was built from a Docker image created on a workstation.
+
+Regarding Feel++ uses CMake for configuration and building. Prerequisite third-party libraries were installed and later configured together with Feel++ to be easily accessible using the FTII module system. Also specific dependencies have been installed for pilots and made available via the module system.
+
+Two native builds (Feel++ version 0.102.00 and 0.103.2) were installed using GNU/gcc and LLVM/clang compilers to satisfy pilot requirements. These installations have been verified to ensure correct results for a set of integration tests as well as some test cases included in the software package.
+
+Singularity based Feel++ container has also been deployed on FTII and tested. These images are built from docker images. Recently Feel++ provides also singularity images (as for docker) for each new release of the software thanks to CI builds (buildkite) to ease future deployment on FT-II.
+
+A complete software environment based in modern C++ compilers has been deployed (more than 50 tools and libraries) at FinisTerrae II in order to satisfy Feel++ requirements.
+
+For all MADFs, all scripts and resources necessary to deploy on FT-II have been added to a public repository: https://github.com/MSO4SC/resources.
+
+[[deployment-on-other-hpc-infrastructure]]
+=== 3.3.2 Deployment on other HPC Infrastructure
+
+Other infrastructures are available in the project in order to test the deployment of the MSO4SC framework, MADFs and Pilots such as the infrastructures at SZE and ATOS, see D3.1 [Section 9]. To a lesser measure, there are infrastructures available at other partner sites that are deploying or are planning to deploy MSO4SC entirely or partly for example at Cemosis. These systems are being updated regularly.
+
+ 
+
+[cols=",,",options="header",]
+|======================================
+|*MADFs* |*CESGA FT-II* |*Other Center*
+|FEniCS |OK |KTH, SZE
+|Feel++ |OK |UNISTRA, SZE
+|OPM |OK |SINTEF
+|======================================
+
+[[_Toc498724408]]Table 5. Additional deployments of MADFs.
+
+[[continuous-integration-and-continuous-deployment-cicd]]
+== 3.4 Continuous Integration and Continuous Deployment (CI/CD)
+
+The construction of the containers has to be automated within a continuous integration and deployment (CI/CD) system. There are several systems allowing this such as Travis [9], Jenkins or Buildkite [10].
+
+ 
+
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|*MADFs* |*CI / CD*
+|FEniCS a|
+* ________________________________________________________________________________________
+*Jenkins* is used for continuous integration testing (CI) of branches in the repository.
+________________________________________________________________________________________
+* ___________________________________________________________________________________________________
+Automatic testing on HPC systems will be completed within MSO4SC. It is currently under development
+___________________________________________________________________________________________________
+
+|Feel++ a|
+* ___________________________________________________________________________
+*Travis*: multiple systems (Ubuntu/debian flavors) and compilers are tested
+___________________________________________________________________________
+* __________________________________________________________________________________________________________________________________________
+*Buildkite*: Feel++ and its toolboxes are built and deployed on Docker Cloud(Hub) and Singularity images are generated from Docker images.
+__________________________________________________________________________________________________________________________________________
+** Update since D4.1: A specific singularity build pipeline has been created with latest singularity version support
+
+|OPM a|
+* ________________________________________________________________________________
+Jenkins is used for continuous integration testing (CI) of the software modules.
+________________________________________________________________________________
+* ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Continuous deployment (CD) is partially realized. Automatic nightly building and testing of Docker and Singularity images is done, but the images are not yet distributed automatically. This will be completed within MSO4SC.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+|===============================================================================================================================================================================================================================
+
+[[_Toc498724409]]Table 6. Continuous Integration and Deployment in MADFs.
+
+Table 6 has been updated to reflect changes since D4.1 and may change further during the course of the project.
+
+[[interface-to-orchestration]]
+== 3.5 Interface to Orchestration
+
+MADFs will have to provide a TOSCAfootnote:[TOSCA is a file format for Topology and Orchestration Specification for Cloud Applications] file describing how they should be orchestrated (deployment, execution, healing,...), being therefore the interface between the applications and the orchestrator. The specifications are discussed in D4.1.
+
+This work is an on-going development with WP3. Generation of TOSCA files for MADFs examples and first usage demonstrations are underway.
+
+[[logging-and-monitoring]]
+== 3.6 Logging and Monitoring
+
+This work, described in D4.1, is in early stage at the design level and in discussions with WP3. The adaptations haven't started yet. The Logging/Monitoring MSO4SC system leverages the information for the logging system of each MADF.
+
+[[pre-post-processing]]
+== 3.7 Pre-Post-Processing
+
+Pre-Post-Processing is an important aspect in the MSO4SC architecture as described in D4.1.
+
+[[salome]]
+=== 3.7.1 Salome
+
+The Salome Platform is available via docker and regular updates are released to fix issues and enable new features such as access to accelerated hardware. It has been deployed at CESGA. It is available not only for generating geometries via scripting but via online visualisation through VNC at CESGA.
+
+The docker build scripts will be released in Open Source by the end of November 2017 and public access to the docker repository will be granted.
+
+image:media/d4.2/image4.png[image,width=566,height=343]
+
+[[_Toc498724402]]Figure 2. Screenshot of Salome running in docker at CESGA using VNC
+
+[[paraviewweb]]
+=== 3.7.2 ParaviewWeb
+
+The ParaviewWeb interface development as described in D4.1 will be provided for all MADFs.
+
+The work on the ParaviewWeb interface starts end of October 2017 with Feel++ in collaboration with Kitware and then based on this first prototype, Fenics-HPC and OPM will follow.
+
+[[documentation]]
+== 3.8 Documentation
+
+As described in D4.1, all MADFs will deploy MSO4SC related documentation via the web (currently at http://book.mso4sc.cemosis.fr/).
+
+This is a work in-progress parallel to the development process. Currently the documentation corresponds to test cases from each MADF that are going to be used by the infrastructure. This documentation is not yet available on at http://book.mso4sc.cemosis.fr/ but should appear as soon as the first applications are delivered and tested with the infrastructure.
+
+[[updates-for-fenics-adaptation]]
+= Updates for FEniCS Adaptation
+
+We describe in this section the specifications strictly related to FEniCS and not part of the common specifications. 
+
+[[software-quality]]
+== 4.1 Software Quality 
+
+[[code-readability]]
+=== 4.1.1 Code Readability
+
+The open source repository for the Fenics-HPC resides at https://bitbucket.org/account/user/fenics-hpc/projects/FH[https://bitbucket.org/account/user/fenics-hpc/projects/FH] where the codes are peer reviewed before being pushed into the master branch.
+
+[[documentation-1]]
+=== 4.1.2 Documentation
+
+The basic documentation for FEniCS-HPC is available as the "FEniCS book", [12] manuals for the components DOLFIN-HPC, UFL and FFC, the Wiki on the BitBucket development site, research papers focused on the software, as well as course material for courses based on FEniCS-HPC.
+
+We are now developing a series of two online courses, MOOCs, on the edX platform denoted "High Performance Finite Element Modeling" based on FEniCS and FEniCS-HPC. The first course has already been launched, and attracted 1000 students already in the first week. In these courses we are providing detailed documentation for the students to be able to carry out the assignments. This documentation is also being adapted to MSO4SC, and is being collected in an online book.
+
+[[test-suite]]
+=== 4.1.3 Test Suite
+
+FEniCS-HPC supports a range of standard unit and verification tests in the software components. The tests are typically in the "test/" subdirectory of the component, for e.g. FFC. For DOLFIN-HPC we have developed specific parallel verification tests for MSO4SC in https://github.com/MSO4SC/fenics-hpc-cesga. Build tests are automatically tested by the Jenkins CI system. We plan to automatically test also the parallel verification tests with the MSO4SC orchestration.
+
+[[continuous-integration-ci-and-continuous-deployment-cd]]
+=== 4.1.4 Continuous Integration (CI) and Continuous Deployment (CD)
+
+The development workflow in FEniCS-HPC is based on CI, the developers merge changes daily into a common development branch, typically the "next" branch or a more specific branch, and use that branch for application simulations, providing direct feedback into the development.
+
+CD is done using the "next" branch at the bitbucket repository at https://bitbucket.org/account/user/fenics-hpc/projects/FH[https://bitbucket.orgfenics-hpc] together with the MSO4SC-specific code at https://github.com/MSO4SC/fenics-hpc-cesga by providing the source code for the time being.
+
+With the Singularity and Orchestration frameworks developed in MSO4SC, we are also planning to develop an HPC CD workflow, allowing automated packaging and testing on HPC systems. The Singularity framework is already functional and the Orchestration framework has been specified in detail and initial testing has begun.
+
+[[benchmarking-system-and-metadata-management]]
+== 4.2 Benchmarking system and metadata management 
+
+We support two full-functionality benchmark tests, the "cube" and "wing" for testing the full functionality of adaptive computation of turbulent incompressible flow on distributed memory architectures.
+
+For MSO4SC we have developed a specific benchmark suite (https://github.com/MSO4SC/fenics-hpc-cesga) adapted to test the container infrastructure on the MSO4SC test system FTII. The test suite consists of automated correctness (convergence), scalability, single-node performance tests.
+
+Currently all metadata is contained in a log file. In MSO4SC we are developing filters to extract the metadata necessary to communicate with the orchestrator.
+
+[[scripting]]
+== 4.3 Scripting 
+
+Scripting functionality in FEnics-HPC is present by use of automated code generation through the Unified Form Language (UFL and Fenics Form Compiler (FFC). UFL (in a Python subset) scripts describing the variational formulation of the PDE in an intuitive way is input to the compiler, which then generates automatically the C++ code necessary the linear system.
+
+The automated code generation not only reduces the workload of the developer by automatic computation of quadrature rules, jacobians, determinant and inverse of matrices, etc. but also avoids possible human errors that would otherwise and possibly be introduced for these tasks.
+
+The automated code has to be compiled together with the rest of the solver code in order to produce the executable.
+
+The main FEniCS branch supports scripting of the entire programming interface through Python, this is the default language accessible to the end-user. This general Python interface has been disabled for FEniCS-HPC for compatibility reasons with general supercomputing architectures. We are discussing whether to enable it, or whether the UFL interface is enough.
+
+[[post-processing]]
+== 4.4 Post-processing 
+
+We provide a tutorial for visualization on the BitBucket Wiki (https://bitbucket.org/fenics-hpc/unicorn/wiki).
+
+ParaView and Visit are open source, interactive, scalable, data analysis and scientific visualization tools. Both of these tools can be used to visualize the simulation data from FEniCS-HPC or processing a data by using GUI or non-interactive mode by using the provided Python scripting. Using non-interacting mode, python scripting is faster, when the data set is larger in both ParaView and VisIt.
+
+As part of MSO4SC, we have developed an automated visualization framework based on Visit described in the Wiki. This allows the visualization to be run on an equivalent, or the same, HPC resource as the simulation, and allows the user to directly evaluate the simulation on completion.
+
+We also support a manual visualization workflow based on ParaView, which is adapted to the specified MSO4SC ParaViewWeb visualization interface.
+
+[[updated-roadmap]]
+== 4.5 Updated Roadmap 
+
+The roadmap for FEniCS-HPC is as follows (T0 is October 1^st^ 2016) and we highlighted in the sub-items the progress since D4.1
+
+_____________________________________________________________________________________________________________________________________________________________________________
+• Update FEniCS-HPC for Monitoring and Logging *[T0+14 months]*
+
+o The filter development for the FEniCS-HPC log files has started.
+
+• New FEniCS-HPC release (2017.1) *[T0+14 months]*
+
+o We are on track for the release.
+
+• Link FEniCS-HPC to MSO4SC orchestrator (Generation of Tosca files) *[T0+14 months]*
+
+o The formal specification for the TOSCA files has been carried out.
+
+• Continuous deployment of binaries and containers *[T0+14 months]*
+
+o CD is done using the master branch at the bitbucket repository by providing the source code for the time being. The integration with the orchestration is under discussion.
+
+• Documentation *[T0+14]* months including
+
+o The FEniCS-HPC online manual is on track.
+
+• Postprocessing using ParaviewWeb *[T0+16] months*
+
+o A workflow for ParaView, the adaptation to ParaViewWeb is on track.
+_____________________________________________________________________________________________________________________________________________________________________________
+
+[[updates-for-feel-adaptation]]
+= Updates for Feel++ Adaptation
+
+We describe in this section the specifications strictly related to Feel++ and not part of the common specifications.
+
+[[software-quality-1]]
+== 5.1 Software Quality
+
+[[software-architecture]]
+=== 5.1.1 Software Architecture
+
+The figure below illustrates the high level architecture of Feel++.
+
+The two bottom layers correspond to the external dependencies on which Feel++ build.
+
+We coloured in green the components that were adapted within MSO4SC since D4.1 in order to provide a robust and complete environment. Regarding the adaptation of the dependencies, we sometimes had to patch them or simplify their integration with Feel++. Some of the core dependencies such as Eigen3 Google-GLOG are directly integrated and shipped with Feel++. All the dependencies of Feel++ are available via docker and singularity images.
+
+The Feel++ build process is set in the following stages:
+
+* feelpp/feelpp-libs : provides Feel++ libraries and basic tools such as mesh partitioners
+* feelpp/feelpp-base: provides basic applications, basic benchmarks and associated datasets
+* feelpp/feelpp-crb: provides reduced basis applications
+* feelpp/feelpp-toolboxes: provides toolbox develop framework as well as main toolbox standalone applications, benchmarks and associated datasets. _This image is the foundation for the Feel++ pilot applications._
+
+image:media/d4.2/image5.png[image,width=578,height=393]
+
+ [[_Toc498724403]]Figure 3. Feel++ High Level Architecture
+
+Since D4.1, the content of these modules is frequently updated with new versions as well as new applications and starts to integrate automated testing and verification during docker image generation.
+
+[[code-readability-1]]
+=== 5.1.2 Code Readability
+
+To ensure code readability, Feel++ is written in C++ a compilation based language and follows coding rules described http://book.feelpp.org/programming/user/#feel-coding-styles[in the Feel++ programming book]. Feel++ uses also the tool clang-format in order to reset the format of certain files.
+
+These rules existed before MSO4SC, MSO4SC will not impact them. Since D4.1, readability has been more strongly enforced in our code reviews system based on Github.
+
+[[documentation-2]]
+=== 5.1.3 Documentation
+
+Prior to MSO4SC, Feel++ has gathered documentation written in Asciidoc and Doxygen online. Thanks to MSO4SC support, Feel++ has deployed http://book.feelpp.org[http://book.feelpp.org] a web site presenting Feel++ documentations. A complete list of documentation is available in D4.1.
+
+Since D4.1 only the user-manual was updated to reflect the changes in architecture and container builds.
+
+* User Manual http://book.feelpp.org/user-manual[http://book.feelpp.org/user-manual]
+
+[[test-suite-1]]
+=== 5.1.4 Test Suite
+
+Code quality is also about testing. Feel++ supports more than 190 test programs that contained one or more tests (often tens of tests) on a specific aspect of Feel++ (e.g Interpolation). Each of these 190 are both run sequentially and in parallel using ctestfootnote:[ctest is the testing tool provided by cmake - http://www.cmake.org[http://www.cmake.org]] which represents 380 tests run automatically every night by our build system.
+
+The testsuite is updated regularly to incorporate new tests. The Feel++ Unit and Advanced testsuite is available on GitHub at https://github.com/feelpp/feelpp/tree/develop/testsuite[https://github.com/feelpp/feelpp/tree/develop/testsuite]
+
+Feel++ has now applications shipped with docker images being thoroughly tested here https://github.com/feelpp/feelpp/tree/develop/quickstart[https://github.com/feelpp/feelpp/tree/develop/quickstart]. Note only do we test that the applications execute properly but also that they provide the correct mathematical results.
+
+The toolbox applications checks during docker image creating are in progress.
+
+[[continuous-integration-ci-and-continuous-deployment-cd-1]]
+=== 5.1.5 Continuous Integration (CI) and Continuous Deployment (CD)
+
+CI/CD support was already well advanced at the time of writing D4.1. D4.1 describes the general status of CI/CD.
+
+A few updates have been done since D4.1
+
+* New simpler tag naming scheme for Feel++ docker images, see http://book.feelpp.org/user-manual/#feelpp-containers[http://book.feelpp.org/user-manual/#feelpp-containers]
+* New script to generate automatically docker images for Feel++ based projects (eg eye2brain, hifimagnet but also a few others). The script is used for the CI/CD of the docker images of these projets.
+* Singularity support has been improved and has been updated to accommodate the latest singularity release (2.4).
+
+[[_44s0qneu8bx5]][[_rkd5m93tgt72]][[_Toc498724386]]**5.2 Benchmarking system and metadata management** 
+
+The benchmarking system proposed in D4.1 is currently under development. We have shipped so far a simple system based on JSON files to verify the numerical properties of our codes such as convergence properties.
+
+It is currently in tests within feelpp/feelpp-base to verify that the released software produce the expected results.
+
+It is now being extended to feelpp/feelpp-toolbox and Feel++ based pilot applications Hifimagnet and Eye2brain. The next step is to handle performance and validation benchmarks.
+
+[[scripting-1]]
+== 5.3 Scripting 
+
+Scripting enables rapid prototyping of new applications, extended use of the software framework and coupling with other tools such as advanced analysis frameworks (e.g. OpenTURNS).
+
+Feel++ provides two ways for scripting: C++ and Python. Since D4.1 the C++ interpreter interface has not evolved.
+
+[[python]]
+=== 5.3.1 Python
+
+Feel++ has started Python wrapping support using pybind11. Currently it supports basic framework class and high level use of the toolbox classes.
+
+This needs to be further developed to reach versatile scripting capabilities. The main effort within MSO4SC is to support python scripting of the Feel++ toolboxes.
+
+[cols=",,",options="header",]
+|====================================================
+|*Feel++ Component* |*Status* |*Deployment in Docker*
+|Core |In development |Yes
+|Toolboxes |In development |First release in v0.104
+|====================================================
+
+[[_Toc498724410]]Table 11. Python scripting support in Feel++.
+
+The current python interface is available at https://github.com/feelpp/feelpp/tree/develop/pyfeelpp. Documentation and examples are currently in development.
+
+[[post-processing-1]]
+== 5.4 Post-processing 
+
+Feel++ adaptation for ParaviewWeb is starting end of October.
+
+[[updated-roadmap-1]]
+== 5.5 Updated Roadmap 
+
+Feel++ MADF Roadmap is as follows and we highlighted in the sub-items the progress since D4.1
+
+* Update Feel++ for Monitoring and Logging *[T0+14 months]*
+** The development have started
+* Link Feel++ to MSO4SC orchestrator (Generation of Tosca files) *[T0+14 months]*
+** The specifications and demonstrations of the TOSCA file are currently in progress for some Feel++ toolbox applications
+* Full Benchmarking system implementation and Benchmarks *[T0+14 months]*
+** deploy benchmarks description *[T0+\{12,14,18} months]* and along the way
+** We are late on this, we expect the first release of the benchmark system between T0+12 and T0+13
+* Scripting capabilities *[T0+14 months]*
+** This is on track and current developments are already deployed
+* Documentation *[T0+14 months]* including Feel++ CI/CD, Feel++ Benchmarking environment and Benchmarks, Feel++ Agile development documentation
+** This is on track
+* Postprocessing using ParaviewWeb *[T0+16 months]*
+** Development has begun
+
+[[updates-for-the-opm-adaptation]]
+= Updates for the OPM Adaptation
+
+We describe in this section the updates strictly related to OPM.
+
+[[software-quality-2]]
+== 6.1 Software Quality
+
+[[software-architecture-1]]
+=== 6.1.1 Software Architecture
+
+The basic architecture and structure of the OPM software suite is unchanged from D4.1. Some of the prerequisites have changed, namely we no longer require SuperLU. For an overview over the OPM modules we refer to the OPM website: http://opm-project.org/?page_id=274[http://opm-project.org/?page_id=274]
+
+[[documentation-3]]
+=== 6.1.2 Documentation
+
+As described in D4.1, documentation is available from the website (opm-project.org) in tutorial form. For the application Flow, which is used as a pilot in WP5, work on the comprehensive user manual has resulted in an initial version of the manual, describing the 2017.10 release of Flow with more than 600 pages.
+
+[[test-suite-2]]
+=== 6.1.3 Test Suite
+
+The suite of integrated testing problems has been extended with a few new test cases for more complete coverage.
+
+[[continuous-integration-ci-and-continuous-deployment-cd-2]]
+=== 6.1.4 Continuous Integration (CI) and Continuous Deployment (CD)
+
+In D4.1 we committed to automatically build and make available binaries and containers nightly, this has been partially completed. We now build and test containers, but do not yet automatically distribute them. For Singularity it is also an open question as to the best way to distribute, as there is no DockerHub-equivalent site.
+
+[[scripting-2]]
+=== 6.1.5 Scripting 
+
+Some work has been done towards making the simulators easier to manipulate using scripting-like approaches. In particular, the simulation event schedule, that define all wells coupled to the reservoir, and the ways their behaviour change with time, has been better decoupled from the simulator core. This change makes it possible to manipulate the schedule outside the simulator core, enabling researchers to experiment with variations in schedules and well controls for optimization purposes.
+
+[[updated-roadmap-2]]
+== 6.2 Updated Roadmap
+
+OPM’s roadmap is as follows and we highlighted in the sub-items the progress since D4.1:
+
+* Update OPM for Monitoring and Logging *[T0+12 months]*
+** Only user-centric logging improvements so far, no improvements for monitoring have been undertaken.
+* New OPM releases (2017.10, 2018.04) *[T0+12 months, T0+18 months]*
+** The 2017.10 release has been released on time. See http://opm-project.org/?p=1001.
+* Link OPM to MSO4SC orchestrator (Generation of Tosca files) *[T0+14 months]*
+** Not started.
+* Continuous deployment of binaries and containers *[T0+12 months]*
+** Close to completion: binaries are built on a nightly basis. Containers can easily be built using either of nightly, release or testing binaries. Containers using the nightly versions are automatically built and tested, but not yet distributed.
+* Scripting capabilities: simulate ensembles *[T0+16 months]*
+** Exists in prototype form, will need generalization, extension and modification for security.
+* Scripting capabilities: new simulator scripts *[T0+20 months]*
+** Preliminary work towards making the application structure more suitable for scripting started. (See 7.2 above.)
+* Documentation *[T0+16]* months including
+** OPM Flow user reference manual
+*** Initial version is complete. See +
+http://opm-project.org/?page_id=955
+** OPM tutorials
+*** Added tutorial on running OPM with Docker. See +
+http://opm-project.org/?page_id=853
+** Improved developer documentation
+*** Materials from a crash course held at the OPM meeting in Bergen in October 2017 will be made available on the OPM website.
+** Deploy benchmarks description *[T0+\{12,14,18} months]* and along the way
+*** No progress on this yet.
+* Postprocessing using ParaviewWeb *[T0+16 months]*
+** VTK output confirmed to work, but not tested with ParaviewWeb.
+
+[[summary-and-conclusions]]
+= Summary and Conclusions
+
+In this report we have presented the MADFs selected by MSO4SC and reported the adaptations done and on-going.
+
+Two important development fronts are ahead of us: _(i)_ the adaptation required by WP3 namely logging/monitoring and link with orchestrator and _(ii)_ the online postprocessing interface with ParaviewWeb.
+
+We should strengthen our effort regarding documentation and have a central hub pointing in the right directions for each MADF.
+
+Other developments involve specific adaptation for MADFs such as scripting for Feel++ and OPM.
+
+[[_Toc368494036]]
+
+[[references]]
+= References
+
+1.  [[_Ref492592082]]MSO4SC D2.1 End Users’ Requirements Report, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.1/[http://book.mso4sc.cemosis.fr/deliverables/d2.1/]
+2.  [[_Ref492592111]]MSO4SC D2.2 MSO4SC e-infrastructure Definition, 2017. http://book.mso4sc.cemosis.fr/deliverables/d2.2/[http://book.mso4sc.cemosis.fr/deliverables/d2.2/]
+3.  [[_Ref492592202]][[_Ref486840260]]MSO4SC D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal, 2017. http://book.mso4sc.cemosis.fr/deliverables/d3.1/[http://book.mso4sc.cemosis.fr/deliverables/d3.1/]
+4.  [[_Ref492592208]]MSO4SC D5.1 Case study extended design and evaluation strategy - http://book.mso4sc.cemosis.fr/deliverables/d5.1[http://book.mso4sc.cemosis.fr/deliverables/d5.1]
+5.  [[_Ref492592286]]Docker : https://www.docker.com/[https://www.docker.com/] Docker: https://www.docker.com/[https://www.docker.com/]
+6.  [[_Ref492592574]]DockerHub: https://hub.docker.com/[https://hub.docker.com/] and http://cloud.docker.com[http://cloud.docker.com]
+7.  [[_Ref492592299]]Singularity : http://singularity.lbl.gov/[http://singularity.lbl.gov/] Singularity : http://singularity.lbl.gov/[http://singularity.lbl.gov/]
+8.  [[_Ref492592565]]SingularityHub: https://singularity-hub.org/[https://singularity-hub.org/][[_Ref492592713]]Travis: http://travis-ci.org[http://travis-ci.org]
+9.  Travis: http://travis-ci.org[[_Ref492592725]]
+10. Buildkite: http://buildkite.com[http://buildkite.com][[_Ref492592971]]
+11. Cling: https://root.cern.ch/cling[https://root.cern.ch/cling]
+12. [[_Ref492592892]] Automated Solution of Differential Equations by the Finite Element Method A. Logg, K.-A. Mardal, G. N. Wells et al. Springer, 2012
+13. [[_Ref492593168]] OPM data sets: http://opm-project.org/?page_id=559[http://opm-project.org/?page_id=559]
+14. OPM website: http://opm-project.org/
+15. Feel++ website: http://www.feelpp.org/
+16. Fenics website: https://fenicsproject.org/
+17. MSO4SC D4.1 Detailed Specifications for the MADFs- http://book.mso4sc.cemosis.fr/deliverables/d4.1[http://book.mso4sc.cemosis.fr/deliverables/d4.1] http://book.mso4sc.cemosis.fr/deliverables/d4.1
