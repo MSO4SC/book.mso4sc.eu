@@ -344,7 +344,7 @@ NOTE: The CLI has a timeout of 900 seconds, which normally is not enough time fo
 
 ==== Revert previous Steps
 
-If an error occur in some of the steps above, or you simply want to uninstall the application, recreate the deployment with new inputs, or remove the blueprint (and possibly upload an updated one), follow the following steps.
+The following revert the steps above, in order to uninstall the application, recreate the deployment with new inputs, or remove the blueprint (and possibly upload an updated one), follow the following steps.
 
 . *Uninstall a deployment*
 +
@@ -361,6 +361,26 @@ NOTE: The `ignore_failure` parameter is optional, to perform the _uninstall_ eve
 . *Remove a blueprint*
 +
 `cfy blueprints delete [BLUEPRINT-NAME]`
+
+==== Troubleshooting
+
+If an error occurs the revert steps can be followed revert the last steps made. However there are sometimes when the execution is stucked, or you want simply to cancel a runnin execution, or clear a blueprint or deployment that can be uninstall for whatever the reason. The following commands help you resolve these kind of situations.
+
+. *See executions list and status*
++
+`cfy executions list`
+
+. *Check one execution status*
++
+`cfy executions get [EXECUTION-ID]`
+
+. *Cancel a running (started) execution*
++
+`cfy executions cancel [EXECUTION-ID]`
+
+. *Hard remove a deployment with all its executions and living nodes*
++
+`cfy deployments delete [DEPLOYMENT-NAME] -f`
 
 
 TIP: A complete list of CLI commands can be found at {uri-cloudify-cli}
