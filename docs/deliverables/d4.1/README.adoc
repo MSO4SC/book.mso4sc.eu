@@ -8,9 +8,6 @@ include::../../includes/header.adoc[]
 
 image:media/d4.1/image1.PNG[image,width=165,height=156]
 
-MSO4SC
-
-D4.1 Detailed specifications for the MADFS
 
 [cols=",",options="header",]
 |====================================================================================================================
@@ -558,15 +555,13 @@ There are several technicalities regarding logging: (i) postprocessing is not to
 
 In this section we discuss the post-processing aspects. In particular we are interested in Salome and in the following Kitware software stack:
 
-* ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 *ParaViewWeb* is an open-source library licensed under BSD-3-Clause and available on GitHub. Divided in two parts, a backend and a frontend, ParaViewWeb is mostly implemented with Python and JavaScript languages, which allow an easy customization while maintaining good performances.
-___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-* ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 *HPC-Cloud* is an open-source solution developed by Kitware to provide a lightweight HPC environment in the cloud. HPC-Cloud contains a workflow engine along with ParaViewWeb for simulation results visualization and post-processing.
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 *Catalyst* is an open-source in-situ post-processing library based on ParaView. Catalyst is developed by Kitware and allows to couple simulation code with post-processing pipelines in order to reduce the amount of data associated with post-mortem visualization.
-_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 
 [[salome]]
 === 4.8.1 Salome

@@ -6,12 +6,7 @@
 :pilotsdir: ../../../pilots/
 include::../../includes/header.adoc[]
 
-
 image:media/d6.1/image1.PNG[image,width=177,height=167]
-
-MSO4SC
-
-D6.1 MSO4SC Qualification Method
 
 [cols=",",options="header",]
 |====================================================================================================================

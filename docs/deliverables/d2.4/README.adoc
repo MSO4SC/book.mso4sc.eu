@@ -8,9 +8,6 @@ include::../../includes/header.adoc[]
 
 image:media/d2.4/image1.PNG[image,width=172,height=163]
 
-MSO4SC
-
-D2.4 Communication, Dissemination and Collaboration Report
 
 [cols=",",options="header",]
 |====================================================================================================================

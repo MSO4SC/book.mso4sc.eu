@@ -8,10 +8,6 @@ include::../../includes/header.adoc[]
 
 image:media/d5.2/image1.png[image,width=178,height=168]
 
-MSO4SC
-
-D5.2 Operational MSO4SC e-Infrastructure
-
 [cols=",",options="header",]
 |====================================================================================================================
 |Project Acronym |MSO4SC
@@ -57,7 +53,6 @@ D5.2 Operational MSO4SC e-Infrastructure
 |0.8 |24/10/2017 |Use case |Victor Sande (CESGA)
 |0.9 |30/10/2017 |Changes from reviewers |Victor Sande and Carlos Fernández (CESGA)
 |1.0 |30/10/2017 |Minor updates |Victor Sande (CESGA), Javier Carnero (ATOS)
-| | | |
 |===================================================================================
 
 [[list-of-figures]]

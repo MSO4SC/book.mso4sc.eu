@@ -51,30 +51,7 @@ Carlos Fernandez (CESGA);_
 |02 |29/04/2017 |Review |Carlos Fernández
 |03 |29/04/2017 |Review |Javier Francisco Nieto De Santos
 |04 |29/04/2017 |Final |Johan Hoffman
-| | | |
-| | | |
-| | | |
 |=========================================================================================================================================================================
-
-*DELETE PRIOR TO SUBMISSION*
-
-Calendar for completion – (include names and dates of responsible people)
-
-TOC – date - responsible
-
-First draft of Deliverable – date - responsible
-
-Inputs from x, y z date - responsible
-
-Version ready for review: date - responsible
-
-Review date - responsible
-
-Review completed xxx -
-
-available for final format checks
-
-Delivery via continuous reporting system: date - – Julia/ Javi
 
 [[list-of-figures]]
 = List of figures
@@ -244,9 +221,7 @@ The affinity is estimated as a linear combination of averages of molecular obser
 
 image:media/image20.png[urface with electrostatic information of a protein in complex with a transformation product of the antibiotic sulfamethoxazole.,width=562,height=199]
 
-________________________________________________________________________________________________________________________________________
 *Figure 12: Preferential host–guest binding model (left), and conformational entropy (flexibility) during molecular simulation (right).*
-________________________________________________________________________________________________________________________________________
 
 For each available target molecule separately, the linear combination factors of the free energy equation above must have been learned in advance during a training phase and must be stored in the target database together with the target’s initial configuration and further required information. At runtime, they are used for the calculation of absolute binding affinities (test case 1). If, in contrast, no training data is available for a particular protein target, ZIBAffinity can use standard weights or estimate relative binding affinities (test case 2).
 

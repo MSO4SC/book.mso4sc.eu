@@ -8,8 +8,6 @@ include::../../includes/header.adoc[]
 
 image:media/d2.5/image1.PNG[image,width=172,height=162]
 
-D2.5 End Users’ Requirements Report
-
 [cols=",",options="header",]
 |====================================================================================================================
 |Project Acronym |MSO4SC

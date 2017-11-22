@@ -91,13 +91,13 @@ link:#_Toc473628493[_Table 10. Requirement table Cloud-7 Simulation monitoring_ 
 
 link:#_Toc473628494[_Table 11. Requirement table UNISTRA-1 Feel++ installation_ 12]
 
-_Table 12. Requirement table KTH-1 FEniCS-HPC installation_ 12
+link:#_Toc473628495[_Table 12. Requirement table KTH-1 FEniCS-HPC installation_ 12]
 
 link:#_Toc473628496[_Table 13. Requirement table SINTEF-0 FEniCS-OPM installation_ 13]
 
 link:#_Toc473628497[_Table 14. Requirement table UNISTRA-2-0 Feel++ HIFIMAGNET_ 13]
 
-_Table 15. Requirement table UNISTRA-3-0 Feel++ EYE2BRAIN_ 13
+link:#_Toc473628498[_Table 15. Requirement table UNISTRA-3-0 Feel++ EYE2BRAIN_ 13]
 
 link:#_Toc473628499[_Table 16. Requirement table SINTEF-1 OPM Flow must run on CESGA_ 14]
 
@@ -1264,12 +1264,11 @@ Have you ever used any of these infrastructures?
 * PRACE
 * EUDAT
 * EGI
-* Other distributed infrastructure: ____________________________
+* Other distributed infrastructure:
 * I don’t know any of these names and/or what ‘distributed infrastructure’ means
 
 Please, leave here any other comment you may have:
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 THANKS FOR YOUR ANSWERS!
 
