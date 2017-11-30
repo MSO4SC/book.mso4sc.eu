@@ -305,9 +305,9 @@ Execution of an application is performed through the {uri-cli}[MSOOrchestrator-C
 ** Host: mso.tilb.sze.hu
 ** Country TimeZone: Europe/Budapest
 ** Workload Manager: SLURM
-* MSOOrchestrator: 10.38.3.74
+* MSOOrchestrator: 193.144.35.131
 * MSOMonitor
-** Host: 10.38.3.1
+** Host: 193.144.35.146
 ** Port: 9090
 ** Type: PROMETHEUS
 ** Orchestrator Port: 8079
