@@ -1,0 +1,1151 @@
+= D5.3 Pilot Implementation
+:page-root: ../../../
+:page-permalink: /deliverables/d5.3/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:images/media/image1.PNG[image,width=162,height=139]
+
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================================================================
+|Work Package |WP5 End-user Applications Development
+|Due Date: |_M14 (PROJECT MONTH)_
+|Submission Date: |_22/12/2017_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Johan Hoffman (KTH); Javier Nieto De Santos (ATOS), Victor Sande(CESGA), Javier Carnero (ATOS), Atgeirr Flø Rasmussen (SINTEF), Johan Jansson (BCAM/KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA), Vedat Durmaz (ZIB), Zoltán Horváth (SZE)_
+|Reviewer(s) |_F. Javier Nieto (ATOS); Esther Klann (MATHEON-TUB); _
+|===============================================================================================================================================================================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:images/media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|============================================================================================================================================================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |6/11/2017 |Initial version |_Johan Hoffman (KTH)_
+|0.2 |4/12/2017 |Second draft |_Johan Hoffman (KTH)_
+|0.3 |6/12/2017 |Third draft |_Johan Hoffman (KTH)_
+|0.4 |18/12/2017 |Fourth draft |_Johan Hoffman (KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA),_
+|0.5 |19/12/2017 |Fifth draft |_Johan Hoffman (KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA),_
+|0.6 |20/12/2017 |Sixth draft |_Johan Hoffman (KTH), F. Javier Nieto (ATOS), Victor Sande(CESGA), Javier Carnero (ATOS), Atgeirr Flø Rasmussen (Simula), Johan Jansson (BCAM/KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA), Vedat Durmaz (ZIB)_
+|0.7 |21/12/2017 |Seventh draft |_Johan Hoffman (KTH), F. Javier Nieto (ATOS), Victor Sande(CESGA), Javier Carnero (ATOS), Atgeirr Flø Rasmussen (Simula), Johan Jansson (BCAM/KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA), Vedat Durmaz (ZIB), Zoltán Horváth (SZE)_
+|1.0 |22/12/2017 |Modifications according to review comments |_Johan Hoffman (KTH), Christophe Trophime (UNISTRA), Zoltán Horváth (SZE)_
+|============================================================================================================================================================================================================================================================================================
+
+[[table-of-contents]]
+= Table of Contents
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc501742855[Figure 1: The iterative development process of the e-infrastructure. 8]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc501742856[Table 1. Acronyms 8]
+
+link:#_Toc501742857[Table 2: Status of pilots with respect to MSO4SC e-infrastructure services. 10]
+
+link:#_Toc501742858[Table 3: Status of services integration for Floating Wind Turbine. 10]
+
+link:#_Toc501742859[Table 4: Status of pilot development for Floating Wind Turbine. 11]
+
+link:#_Toc501742860[Table 5: Test cases status for Floating Wind Turbine. 11]
+
+link:#_Toc501742861[Table 6: Roadmap for the Floating Wind Turbine pilot. 12]
+
+link:#_Toc501742862[Table 7: Status of services integration for 3DAirQualityPrediction-CFD. 12]
+
+link:#_Toc501742863[Table 8: Status of pilot development for 3DAirQualityPrediction-CFD. 13]
+
+link:#_Toc501742864[Table 9: Test cases status for 3DAirQualityPrediction-CFD. 13]
+
+link:#_Toc501742865[Table 10: Roadmap for the 3DAirQualityPrediction-CFD pilot. 13]
+
+link:#_Toc501742866[Table 11: Status of services integration for HiFi Magnet. 14]
+
+link:#_Toc501742867[Table 12: Status of development for HiFi Magnet. 15]
+
+link:#_Toc501742868[Table 13: Status of test cases for HiFi Magnet. 15]
+
+link:#_Toc501742869[Table 14: Roadmap for the HiFi Magnet pilot. 16]
+
+link:#_Toc501742870[Table 15: Status of services integration for Eye2Brain. 16]
+
+link:#_Toc501742871[Table 16: Status of development for Eye2Brain. 17]
+
+link:#_Toc501742872[Table 17: Test cases status for Eye2Brain. 17]
+
+link:#_Toc501742873[Table 18: Roadmap for the Eye2Brain pilot. 18]
+
+link:#_Toc501742874[Table 19: Status of services integration for OPM Flow. 18]
+
+link:#_Toc501742875[Table 20: Status of development for OPM Flow. 19]
+
+link:#_Toc501742876[Table 21: Test cases status for OPM Flow. 19]
+
+link:#_Toc501742877[Table 22: Roadmap for the OPM Flow pilot. 20]
+
+link:#_Toc501742878[Table 23: Status of services integration for ZIB Affinity. 20]
+
+link:#_Toc501742879[Table 24: Status of development for ZIB Affinity. 21]
+
+link:#_Toc501742880[Table 25: Status of test cases for ZIB Affinity. 21]
+
+link:#_Toc501742881[Table 26: Roadmap for the ZIB Affinity pilot. 22]
+
+link:#_Toc501742882[Table 27: Status of services integration for 3DAirQualityPrediction. 23]
+
+link:#_Toc501742883[Table 28: Status of development for 3DAirQualityPrediction. 24]
+
+link:#_Toc501742884[Table 29: Test case status for 3DAirQualityPrediction. 24]
+
+link:#_Toc501742885[Table 30: Roadmap for the 3DAirQualityPrediction pilot 25]
+
+[[executive-summary]]
+= Executive Summary
+
+This deliverable represents the implementation of the pilot scenarios on the MSO4SC e-infrastructure. For each pilot, the status of the implementation is provided, with the implemented pilot features described connecting to D5.2 [1], and hyperlinks are provided to the software repositories. This report provides a snapshot of the pilot implementation, followed up by a second report in M24.
+
+[[introduction]]
+== Introduction
+
+[[purpose]]
+=== Purpose
+
+This deliverable provides a status report of the implementation of the pilots, including software testing and method validation, how the e-infrastructure tools are used and whether the pilot is ready for deployment or not, connecting to D5.2 [1]. A list of implemented features is provided, and a roadmap for the development is given. This report provides a snapshot of the pilot implementation, followed up by a final report in M24.
+
+The pilots are divided into four groups; the groups of pilots associated to the three MADFs described in D4.2 [2] (FEniCS, Feel++, OPM), and the stand-alone pilots. For a general description of the pilots we refer to D5.1 [5].
+
+[[OLE_LINK1]]In D2.1 [3] requirements gathered from within the MSO4SC consortium are described with respect to purpose, type and priority, and for each requirement a validation scenario is defined. These validation scenarios are based on the pilots developed in WP5, and this deliverable provide a snapshot of the status of the implementation of these pilots. The status of the requirements is evaluated in D5.4 [4] in terms of the validation scenarios, and in WP6 a detailed evaluation will be carried out, involving also external stakeholders, with the purpose to also validate TRL levels of the developed MADF and pilots. The MADF development is carried out in WP4, whereas in WP5 the pilots are developed.
+
+The iterative development process follows the four steps of (i) definition of requirements (D2.1 [3]), (ii) design (D2.2 [6], D3.1 [7], D4.1 [8], D5.1 [5]), (iii) implementation (D4.2 [2] , D5.2 [1]), (iv) evaluation (D5.4 [4]), and then back to a new definition of requirements (D2.5 [9]). The pilot implementation is thus based on the requirements gathered in D2.1 [3] and the design formulated in D5.1 [5]. The evaluation in D5.4 [4] provides a snapshot of the development, and will function as input for the next iteration of the development process.
+
+Figure 1 shows the iterative development process during the project, where the evaluation step functions as input for the next iteration of the development process, in line with the mentioned steps.
+
+[[_Toc501742855]]Figure : The iterative development process of the e-infrastructure.
+
+The implementation of the pilots is in progress, as certain pilots have reached a high level of maturity whereas others are less mature at this point. For the next evaluation report scheduled for M24 a complete evaluation of requirements is planned.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+[cols=",",options="header",]
+|==============================================================
+|*Acronym* |*Definition*
+|*CAD* a|Computer-Aided Design
+
+|*CFD* a|Computational Fluid Dynamics
+
+|*D* |Deliverable
+|*EC* |European Commission
+|*FMI* a|Functional Mock-up Interface
+
+|*FMU* a|Functional Mock-Up
+
+|*HPC* a|High Performance Computing
+
+|*IDM* a|Identity Manager
+
+|*MADF* |Mathematical Development Framework
+|*TOSCA* a|Topology and Orchestration Specification for Cloud Applications
+
+|*WP* a|Work Package
+
+|==============================================================
+
+[[_Toc501742856]]Table . Acronyms
+
+[[mso4sc-e-infrastructure]]
+== MSO4SC e-infrastructure
+
+The MSO4SC e-infrastructure will provide a complete set of services to simplify the usage of mathematical applications and to use them in an efficient way, making usage of HPC and cloud resources in a transparent way. It will provide not only access to codes, applications and hardware infrastructure, but it will make available tools to prepare the simulations, up- and download the input and output datasets and visualize the results, among other.
+
+The complete list of services that will be provided to the user will be:
+
+1.  *MSO4SC portal:* The main MSO4SC service is the user portal, a web interface publicly accessible that is the main entry point for every MSO4SC user to the platform services.
+2.  *Authentication & Authorization:* This module has two parts, the server and client. The server will be based on the Fiware Lab IDM (Keyrock) while the client is embedded in the MSO4SC user portal.
+3.  *Marketplace:* Entry point to manage the applications available in the platform, as well as purchases and invoices related to them.
+4.  *Software repository:* The Software repository provides an integrated cloud service for the whole development cycle.
+5.  *Data repository:* Manages the datasets available in the platform, being able to create new ones, revise, filter, add information, etc.
+6.  *Pre-processing:* Deal with input data generation, manipulation and visualization. User interaction can be performed in unattended or interactive mode by means of remote visualization tools.
+7.  *Experiments Tool:* From this module, the user is able to start a simulation, get some basic monitoring information, and pause/stop it.
+8.  *Post-processing:* Deal with output data visualization and treatment. User interaction can be performed in unattended or interactive mode by means of remote visualization tools.
+9.  *Monitoring:* Visualization of infrastructure and application metrics.
+10. *Accounting service:* will provide information about the computational resources used, mainly CPU hours and storage used.
+11. *Community Tool:* Reference for MSO4SC users to learn about the platform and share their knowledge.
+
+The following table summarizes the usage and integration level of the pilots with the listed services. It is important to highlight that some of the services (such as accounting and community tool) are not fully operational and, therefore, pilots cannot really make use of them. On the other hand, the main objective during the first project iteration was to integrate pilots with the deployment mechanisms, enabling an easy usage of the computing resources.
+
+[cols=",,,,,,,,,,,",options="header",]
+|================================================================
+|*Pilot* |*1* |*2* |*3* |*4* |*5* |*6* |*7* |*8* |*9* |*10* |*11*
+|FloatingWindTurbine | | | | | | | | | | |
+|3DAirQualityPred-CFD | | | | | | | | | | |
+|HiFiMagnet | | | | | | | | | | |
+|Eye2brain | | | | | | | | | | |
+|OPMFlow | | | | | | | | | | |
+|ZIBAffinity | | | | | | | | | | |
+|3DAirQualityPrediction | | | | | | | | | | |
+|================================================================
+
+[[_Toc501742857]]Table : Status of pilots with respect to MSO4SC e-infrastructure services.
+
+Green signifies that the pilot uses the service in its current state, orange refers to partial use, red no use, and white that the service is not yet in place. A more detailed status is given for each pilot below.
+
+[[status-of-pilot-implementation]]
+== Status of pilot implementation
+
+In this section, we describe the status of the implementation of the pilots on the MSO4SC e-infrastructure. We provide links to the software repositories, and we present the status with respect to the MSO4SC e-infrastructure services, pilot specific development and test cases, and we lay out the roadmap for each pilot. For a general description of the pilots and test cases we refer to D5.1 [5], and the associated evaluation report is available as D5.4 [4].
+
+[[fenics-pilots]]
+=== FEniCS pilots
+
+[[floatingwindturbine]]
+=== FloatingWindTurbine
+
+[[software-repository]]
+==== Software repository
+
+The entire FloatingWindTurbine pilot together with the FEniCS-HPC MADF is open source under the LGPL license. The source can be found at:
+
+* https://bitbucket.org/fenics-hpc/unicorn[https://bitbucket.org/fenics-hpc/unicorn]
+* https://github.com/MSO4SC/fenics-hpc-cesga[https://github.com/MSO4SC/fenics-hpc-cesga]
+
+Container: Singularity image available on FTII test system
+
+Contact: Johan Jansson (mailto:jjan@kth.se[jjan@kth.se])
+
+[[status-of-implementation]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|=====================================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* [[_GoBack1]]TOSCA file exists
+
+|Authentication & Authorization a|
+* Default authentication on FTII
+
+|Software repository a|
+* Public repository on BitBucket
+
+|Data repository a|
+* Not available yet on CKAN
+* Girder repository setup in progress
+
+|Pre-Processing a|
+* Pre-processed mesh integrated into Singularity image
+* Automated generation of Singularity images
+
+|Experiments Tools a|
+* Several tests from test suite have been run
+* No monitoring filter defined
+
+|Post-Processing a|
+* Use of Paraview
+* ParaViewWeb not available yet
+
+|=====================================================
+
+[[_Toc501742858]]Table : Status of services integration for Floating Wind Turbine.
+
+[cols=",",options="header",]
+|==============================================================================================================
+|*Status* |*Description*
+|CI/CO a|
+* Automatic generation of Singularity image
+* Continuous Integration with FEniCS-HPC "next" branch
+
+|Ports a|
+* Finis Terrae II (FTII) done
+* Build scripts are published on MSO4SC github
+
+|Commercial Software / License issue a|
+* The entire FloatingWindTurbine pilot together with the FEniCS-HPC MADF is open source under the LGPL license.
+
+|Test suite a|
+* Implementation of a test suite of increasing complexity:
+** one-phase submerged part of platform
+** two-phase standard MARIN benchmark
+** a prototype test of two-phase heaving platform with real platform geometry
+* Basic documentation in progress
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Data for benchmark cases prepared
+
+|TOSCA files a|
+* Basic TOSCA files for main testcases have been created
+* Uploaded in MSO4SC/Resources GitHub repository
+
+|==============================================================================================================
+
+[[_Toc501742859]]Table : Status of pilot development for Floating Wind Turbine.
+
+[[pilot-test-cases]]
+==== Pilot test cases
+
+The following features have been implemented for the pilot, listed in the table below. Compare with test cases listed in D5.1 [5].
+
+[cols=",",options="header",]
+|=====================================================
+|*Test case* |*Description*
+|Test case 1 - one-phase submerged platform a|
+* CAD geometry defined
+* Mesh already available
+* Adaptive mesh refinement tested
+
+|Test case 2 - two-phase MARIN a|
+* CAD geometry defined
+* Mesh available
+* Experiment data available
+
+|Test case 3 - prototype two-phase heaving platform a|
+* CAD geometry defined
+* Mesh available
+* Experiment data available
+
+|=====================================================
+
+[[_Toc501742860]]Table : Test cases status for Floating Wind Turbine.
+
+[[roadmap]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|=======================================================================================================================================================
+|*Feature* |*Description* |*Deadline*
+|Run test cases with Orchestrator |The test cases will be run automatically by the MSO4SC Orchestrator using the developed TOSCA files. |January 12 2018
+|Manual |Write manual describing how to run the test cases and interpret results. |January 31 2018
+|Run test cases via MSO4SC portal |The test case simulations will be run via the MSO4SC portal |January 31 2018
+|Implement all MSO4SC services for the pilot |All MSO4SC services in Section 2 will be implemented for the pilot |February 28 2018
+|=======================================================================================================================================================
+
+[[_Toc501742861]]Table : Roadmap for the Floating Wind Turbine pilot.
+
+[[dairqualityprediction-cfd]]
+=== 3DAirQualityPrediction-CFD
+
+[[software-repository-1]]
+==== Software repository
+
+The entire 3DAirQualityPrediction-CFD pilot together with the FEniCS-HPC MADF is open source under the LGPL license. The source can be found at:
+
+* https://bitbucket.org/fenics-hpc/unicorn[https://bitbucket.org/fenics-hpc/unicorn]
+* https://github.com/MSO4SC/fenics-hpc-cesga[https://github.com/MSO4SC/fenics-hpc-cesga]
+
+Contact: Johan Jansson (mailto:jjan@kth.se[jjan@kth.se])
+
+[[status-of-implementation-1]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|=========================================================================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* TOSCA file not yet implemented, but will be very close to the FloatingWindTurbine pilot.
+
+|Authentication & Authorization a|
+* Default authentication on FTII
+
+|Software repository a|
+* Public repository on BitBucket
+
+|Data repository a|
+* Not available yet on CKAN
+* Girder repository setup in progress
+
+|Experiments Tools a|
+* Several tests from test suite have been run
+* No monitoring filter defined
+
+|Post-Processing a|
+* Use of Paraview
+* ParaViewWeb not available yet
+
+|=========================================================================================
+
+[[_Toc501742862]]Table : Status of services integration for 3DAirQualityPrediction-CFD.
+
+[cols=",",options="header",]
+|=====================================================================================================================
+|*Status* |*Description*
+|CI/CO a|
+* Continuous Integration with FEniCS-HPC "next" branch
+
+|Ports a|
+* Finis Terrae II (FTII) done
+* Build scripts are published on MSO4SC GitHub
+
+|Commercial Software / License issue a|
+* The entire 3DAirQualityPrediction-CDF pilot together with the FEniCS-HPC MADF is open source under the LGPL license.
+
+|Test suite a|
+* Basic documentation in progress
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Data for benchmark cases prepared
+
+|TOSCA files a|
+* TOSCA file not yet implemented, but will be very close to the FloatingWindTurbine pilot.
+
+|=====================================================================================================================
+
+[[_Toc501742863]]Table : Status of pilot development for 3DAirQualityPrediction-CFD.
+
+[[pilot-test-cases-1]]
+==== Pilot test cases
+
+The following features have been implemented for the pilot, listed in the table below. Compare with test cases listed in D5.1 [5].
+
+[cols=",",options="header",]
+|==================================================================================================
+|*Test case* |*Description*
+|Test case 1 – urban canyon a|
+* Mesh from 3DAirQualityPrediction pilot uploaded – more realistic geometry than planned initially.
+* CFD simulation carried out.
+
+|==================================================================================================
+
+[[_Toc501742864]]Table : Test cases status for 3DAirQualityPrediction-CFD.
+
+[[roadmap-1]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|======================================================================================================================================================
+|*Feature* |*Description* |*Deadline*
+|Run test case with Orchestrator |The test case will be run automatically by the MSO4SC Orchestrator using the developed TOSCA files. |February 28 2018
+|Manual |Write manual describing how to run the test case and interpret results. |February 28 2018
+|Run test case via MSO4SC portal |The test case simulations will be run via the MSO4SC portal |March 31 2018
+|Implement all MSO4SC services for the pilot |All MSO4SC services in Section 2 will be implemented for the pilot |March 31 2018
+|======================================================================================================================================================
+
+[[_Toc501742865]]Table : Roadmap for the 3DAirQualityPrediction-CFD pilot.
+
+[[feel-pilots]]
+=== Feel++ pilots
+
+[[hifimagnet]]
+=== HIFIMAGNET
+
+[[software-repository-2]]
+==== Software repository
+
+HiFiMagnet uses some commercial software (namely Nag librariesfootnote:[Nag Libraries : https://www.nag.co.uk/nag-fortran-library] and MeshGemsfootnote:[MeshGems Mesher : http://www.meshgems.com/meshgems-products.html] Mesher) the repository is private so far. The permissions on this repository will be managed as stated in D5.2 [1] Privacy section in the final version.
+
+Note also that the license key needed for the commercial software need also special permission as stated in Cloud-4 specification from D2.5 [9].
+
+Source can be found at:
+
+* https://github.com/feelpp/hifimagnet.git[https://github.com/feelpp/hifimagnet.git]
+
+Container:
+
+* https://hub.docker.com/r/feelpp/hifimagnet/[https://hub.docker.com/r/feelpp/hifimagnet/]
+
+Singularity images on girder
+
+Contact: Christophe Trophime (mailto:Christophe.trophime@lncmi.cnrs.fr[Christophe.trophime@lncmi.cnrs.fr])
+
+[[status-of-implementation-2]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|===============================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* Deployed (see demos in EnuMath Leiden)
+
+|Authentication & Authorization a|
+* Deployed with elementary test case
+* Authentication on FTII
+
+|Software repository a|
+* Private repository on github
+
+|Data repository a|
+* Not available yet on CKAN
+* Girder repository setup in progress
+
+|Pre-Processing a|
+* Use of Salome
+* Requires license for MeshGems mesher
+* Manual generation of Docker/Singularity images
+
+|Experiments Tools a|
+* Several tests from testsuite have been run
+* No monitoring filter defined
+
+|Post-Processing a|
+* Use of Paraview
+* ParaViewWeb not available yet
+
+|===============================================
+
+[[_Toc501742866]]Table : Status of services integration for HiFi Magnet.
+
+[cols=",",options="header",]
+|====================================================================================================
+|*Status* |*Description*
+|CI/CO a|
+* Automatic generation of a docker image. Testsuite partly integrated into the docker image creation
+* Upload to private section of Feelpp Docker cloud organization
+* Integrate github repository within Buildkite system
+
+|Ports a|
+* Finis Terrae II (FTII) done,
+* need to upload script on MSO4SC github
+
+|Commercial Software / License issue a|
+* License have been uploaded on FTII and permissions are managed by FTII sysadmins
+
+|Testsuite a|
+* Implementation of a testsuite based on simple academic case (eg torus of rectangular cross section)
+* Basic documentation in progress (book.hifimagnet website)
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Data for benchmark cases prepared
+* Data will be stored either in girder / github as they are sensitive
+
+|TOSCA files a|
+* Basic TOSCA files for main testcases have been created
+* Upload in MSO4SC/Resources github repository
+* Tested and presented by GD in Leyden
+
+|====================================================================================================
+
+[[_Toc501742867]]Table : Status of development for HiFi Magnet.
+
+[[pilot-test-cases-2]]
+==== Pilot test cases
+
+The following features have been implemented for the pilot, listed in the table below. Compare with test cases listed in D5.1 [5].
+
+[cols=",",options="header",]
+|======================================================================
+|*Test case* |*Description*
+|Test case 1 a|
+* CAD geometry defined
+* Mesh already available
+* Experiment data available
+
+|Test case 2 a|
+* CAD geometry defined
+* Mesh not available
+* Experiment data to be extracted from control
+
+|Test case 3 a|
+* Initial CAD geometry defined
+* Development of a Shape Optimization procedure based on reduced models
+* Actual machining of optimized geometry not planned
+
+|======================================================================
+
+[[_Toc501742868]]Table : Status of test cases for HiFi Magnet.
+
+[[roadmap-2]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|===========================================================================================
+|*Feature* |*Description* |*Deadline*
+|Reorganize HiFiMagnet repository a|
+* Split into several repositories (code sources, container generation, apps packaging, Data)
+* Manage permissions on each git repository
+
+ |End of March 2018
+|Container for Salome a|
+* Automate generation in progress
+* Integrate into CI/CD system
+
+ |End of March 2018
+|Mesh generation a|
+* Test more complex workflow including CAD/Mesh generation in Orchestrator
+
+ |End of January 2018
+|Documentation a|
+* Improve HiFiMagnet documentation
+
+ |End of February 2018
+|Benchmark cases a|
+* Prepare reference results for benchmark cases
+
+ |End of May 2018
+|===========================================================================================
+
+[[_Toc501742869]]Table : Roadmap for the HiFi Magnet pilot.
+
+[[eye2brain]]
+=== EYE2BRAIN
+
+[[software-repository-3]]
+==== Software repository
+
+Github (private)
+
+* http://www.github.com/feelpp/eye2brain.git[http://www.github.com/feelpp/eye2brain.git]
+
+Container repository (private)
+
+* https://cloud.docker.com/app/feelpp/repository/docker/feelpp/eye2brain/general[https://cloud.docker.com/app/feelpp/repository/docker/feelpp/eye2brain/general]
+
+Girder repository (singularity - private)
+
+* https://girder.math.unistra.fr/#collection/5a29b490b0e9572e31dac2c6/folder/5a30463fb0e9572e31dac313[https://girder.math.unistra.fr/#collection/5a29b490b0e9572e31dac2c6/folder/5a30463fb0e9572e31dac313]
+
+Contact person: mailto:Christophe.prudhomme@cemosis.fr[Christophe.prudhomme@cemosis.fr]
+
+[[status-of-implementation-3]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|===========================================
+|*Services* |*Description*
+|MSO4SC portal a|
+* Deployed with Level 1 and Level 2
+
+|Authentication & Authorization a|
+* Authentication on FTII
+
+|Software repository a|
+* Done in Github
+
+|Data repository a|
+* In progress using girder and CKAN
+
+|Pre-processing a|
+* Done in TOSCA file
+
+|Experiments Tool a|
+* Done
+
+|Post-processing a|
+* Done using paraview; paraviewweb interface
+
+|===========================================
+
+[[_Toc501742870]]Table 15: Status of services integration for Eye2Brain.
+
+[cols=",",options="header",]
+|=================================================================================================
+|*Description* |
+|CI/CO a|
+* Automatic generation of a docker imageTestsuite partly integrated into the docker image creation
+* Upload to private section of Feelpp Docker cloud organization
+* Integrate github repository within Buildkite system
+
+|Ports a|
+* Finis Terrae II (FTII) done,
+* need to upload script on MSO4SC github
+
+|Commercial Software / License issue a|
+* License have been uploaded on FTII and permissions are managed by FTII sysadmins
+
+|Test suite a|
+* Implementation of a test suite based on simple academic case
+* Basic documentation in progress
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Data for benchmark cases prepared
+* Data will be stored either in girder / github as they are sensitive
+
+|TOSCA files a|
+* TOSCA files for Level 1 and Level 2 have been created
+* Upload in MSO4SC/Resources github repository
+
+|=================================================================================================
+
+[[_Toc501742871]]Table : Status of development for Eye2Brain.
+
+The following test cases have been implemented for the pilot, listed in the table below. Compare with test cases listed in D5.1 [5].
+
+[cols=",",options="header",]
+|==========================
+|*Test case* |*Description*
+|Level 1 |Done.
+|Level 2 |Done.
+|Level 3 |Work in progress
+|==========================
+
+[[_Toc501742872]]Table : Test cases status for Eye2Brain.
+
+[[roadmap-3]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|==========================================================================================================================================================
+|*Feature* |*Description* |*Deadline*
+|Test suite |Continue improving the testsuite by adding more tests, verifications and validations |End of March 2018
+|OpenModelicafootnote:[OpenModelica : https://openmodelica.org/] integration V1 |Integrate OpenModelica within Eye2brain using FMU/FMI |End of January 2018
+|OpenModelica integration V2 |Integrate OpenModelica within Eye2brain using FMU/FMI |End of March 2018
+|Documentation |Improve documentation of eye2brain and its testcase; provide per test-case documentation |End of March 2018
+|Level 3 V1 |Provide Level 3 eye2brain application |End of March 2018
+|Level 3 V2 |Provide Level 3 eye2brain application |End of May 2018
+|User Interface V1 |Develop a specific user interface for medical doctors |End of February 2018
+|User Interface V2 |Develop a specific user interface for medical doctors |End of April 2018
+|Deployment |Work on deployment in ophthalmic clinic |End of May 2018
+|TOSCA files V2 |Improve genericity of TOSCA files framework, provide flexible inputs |End January 2018
+|TOSCA files V3 |Improve genericity of TOSCA files framework, provide flexible inputs |End of March 2018
+|==========================================================================================================================================================
+
+[[_Toc501742873]]Table : Roadmap for the Eye2Brain pilot.
+
+[[opm-pilots]]
+=== OPM pilots
+
+[[opm-flow]]
+=== OPM Flow
+
+[[software-repository-4]]
+==== Software repository
+
+Source repositories:
+
+* https://github.com/OPM/[https://github.com/OPM/]
+
+Container:
+
+* https://hub.docker.com/r/openporousmedia/opmreleases/[https://hub.docker.com/r/openporousmedia/opmreleases/]
+
+Contact: Atgeirr Flø Rasmussen (mailto:atgeirr@sintef.no[atgeirr@sintef.no])
+
+[[status-of-implementation-4]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|==========================================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* TOSCA files available
+* Test case 1 successfully run through orchestrator
+
+|Authentication & Authorization a|
+* Default authentication on FTII
+
+|Software repository a|
+* Using CESGA repository with the whole pilot
+
+|Data repository a|
+* Public repository for Norne
+* Private datasets for other testcases (not integrated yet)
+
+|Pre-Processing a|
+* Done in TOSCA file.
+
+|Experiments Tools a|
+* Test case 1 successfully run with the tool
+
+|Post-Processing a|
+* Using post-processing, but not from the portal
+
+|==========================================================
+
+[[_Toc501742874]]Table : Status of services integration for OPM Flow.
+
+[cols=",",options="header",]
+|====================================================================================
+|*Description* |
+|CI/CO a|
+* Automatic generation of a docker image, testsuite automatically executed by Jenkins
+* (No automatic updating of docker image on Docker Hub yet)
+
+|Ports a|
+* Finis Terrae II (FTII) done.
+
+|Commercial Software / License issue a|
+* No commercial licenses.
+
+|Test suite a|
+* Implementation of a test suite based on simple case
+* Basic documentation in progress
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Test case 1 data publicly available
+* Test case 2 data cannot be shared, not in data portal
+* Test case 3 data cannot be shared, not in data portal
+* Manual has been created
+
+|TOSCA files a|
+* TOSCA files suitable for test cases 1 and 2 have been created
+* Uploaded to MSO4SC/resources GitHub repository
+
+|====================================================================================
+
+[[_Toc501742875]]Table : Status of development for OPM Flow.
+
+[[pilot-test-cases-3]]
+==== Pilot test cases
+
+The test cases have status as shown in the table below. Details are described in D5.1 [5]. Initial trials indicate acceptable low-level scaling for single cases.
+
+[cols=",",options="header",]
+|=============================================================================================================================================================================================================================================================
+|*Test case* |*Description*
+|Test case 1 a|
+* The Norne case data files are publicly available and have been packaged for the pilot at: https://gitlab.srv.cesga.es/atgeirr/OPM-public-testing-data/raw/master/norne.tgz[https://gitlab.srv.cesga.es/atgeirr/OPM-public-testing-data/raw/master/norne.tgz]
+* The case has been successfully run through the orchestrator on the FT-II HPC system
+
+|Test case 2 a|
+* Data have been obtained, but cannot be shared
+* Local tests have been done, but not through the orchestrator
+
+|Test case 3 a|
+* Data have been obtained, but cannot be shared
+* Local tests have been done, but not through the orchestrator
+
+|=============================================================================================================================================================================================================================================================
+
+[[_Toc501742876]]Table : Test cases status for OPM Flow.
+
+[[roadmap-4]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|====================================================================================================================================================================================================
+|*Feature* |*Description* |*Deadline*
+|TOSCA files for ensemble cases |New TOSCA files are needed to support running large ensembles. |February 2018
+|Documentation |New tutorials are needed for running both single and ensemble cases through the MSO4SC infrastructure |June 2018
+|Prepare test cases 1 and 2 for Portal |The cases must be prepared to make them possible to run from the Portal. |February 2018
+|Prepare test case 3 for Portal |The case must be prepared to make it possible to run from the Portal. |April 2018
+|Prepare simulator logging for event monitoring |Simulator log patterns must be defined to enable monitoring of simulation events. |April 2018
+|Prepare simulator for interactive use through Portal |The simulator system must be able to respond to pause, restart, stop and similar events initiated by the user through the Portal. |August 2018
+|====================================================================================================================================================================================================
+
+[[_Toc501742877]]Table : Roadmap for the OPM Flow pilot.
+
+[[other-pilots]]
+=== Other pilots
+
+[[zibaffinity]]
+=== ZibAffinity
+
+[[software-repository-5]]
+==== Software repository
+
+The ZIBaffinity software embedded in a singularity container and all related TOSCA files as well as the sources, singularity recipe and third party software required for image building are available under the following URLs.
+
+TOSCA blueprint files:
+
+* https://github.com/MSO4SC/resources/tree/master/blueprint/zibaffinity[https://github.com/MSO4SC/resources/tree/master/blueprint/zibaffinity]
+
+Singularity image recipe, ZIBaffinity sources, and third party software:
+
+* https://gitlab.srv.cesga.es/mso4sc/zibaffinity[https://gitlab.srv.cesga.es/mso4sc/zibaffinity]
+
+Contact: Vedat Durmaz (mailto:durmaz@zib.de[durmaz@zib.de]), Marcus Weber (mailto:weber@zib.de[weber@zib.de])
+
+[[status-of-implementation-5]]
+==== Status of implementation
+
+[cols=",",options="header",]
+|=========================================================================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* Deployed
+
+|Authentication & Authorization a|
+* Authentication on FTII
+
+|Software repository a|
+* TOSCA definitions: https://github.com/MSO4SC/resources/tree/master/blueprint/zibaffinity
+* Singularity recipe, sources, third-party software: https://gitlab.srv.cesga.es
+
+|Data repository a|
+* In progress using girder and CKAN
+
+|PreProcessing a|
+* Done in TOSCA files
+
+|Experiments Tools a|
+* Run with one particular protein target are possible
+* Detailed log file is available
+
+|Post-Processing a|
+* Post-processing not mandatory. Imaginable using molecular visualization tool
+
+|Monitoring a|
+* Log file is generated and suitable for monitoring
+* Keywords for monitoring tool currently not defined
+
+|=========================================================================================
+
+[[_Toc501742878]]Table : Status of services integration for ZIB Affinity.
+
+[cols=",",options="header",]
+|=================================================================================================
+|*Status* |*Description*
+|CI/CO a|
+* Automatic generation of a docker imageTestsuite partly integrated into the docker image creation
+* Upload to private section of Feelpp Docker cloud organization
+* Integrate github repository within Buildkite system
+
+|Ports a|
+* Finis Terrae II (FTII) done,
+* need to upload script on MSO4SC github
+
+|Commercial Software / License issue a|
+* License have been uploaded on FTII and permissions are managed by FTII sysadmins
+
+|Testsuite a|
+* implementation of a testsuite based on simple academic case
+* Basic documentation in progress
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* data for benchmark cases prepared
+* data will be stored either in girder / github as they are sensitive
+
+|TOSCA files a|
+* basic TOSCA files for main testcases have been created
+* upload in MSO4SC/Resources github repository
+
+|=================================================================================================
+
+[[_Toc501742879]]Table : Status of development for ZIB Affinity.
+
+[[pilot-test-cases-4]]
+==== Pilot test cases
+
+The following features have been implemented for the pilot, listed in the table below. Compare with test cases listed in D5.1 [5].
+
+[cols=",",options="header",]
+|====================================================================================================
+|*Test case* |*Description*
+|Test case 1 |Done (Absolute free energy of binding estimation for biological protein–ligand systems)
+|Test case 2 |Done (Single unweighted contributions to the free energy of binding)
+|====================================================================================================
+
+[[_Toc501742880]]Table : Status of test cases for ZIB Affinity.
+
+[[roadmap-5]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|=========================================================================================================
+|*Feature* |*Description* |*Deadline*
+|Testsuite |Definition of a set of test files |End of January 2018
+|Software development |Adapting ZIBaffinity according to feedback from internal testers |End of March 2018
+|Documentation |Writing a documentation/manual for ZIBaffinity and its testcase |End of April 2018
+|MSO portal |Design of the ZIBaffinity part of the MSO portal |End of July 2018
+|TOSCA files |Adapt TOSCA definitions to MSO portal allowing flexible inputs |End of July 2018
+|=========================================================================================================
+
+[[_Toc501742881]]Table : Roadmap for the ZIB Affinity pilot.
+
+[[dairqualityprediction]]
+=== 3DAirQualityPrediction
+
+[[software-repository-6]]
+==== Software repository
+
+Phase 1 of the pilot is running on dedicated machines only due to license restrictions. Here follows the description of the access to all parts of it. All machines run on a HUAWEI cluster (name Huawei-HPC) running vmware ESXi enterprise class hypervisor.
+
+Web interface to vmware (ESXi-6.5.0):
+
+* 10.9.0.203
+
+The deployed machines are as follows:
+
+* Air Quality Prediction framework (Phase 1):
+
+___________________________________________________________________________
+b605gw.eik.sze.hu, Ubuntu 16.04 +
+(JAVA-based routines (e.g. automatized pre-processing tasks) also run here)
+___________________________________________________________________________
+
+* virtual machine for the license manager for the ANSYS Fluent: +
+10.2.201.43, running CentOS 6
+* virtual machine for the microscopic traffic simulation: +
+10.2.203.174, Windows 7, with VISSIM installed
+* virtual machine running Fluent solver (dispersion simulation)
+
+_______________________________________________________________________
+10.2.201.43, (at present, it is the same machine as the license server)
+_______________________________________________________________________
+
+* dedicated SMP server for the dispersion simulation:
+
+_____________________
+memo.sze.hu, Centos 7
+_____________________
+
+To get access to the restricted domain contact Dávid Fülep at mailto:fulep@sze.hu[fulep@sze.hu]. He provides access to the computers in the framework.
+
+Since the elements of the framework run on different dedicated research machines, the rest of IP addresses are only accessible from the IP range of SZE. Users access virtual HPC cluster through VPN and can access deployed servers through SSH, or VNC-like remote desktop clients.
+
+[[status-of-implementation-6]]
+==== Status of implementation
+
+The implementation of the 3DAirQualityPrediction pilot has of two basic phases:
+
+* Phase 1: implementation of the pilot as is, i.e. with proprietary software components to the MSO4SC infrastructure,
+* Phase 2: Implementation of the redesigned software architecture with open source components, in particular with 3DAirQualityPrediction-HPC.
+
+The 3DAirQualityPrediction pilot has several proprietary software components, e.g. PTVs VISSIM for traffic simulation and ANSYS” Fluent for the dispersion simulation. These are state-of-the-art engineering solutions on their industrial domains. Although SZE purchased the licensed with unlimited time for running, licensing caused severe restrictions with the deployment into the MSO4SC infrastructure. Namely, the license managers run only under old versions of operating system and from legal point of view they may be run only on clusters belonging to the sze.hu domain. These statements became clear during the lifetime of the MSO4SC project. We have solved the problem In Phase 1 with
+
+* installation of a virtual machine for the license server and the traffic simulation software (this took rather a long time to figure out the proper settings and operational modes of the virtual machines);
+* installation of the software for the dispersion module at a dedicated cluster of SZE.
+
+To cure the issues with the licensing, Phase 2 of the pilot is under construction. This will be composed of standardized input and output data formats for each module (traffic, emission, dispersion, evaluation) and, driven by a configuration file, for each module there will be options to select a solver including the Phase 1 proprietary solvers and open source solvers for each module including 3DAirQualityPrediction-HPC for the dispersion module solver.
+
+Due to this plan, the deployment of the pilot Phase 2 is scheduled to the second part of the project (see the roadmap below).
+
+[cols=",",options="header",]
+|==============================================================================================
+|*Services* |*Description*
+|MSO4SC Portal a|
+* Ongoing work
+* Ongoing integration of SZE cluster with the Orchestrator, so remote jobs can be sent
+
+|Authentication & Authorization a|
+* Authentication on FTII
+
+|Software repository a|
+* Code and VMs are available at SZE
+* Current version contains proprietary software
+
+|Data repository a|
+* In progress using CKAN
+
+|Pre-Processing a|
+* Done, but not through TOSCA files
+* Some steps require user intervention
+
+|Experiments Tools a|
+* Integration of the SZE cluster with the Orchestrator is mandatory before the tool can be used
+* Ongoing preparation of the TOSCA files
+
+|Post-Processing a|
+* Post-processing not mandatory.
+
+|==============================================================================================
+
+[[_Toc501742882]]Table 27: Status of services integration for 3DAirQualityPrediction.
+
+[cols=",",options="header",]
+|=======================================================================================
+|*Status* |*Description*
+|CI/CO a|
+* Ongoing work to integrate with 3DAirQualityPrediction-CFD implemented with FEniCS
+* Code to be uploaded to CESGA GitLab repository for enabling CI.
+
+|Ports a|
+* Deployed at SZE cluster
+
+|Commercial Software / License issue a|
+* Licenses for several components made necessary to set up a VM for the licenses manager
+* Only can be run at SZE for the moment (phase 1)
+
+|Testsuite a|
+* Implementation of a basic testsuite
+
+|Preparations of Data for benchmarks (see D5.1 [5]) a|
+* Data to be used is available
+* Still no data has been uploaded to the repository (CKAN)
+
+|TOSCA files a|
+* TOSCA files for phase 1 under definition
+
+|=======================================================================================
+
+[[_Toc501742883]]Table 28: Status of development for 3DAirQualityPrediction.
+
+[[pilot-test-cases-5]]
+==== Pilot test cases
+
+The following features have been implemented for the pilot, listed in the table below.
+
+[cols=",",options="header",]
+|=========================================================================
+|*Test case* |*Description*
+|Test case 1 |Done for the Phase 1 of the pilot.
+|Test case 2 |Done for the Phase 1 of the pilot.
+|Test case 1 and 2 with Phase 2 |To be done according to the roadmap below
+|=========================================================================
+
+[[_Toc501742884]]Table : Test case status for 3DAirQualityPrediction.
+
+[[roadmap-6]]
+==== Roadmap
+
+The roadmap for the pilot development is summarized in the table below.
+
+[cols=",,",options="header",]
+|==========================================================================================================================================
+|*Feature* |*Description* |*Deadline*
+|TOSCA file for Pilot Phase 1 |Make the TOSCA-file of the Phase 1 and deploy it into MSO4SC e-infrastructure. |January 15, 2018
+|Test case 1 for Phase 1 in the infrastructure |Test requirements in the infrastructure, case 1 |January 22, 2018
+|Test case 2 for Phase 1 in the infrastructure |Test requirements in the infrastructure, case 1 |January 31, 2018
+|Architecture design of Phase 2 |Complete professional architecture design of Phase 2 |January 22, 2018
+|Implementation of Phase 2 of the pilot |Software development of the pilot Phase 2. |31 March, 2018
+|Containerization |Containerization of Phase 2 software |30 April 2018
+|MSO4SC Portal, monitoring |Deployment of Phase 2 to the portal and solve monitoring |30 April 2018
+|Software and data repositories a|
+TOSCA file definitions and made available at gitlab
+
+Singularity recipe, sources, third-party software in the repository
+
+ |30 June 2018
+|PreProcessing |To be done in TOSCA files if possible (note: several preprocesing steps are user dependent and made manually) |31 July 2018
+|Post-Processing |Post-processing not mandatory. |31 July 2018
+|==========================================================================================================================================
+
+[[_Toc501742885]]Table 30: Roadmap for the 3DAirQualityPrediction pilot
+
+[[conclusions]]
+== Conclusions
+
+In this report we have described the deliverable D5.3, summarizing the implementation of pilots. It is clear that the pilots implementations have different maturity levels. While HiFi Magnet, Eye2Brain and OPM Flow have progressed more towards the integration with the MSO4SC e-Infrastructure, others are using only some basic features and are working in order to complete such integration.
+
+As for the features themselves, all the pilots provide, at least, some basic features, in line with the definition proposed in D5.1 [5]. Such features allowed to perform a validation of requirements, but the pilots will keep progressing in order to fulfil the requirements and cover all the needed scenarios, as planned in the roadmaps.
+
+Finally, although licenses for proprietary software are creating some issues, we have been able to deal with them in one way or another, although in one of the pilots, it became a complex point to deal with.
+
+[[references]]
+= References
+
+1.  MSO4SC, D5.2 Operational MSO4SC e-infrastructure, 2017.
+2.  MSO4SC, D4.2 Adapted MADFs for MSO4SC e-infrastructure, 2017.
+3.  MSO4SC, D2.1 End Users’ Requirements Report, 2017.
+4.  MSO4SC, D5.4 Evaluation report, 2017.
+5.  MSO4SC, D5.1 Case study extended design and evaluation strategy, 2017.
+6.  MSO4SC, D2.2 MSO4SC e-Infrastructure Definition, 2017
+7.  MSO4SC, D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal, 2017
+8.  MSO4SC, D4.1 Detailed Specification for the MADFS, 2017
+9.  MSO4SC, D2.5 End Users’ Requirements Report v2, 2017.

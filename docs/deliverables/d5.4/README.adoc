@@ -1,0 +1,418 @@
+= D5.4 Evaluation report
+:page-root: ../../../
+:page-permalink: /deliverables/d5.4/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:images/media/image1.PNG[image,width=162,height=139]
+
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+*Dissemination level*: Public
+
+[cols=",",options="header",]
+|================================================================================================================================================================================================================================================================================
+|Work Package |WP5 End-user Applications Development
+|Due Date: |_M14 (PROJECT MONTH)_
+|Submission Date: |_22/12/2017_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Johan Hoffman (KTH); Javier Nieto De Santos (ATOS); Victor Sande(CESGA), Javier Carnero (ATOS), Atgeirr Flø Rasmussen (SINTEF); Johan Jansson (BCAM/KTH); Christophe Prudhomme (UNISTRA); Christophe Trophime (UNISTRA); Vedat Durmaz (ZIB); Zoltán Horváth (SZE) _
+|Reviewer(s) |_F. Javier Nieto (ATOS); Esther Klann (MATHEON-TUB); _
+|================================================================================================================================================================================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:images/media/image2.png[image,width=65,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|=================================================================================================================================================================================================================================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |6/11/2017 |Initial version |_Johan Hoffman (KTH); _
+|0.2 |4/12/2017 |Second draft |_Johan Hoffman (KTH); _
+|0.3 |6/12/2017 |Third draft |_Johan Hoffman (KTH); Javier Nieto De Santos (ATOS)_
+|0.4 |19/12/2017 |Fourth draft |_Johan Hoffman (KTH); Javier Nieto De Santos (ATOS), Atgeirr Flø Rasmussen (SINTEF)_
+|0.5 |20/12/2017 |Fifth draft |_Johan Hoffman (KTH); Javier Nieto De Santos (ATOS), Victor Sande(CESGA), Javier Carnero (ATOS), Atgeirr Flø Rasmussen (SINTEF), Johan Jansson (BCAM/KTH), Christophe Prudhomme (UNISTRA), Christophe Trophime (UNISTRA), Vedat Durmaz (ZIB), Zoltán Horváth (SZE)_
+|1.0 |22/12/2017 |Updates according to the internal review comments |_Johan Hoffman (KTH); Zoltán Horváth (SZE); Christophe Trophime (UNISTRA)_
+|1.1 |23/12/2017 |Updates according to the internal review comments regarding evaluation results of Feel++ and Eye2brain |_Christophe Prud’homme (UNISTRA)_
+|=================================================================================================================================================================================================================================================================================================
+
+[[table-of-contents]]
+= Table of Contents
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc501746891[Figure 1: The iterative development process of the e-infrastructure, where the evaluation step functions as input for the next iteration of the development process. 7]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc501746892[Table 1. Acronyms 8]
+
+[[executive-summary]]
+= Executive Summary
+
+The deliverable reports on the status of the e-infrastructure with respect to the requirements gathered in D2.1 [1]. The iterative development process follows the steps of (i) definition of requirements (D2.1 [1]), (ii) design (D2.2 [3], D3.1 [4], D4.1 [5], D5.1 [6]), (iii) implementation (D5.2 [7], D5.3 [2]), (iv) evaluation, and then back to a new definition of requirements (D2.5 [8]). This evaluation report is thus based on the requirements gathered in D2.1 [1], providing a snapshot of the development. This report aims at doing a validation of the different services and components at the MSO4SC e-Infrastructure, according to the validation criteria initially foreseen, and taking into account the current implementation of the pilots. The document presents the scenarios implemented, the metrics taken and the results gathered.
+
+[[introduction]]
+== Introduction
+
+[[purpose]]
+=== Purpose
+
+[[OLE_LINK1]]The deliverable reports on the status of the MSO4SC e-infrastructure with respect to the requirements gathered in D2.1 [1]. In D2.1 [1] the requirements are described with respect to purpose, type and priority, and for each requirement a validation scenario is defined. These validation scenarios are based on the pilots developed in WP5, and this deliverable provides a snapshot of the status of the development. In WP6, a detailed evaluation will be carried out, involving also external stakeholders, with the purpose to also validate TRL levels of the developed MADF and pilots. The MADF development corresponds to WP4, whereas WP5 is the pilot development.
+
+The iterative development process follows the four steps of (i) definition of requirements (D2.1 [1]), (ii) design (D2.2 [3], D3.1 [4], D4.1 [5], D5.1 [6]), (iii) implementation (D3.2 [10], D4.2 [9], D5.2 [7], D5.3 [2]), (iv) evaluation (D5.4), and then back to a new definition of requirements (D2.5 [8]). This evaluation report is thus based on the requirements gathered in D2.1 [1], providing a snapshot of the development through the execution of the pilots in the e-Infrastructure, and will function as input for the next iteration of the development process.
+
+[[_Toc501746891]]Figure : The iterative development process of the e-infrastructure, where the evaluation step functions as input for the next iteration of the development process.
+
+The implementation of the pilots is in progress, while certain pilots have reached a high level of maturity others are less developed at this point. This also means that only a partial set of the requirement validations scenarios can be processed in this deliverable. We did not expected to be able to implement and validate all the requirements identified and, therefore, developments were focused on a set of initial features for the first version of MSO4SC. For the next evaluation report scheduled for M24 a complete evaluation of requirements is planned.
+
+Deliverable D5.3 [2] provide a status report of the implementation of the pilots, including software testing and method validation, how the e-infrastructure tools are used, and whether the pilot is ready for deployment or not. A list of implemented features is provided, and a roadmap for the development is given. In this evaluation report, we leave out the pilot descriptions to avoid unnecessary duplication. Instead, we focus on the validation of requirements, where we describe the current status of each requirement defined in D2.1 [1], with respect to the validation scenarios.
+
+[[glossary-of-acronyms]]
+=== Glossary of Acronyms
+
+All deliverables will include a glossary of Acronyms of terms used within the document.
+
+[cols=",",options="header",]
+|==========================================
+|*Acronym* |*Definition*
+|*CAD* |Computer-Aided Design
+|*D* |Deliverable
+|*FEM* |Finite Element Method
+|*MADF* |Mathematical Development Framework
+|*MPI* |Message Passing Interface
+|*VTK* |Visualization ToolKit
+|*WP* a|Work Package
+
+|==========================================
+
+[[_Toc501746892]]Table . Acronyms
+
+[[evaluation-of-cloud-requirements]]
+== Evaluation of cloud requirements
+
+[[cloud-1-application-support]]
+=== Cloud-1: Application support
+
+*Scenario Description*: New stakeholders will be invited to use the MSO4SC which should be able to run the new simulations. Users with the role of software providers must be able to submit and run new containerized software. The single requirement for them is to provide valid Singularity images. At least one external application will be executed correctly.
+
+*Metrics Measured:* Number of applications tested on MSO4SC e-Infrastructure, number of executions performed per application, Singularity versions tested, Singularity containers tested, success/failure ratio, identified issues.
+
+*Evaluation results*: Taking as starting point that Singularity is the first chosen container technology for portable and fast applications deployment, several containers and applications have been tested and benchmarked to verify and validate the support of new applications and its correct functioning.
+
+Apart of all MADFS, several Pilots and tests provided from WP4 and WP5, some other software packages, like XH5For or mpi4py, were tested in the scope of a container portability study. Additionally, a set of common de facto standard HPC benchmarks has been used to check the performance of Singularity containers. These benchmarks are HPL (High-Performance Linpackfootnote:[http://www.netlib.org/benchmark/hpl/]), OSU microbenchmarksfootnote:[http://mvapich.cse.ohio-state.edu/benchmarks/], Streamfootnote:[https://www.cs.virginia.edu/stream/] and IOZonefootnote:[http://www.iozone.org/]. The integration of all this application results in tens of containers tested and hundreds of executions at FTII (CESGA) and Plexi (SZE) HPC infrastructures.
+
+Since the project started, several Singularity versions have been released, tested and deployed in production. Nowadays, several versions (2.2.1, 2.3.1, 2.3.2 and 2.4.2) are available and ready-to-use for all users. The product was evolving during the project, but it is important to remark that last Singularity release (2.4.X) supports new images taking advantage of other lightweight and immutable file-system format that is not supported by previous versions.
+
+Regarding the portability of MPI containers, we studied the implication of the usage of several MPI families and versions. As a result of all the acquired experience with Singularity, a set of public documents collecting configurations, good practices and recommendations on how to build new Singularity containers join the needed information to ensure that a new container will run correctly.
+
+[[cloud-2-multiple-infrastructures-support]]
+=== Cloud-2: Multiple infrastructures support
+
+*Scenario Description*: Three pilots (OPM Flow based on OPM and Torsion Bar and High Field Magnets based on Feel++) have been used in order to test the current management of multiple computing infrastructures of the platform. More precisely, provide to the user with the ability to choose one of the infrastructures of MSO4SC, or another one in which the user has access.
+
+Therefore pilots have been executed several times using the two more mature infrastructures available: Finis Terrae II, provided by CESGA, and the SZE cluster. Finis Terrae II have been used as a test example of an infrastructure within the MSO4SC platform and therefore being monitored by it continuously. On the other hand, SZE cluster has been used in the tests to represent an infrastructure that is used “on demand”, when a MSO4SC user decides to use a new HPC infrastructure outside the MSO4SC HPCs.
+
+The use of those infrastructures also tests the communication between the orchestrator and monitoring systems (see 2.7 section).
+
+Cloud infrastructure has not been tested yet as its implementation in the orchestrator is not mature enough.
+
+*Metrics Measured:* Support for federated HPC/Cloud, types of supported infrastructures, types of supported resource managers, number of tests.
+
+*Evaluation results*: Currently application tests using OPM Flow, Torsion Bar and High Field Magnets have been successfully executed in both infrastructures after identifying minor bugs in the orchestrator and some parts of the monitor system.
+
+Both infrastructures are using Slurm as resource manager, so only Slurm was tested (others resource managers are not yet supported by the orchestrator/monitor services). Similarly, as stated before, only HPC infrastructures where tested.
+
+[[cloud-3-data-management]]
+=== Cloud-3: Data management
+
+*Scenario Description*: In the OPM Flow and ZibAffinity use cases, the user needs to select the input data that he/she wants to use as simulation input, usually stored in repositories outside the MSO4SC platform. Therefore, these two pilots have been selected to test the performance of the MSO4SC platform to move data from a heterogeneous original source to the compute infrastructures, and make them available to be used by the applications.
+
+*Metrics Measured:* Number of tests, number of infrastructures involved, transfer rates, application start time regarding the size of the input data to be moved.
+
+*Evaluation results*: Two tests have been performed for each OPM Flow and ZibAffinity pilots, one with a small dataset and another with a real size dataset. For all the tests, the datasets have been made publicly available for the orchestrator to reach them in the CESGA cloud infrastructure and the open datasets repository of OPM. As computing infrastructure we have used Finis Terrae II, where we can usually get good bandwidth rates (3-5 Gbps) and fast transfers, but taking into account that both, origin and destiny, are involved in the transference.
+
+In all cases the orchestrator has been able to download and “deploy” the necessary input data before the application starts, cleaning the data when it is no more necessary. However further tests to collect concrete metrics have not been developed yet.
+
+[[cloud-4-licenses-and-software-restrictions]]
+=== Cloud-4: Licenses and software restrictions
+
+*Scenario Description*: During the 3DAirQualityPrediction, Exe2Brain and HiFiMagnet use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+
+*Metrics Measured:* Number of licenses managed, types of licenses, number of deployed applications using licenses and identified issues.
+
+*Evaluation results*: Privacy and permissions management along all the MSO4SC services is a key feature. This critical feature must be implemented with accuracy to guarantee to the software providers, other users and stakeholders in general that their software or data can be accessed and used only by the right users.
+
+MeshGems is a licensed software part of the Salome-Platform package and used by HiFiMagnet. This software is currently available at FT2 and the license is owned only for the right users, so there are no current issues with respect to the licensing. On the other hand, the current implementation of the 3DAirQualityPrediction requires licenses that cannot be deployed at FTII and, therefore, it has been necessary to enable the execution at SZE.
+
+Some of the MSO4SC services are based on safe and mature third-party software which natively supports privacy and roles management. These services are the data catalogue (CKAN), source repository (Gitlab) and container storage and transfer (SRegistry).
+
+Data, MADFS and Pilots with restrictions can take advantage of these previously mentioned services in order to manage confidentiality. Validation of the security in all services and layers of the project is a long term task in an early stage and must be improved in the following stages of the project.
+
+[[cloud-5-mpi]]
+=== Cloud-5: MPI
+
+*Scenario Description:* The MSO4SC project implements 6 pilots, using different math libraries as base (FEniCS, Feel++ and OPM) and other standard simulation software (GROMACS). For each MADF in the project, the technical team has created containers including not only the base software, but also all the libraries required for running such software, including the MPI libraries (OpenMPI library, in this case). Such MADFs have been tested, in order to guarantee that they work correctly. For doing so, since they provide some automatic testing features, such automated tests were carried out in a first stage, as a way to validate the installation in the container.
+
+Although each MADF defines different testing, in all cases there is a validation of the basic features, including MPI execution with a variable number of nodes.
+
+Additionally, some simple simulation cases have been tested for each MADF, linked to the project pilots. Also, the ZIBAffinity pilot has been tested with its basic features. These cases have been executed several times and with different configurations, in order to validate whether the pilots and the underlying software work.
+
+At least, 5 pilot applications were required for validating the MPI support, but with the described scenario, we can guarantee that all the pilots will be working correctly with MPI support and using Singularity containers.
+
+*Metrics Measured:* Number of MADFs that can be deployed in the MSO4SC e-infrastructure, Number of pilot applications that can be deployed in MSO4SC e-infrastructure, number of times the MADFs and pilots were run, number of failures due to issues in the installation, number of MPI libraries tested, number of nodes used.
+
+*Evaluation results*: So far, there are 3 MADFs working in the CESGA FTII infrastructure, with their corresponding containers ready to be run (FEniCS, Feel++ and OPM). The containers have deployed the software and the required libraries, and examples for each case been already run with the MSO4SC e-infrastructure. This enables the deployment and execution of the pilots based on the mentioned MADFs (3DAirQualityPrediction, Eye2Brain, OPM Flow, Floating Wind Turbine and HiFi Magnet).
+
+Additionally, the ZIBAffinity pilot has been implemented, based on GROMACS. The containers are ready and the pilot has been executed.
+
+This means that MPI applications are supported by the MSO4SC e-infrastructure, fulfilling the corresponding requirement, and validating that 6 pilots can be run using such approach.
+
+The containers created include the OpenMPI libraries for implementing MPI, although we also tested with Intel MPI.
+
+MSO4SC has done an exhaustive testing of the implemented services based on MADFs and Pilots with more than one hundred executions. In particular ZIBAffinity pilot, Feel++, FEniCS-HPC and OPM were executed dozens of times. These runs have been successful in terms of correctness of the installation (including the required libraries) and results.
+
+The highest number of nodes used was 32 with HPL (High-Performance Linpack) for parallel scalability benchmarking purposes, showing that the MPI support is scalable.
+
+[[cloud-6-visualization]]
+=== Cloud-6: Visualization
+
+*Scenario Description*: Interactive visualization is usually a required feature for pre/post-process stage. Several pilots require a FEM mesh as input that can be obtained using CAD tools in unattended mode (scripting) or interactively. At least 4 pilots will use visualization tools in order to show the simulation results. For both cases visualization is a key feature which increases MSO4SC usability. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+
+*Metrics Measured:* Visualization techniques/alternatives, MADFS and Pilots requiring visualization, visualization software and formats supported, number of performed tests, success/failure ratio and known issues.
+
+*Evaluation results*: Several visualization alternatives have been considered to be integrated within the portal. In one hand, a custom ParavieWeb solution fits perfectly with the need of visualizing the results of a simulation. This solution, based on WebGL, is a service enabling the possibility to see and interact with the results of a simulation directly on a web browser and taking advantage of HPC resources. On the other hand, a more general solution is to serve remote desktops through the web browser. This alternative allows users to open any graphical interface on a desktop running in a cluster.
+
+Currently, the VNC alternative is already implemented and running at FT2 and is being integrated with the portal. It allows users to run some common pre-processing tools (like Salome, GMeshfootnote:[http://gmsh.info/] and FreeCADfootnote:[https://www.freecadweb.org/]) and post-processing tools (like Paraview and ResInsightfootnote:[http://resinsight.org/]). Each software supports different input or output file formats. The entire list of supported formats is really large, but is important to remark that most common formats as VTK are currently supported.
+
+During the implementation of the remote desktop based visualization service several of these applications were launched resulting in tens of successful executions. It is important to highlight that as this services rely on OpenGL visualization, they should be launched using “vglrun” application due to the indirect rendering feature.
+
+[[cloud-7-simulation-monitoring]]
+=== Cloud-7: Simulation monitoring
+
+*Scenario Description*: Three pilots and two infrastructures have been used in order to test the current monitoring capabilities of the system.
+
+To test the infrastructure monitor capabilities, pilots have been executed several times using the two more mature infrastructures available: Finis Terrae II, and SZE cluster. Finis Terrae II have been used as a test example of an infrastructure that it is always being monitored by the MSO4SC platform regardless there are applications running on it or not (this feature will be useful for the orchestrator to take smart decisions based on HPC long time behaviour). On the other hand SZE cluster has been used in the tests to represent an infrastructure that is monitored “on demand” when a MSO4SC user decides to use a new HPC infrastructure (see 2.2 section).
+
+Feel++ based example Torsion Bar and pilot High Field Magnets have been used to test the application monitoring capabilities of the platform, as well as OPM Flow based on OPM mathematical framework.
+
+In addition, both types of tests ensure that, if successful, the orchestrator and monitoring services are working together as expected.
+
+*Metrics Measured:* Number of infrastructures and applications, number of tests, number of application metrics shown in the portal, number of infrastructure metrics shown in the portal.
+
+*Evaluation results*: Currently application tests using Torsion Bar, High Field Magnets and OPM Flow have been successful after identifying small bugs in the orchestrator. Therefore, for each one, their logs where shown (human readable filtered) by the MSO Portal, and the most relevant output metric for each one was presented at the end of the execution.
+
+In the same way, infrastructure monitoring has been successfully tested with Finis Terrae II and SZE cluster, showing two metrics for partition in them: Load (percentage) and average time of running jobs. In the case of Finis Terrae II the infrastructure has been successfully monitored for more than three weeks with no error, while in the case of SZE it has been monitored during the time applications have been being executed in that cluster. Those metrics are shown graphically in the MSO Portal.
+
+[[evaluation-of-madf-requirements]]
+== Evaluation of MADF requirements
+
+[[unistra-1-feel-installation]]
+=== UNISTRA-1: Feel++ installation
+
+*Scenario Description*: The pilot applications Eye2brain and HIFIMAGNET will integrate Feel++ as one component and confirm the successful installation. Upon Feel++ installation using container technology, various verifications are done to check that Feel++ installation is current from the technical and mathematical point of view.
+
+*Metrics Measured:* 1)execution time, 2) L2 and H1 norms of analytical solutions, 3) scalability.
+
+*Evaluation results*: 1) yes, verified within proper range of execution time with respect to reference results 2) yes verified within mathematical theory or reference results 3) yes verified to scale with respect to reference results
+
+[[kth-1-fenics-hpc-installation]]
+=== KTH-1: FEniCS-HPC installation
+
+*Scenario Description*: The standard cube benchmark will be used for validation with acceptable error tolerances and successful completion. Output data should be generated in compatible format with the MSO4SC visualization layer.
+
+*Metrics Measured:*
+
+1.  The drag coefficient in the cube benchmark will be recorded and verified against reference data.
+2.  The standard scaling test will be verified to acceptable tolerance.
+
+*Evaluation results*:
+
+1.  Yes, the information was recorded and verified.
+2.  Yes, it was verified.
+
+[[sintef-0-opm-installation]]
+=== SINTEF-0: OPM installation
+
+*Scenario Description*: The pilot application OPM Flow will integrate OPM as one component. In the pilot application, end users will define the usage of OPM, the simulations will be configured and the execution will be monitored.
+
+*Metrics Measured:* a) OPM installed and available on the FT-II system, b) OPM available from the Portal, c) external end users verify its behavior
+
+*Evaluation results*: a) Yes, OPM is deployed at FT-II and runs correctly (checked with its test cases and OPM Flow); b) OPM is not fully available from the Portal, since not all the Portal features of the 100% available. It is possible to run OPM with the experiments tool, but customized OPM monitoring is not still available; c) No, the OPM MADF has not been used by third parties external to the project, at the MSO4SC e-Infrastructure (it is planned for Y2).
+
+[[evaluation-of-the-end-user-applications]]
+== Evaluation of the end-user applications
+
+[[unistra-2-feel-hifimagnet]]
+=== UNISTRA-2: Feel++ HIFIMAGNET
+
+*Scenario Description*: The classical example of a magnet made of a rectangular cross section torus for which analytical solutions can be derived will be used for validation. This testcase must run to completion; results must be equivalent to reference results; errors between simulations and analytical solutions must behave as expected from theory.
+
+1.  *Metrics Measured:* Hifimagnet installed and available on the FT-II system
+2.  The test is running successfully through orchestrator,
+3.  Maximum temperature and Magnetic Field at the magnetic center shall match the reference values
+4.  The computed temperature profile within the magnet is compared with the analytical solution using standard norm (L2, H1); the rated of convergence (ie the L2 error) versus mesh size shall match the theoritical value for lowest order finite elements; same for magnetic potential and magnetic field
+
+*Evaluation results*:
+
+1.  HiFimagnet is deployed on FT-II
+2.  Demonstrated in Enumath Leyden 2017
+3.  Expected temperature max= 364.16K, Magnetic Field=0,177T, checked manually since no monitoring system is yet available
+4.  L2 norm error should be in h2 with h the mesh size; calculations in progress, would also requires monitoring system
+
+[[unistra-3-feel-eye2brain]]
+=== UNISTRA-3: Feel++ EYE2BRAIN
+
+*Scenario Description*: A test case for the pilot application EYE2BRAIN will be used to validate the installation.
+
+*Metrics Measured:* 1) execution time, 2) scalability, 3) L2, H1 error norm and scalar outputs
+
+*Evaluation results*: 1) yes, verified within proper range of execution time with respect to reference results 2) yes verified to scale with respect to reference results 3) yes verified within mathematical theory or reference results
+
+[[sintef-1-opm-flow-must-run-on-cesga]]
+=== SINTEF-1: OPM Flow must run on CESGA
+
+*Scenario Description*: The single-model test cases described in D5.1, the Norne case, CO2 injection on Norwegian Continental Shelf; must run to completion with results equivalent to reference results.
+
+*Metrics Measured:* a) Norne run successfully through orchestrator, b) CO2 injection run successfully through orchestrator, c) Norne run successfully through Portal, d) CO2 injection run successfully through Portal
+
+*Evaluation results*: a) Yes, Norne can be run through the Orchestrator as expected; b) No, such example is not yet fully ready for using the Orchestrator; c) and d) No, some features of the Portal still need some updates in order to enable the possibility to run both examples from the Portal, using the Experiments Tool.
+
+[[sintef-2-ensemble-run-of-opm-flow]]
+=== SINTEF-2: Ensemble run of OPM Flow
+
+*Scenario Description*: The ensemble-model test case described in D5.1 [6], the OLYMPIC benchmark, must run successfully in at least 95% of the cases.
+
+*Metrics Measured:* a) Ensemble run successfully through orchestrator, b) Ensemble run successfully through Portal
+
+*Evaluation results*: a) No, preparation is still ongoing; b) No, since it is necessary, first of all, to have it working with the Orchestrator.
+
+[[sintef-3-parallel-opm-flow]]
+=== SINTEF-3: Parallel OPM Flow
+
+*Scenario Description*: OPM Flow must run parallel MPI simulations efficiently on the CESGA HPC infrastructure. The pilot of the OPM Flow application will be used as benchmark for this scenario. The OPM Flow application should scale well for a limited number of nodes (e.g, up-to 8 parallel processes).
+
+*Metrics Measured:* a) Verify scaling using orchestrator, b) Verify scaling using Portal
+
+*Evaluation results*: a) Yes, it was possible to run OPM Flow in a parallel way, using the Orchestrator b) No, this is not yet done, although it is ongoing work, using the Experiments Tool in the Portal.
+
+[[bcam-1-floating-wind-turbine-pilot]]
+=== BCAM-1: Floating Wind Turbine pilot
+
+*Scenario Description*: The MARIN test case will be used for validation with acceptable error tolerances. The details of the MARIN benchmark can be found in D5.1 [6].
+
+*Metrics Measured:*
+
+1.  The pressure sensors in the MARIN benchmark will be logged and validated against experimental data, with acceptable error tolerances compared to published results.
+2.  Test computations must finish within the specified time frame in 90 out of 100 cases, and 100% of the cases must compute the
+
+____________________________________________________________
+configured mesh without errors related to lack of resources.
+____________________________________________________________
+
+1.  Validation of the user interface from an external user from industry.
+
+*Evaluation results*: The Floating Wind Turbine pilot is already able to work, but still MARIN test case was not used in order to perform benchmarking. Such benchmarking will be done during Y2 of the project.
+
+[[bcam-2-post-processing-and-visualization-of-simulation]]
+=== BCAM-2: Post-processing and visualization of simulation
+
+*Scenario Description*: The pilot of the Nautilus platform simulation will be used as benchmark for this requirement on visualization. The purpose is to provide the basic tools to be able to connect to visualisation tools and deliver a wide range of post-processing quantities.
+
+_________________________________________________________________________________________________________________________________
+*Metrics Measured:* The visualization should run without error and produce an image accepted by a typical user as representative.
+_________________________________________________________________________________________________________________________________
+
+*Evaluation results*: This scenario has not been carried out yet and it is planned for the following months.
+
+[[zib-1-zibaffinity-development-and-installation]]
+=== ZIB-1: ZIBAffinity development and installation
+
+*Scenario Description*: As an evaluation run, the binding mode and affinity will be estimated for the molecular host–guest complex consisting of the human estrogen receptor alpha (ERa) and its natural agonist 17-beta-estradiol. The results will be compared with a run (under identical conditions and using identical seeds for the random initial velocity generator) on the HLRN high performance computer located in Berlin and with available experimental results.
+
+*Metrics Measured:*
+
+* The root mean square deviation of the predicted complex binding mode from respective X-ray crystallographic coordinate files should not exceed 0.1nm.
+* The Gibbs free energy of binding should not deviate from the analogue run on the other HPC system by more than 0.001kJ/mol.
+
+*Evaluation results*: This scenario has not been carried out yet. The ZIBAffinity pilot can run some of its basic features, but not yet all the features required for gathering all the listed metrics.
+
+[[sze-1-3dairqualityprediction-with-statistical-data]]
+=== SZE-1: 3DAirQualityPrediction with statistical data
+
+*Scenario Description*: In this pilot test scenario traffic and meteorology data are taken from historical data. Thus running the pilot all data and codes will be uploaded to the MSO4SC data repository before running the test scenario. The SZE-1 scenario will use statistical data provided by OMSZ (The Hungarian Meteorological Service) and precomputed data via VISSIM for traffic flow. These data belong to city of Győr, where Phase 1 of the pilot has been tested.
+
+*Metrics Measured:* High level of air pollutants in cities is the main metrics of the air pollution simulation, since it is responsible for many health problems. Among different polluters, NOx concentration is one of the most important factors of air quality. Thus the metrics of the pilot scenario is the air quality indicator corresponding to NOx and measured at certain specified busy downtown streets. The scenario will pass the evaluation if computed metrics equal the precomputed data.
+
+*Evaluation results*: The current version of the pilot does not integrate all the data sources required for executing the scenario as expected. Therefore, it will be validated in the following months, when a new version of the pilot will be available.
+
+[[sze-2-3dairqualityprediction-with-full-simulation]]
+=== SZE-2: 3DAirQualityPrediction with full simulation
+
+*Scenario Description*: In the pilot-2 scenario for 3DAirQualityPrediction, boundary conditions for traffic and meteorology are taken from measurements and, with some options in choosing simulation solvers for each module, e.g. testing both ANSYS Fluent and 3DAirQualityPrediction-HPC under the same conditions.
+
+*Metrics Measured:* Running time (wall-clock time) and accuracy of the simulation results to the measured NOx data.
+
+*Evaluation results*: For the moment, only the ANSYS Fluent version of the pilot is available and, therefore, it is not possible to compare the results with the version based on FEniCS, which will be available during the following months. As a result, the scenario will be run during Y2.
+
+[[conclusions]]
+== Conclusions
+
+This report describes the deliverable D5.4 which details the status of the MSO4SC infrastructure with respect to the requirements outlined in D2.1 [1]. Each requirement is evaluated through a scenario, for which a metric is prescribed. The structure of the report is based on the list of requirements.
+
+Most of the requirements identified during the first iteration of the project have been validated to some extent. As expected, requirements implementation is prioritized, according to the stakeholders’ needs. Therefore, it is usual that some requirements were validated with more detail, while others will be validated in the future, as the e-Infrastructure implementation is progressing.
+
+In general, those requirements linked to the core features of MSO4SC have been validated with success, showing that the e-Infrastructure can be used. On the other hand, requirements related to the pilots require more development before they can be fully validated.
+
+[[references]]
+= References
+
+1.  __________________________________________________________________
+[[_Ref467573084]]MSO4SC D2.1 End Users’ Requirements Report, 2017.
+__________________________________________________________________
+2.  _______________________________________________
+MSO4SC D5.3 Pilots implementation Report, 2017.
+_______________________________________________
+3.  _____________________________________________________
+MSO4SC, D2.2 MSO4SC e-Infrastructure Definition, 2017
+_____________________________________________________
+4.  __________________________________________________________________________________________________
+MSO4SC, D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal, 2017
+__________________________________________________________________________________________________
+5.  _______________________________________________________
+MSO4SC, D4.1 Detailed Specification for the MADFS, 2017
+_______________________________________________________
+6.  _____________________________________________________________________
+MSO4SC, D5.1 Case study extended design and evaluation strategy, 2017
+_____________________________________________________________________
+7.  ______________________________________________________
+MSO4SC, D5.2 Operational MSO4SC e-infrastructure, 2017
+______________________________________________________
+8.  ____________________________________________________
+MSO4SC, D2.5 End Users’ Requirements Report v2, 2017
+____________________________________________________
+9.  ____________________________________________________________
+MSO4SC, D4.2 Adapted MADFs for MSO4SC e-infrastructure, 2017
+____________________________________________________________
+10. _____________________________________________________________________________
+MSO4SC, D3.2 Integrated Infrastructure, Cloud Management and MSO Portal, 2017
+_____________________________________________________________________________
