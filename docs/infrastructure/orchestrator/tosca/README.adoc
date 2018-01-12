@@ -1,11 +1,11 @@
-= MSO4SC: TOSCA Modelling and execution
-:page-root: ../../../
-:page-permalink: /tosca/
+= TOSCA Modelling and execution
+:page-root: ../../../../
+:page-permalink: /infrastructure/orchestrator/tosca/
 :page-layout: default
 ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../images/]
+ifndef::imagesdir[:imagesdir: ../../../../images/]
 :toc: left
-include::../includes/header.adoc[]
+include::../../../includes/header.adoc[]
 // URIs
 :uri-tosca: http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.1/TOSCA-Simple-Profile-YAML-v1.1.html
 :uri-mso4sc: http://www.mso4sc.eu
@@ -384,3 +384,11 @@ If an error occurs the revert steps can be followed revert the last steps made. 
 
 
 TIP: A complete list of CLI commands can be found at {uri-cloudify-cli}
+
+==== MADF Tosca design
+
+:leveloffset: +1
+
+include::feelpp/README.adoc[]
+
+:leveloffset: -1

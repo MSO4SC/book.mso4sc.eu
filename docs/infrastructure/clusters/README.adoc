@@ -1,0 +1,11 @@
+= Clusters
+:page-root: ../../../
+:page-permalink: /infrastructure/clusters/
+:page-layout: default
+include::../../includes/header.adoc[]
+
+:leveloffset: +1
+
+include::ft2/README.adoc[]
+
+:leveloffset: -1
