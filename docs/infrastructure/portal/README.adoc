@@ -4,5 +4,8 @@
 :page-layout: default
 include::../../includes/header.adoc[]
 
+:leveloffset: +1
 
-IMPORTANT: Documentation is W.I.P
+include::https://raw.githubusercontent.com/MSO4SC/MSOPortal/master/portal/README.adoc[]
+
+:leveloffset: -1
