@@ -1,0 +1,457 @@
+= D3.3 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+:page-root: ../../../
+:page-permalink: /deliverables/d3.3/
+:page-layout: manual
+:imagesdir: ../../../images/
+:pilotsdir: ../../../pilots/
+include::../../includes/header.adoc[]
+
+image:media/d3.3/image1.png[image,width=166,height=156]
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |25 months (1+24)
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+**Dissemination level**: Public
+
+[cols=",",options="header",]
+|============================================================================================================================
+|Work Package |WP3 CLOUD TECHNOLOGY
+|Due Date: |_M16 _
+|Submission Date: |_2/2/2018_
+|Version: |_1_
+|Status |_Final_
+|Author(s): |_Carlos Fernández, Victor Sande (CESGA); F. Javier Nieto, Javier Carnero (ATOS); Akos Kovacs, Tamás Budai (SZE)_
+|Reviewer(s) |_Marcus Weber (ZIB); Johan Hoffman (KTH)_
+|============================================================================================================================
+
+[cols=",",]
+|=========================================================================================================================================================================
+|image:media/d3.3/image2.png[image,width=66,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|=========================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|==================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |05/01/2018 |Preliminary TOC |Carlos Fernández (CESGA)
+|0.2 |26/01/2018 |Deployment, CI&CD, |Víctor Sande (CESGA)
+|0.3 |30/01/2018 |Orchestrator, Monitor & Portal |Javier Carnero (ATOS)
+|0.4 |30/01/2018 |UNISTRA HPC infrastructure |Guillaume Dolle (UNISTRA)
+|1 |02/02/2018 |Reviewers comments |Victor Sande (CESGA)
+|1.1 |05/02/2018 |Reviewers comments |Javier Carnero (Atos)
+|==================================================================================
+
+*Table of Contents*
+
+[[list-of-figures]]
+= List of figures
+
+[[list-of-tables]]
+= List of tables
+
+[[executive-summary]]
+= Executive Summary
+
+This document contains the second detailed description of the components and the detailed design of the MSO4SC e-Infrastructure. After the first implementation of the e-infrastructure, we present a new design taking in account the new requirements, the feedback and the new knowledge about some of the technologies used in the first implementation.
+
+[[introduction]]
+= 1. Introduction
+
+[[purpose]]
+== 1.1 Purpose
+
+Once the first set of requirements have become available and a deep analysis was performed to determine the features and services to be provided through the e-Infrastructure, in D2.2 [1] those features were analysed, identifying the conceptual layers they belong to, and defining the high-level architecture of the e-Infrastructure. Such definition includes some high-level components and examples of how they are expected to interact when providing some of the functionalities.
+
+D2.2 provides a detailed design of the high level components of the e-Infrastructure. Such detailed design still is high level and it is the purpose of this document to provide deeper detail as a base for the implementation.
+
+Taking into account the design and implementation of the e-Infrastructure presented in D3.1 and D3.2 and the experience of the consortium based on the usage of the first implementation of the e-Infrastructure, here we present updates and deeper detail on the initial design.
+
+In section 2 of this document we summarize the requirements that were taken in account. Section 3 describes the features and services needed to cover these requirements. Section 4 covers updates on MADFs and pilots deployment. Section 5, 6, 7 and 8 cover updates and also future work on the rest of the components: Orchestrator, Portal, Software Repository and Data Repository.
+
+[[glossary-of-acronyms]]
+== 1.2 Glossary of Acronyms
+
+All deliverables will include a glossary of Acronyms of terms used within the document.
+
+[cols=",",]
+|========================================================================
+|*Acronym* |*Definition*
+|*API* |Application Programming Interface
+|*CD* |Continuous Delivery
+|*CI* |Continuous Integration
+|*CLI* |Command Line Interface
+|*CPU* |Central Processing Unit
+|*D* |Deliverable
+|*EGI* |European Grid Infrastructure
+|*EOSC* |European Open Science Cloud
+|*FT2* |Finis Terrae II
+|*FTP* |File Transfer Protocol
+|*GPGPU* |General-Purpose Computing on Graphics Processing Unit
+|*GPU* |Graphics Processing Unit
+|*HTTP* |HyperText Transfer Protocol
+|*HPC* |High Performance Computing
+|*IaaS* |Infrastructure as a Service
+|*MADF* |Mathematics Application Development Frameworks
+|*MPI* |Message Passing Interface
+|*MSO* |Modeling Simulation and Optimization
+|*OpenMP* |Open Multi-Processing
+|*OS* |Operating Sistem
+|*PRACE* |Partnership for Advanced Computing in Europe
+|*PaaS* |Platform as a Service
+|*Q&A* |Question & Answer
+|*RAM* |Random Access Memory
+|*REST* |Representational State Transfer
+|*SEO* |Search Engine Optimization
+|*TOSCA* |Topology and Orchestration Specification for Cloud Applications
+|*VNC* |Virtual Network Computing
+|*WP* a|
+____________
+Work Package
+____________
+
+|========================================================================
+
+[[_2s8eyo1]]**Table 1. Acronyms**
+
+[[e-infrastructure-requirements-features-and-services]]
+= 2. E-Infrastructure: requirements, features and services
+
+In this section we provide a view of the expected features for the MSO4SC e-Infrastructure, taking into account the initial design depicted in the proposal, but specially the requirements taken from the users and developers of the mathematical frameworks, as gathered in the document D2.1 [1] and then in D2.5 [3]
+
+[[e-infrastructure-features-and-services]]
+== 2.1 E-Infrastructure features and services
+
+ 
+
+According to the collected requirements, a summary of the main components of MSO4SC supporting the corresponding features and services were presented in D3.1 [5]. The current production status of the e-Infrastructure contains some of these requirements already fulfilled or in an advanced stage. Some of the features already implemented are listed below:
+
+1.  Federated HPC systems support
+2.  A high-quality web interface for the above services
+3.  Support efficient parallel (MPI and OpenMP) containerized application
+4.  An orchestrator tool to efficiently, automatically and dynamically deploy and manage applications in the MSO4SC e-Infrastructure.
+5.  A Marketplace tool and archival infrastructure to store, provide and categorize MADFs, pilots, benchmarks, models, etc.
+6.  A workflow-oriented software development environment and integration with open source software repositories
+7.  Integrated pre/post processing tools for supporting CAD construction, mesh generation and scientific visualization, such as Salome and Paraview.
+
+It's important to remark that although having these features already deployed within the production version of the e-Infrastructure, some of them are involved in the continuous improvement process and can be potentially affected by changes in future versions.
+
+Based on the roadmap presented in D2.6 [4], future work on the e-Infrastructure has some important points to be fulfilled. In the list below, we present a summary of the most important high-level features to be included in the final version of the e-Infrastructure:
+
+1.  Support heterogeneous, HPC and multi-cloud systems, avoiding the vendor lock-in problem.
+2.  Support simultaneous job submission mechanism for heterogeneous multi-cloud/HPC systems.
+3.  A transparent storage access mechanism by which several popular storage systems can be accessed.
+4.  A meta-broker that can schedule parallel computational jobs among various clouds.
+5.  A REST API to connect the system with the MSO Portal (below) and also with third party applications.
+6.  "One single button to run the whole simulation"-type interface.
+7.  Integrate external infrastructures such as those from PACE and EOSC-HUB.
+
+[[e-infrastructure-architecture-and-components]]
+= 3. E-Infrastructure architecture and components
+
+After the first implementation of the e-infrastructure there is no need to change the proposed architecture of the e-infrastructure presented in D2.2 [2] that is based on four main conceptual layers.
+
+Taking into account these four layers, the main components have been identified and their relationships are described in figure 2.
+
+image:media/d3.3/image3.png[image,width=566,height=292]
+
+[[_1ksv4uv]]**Figure 2. Main components of the MSO4SC e-Infrastructure as described in D2.2 [2]**
+
+These components are still valid for the second implementation of the e-infrastructure. “Repository” modules have been renamed to “management” to fit better their purpose and a new module for accounting have been added. Also relationships between them have been revised to be more accurate with the implementation.
+
+In the following sections a detailed description of these components is provided, specifying the main changes with respect to the first implementation. Section 4 will cover the integration of the MADFs and pilots in the infrastructure. Section 5 will describe the Orchestrator. Section 6 the MSO Portal. Section 7 the Software repository and in section 8 we provide the details about the data repository. Finally in section 9 we describe the initial hardware platforms that will be used in the project.
+
+[[deployment-and-integration-of-madfs-in-the-e-infrastructure]]
+= 4. Deployment and Integration of MADFs in the e-Infrastructure
+
+In this section we describe the status and the main changes with respect to the deployment of the MADFs in the e-infrastructure.
+
+ 
+
+[[installation-of-the-madfs-in-the-infrastructure]]
+== 4.1 Installation of the MADFs in the infrastructure
+
+ 
+
+The installation of MADFs in the e-infrastructure has been finished in the first implementation of the e-infrastructure. However, a deeper knowledge of the containerization technologies is available now and we present the main differences expected in the second implementation and challenges foreseen. It includes new performance benchmarks using Singularity containers and the definition and implementation of workflows for using them within the e-Infrastructure.
+
+[[container-technology-for-the-deployment-of-madfs-and-pilots]]
+== 4.2 Container Technology for the deployment of MADFs and Pilots
+
+[[udocker-singularity-state-of-the-art-and-evolution]]
+=== 4.2.1 Udocker, Singularity, state of the art and evolution
+
+ 
+
+Singularity and Udocker are the containerization tools selected for the first version of the e-Infrastructure for fast deployment and to run MADFS and Pilots. These tools have different usage scope, and the selection of one solution or another depends on the needs at the user level.
+
+These tools, both available at FT2 for all users, have been evolving together with MSO4SC, launching new releases, fixing bugs and implementing new features. We are actively following the development of Udocker and Singularity and taking advantage of their new features. It’s also planned to continue following and, if needed, *adapting and improving container workflows* depending on the evolution of the container technologies.
+
+Regarding Udocker, the most important improvements for us are related with the execution of parallel applications. In one hand, Udocker has fixed a bug related with running multi threaded applications in old kernels. In the other hand, Udocker has implemented new execution modes which enable parallel multi node MPI applications [16]. This brings Udocker as another alternative for running multinode parallel workflows.
+
+Singularity has also rapidly evolved and included big changes. One of the most relevant improvements is the usage of a different default file system for storing the images. This file system breaks forward compatibility for old Singularity versions (for Singularity < 2.4), but creates lightweight images and, consequently, reduces storage demand and the amount of transferred data through the networks. Latest Singularity release (2.4.2) is already installed at FinisTerrae II and available for all users.
+
+The Singularity team has also created registries; SingularityHub [14], a public registry like DockerHub [13], and SRegistry [15]. Both are tools used to remotely store and transfer Singularity images from the Cloud. While SingularityHub is hosted and maintained by Singularity team, SRegistry can be deployed and managed in our own cloud. In addition, the Singularity tool has included a new pull command for downloading or using remote images stored by means of these services. We can take advantage of this improvements to enrich application workflows in two ways; delivery automation and workflow portability.
+
+The need to be superuser to create Singularity containers is still present, and it will remain as an inherent requirement in the implemented containerization model. In multi user system as HPC, a normal user will usually not have superuser permissions. Taking all this into account, the Singularity usage workflow has been updated to be adapted to its new features.
+
+image:media/d3.3/image4.png[image,width=567,height=408]
+
+*Figure 3. Workflow of Singularity images in the e-Infrastructure*
+
+ 
+
+As we can see in Figure 3, users can pull images or execute containers in FT2 from public registries, and also import images from tar pipes. Once the image is created, Singularity allows executing the container in interactive mode, and test or running any contained application using batch systems. All the work-flow can be managed by a normal user at FinisTerrae II, except the build process that needs to be called by a superuser. We can use a virtual machine with superuser privileges to modify or adapt an image to the infrastructure using the Singularity build command.
+
+Including the orchestration of Cloud resources will enable the usage of other widely used container technologies as Docker. To *define and implement workflows with other container technologies* during the next period is of utmost importance.
+
+[[singularity-performance-benchmarking-at-finisterrae-ii]]
+=== 4.2.2 Singularity performance benchmarking at FinisTerrae II
+
+ 
+
+In D3.1 [5], parallel performance scalability benchmarks using HPL within a Singularity container were presented with expected and successful results. In addition, new benchmarks have been performed at FinisTerrae II [7] and presented here. These benchmarks were performed in order to demonstrate that Singularity is able to take advantage of the HPC resources, in particular Infiniband networks and RAM memory. For these benchmarks we used a base Singularity image with an Ubuntu 16.04 (Xenial) OS and several OpenMPI versions. For these benchmarks we took into account the MPI cross-version compatibility issue exposed in Section 3.2 (Instructions and good practices for MADFs and pilots containers) of deliverable D3.2 [6].
+
+The STREAM benchmark is de facto industry standards for measuring sustained RAM memory bandwidth and the corresponding computation rate for simple vector kernels. The MPI version of STREAM is able to measure the employed RAM under a multi node environment. The fact of using several nodes with exactly the same configuration helps us to check results consistency. In this case, two FinisTerrae II nodes, 48 cores, were utilized for running 10 repetitions of this benchmark natively and within a Singularity container with a global array size of latexmath:[$7.6 \times 10^{8}$], which is a big enough size to not be cacheable.
+
+image:media/d3.3/image5.png[image,width=567,height=318]
+
+*Figure 4. STREAM best bandwidth rates comparison*
+
+As we can see in Figure 4, obtained bandwidth rates are really close between the native execution and the execution performed from a Singularity container, differences are negligible.
+
+Infiniband networks also have decisive impact on parallel applications performance and we have also benchmarked it from Singularity containers. We used the base Singularity container with three different OpenMPI versions (1.10.2, 2.0.0 and 2.0.1) together with OSU micro-benchmarks. OSU are suite of synthetic standard tests for Infiniband networks developed by MVAPICH. In particular, among the bunch of tests included we have performed those related with point-to-point communications in order to get results about typical properties like latency and bandwidth. Only two cores in different nodes were used for this benchmark.
+
+Latency tests are carried out in a ping-pong fashion. Many iterations of message sending and receiving cycles were performed modifying the size of the interchanged messages (window size) and the OpenMPI version used.
+
+image:media/d3.3/image6.png[image,width=567,height=318]
+
+*Figure 5. Latency from Singularity using OSU micro-benchmarks*
+
+We can see in Figure 5, unidirectional latency measurements are strongly related to the message size. For window sizes up to 8192 bytes we obtain less than 6 microsecond of latency, which are correct values for Infiniband networks. In this case the OpenMPI version does not have influence on the results.
+
+For the measurement of the bandwidth, we increase the windows size to saturate the network interfaces in order to obtain the best sustained bandwidth rates. In Figure 6 we can observe that the general behaviour is as expected. The maximum bandwidth reached is close to 6GB/s, which are again in a correct value ranges for Infiniband. Although getting slightly different values depending on the OpenMPI version, we obtain similar results with critical values.
+
+image:media/d3.3/image7.png[image,width=567,height=318]
+
+*Figure 6. Bandwidth from Singularity using OSU micro-benchmarks*
+
+From these benchmark results, we can conclude that Singularity containers running parallel applications are taking advantage of these HPC resources under the specified conditions. *More benchmarks* including other HPC hardware will be performed in the next period.
+
+[[present-image-creation-workflow-continuous-integration-and-delivery]]
+=== 4.2.3 Present image creation workflow, continuous integration and delivery
+
+As we expose in D3.1[5], scientific software has adopted agile development practices and its development cycles have been impressingly shortened. New features and utilities are continuously implemented and it results in new increments of the software included in quick releases.
+
+The main goal of accelerating development cycles is to provide new solutions and quick fixes to the end-user as soon as possible. From the point of view of the e-Infrastructure and the usage of containers, this means that we need to provide an alternative service where to build and store Singularity images and have them available and ready-to-run for end-users. In D3.2 [6] we present the study of the features we need to integrate in the software management component to fulfil these requirements.
+
+Based on D3.1 and D3.2, a source repository based on Gitlab, enabling continuous integration (CI), and a container storage and transfer service based on SRegistry have been deployed (both are explained in detail in Section 6.10). The interaction between these services and the involved roles (developers and end-users) has been implemented and it results in the continuous delivery (CD) feature. This workflow can be activated and executed per every committed change in the source code, per tag or release, in a daily basis, etc.
+
+image:media/d3.3/image8.png[image,width=567,height=333]
+
+[[_1ci93xb]]**Figure 7. Continuous integration and delivery for Singularity images flow chart**
+
+In Figure 7, we present the implemented continuous integration and delivery workflow. Every time a new change in the source code is submitted to the repository it will automatically launch the continuous integration process. During this process applications can be built, containerized and tested (Continuous Integration). If the process succeeds the resulting container can be sent to the storage service and have it available for end-users (Continuous Delivery). End-users or developers can immediately pull or retrieve this up-to-date Singularity container to be run in the HPC system.
+
+In addition, as we introduce in Section 4.2.1, to build Singularity containers is mandatory to have superuser permissions, and this is something a normal user cannot usually do in a HPC system. This service also provides an alternative Singularity containers building service in the Cloud to work around the issue.
+
+In addition, the integration of the continuous integration service together with the orchestrator and the portal (Marketplace) will provide more agile features to improve developers workflow. In particular, to **setup continuous deployment of containers feature**. This means the possibility to test and benchmark pilots and MADFs directly in a HPC environment and later to deploy them automatically into the portal.
+
+[[the-orchestrator-and-monitor]]
+= 5. The Orchestrator and Monitor
+
+Due to the tight coupling between the orchestrator and the monitor, their architectures and implementations are addressed at the same time.
+
+While the architecture does not need to suffer significant changes to add new and pending features, the implementation will be extended and improved in the second part of the project.
+
+Taking into account the requirements and features described in D2.2 [2] and D2.6 [4], the new and pending functionalities are going to be implemented.
+
+Although the foundations of the *hybrid Cloud+HPC* infrastructure are implemented, and applications have been tested into three different HPCs infrastructures, new features and lots of tests are still to be done to run the applications also in the Cloud, and in both Cloud and HPC at the same time. Moreover the implementation already allows us to add multiple infrastructure providers, right now supporting HPCs using SLURM and common Cloud infrastructures as OpenStack or AWS. *New managers* as _Torque_ in HPCs or _Docker Machine_ in cloud will be added.
+
+Other changes will achieve the goal of *smart resources allocation* (right now the user decides where the application is going to run), as well as additional improvements in the application workflow: **loops of jobs or groups of jobs**, and **ensemble runs**.
+
+*Applications monitoring* will be widely extended from the actual state (only monitoring from the infrastructure perspective) to provide custom metrics of each one based on the logs and outputs generated by them. Similarly new metrics will be integrated in the monitor to create the new *accounting service* that will publish data about the usage of the platform.
+
+Finally many other minor improvements will be implemented if the prior priorities permit it, as being able to execute jobs of type “shell” to allow end users to test new ideas quickly, isolation of executions in the same infrastructure, security measures to deal with sensible data, remove the dependency of the orchestrator of an external monitor, etc.
+
+[[design-planned-implementation]]
+== 5.1 Design & planned implementation
+
+image:media/d3.3/image9.png[image,width=561,height=646]**Figure 8: Planned design of the Orchestrator and Monitor.**
+
+Above in figure 8 the new design is presented. Main changes are:
+
+* Orchestrator CLI not used: the CLI main goal was to manage the communication between the orchestrator and the portal, as well as serve as a substitute of the portal to deal directly with the orchestrator for debug purposes. In the next implementation the CLI services will be done entirely by the portal.
+* Accounting Exporter added: This is a special exporter implemented by MSO4SC to gather usage information of the platform, and serve it to the monitor so it can then be presented in the accounting graphical tool (see next section).
+* While planned, application log exporters could not be implemented in the first part of the project and will be therefore in the second one.
+
+The following describes the modules and its underlying technologies and tools that are / will be used to implement this design:
+
+* *Orchestrator Server:* Based on the open source version of Cloudify (that internally is using Apache Aria as TOSCA engine), an MSO4SC plugin extends it to deal with HPCs, batch orchestration and the concepts related to them as new TOSCA keywords.
+* *Monitor Server:* Gather all metrics in the system and stores them for further fast aggregated queries. It is based on Prometheus monitoring system, no extensions planned.
+* *Exporter Orchestrator:* New MSO4SC software implemented in Go that manages the lifecycle of the exporters in the platform. This is needed because new infrastructures can be added/removed to/from the system dynamically at any time; hence the number of monitored items or _exporters_ is constantly changing.
+* *HPC exporters:* Small HTTP servers that collect metrics of the infrastructures being used in the platform. Implemented from scratch using the Go language for SLURM-type machines. New exporters for other types are expected to be implemented.
+* *Cloud exporters:* Similarly, collect metrics from cloud infrastructures. It is planned to implement one for each type of supported infrastructure (OpenStack, Docker Machine, etc.)
+* *Application exporters:* Small HTTP servers that collects metrics of each application parsing its outputs with regular expressions. Will be implemented from scratch using the Go language.
+* *Accounting exporter:* Specific http server to collect usage metrics from the portal. Will be implemented from scratch using the Go language.
+
+[[mso-portal]]
+= 6. MSO Portal
+
+As entry point of all services provided by the MSO4SC platform, the portal not only has to *keep improving its user interface* and usability, but also to give access to the functionalities implemented in other services.
+
+Therefore while its architecture is not changing, improvements will be done to present the **applications logs**, the **hybrid infrastructure selection**, and overall orchestrator performance and **decisions taken**.
+
+Other graphical services as the **infrastructure monitoring**, **accounting service**, or the **community management tools**, will be implemented and integrated in the website.
+
+Regarding data preprocessing, postprocessing and visualization, besides the already implemented solution based on VNC remote desktops, another *remote visualization solution* is going to be implemented. Based in ParaviewWeb, a web framework to build applications with interactive scientific visualization inside the web browser, it can not only leverage a VTK and/or ParaView backend for large data processing and rendering, but can also be used on static Web server, a high-performance HTTP server or even locally with command line based application using your browser. This solution, more focused on the visualization of the results, will allow to perform complex interactive post-processing directly on the browser and will also enable some important features like in-situ visualization capabilities.
+
+Moreover, pre-processing and post-processing could be performed interactively, taking advantage of the mentioned visualization tools, or in unattended mode. Unattended mode does not require visualization and can be used like another application from the Orchestrator point of view. This feature will be implemented in the second part of the project if other more important features allows it.
+
+The selected tools for pre-processing and post-processing, like Salome [10], Paraview [11] and ResInsight [12] are already natively installed at FinisTerrae II and users can use them through the remote desktop solution to visualize and interact with their data. The final set of tools to be included is not already close and it can grow depending on the needs of the users and developers. In order to homogenize the way to provide and use these tools from the e-Infrastructure we need to deal with **containerized graphical (OpenGL) applications**. Further work in this direction will focus on the need of having a standard procedure and also recommendations to build and provide portable graphical (OpenGL) application within containers.
+
+Finally, many small changes in terms of search engine optimizations and usability are planned.
+
+[[design-planned-implementation-1]]
+== 6.1 Design & planned implementation
+
+image:media/d3.3/image10.png[image,width=566,height=345]
+
+*Figure 9: Planned design of the Portal. *
+
+Above in figure 9 the new design is presented. Main changes are:
+
+* Project and documentation web sites are now embedded in the fronted; being now the portal the _unique_ entry point of all MSO4SC information and services.
+* The frontend now includes a submodule to optimise the discovery of it in the internet.
+* __Accounting Visualization Module__: It will show accounting metrics coming from the monitor with nice graphs and charts, to present the usage of the platform as user-friendly as possible.
+* __Experiments Management Tool__: It now connects directly with the Orchestrator, as it implements the functionalities previously provided by the Orchestrator CLI.
+* _The Community management module_ has not suffered changes but it couldn’t be implemented during the first iteration. It will be done during the second one.
+
+Following the modules, its underlying technologies and tools that are / will be used to implement this design are described:
+
+* *Frontend:* Base for all information and services in the project, built using Python3 and Django Framework. It implements SEO capabilities and an authorization client to communicate with the Authentication & Authorization module.
+* *Project Website:* Website of the project, with general information as the goals to achieve, funding, or the simulations performed. Built in wordpress.
+* *Technical documentation:* Documentation website, built using AsciiDoc and Jekyll.
+* **Data Catalogue**: Manages the datasets in the platform, provided by CKAN.
+* *Marketplace:* Manages the “products” lifecycle. That is, registration of new apps, offerings, purchases… It is based on the Fiware Business Ecosystem.
+* *Monitor Visualization:* Visualization of the metrics related to the infrastructures and some applications, based on Grafana.
+* **Accounting Visualization**: Similarly, it shows the metrics related to the usage of the platform, based in Grafana.
+* *Experiments Management Tool:* Manages all operations relative to the execution of applications, and show some outputs and monitoring related to them. It is built from scratch using Python3 and Django framework.
+* *Pre/Post Processing Tool:* Manages the creation and presentation of new remote desktops (based on noVNC), in which the user can visualize, preprocess and postprocess datasets available/generated in the platform.
+* *Learning Tools:* Composed by Moodle as a service to provide courses and specific documentation of the solution, as well as Askbot to provide a Question & Answer (Q&A) mechanism to quickly answer and share doubts about MSO4SC.
+
+[[software-management]]
+= 7. Software management
+
+[[software-repository]]
+== 7.1 Software repository
+
+Providing a software repository accessible from a single place (the portal) helps to homogenize applications usage, integration with the portal, and to increase the visibility and the impact of the provided data and applications. The repository based on Gitlab is deployed as a standalone service in the Cloud (https://gitlab.srv.cesga.es).
+
+The repository provides a bunch of technologies, tools and features in order to ease management, development, documentation, integration and delivery of MADFs and Pilots. From the point of view of the e-Infrastructure, the most relevant features provided are the version control tracking system (based on Git), community-oriented communication tools (wikis, issue trackers, code snippets, etc.), a Docker container registry and a scalable continuous integration service.
+
+The core components of the repository are the version control system and the tools around it. With them, developers can create new repositories or import/mirror already existing repositories and track and manage the evolution of the development of their software projects. They can use their own computers to work before submitting changes or directly use their browsers. It provides graphical tools for code revision, changes acceptance/rejection, etc. Development teams can perfectly integrate their coding workflows with it as GitLab empower developers with confidentiality and permissions management. They can create developer teams and manage visibility, roles and permissions per repository and team.
+
+One of the biggest strengths of the software repository implementation is the continuous integration feature. The CI service automates software projects building and testing. It helps to check the correctness of new developments for their approval and ease early error detection and quick bug fixing.
+
+As scientific software building and testing can be costly in terms of time and resources usage, the CI service scalability is of utmost importance. In addition, each software project can need a completely different environment where to be built. This is why continuous integration has been deployed taking advantage of CESGA Cloud system (OpenNebula) and Docker-machine. This means that every continuous integration process occurs inside a Docker container and in a separated virtual machine. This configuration results in a highly scalable and flexible solution.
+
+For the particular case of repositories of web content, CI service also provides Continuous Deployment of web sites by means of Static Site Generators as Jekyll. This enables developers to also publish up-to-date content, like documentation, according to the latest status of their software.
+
+[[singularity-images-storage-and-transfer]]
+== 7.2 Singularity images storage and transfer
+
+Having a Cloud service for storing and transferring Singularity images let us to provide a central location where to offer ready-to-run containerized software in a homogeneous way. It also enables developers to implement portable workflows for their containerized applications instead of manually copying the images to every HPC system and hardcoding paths in their workflows definitions.
+
+We have deployed a Cloud service based on SRegistry with this purpose. SRegistry is a service to simply store and transfer Singularity images. It allows managing the published images visibility, but it’s configured to keep images private by default unless the user make it explicitly public. Currently this service is under heavy development and adding new features very quickly. The current status only enables completely public workflows, but we expect to *enable private images workflow* and have all features we need ready and in production very soon.
+
+Integrating this service together with the continuous integration service let to provide a continuous delivery service. This means that after building the container during the CI this container will be send and persistently stored and having it available for all users.
+
+[[continuous-integration-and-delivery-implementation]]
+== 7.3 Continuous Integration and Delivery implementation
+
+The integration of the mentioned services in the previous sections, 7.10.1 and 7.10.2, are the base component to enable Continuous Integration and Delivery. In short, as explained before, the software repository is the one in charge of managing the events in order to activate the continuous integration. The Continuous Integration process is in charge of building the containers and send them to the storage and transfer service. Finally, the storage and transfer service stores it persistently and provides easy access to it for end-users.
+
+image:media/d3.3/image11.png[image,width=501,height=284]
+
+*Figure 10. Continuous integration and delivery workflow*
+
+In Figure 10 we present the CI/CD workflow starting from a user generated event, a commit. When source code is submitted to the repository it automatically launches the continuous integration. During this process containers are built. If build succeeds the resulting container is finally sent to the storage service. End-users or developers can immediately pull or retrieve this up-to-date Singularity container to be run in the HPC system.
+
+In addition, future integration of CI together with the orchestrator and the portal, in order to satisfy the whole development life-cycle, will **enable continuous deployment feature**. This feature will allow users to test their pilots or MADFs in the HPC and/or Cloud systems and to automatically deploy them into the portal by means of the CI process.
+
+[[data-management]]
+= 8. Data Management
+
+The data repository design has not changed from iteration one (below in figure 11).
+
+ 
+
+ 
+
+image:media/d3.3/image12.png[image,width=412,height=230]
+
+[[_43ky6rz]]**Figure 11. Data Repository architecture [2]**
+
+During the first period, only http based tools has been used to perform the data movements, as all tests with pilots have used small datasets. In the next months we plan to rely on GridFTP [7] and/or B2STAGE [8] and/or B2DROP [9] to be able to move larger amounts of data, encrypted if necessary.
+
+As data storage, already established infrastructures brought by the pilots have been used (FTP, Cloud, MySQL), where the datasets where already stored. During this last part of the project closer storages to the HPCs will be studied.
+
+[[hardware-infrastructure]]
+= 9. Hardware Infrastructure
+
+For the testing, execution and development of the e-Infrastructure, a development and production infrastructure will be available. As exposed in D3.1, CESGA provides access to the Finis Terrae II HPC cluster and also Cloud resources based on OpenNebula, SZE provides a test and preproduction infrastructure for testing the software during its development phase and ATOS will be providing also a test and production infrastructure. In addition, during the second period of the project UNISTRA will also provide a cluster to be used by end-users with teaching purpose and is also planned to include PRACE and EOSC-Hub infrastructures. More detailed descriptions of these new infrastructures can be seen in the sections below. 
+
+[[unistra-atlas-hpc-cluster]]
+== 9.1 UNISTRA Atlas HPC cluster
+
+The HPC cluster "Atlas" is the mathematics department cluster of the University of Strasbourg. The cluster configuration is composed of a frontal owning 64 cores on 4 sockets (AMD Opteron 6386 SE 2.8 Ghz), 512 GB of RAM, 2.4 TB of storage on SSD, 70 TB for data storage (10'000 rpm HDD). A NFS mount is used to access the laboratory data. Currently, 4 nodes are available for researchers. These nodes give access to 24 cores on 2 sockets (Intel Xeon E5-2680 v3 2.50GHz) faster than the frontal, hyperthreaded with 256 GB of RAM and 1 TB of scratch directory. The fourth node "atlas4" is equipped with 2 NVIDIA K80 GPGPU cards since 2015. All nodes are interconnected with both 10Gb Ethernet cards and 40Gb Infiniband cards prioritizing network access via the second one. The job scheduler used on this infrastructure is Slurm.
+
+[[other-infrastructures-prace-and-eosc-hub]]
+== 9.2 Other Infrastructures: PRACE and EOSC-Hub
+
+ 
+
+During the project we expect to increase the number of physical infrastructures available to the users, including some of the main cloud and HPC research infrastructures in Europe, like PRACE and EOSC-Hub.
+
+The collaboration with PRACE has moved forward in the context of the PRACE-5IP project. CESGA is collaborating in the service activity 6.2.5 related to the application of container technologies for HPC. The support of this technologies in PRACE is a key factor for the usage of PRACE resources and incorporation to the MSO4SC e-infrastructure
+
+With respect to EOSC-Hub, some contacts have been stablished and meetings have been setup with the objective to prepare a concrete roadmap for the incorporation of this major cloud infrastructure to the MSO4SC e-infrastructure.
+
+[[summary-and-conclusions]]
+= 10. Summary and Conclusions
+
+This document presents a detailed description of the components that will be part of the second implementation of the MSO4SC e-Infrastructure. Some of them have already been deployed in the first implementation and others like the CI/CD or remote visualization will be new for the second implementation. With these descriptions we plan to implement the cloud components according to the WP3 roadmap, in order to have a second version of the e-infrastructure ready by M22. This second version will be the D3.4 Integrated Infrastructure, Cloud Management and MSO Portal deliverable which should be ready in August 2018.
+
+[[_2afmg28]]
+
+[[references]]
+= References
+
+[[_39kk8xu]]
+
+1.  MSO4SC D2.1 End Users’ Requirements Report
+2.  [[_ronl6m4ae33a]]MSO4SC D2.2 MSO4SC e-Infrastructure Definition
+3.  MSO4SC D2.5 End Users’ Requirements Report
+4.  [[_22q19iclx6u6]]MSO4SC D2.6 MSO4SC e-Infrastructure Definition v2
+5.  [[_dyo1muigk0af]]MSO4SC D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+6.  [[_1k3lt5fvq57x]]MSO4SC D3.2 Integrated Infrastructure, Cloud Management and MSO Portal
+7.  GridFTP:http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/[ ]http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/[_http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/_]
+8.  B2STAGE: https://www.eudat.eu/b2stage[_https://www.eudat.eu/b2stage_]
+9.  B2DROP: https://www.eudat.eu/services/b2drop[_https://www.eudat.eu/services/b2drop_]
+10. Salome: http://www.salome-platform.org/[_http://www.salome-platform.org/_]
+11. Paraview: https://www.paraview.org/[_https://www.paraview.org/_]
+12. ResInsight: http://resinsight.org/[_http://resinsight.org/_]
+13. DockerHub: _https://hub.docker.com/_
+14. SingularityHub: https://singularity-hub.org/[_https://singularity-hub.org/_]
+15. SRegistry: https://singularityhub.github.io/sregistry/[_https://singularityhub.github.io/sregistry/_]
+16. Researchers advance user-level container solution for HPC: https://www.hpcwire.com/2017/12/18/researchers-advance-user-level-container-solution-hpc/[_https://www.hpcwire.com/2017/12/18/researchers-advance-user-level-container-solution-hpc/_]
