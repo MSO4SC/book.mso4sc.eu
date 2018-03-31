@@ -1,0 +1,5 @@
+name: docs
+title: MSO4SC Documentations
+version: "stable"
+nav:
+- modules/ROOT/nav.adoc

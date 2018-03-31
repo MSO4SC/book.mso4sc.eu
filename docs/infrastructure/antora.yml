@@ -1,0 +1,5 @@
+name: Infrastructure
+title: Infrastructure documentation
+version: "0.1"
+nav:
+- modules/nav.adoc

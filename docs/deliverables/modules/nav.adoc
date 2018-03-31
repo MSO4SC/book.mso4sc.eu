@@ -1,0 +1,4 @@
+* xref:index.adoc#_manuals_references[MADF]
+* xref:index.adoc#_manuals_references[Pilot applications]
+* xref:index.adoc#_infrastructure[Infrastructure]
+* xref:index.adoc[Contribute]

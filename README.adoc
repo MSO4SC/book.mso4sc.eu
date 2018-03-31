@@ -1,1 +1,6 @@
-docs/README.adoc
+= Documentation
+:imagesdir: images/
+:pilotsdir: docs/pilots/
+include::docs/includes/header.adoc[]
+
+
