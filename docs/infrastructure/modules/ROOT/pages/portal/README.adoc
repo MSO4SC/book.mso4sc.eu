@@ -1,5 +1,7 @@
 = Portal
 
+include::{partialsdir}/topnote.adoc[]
+
 IMPORTANT: Documentation is W.I.P
 
 //:leveloffset: +1

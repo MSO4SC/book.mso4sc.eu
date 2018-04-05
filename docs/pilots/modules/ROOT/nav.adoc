@@ -5,6 +5,6 @@
 ** xref:fenics/floatingwindturbine/README.adoc[Floating Wind Turbine]
 ** xref:fenics/3dairqualitypredictioncfd/README.adoc[3D Air Quality Prediction]
 * xref:index.adoc#_opm[OPM]
-** xref:opm/opmflow/README.adoc[Floating Wind Turbine]
+** xref:opm/opm-flow/README.adoc[OPM Flow]
 * xref:index.adoc#_others[Others]
 ** xref:others/motor/README.adoc[Motor]

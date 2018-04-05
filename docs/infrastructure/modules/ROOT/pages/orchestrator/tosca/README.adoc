@@ -1,6 +1,8 @@
 = TOSCA Modelling and execution
 include::{partialdir}/includes/header-uri.adoc[]
 
+include::{partialsdir}/topnote.adoc[]
+
 // URIs
 
 This section describes how to model a MADF or Pilot and then run the execution in the {uri-cli}[MSO4SC Orchestrator CLI].

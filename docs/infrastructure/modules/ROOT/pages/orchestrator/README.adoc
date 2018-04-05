@@ -1,5 +1,7 @@
 = Orchestrator
 
+include::{partialsdir}/topnote.adoc[]
+
 The orchestrator used within the MSO infrastructure is based
 on Cloudify.
 

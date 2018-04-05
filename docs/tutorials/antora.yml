@@ -1,0 +1,5 @@
+name: tutorials
+title: MSO4SC Tutorials
+version: "0.1"
+nav:
+- modules/ROOT/nav.adoc

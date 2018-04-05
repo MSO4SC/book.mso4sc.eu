@@ -19,4 +19,5 @@
 ** xref:deliverables:ROOT:index.adoc#_wp4[WP4]
 ** xref:deliverables:ROOT:index.adoc#_wp5[WP5]
 ** xref:deliverables:ROOT:index.adoc#_wp6[WP6]
+* xref:tutorials:ROOT:index.adoc[Tutorials]
 * xref:index.adoc#_contribute[How to contribute]
