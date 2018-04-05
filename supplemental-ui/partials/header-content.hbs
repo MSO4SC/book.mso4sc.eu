@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <div class="navbar-item">
-         <!--  <a href="https://book.feelpp.org">MSO4SC documentation</a> -->
+         <img src="{{uiRootPath}}/images/mso4sc-2.png" style="height:40px;margin:auto; margin-right:5px"></img>
          {{#each site.components}} {{#if (eq 'docs' ./name)}} {{#each ./versions}} {{#if (eq this ../latestVersion)}}
            <a href="{{{./url}}}">MSO4SC documentation</a>
          {{/if}} {{/each}} {{/if}} {{/each}}            
@@ -51,6 +51,7 @@
             <a class="navbar-item" href="https://gitter.im/mso4sc">Gitter chat (Users)</a>
           </div>
         </div>
+        <img src="{{uiRootPath}}/images/eu-4.png" style="height:40px;margin:auto;"></img>
       </div>
     </div>
   </nav>

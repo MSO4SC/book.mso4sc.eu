@@ -1,6 +1,1 @@
-= Documentation
-:imagesdir: images/
-:pilotsdir: docs/pilots/
-include::docs/includes/header.adoc[]
-
-
+= MSO4SC documentation

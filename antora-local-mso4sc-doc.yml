@@ -15,9 +15,13 @@ content:
     start_path: docs/pilots
   - url: ./
     branches: feature/antora
+    start_path: docs/infrastructure
+  - url: ./
+    branches: feature/antora
     start_path: docs/deliverables
 ui:
-  bundle: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
   supplemental_files: supplemental-ui
 asciidoc:
   attributes:
