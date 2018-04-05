@@ -1,28 +1,36 @@
 HELP="Usage: make <option> \n\
 \nOptions:\n\
 \n\
-\tinstall - install gem files (first time, bundler required) \n\
-\tbuild   - build the book \n\
-\tserve   - run a local web server (open localhost:4000 in the webbrowser) \n\
+\tinstall - install required packages (bundler, npm required) \n\
+\tbuild   - build the documentation \n\
 \tclean   - clean gem lock file (redo install after) \n\
 \thelp    - print this help\n\n"
 
+BUILD_DIR=./build
 
 all: help
 
 install:
-	bundle install --path .bundle/gems
+	npm init -y; \
+	npm install --save . @antora/cli; \
+	npm install --save . @antora/site-generator-default \
+	npm install --save . live-server
 
-build:
-	#asciidoctor -a reproducible -S unsafe -a allow-uri-read README.adoc
-	bundle exec jekyll build
+build: clean
+	antora --pull antora-local-mso4sc-doc.yml
+	@echo "INFO: File generated in 'build/build/site/feelpp-doc/'"
 
 serve:
-	bundle exec jekyll serve
+	live-server --wait=1000 build/site
 
+sync: build
+	#rsync -avz --delete build/site/ es15.siteground.eu:~/public_html/books.mso4sc.org/
+	rsync -avz  --include '*/' --include '*.png' --include '*.jpg' --include '*.jpeg'  --exclude '*' build/site/ es15.siteground.eu:~/public_html/books.mso4sc.org/
 clean:
-	rm -rf Gemfile.lock
-	rm -rf .bundle/gems
+	rm -rf build
+
+clean-all: clean
+	rm -rf node_modules
 
 help:
 	@printf ${HELP}

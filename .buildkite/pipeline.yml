@@ -1,11 +1,14 @@
 steps:
- - name: ':jekyll: :book:'
-   command: .buildkite/steps/build.sh
+ - name: ':antora: :book:'
+   command: .buildkite/steps/antora-build.sh
+   agents:
+       docker: true
    env:
-     PROJECT: book.mso4sc
+      PROJECT: book.mso4sc
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: "antora"
  - wait
  - name: ':rocket: :book:'
-   command: .buildkite/steps/deploy.sh
-   branches: master
+   command: .buildkite/steps/docs-deploy.sh
+   branches: feature/antora
    env:
-     PROJECT: book.mso4sc
+       PROJECT: book.mso4sc

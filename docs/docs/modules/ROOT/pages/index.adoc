@@ -1,0 +1,66 @@
+= MSO4SC documentation
+
+Welcome to the link:http://mso4sc.eu[H2020 MSO4SC project] documentation!
+(funded by the EU E-INFRA)
+
+This documentation is made based on link:https://antora.org[Antora] system
+and details the main pillar of the project.
+You will find technical aspect, but also how to begin to use the <<msoportal,MSO Portal>>.
+
+[msoportal]
+video::XTeveIZVajc[youtube,width=640,height=480,theme=light]
+
+Additionnal documentation can also be found on the official
+link:https://github.com/Mso4sc[Mso4sc github] wiki.
+
+link:https://gitter.im/MSO4SC/[MSO4SC forums] are available for any questions.
+
+Official mailings list are the following
+
+[width="80%",options="header"]
+|=================================
+| Mailing list | Description
+|mso4sc_wp1@lists.atosresearch.eu| 
+|mso4sc_wp2@lists.atosresearch.eu|
+|mso4sc_wp3@lists.atosresearch.eu|
+|mso4sc_wp4@lists.atosresearch.eu|
+|mso4sc_wp5@lists.atosresearch.eu|
+|=================================
+
+IMPORTANT: You wish to contribute ? Please consult the <<Contribute, contribute>> section to learn how to proceed!
+
+== Contribute
+
+To contribute to the documentation, please
+link:https://docs.antora.org[consult the official Antora
+documenation first].
+
+=== Get sources
+
+The go to link:https://github.com/mso4sc/book.mso4sc.eu[MSO4SC github
+documenation repository].  Create a fork of the repository, makes your changes
+and create a pull request to merge your modifications in the develop branch.
+
+=== Compile the documentation
+
+To compile the book just type `make` and follow the instructions.
+
+[source, bash]
+----
+make install # first time only
+make build
+make serve
+----
+
+[TIP]
+====
+This book is writen in asciidoc using link:https://antora.org[Antora]. You can compile it in HTML using the
+asciidoctor compiler, see
+link:http://asciidoctor.org/docs/install-toolchain/[how to install
+asciidoctor]. Then just type `make` for fast html compiling.
+You can also preview the document via a browser plugin
+(link:https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview/[firefox], 
+link:https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[chrome]).
+For the plugin, you have to open the raw file (click RAW button).
+See for example this link:https://raw.githubusercontent.com/MSO4SC/book.mso4sc.eu/master/README.adoc[README].
+====

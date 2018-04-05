@@ -1,0 +1,40 @@
+= MSO Portal quickstart
+
+include::{partialsdir}/topnote.adoc[]
+
+WARNING: W.I.P (This document is based on a gdrive document).
+
+Welcome to MSO Portal!
+This documentation is intended to new end-user. The basic steps are detailed to handle the MSO4SC infrastructure.
+If you read this document, you must have already received your login/password to connect the portal. Otherwise, contact javier.carnero@atos.net
+
+==  First connection.
+Connect to the portal http://portal.mso4sc.eu/ and proceed to login. You should see this page: 
+
+
+image::[]
+
+
+You can see in the menu bar the different MSO services:
+The marketplace store all applications. 
+The data catalogue proposes data samples to be used with the applications. 
+The experiments is the place where you configure and run your owned or purchased applications
+ The visualization proposes an remote desktop environment to use pre-/post-processing software and access the output data.
+
+
+
+== Get your a product.
+Let begin with our first product. Go to the Marketplace, then buy the product OPMFlow. You will have to add a shipping address in order to buy this free product.
+
+== First simulation.
+Go to Experiments page. We will register the new application, then create a new instance of this application. We will need to configure this application with the minimum information required. Once the instance created, you can finally run the application.
+<add screenshots>
+
+== Visualize results
+Go to Visualization then
+
+
+== Going further
+You have experienced your first simulation using the MSO Portal! Now, to go further you can try to use other applications available in the marketplace.
+If you experienced problem or find bugs, please submit an issue on here https://github.com/mso4sc/MSOportal/issues
+

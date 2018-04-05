@@ -1,0 +1,24 @@
+= Infrastructure
+
+include::{partialsdir}/topnote.adoc[]
+
+This documentation details the differents MSO Portal component
+from a technical point of view.
+
+MSO services are the following:
+
+
+* Gitlab
+* SRegistry
+
+* The Marketplace
+* The Data Catalogue
+* The Experiments
+* Visualization
+
+NOTE: External tools can be used and the way to configure will be explained
+in this section.
+
+image::MSOPortal.png[]
+
+Don't hesitate to have look to the link:portal.mso4sc.eu[MSO portal]!

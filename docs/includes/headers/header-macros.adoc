@@ -1,5 +1,0 @@
-:mso4sc: MSO4SC
-:feelpp: Feel++
-:fenics: FEniCS
-:opm: OPM
-:cpp: C++

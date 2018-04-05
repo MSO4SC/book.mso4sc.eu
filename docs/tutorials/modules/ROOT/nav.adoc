@@ -1,0 +1,1 @@
+* xref:quickstart/README.adoc[MSOPortal Quickstart]

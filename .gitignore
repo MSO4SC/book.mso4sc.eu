@@ -35,3 +35,7 @@ _site
 /pilots
 /Deliverables
 /README.html
+node_modules
+package.json
+package-lock.json
+build

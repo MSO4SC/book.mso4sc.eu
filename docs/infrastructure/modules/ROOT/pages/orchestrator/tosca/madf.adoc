@@ -1,0 +1,12 @@
+= MADF Tosca design
+
+Each MADFs application follows a specific design. This design
+is described in the following sections
+
+* xref:infrastructure:ROOT:orchestrator/tosca/feelpp/README.adoc[Feel++ Tosca design]
+* FEniCS blueprint design
+* OPM blueprint design
+* ZibAffinity blueprint design
+
+NOTE: Remark that the proposed design is not mandatory, but highly recommended since
+MADFs developers will respect this design in newer version of their application.

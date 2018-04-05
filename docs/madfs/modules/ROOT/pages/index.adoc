@@ -1,0 +1,14 @@
+= MSO4SC: MADFs
+:feelpp: FEEL++
+:fenics: FEniCS
+:opm: OPM
+
+The MSO4SC project proposes several numerical frameworks (MADFs)
+which are the following:
+
+* xref:feelpp/README.adoc[{feelpp}]
+* xref:fenics/README.adoc[{fenics}]
+* xref:opm/README.adoc[{opm}]
+
+This section presents these frameworks and their integration in
+the MSO4SC infrastructure.
