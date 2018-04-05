@@ -7,5 +7,16 @@ BRANCH=${BRANCH:-${BUILDKITE_BRANCH:master}}
 export WEBSERVER=es15.siteground.eu
 
 echo "--- Deploying $PROJECT..."
+
+
 buildkite-agent artifact download site.tar.gz . --build ${BUILDKITE_BUILD_ID}
-rsync -avz _site/ $WEBSERVER:~/public_html/${PROJECT}
+tar xzf site.tar.gz
+
+ls -l build
+cd build/
+export WEBSERVER=es15.siteground.eu
+
+echo "--- Deploying $PROJECT..."
+rsync -avz site/ $WEBSERVER:~/public_html/book.mso4sc
+
+rm -rf build .antora-cache
