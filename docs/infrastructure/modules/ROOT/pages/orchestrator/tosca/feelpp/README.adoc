@@ -1,11 +1,4 @@
 = Feelpp TOSCA design
-:page-root: ../../../../../
-:page-permalink: /infrastructure/orchestrator/tosca/feelpp/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../images/]
-ifndef::pilotsdir[:pilotsdir: ]
-include::../../../../includes/header.adoc[]
 
 We propose in this section to discuss the design adapted to
 Feel++ applications. Each tosca version try handles new features

@@ -1,56 +1,35 @@
 = MSO4SC: Pilots
-:page-root: ../../
-:page-permalink: /pilots/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../images/]
-ifndef::pilotsdir[:pilotsdir: ../../pilots/]
-include::../includes/header.adoc[]
 
+=== {feelpp}
 
-//Johan Hoffman (KTH); Marcus Weber (ZIB); Vedat Durmaz (ZIB); Tania Bakhos (BCAM); Johan Jansson (BCAM); Aitgeirr Rasmussen (Sintef); Christophe Trophime (UNISTRA); Christophe Prud’homme (UNISTRA)
-//v6.0 2017/04/30
-
-
-image:{imagesdir}media/image1.png[image,width=165,height=156]
+[col="2*^"]
+|===
+| image:covers/hifimagnet/cover.png[link=feelpp/hifimagnet/README.html,width=200,alt=Hifimagnet]
+*HIFIMAGNET*
+|image:covers/eye2brain/cover.png[link=feelpp/eye2brain/README.html,width=200]
+*EYE2BRAIN*
+|===
 
 === Fenics
 
 |===
-ifdef::env-github[image:covers/floatingwindturbine/cover.png[link={pilotsdir}fenics/3dairqualityprediction/README.adoc,width=200]]
-ifndef::env-github[image:covers/floatingwindturbine/cover.png[link=/pilots/floatingwindturbine/,width=200,alt=FloatingWindTurbine]]
-FLOATING WIND TURBINE
-|
-ifdef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link={pilotsdir}fenics/airqualitypredictioncfd/README.adoc,width=200]]
-ifndef::env-github[image:covers/3dairqualitypredictioncfd/cover.png[link=/pilots/3dairqualitypredictioncfd/,width=200]]
-3D AIR QUALITY PREDICTION
-|===
-
-=== {feelpp}
-
-|===
-ifdef::env-github[image:covers/hifimagnet/cover.png[link={pilotsdir}feelpp/hifimagnet/README.adoc,width=200,alt=Hifimagnet]]
-ifndef::env-github[image:covers/hifimagnet/cover.png[link=/pilots/hifimagnet/,width=200,alt=Hifimagnet]]
-HIFIMAGNET
-|
-ifdef::env-github[image:covers/eye2brain/cover.png[link={pilotsdir}feelpp/eye2brain/README.adoc,width=200]]
-ifndef::env-github[image:covers/eye2brain/cover.png[link=/pilots/eye2brain/,width=200]]
-EYE2BRAIN
+| image:covers/floatingwindturbine/cover.png[link=fenics/3dairqualityprediction/README.html,width=200]
+*FLOATING WIND TURBINE*
+| image:covers/3dairqualitypredictioncfd/cover.png[link=fenics/airqualitypredictioncfd/README.html,width=200]
+*3D AIR QUALITY PREDICTION*
 |===
 
 === OPM
 
 |===
-ifdef::env-github[image:covers/opm-flow/cover.png[link={pilotsdir}opm/opm-flow/README.adoc,width=200]]
-ifndef::env-github[image:covers/opm-flow/cover.png[link=/pilots/opm-flow/,width=200]]
-OPM FLOW
+| image:covers/opm-flow/cover.png[link=opm/opm-flow/README.html,width=200]
+*OPM FLOW*
 |===
 
 === Others
 
 |===
-ifdef::env-github[image:covers/motor/cover.png[link={pilotsdir}others/motor/README.adoc,width=200]]
-ifndef::env-github[image:covers/motor/cover.png[link=/pilots/motor/,width=200]]
-Motor
+| image:covers/motor/cover.png[link=others/motor/README.html,width=200]
+*Motor*
 |===
 

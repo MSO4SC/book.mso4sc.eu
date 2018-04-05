@@ -1,20 +1,14 @@
 = MSO4SC: MADFs
-:page-root: ../../
-:page-permalink: /pilots/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../images/]
-ifndef::pilotsdir[:pilotsdir: ../../pilots/]
-include::../includes/header.adoc[]
+:feelpp: FEEL++
+:fenics: FEniCS
+:opm: OPM
 
-// FEniCS
-include::fenics/README.adoc[leveloffset=3]
+The MSO4SC project proposes several numerical frameworks (MADFs)
+which are the following:
 
-// Feel ++
-include::feelpp/README.adoc[leveloffset=3]
+* xref:feelpp/README.adoc[{feelpp}]
+* xref:fenics/README.adoc[{fenics}]
+* xref:opm/README.adoc[{opm}]
 
-//OPM
-include::opm/README.adoc[leveloffset=3]
-
-//Others
-include::others/README.adoc[leveloffset=3]
+This section presents these frameworks and their integration in
+the MSO4SC infrastructure.

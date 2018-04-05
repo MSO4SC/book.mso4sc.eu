@@ -1,0 +1,48 @@
+= Deliverables
+
+This sections presents all deliverables produced during the project
+per work packages.
+
+== Work packages (WP)
+
+=== WP2
+
+* xref:deliverables:ROOT:d2.1/README.adoc[Deliverable 2.1]
+* xref:deliverables:ROOT:d2.2/README.adoc[Deliverable 2.2]
+* xref:deliverables:ROOT:d2.3/README.adoc[Deliverable 2.3]
+* xref:deliverables:ROOT:d2.4/README.adoc[Deliverable 2.4]
+* xref:deliverables:ROOT:d2.5/README.adoc[Deliverable 2.5]
+
+=== WP3
+
+* xref:deliverables:ROOT:d3.1/README.adoc[Deliverable 3.1]
+* xref:deliverables:ROOT:d3.2/README.adoc[Deliverable 3.2]
+* xref:deliverables:ROOT:d3.3/README.adoc[Deliverable 3.3]
+
+=== WP4
+
+* xref:deliverables:ROOT:d4.1/README.adoc[Deliverable 4.1]
+* xref:deliverables:ROOT:d4.2/README.adoc[Deliverable 4.2]
+
+=== WP5
+
+* xref:deliverables:ROOT:d5.1/README.adoc[Deliverable 5.1]
+* xref:deliverables:ROOT:d5.2/README.adoc[Deliverable 5.2]
+* xref:deliverables:ROOT:d5.3/README.adoc[Deliverable 5.3]
+* xref:deliverables:ROOT:d5.4/README.adoc[Deliverable 5.4]
+
+=== WP6
+
+* xref:deliverables:ROOT:d6.1/README.adoc[Deliverable 6.1]
+
+== Notes
+
+All deliverables have been converted from the docx document using
+pandoc tools.
+
+----
+mkdir Deliverables/Dx.y
+cd Deliverables/Dx.y
+pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=images <filename>.docx > README.adoc
+----
+

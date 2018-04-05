@@ -1,13 +1,5 @@
 = {feelpp}
-:page-root: ../../../
-:page-permalink: /madfs/feelpp/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../images/]
-ifndef::madfsdir[:madfsdir: ../../madfsdir/]
 :cpp: C++
-:toc: left
-include::../../includes/header.adoc[]
 
 image:media/feelpp.jpg[float=right]
 {feelpp} is an open-source software gathering scientists, engineers, mathematicians, physicists, medical doctors, computer scientists around applications in academic and industrial projects. {feelpp} is the flag ship framework for interdisciplinary interaction at Cemosis, the agency for mathematics-entreprise and multidisciplinary research in modeling, simulation ad optimisation (MSO) in Strasbourg.
@@ -32,4 +24,7 @@ Deployability:: to deliver and deploy it in the MSO4SC environment including the
 
 The  work  on  deployability,  usability  and  scalability  will also be very valuable for researchers. 
 
-{feelpp} is the core framework for several MSO4SC pilots such as <<../pilots/feelpp/hifimagnet/README.adoc,hifimagnet>> and <<../pilots/feelpp/eye2brain/README.adoc,eye2brain>>.
+{feelpp} is the core framework for several MSO4SC pilots such as 
+
+* xref:pilots:feelpp:hifimagnet/README.adoc[hifimagnet]
+* xref:pilots:feelpp:eye2brain/README.adoc[eye2brain]

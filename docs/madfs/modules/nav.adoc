@@ -1,1 +1,0 @@
-* xref:index.adoc#_manuals_references[MADF]

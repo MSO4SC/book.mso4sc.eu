@@ -1,11 +1,3 @@
-= {fenics}
-:page-root: ../../../
-:page-permalink: /madfs/fenics/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../images/]
-ifndef::madfsdir[:madfsdir: ../../madfsdir/]
-:toc: left
-include::../../includes/header.adoc[]
+= FEniCS
 
 WARNING: TODO

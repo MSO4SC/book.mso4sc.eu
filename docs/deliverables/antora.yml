@@ -1,5 +1,19 @@
-name: Deliverables
+name: deliverables
 title: Deliverables documentation
 version: "0.1"
 nav:
-- modules/nav.adoc
+- modules/ROOT/nav.adoc
+- modules/d2.1/nav.adoc
+- modules/d2.2/nav.adoc
+- modules/d2.3/nav.adoc
+- modules/d2.4/nav.adoc
+- modules/d2.5/nav.adoc
+- modules/d3.1/nav.adoc
+- modules/d3.2/nav.adoc
+- modules/d4.1/nav.adoc
+- modules/d4.2/nav.adoc
+- modules/d5.1/nav.adoc
+- modules/d5.2/nav.adoc
+- modules/d5.3/nav.adoc
+- modules/d5.4/nav.adoc
+- modules/d6.1/nav.adoc

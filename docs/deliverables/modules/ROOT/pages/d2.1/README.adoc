@@ -1,11 +1,4 @@
 = MSO4SC: D2.1 End Users’ Requirements Report
-:page-root: ../../../
-:page-permalink: /deliverables/d2.1/
-:page-layout: manual
-:imagesdir: ../../../images/
-:pilotsdir: ../../../pilots/
-:toc: left
-include::../../includes/header.adoc[]
 
 image:media/d2.1/image1.PNG[image,width=165,height=156]
 

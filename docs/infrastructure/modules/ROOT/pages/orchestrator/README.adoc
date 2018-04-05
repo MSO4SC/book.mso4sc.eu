@@ -1,13 +1,13 @@
 = Orchestrator
-:page-root: ../../../
-:page-permalink: /infrastructure/orchestrator/
-:page-layout: default
-include::../../includes/header.adoc[]
 
-toc::[]
+The orchestrator used within the MSO infrastructure is based
+on Cloudify.
 
-:leveloffset: +1
+== MADF Developers
 
-include::tosca/README.adoc[]
+To add a new application in the MSO Portal, you have to be familiarized
+cloudify and how to create a new blueprint.
 
-:leveloffset: -1
+This documentation explain key steps to succeed in adding a new application.
+Several MADF have been added to the portal. Each blueprint have been designed
+to work properly with the portal and can be used as examples.

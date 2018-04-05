@@ -1,31 +1,24 @@
 = Infrastructure
-:page-root: ../../
-:page-permalink: /infrastructure/
-:page-layout: default
-include::../includes/header.adoc[]
 
-:leveloffset: +1
+include::{partialsdir}/topnote.adoc[]
 
-include::orchestrator/README.adoc[]
+This documentation details the differents MSO Portal component
+from a technical point of view.
 
-:leveloffset: -1
-:leveloffset: +1
+MSO services are the following:
 
-include::portal/README.adoc[]
 
-:leveloffset: -1
-:leveloffset: +1
+* Gitlab
+* SRegistry
 
-include::marketplace/README.adoc[]
+* The Marketplace
+* The Data Catalogue
+* The Experiments
+* Visualization
 
-:leveloffset: -1
-:leveloffset: +1
+NOTE: External tools can be used and the way to configure will be explained
+in this section.
 
-include::data/README.adoc[]
+image::MSOPortal.png[]
 
-:leveloffset: -1
-:leveloffset: +1
-
-include::clusters/README.adoc[]
-
-:leveloffset: -1
+Don't hesitate to have look to the link:portal.mso4sc.eu[MSO portal]!

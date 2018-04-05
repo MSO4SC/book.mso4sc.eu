@@ -1,8 +1,3 @@
 = Data management
-:page-root: ../../../
-:page-permalink: /infrastructure/data/
-:page-layout: default
-include::../../includes/header.adoc[]
-
 
 IMPORTANT: Documentation is W.I.P

@@ -1,26 +1,7 @@
 = TOSCA Modelling and execution
-:page-root: ../../../../
-:page-permalink: /infrastructure/orchestrator/tosca/
-:page-layout: default
-ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../../images/]
-:toc: left
-include::../../../includes/header.adoc[]
+include::{partialdir}/includes/header-uri.adoc[]
+
 // URIs
-:uri-tosca: http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.1/TOSCA-Simple-Profile-YAML-v1.1.html
-:uri-mso4sc: http://www.mso4sc.eu
-:uri-singularity: http://singularity.lbl.gov
-:uri-cloudify-hpc: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc
-:uri-cloudify-hpc-config: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#hpc-plugin-configuration
-:uri-cloudify-hpc-types: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#types
-:uri-cloudify-hpc-relationships: https://github.com/MSO4SC/cloudify-hpc-plugin/blob/master/README.adoc#relationships
-:uri-cloudify-functions: http://docs.getcloudify.org/4.1.0/blueprints/spec-intrinsic-functions
-:uri-oasis: https://www.oasis-open.org
-:uri-cli: https://github.com/MSO4SC/MSOOrchestrator-CLI
-:uri-cloudify-cli: http://docs.getcloudify.org/4.1.0/cli/overview
-:uri-cli-installation: https://github.com/MSO4SC/MSOOrchestrator-CLI/blob/master/README.adoc
-:uri-blueprint-examples: https://github.com/MSO4SC/resources/tree/master/blueprint-examples
-:uri-cloudify-blueprint: http://docs.getcloudify.org/4.1.0/blueprints/overview
 
 This section describes how to model a MADF or Pilot and then run the execution in the {uri-cli}[MSO4SC Orchestrator CLI].
 
@@ -384,11 +365,3 @@ If an error occurs the revert steps can be followed revert the last steps made. 
 
 
 TIP: A complete list of CLI commands can be found at {uri-cloudify-cli}
-
-==== MADF Tosca design
-
-:leveloffset: +1
-
-include::feelpp/README.adoc[]
-
-:leveloffset: -1
