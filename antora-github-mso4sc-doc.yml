@@ -4,22 +4,22 @@ site:
   start_page: stable@docs::index.adoc
 content:
   sources:
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/docs
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/madfs
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/pilots
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/infrastructure
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/deliverables
-  - url: https://github.com/feelpp/book.mso4sc.eu
+  - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/tutorials
   # Feel++ toolbox official documentation.
