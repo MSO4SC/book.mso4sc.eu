@@ -5,22 +5,22 @@ site:
 content:
   sources:
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/docs
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/madfs
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/pilots
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/infrastructure
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/deliverables
   - url: ./
-    branches: feature/antora
+    branches: master
     start_path: docs/tutorials
   # Feel++ toolbox official documentation.
   - url: https://github.com/feelpp/book.feelpp.org

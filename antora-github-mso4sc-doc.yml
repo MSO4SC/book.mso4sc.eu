@@ -1,6 +1,6 @@
 site:
   title: MSO4SC Documentation
-  url: https://book.feelpp.org
+  url: https://book.mso4sc.cemosis.fr
   start_page: stable@docs::index.adoc
 content:
   sources:
