@@ -5,22 +5,22 @@ site:
 content:
   sources:
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/docs
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/madfs
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/pilots
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/infrastructure
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/deliverables
   - url: https://github.com/feelpp/book.mso4sc.eu
-    branches: feature/antora
+    branches: master
     start_path: docs/tutorials
   # Feel++ toolbox official documentation.
   - url: https://github.com/feelpp/book.feelpp.org
