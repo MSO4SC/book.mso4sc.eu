@@ -9,6 +9,6 @@ steps:
  - wait
  - name: ':rocket: :book:'
    command: .buildkite/steps/docs-deploy.sh
-   branches: feature/antora
+   branches: master
    env:
        PROJECT: book.mso4sc
