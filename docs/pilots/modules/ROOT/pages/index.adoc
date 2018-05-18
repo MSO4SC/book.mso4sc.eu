@@ -4,32 +4,32 @@
 
 [col="2*^"]
 |===
-| image:covers/hifimagnet/cover.png[link=feelpp/hifimagnet/README.html,width=200,alt=Hifimagnet]
+| image:covers/hifimagnet/cover.png[link=feelpp/hifimagnet/README/,width=200,alt=Hifimagnet]
 *HIFIMAGNET*
-|image:covers/eye2brain/cover.png[link=feelpp/eye2brain/README.html,width=200]
+|image:covers/eye2brain/cover.png[link=feelpp/eye2brain/README/,width=200]
 *EYE2BRAIN*
 |===
 
 === Fenics
 
 |===
-| image:covers/floatingwindturbine/cover.png[link=fenics/3dairqualityprediction/README.html,width=200]
+| image:covers/floatingwindturbine/cover.png[link=fenics/3dairqualityprediction/README/,width=200]
 *FLOATING WIND TURBINE*
-| image:covers/3dairqualitypredictioncfd/cover.png[link=fenics/airqualitypredictioncfd/README.html,width=200]
+| image:covers/3dairqualitypredictioncfd/cover.png[link=fenics/airqualitypredictioncfd/README/,width=200]
 *3D AIR QUALITY PREDICTION*
 |===
 
 === OPM
 
 |===
-| image:covers/opm-flow/cover.png[link=opm/opm-flow/README.html,width=200]
+| image:covers/opm-flow/cover.png[link=opm/opm-flow/README/,width=200]
 *OPM FLOW*
 |===
 
 === Others
 
 |===
-| image:covers/motor/cover.png[link=others/motor/README.html,width=200]
+| image:covers/motor/cover.png[link=others/motor/README/,width=200]
 *Motor*
 |===
 
