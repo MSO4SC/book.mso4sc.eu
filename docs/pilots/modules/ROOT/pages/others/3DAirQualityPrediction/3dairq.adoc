@@ -1,0 +1,78 @@
+[[motor]]
+= 3DAirQualityPrediction
+:page-root: ../../../../
+:page-permalink: /pilots/3dairq/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../../../includes/header.adoc[]
+
+== Objectives and goals
+
+Tha main goal is to Develop 3DAirQualityPrediction, an accurate, fast, modular, easy-to-use software framework for urban AQ prediction.
+
+== Main features of the framework
+
+* Modular framework with exchangeable solvers for modules
+* Standardized input-output data formats for each module
+* Availability in HPC oriented cloud e-infrastructure
+* Detailed modelling for AQ prediction at urban scale
+* Real 3D geometry
+* Vehicular traffic
+* CFD for dispersion -> RANS and LES/DNS
+* Data integration (e.g. meteorology, vehicular traffic, authorities)
+* Validation
+
+.Fig.1. Overview of the present framework and its modules
+image:media/3dairq/3dairq1.png
+
+.Fig.2. 3D CAD from shape files with Blender scripts
+image:media/3dairq/3dairq2.png
+
+=== Preprocessing of the geometrical data: meshing
+
+.Fig.3. Meshing with ANSA, ANSYS and/or in-house parallel octree mesher
+image:media/3dairq/3dairq3.png
+
+=== Preprocessing of the geometrical data: parametric CAD and meshing by scripts
+
+* Parametrization of OSPM geometry to 3D CAD geometry
+* OSPM street configuration converted to CAD geometry by script using some additional parameters (for the 3D model size)
+* CFD compatible mesh generated from CAD geometry
+
+=== Preprocessing of the geometrical data: fitting the traffic geometry to the CFD mesh
+
+Emission source location fit from traffic model to CFD mesh, calculated with in-house Java program
+Parametric lanes defined by some measures (distances)
+OpenStreetMap and the national road authority’s format
+
+.Fig.4. Openstreetmap data
+image:media/3dairq/3dairq4.png
+
+=== The traffic and emission modules
+
+* Traffic is modelled by SUMO based on calibrated historical data or by interpolating measurements from operational road traffic data
+
+* Emission model Copert 4 implemented in Java based on real regional fleet data
+
+=== The meteorology modules
+
+AROME model running by OMSZ (the Hungarian Meteorological Services) for the whole Carpathian basin
+Resulting wind fields at different heights for the demonstration area, selected automatically
+
+=== The dispersion simulation
+
+Used models (until now): ANSYS Fluent, OpenFOAM and Parmod
+CFD model components:
+
+* 3D RANS k-ε turbulence model with calibrated coefficients
+* Humidity
+* Parks and groves as porous zones
+* Meteorological wind data as inlet boundary condition
+* Initialized with wind and temperature profiles
+* Polyhedral and hex core meshes, with/without boundary layer resolutions
+* Full transient and frozen flow field models
+
+.Fig.5. The dispersion module: NOx
+image:media/3dairq/3dairq5.png
