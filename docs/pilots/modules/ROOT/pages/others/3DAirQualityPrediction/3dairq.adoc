@@ -1,4 +1,4 @@
-[[motor]]
+[[3dairq]]
 = 3DAirQualityPrediction
 :page-root: ../../../../
 :page-permalink: /pilots/3dairq/
