@@ -9,14 +9,14 @@ ifndef::pilotsdir[:pilotsdir: ]
 include::../../../includes/header.adoc[]
 
 
-*End-user:* BAM, DWA, Charite, 
+*End-user:* BAM, DWA, Charite, Bayer
 
 ZIBaffinity: heavily under construction
 
 * bla
 * blub
 
-image:{imagesdir}media/zibaffinity/image1.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+image:{imagesdir}media/zibaffinity/image1.png[width=566,height=270]
 
 *Figure 1: Estrogen receptor alpha.*
 
