@@ -9,15 +9,15 @@ ifndef::pilotsdir[:pilotsdir: ]
 include::../../../includes/header.adoc[]
 
 
-*End-user:* Marcus, Vedat, Natalia
+*End-user:* BAM, DWA, Charite, 
 
-OPM Flow is a reservoir simulation application that is part of OPM and has been chosen as the pilot in the MSO4SC project. Reasons for choosing OPM Flow for the pilot include:
+ZIBaffinity: heavily under construction
 
 * bla
 * blub
 
-image:{imagesdir}media/image19.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
+image:{imagesdir}media/zibaffinity/image1.png[../../../../../D5.1/norne-perm.png,width=566,height=270]
 
-*Figure 11: Permeability distribution of Norne field.*
+*Figure 1: Estrogen receptor alpha.*
 
-[[test-case-2-the-olympic-benchmark-is-an-artificial-benchmark-created-by-tno-netherlands-for-benchmarking-ensemble-based-reservoir-optimization-and-history-
+
