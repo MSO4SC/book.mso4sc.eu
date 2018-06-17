@@ -34,8 +34,14 @@ The  work  on  deployability,  usability  and  scalability  will also be very va
 * xref:toolboxes:cfd:index.adoc[Computational Fluid Dynamics App]
 * xref:toolboxes:heat:index.adoc[Heat Transfer App]
 * xref:toolboxes:heatfluid:index.adoc[Heat Transfer & Computational Fluid Dynamics App]
-* xref:toolboxes:thermo-electric:index.adoc[Thermo-Eectric App]
+* xref:toolboxes:thermoelectric:index.adoc[Thermo-Eectric App]
 * xref:feelpp::hifimagnet/README.adoc[hifimagnet]
 * xref:feelpp::eye2brain/README.adoc[eye2brain]
 
-The xref:toolboxes:mso4sc:index.adoc[{feelpp} Tutorial for MSO4SC] explains the steps  to use the {feelpp} applications on the MSO4SC Portal.
+
+
+== What's next?
+
+* [x] Follow the xref:toolboxes:mso4sc:index.adoc[{feelpp} Tutorial for MSO4SC] explains the steps  to use the {feelpp} applications on the MSO4SC Portal.
+* [x] Look at the xref:toolboxes:mso4sc:offer.adoc[{feelpp} applications] available in the MDO4SC Portal
+* [x] Run some xref:toolboxes:mso4sc:run.adoc[{feelpp} applications] available in the MDO4SC Portal
