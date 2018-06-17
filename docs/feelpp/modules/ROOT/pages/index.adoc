@@ -38,4 +38,4 @@ The  work  on  deployability,  usability  and  scalability  will also be very va
 * xref:feelpp::hifimagnet/README.adoc[hifimagnet]
 * xref:feelpp::eye2brain/README.adoc[eye2brain]
 
-The xref:toolboxes:mso4sc:index.adoc[{feelpp} Tutorial for MSO4SC] explains the steps on the MSO4SC Portal to use the {feelpp} applications.
+The xref:toolboxes:mso4sc:index.adoc[{feelpp} Tutorial for MSO4SC] explains the steps  to use the {feelpp} applications on the MSO4SC Portal.
