@@ -1,4 +1,4 @@
-* xref:index.adoc#_feel[Feel++]
+* xref:index.adoc#feelpp[Feel++]
 ** xref:feelpp/eye2brain/README.adoc[Eye2Brain]
 ** xref:feelpp/hifimagnet/README.adoc[HiFiMagnet]
 * xref:index.adoc#_fenics[FEniCS]

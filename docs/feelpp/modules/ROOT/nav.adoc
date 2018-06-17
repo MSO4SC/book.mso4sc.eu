@@ -1,4 +1,6 @@
-* xref:ROOT:feelpp/README.adoc[Feel++]
-** xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
-** xref:cases:ROOT:index.adoc[Feel++ Cases Guide]
+* xref:feelpp:index.adoc[Feel++ in MSO4SC]
+* xref:feelpp:hifimagnet/README.adoc[Pilot Hifimagnet]
+* xref:feelpp:eye2brain/README.adoc[Pilot Eye2Brain]
+* xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
+* xref:cases:ROOT:index.adoc[Feel++ Cases Guide]
 

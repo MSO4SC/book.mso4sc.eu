@@ -1,5 +1,5 @@
 * xref:madfs:ROOT:index.adoc[Frameworks (MADFs)]
-** xref:madfs:ROOT:feelpp/README.adoc[Feel++]
+** xref:feelpp:ROOT:index.adoc[Feel++]
 ** xref:madfs:ROOT:fenics/README.adoc[FEniCS]
 ** xref:madfs:ROOT:opm/README.adoc[OPM]
 * xref:pilots:ROOT:index.adoc[Applications (pilots)]
