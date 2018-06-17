@@ -24,11 +24,12 @@ content:
     start_path: docs/tutorials
   # Feel++ toolbox official documentation.
   - url: https://github.com/feelpp/book.feelpp.org
-    branches: feature/antora
+    branches: master
     start_path: docs/toolboxes
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
   supplemental_files: supplemental-ui
 asciidoc:
   attributes:
