@@ -1,22 +1,16 @@
 [[zibaffinity-bindingaffinity]]
 = ZIBaffinity
-:page-root: ../../../../
-:page-permalink: /pilots/zibaffinity-bindingaffinity/
-:page-layout: default
 ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../../images/]
-ifndef::pilotsdir[:pilotsdir: ]
-include::../../../includes/header.adoc[]
 
-
-*End-user:* BAM, DWA, Charite, Bayer
+**End-user:** BAM, DWA, Charite, Bayer
 
 ZIBaffinity was designed to provide high-quality binding affinities ΔG of small chemical compounds to biological target molecules using atomistic molecular dynamics simulations on the basis of the Amber force field and methods of statistical thermodynamics.
 
 Due to the mathematical complexity associated with the conformational space, the estimation of accurate biological host–guest (PL) binding affinities remains a difficult task that requires time-consuming atomistic force field simulations following complicated modeling and simulation protocols. Nevertheless, they are useful in various scenarios comprising computational drug design and the toxicological risk assessment on anthropogenic substances as well as their biotic/abiotic transformation products (TP). These have been increasingly accumulating in various environmental compartments particularly including drinking water. An automated and easy-to-use workflow consisting of a reliable binding energy model, a database of critical pre-parameterized target proteins, and a cloud infrastructure with access to high performance computer facilities would substantially facilitate the calculation of binding energies for computational molecular modelling laymen.
 
-image:{imagesdir}media/zibaffinity/image1.png[width=566,height=270]
+.Figure: Estrogen receptor alpha.
+image::media/zibaffinity/image1.png[width=566,height=270]
 
-*Figure 1: Estrogen receptor alpha.*
+
 
 

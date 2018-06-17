@@ -30,7 +30,7 @@
 === ZIBaffinity
 
 |===
-| image:covers/zibaffinity/cover.png[link=zibaffinity/zibaffinity-bindingaffinity/README/,width=200]
+| xref:pilots:ROOT:zibaffinity/zibaffinity-bindingaffinity/README.adoc[image:covers/zibaffinity/cover.png[width=200]]
 *ZIBAFFINITY*
 |===
 
