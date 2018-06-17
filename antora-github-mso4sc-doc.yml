@@ -28,7 +28,7 @@ content:
     start_path: docs/toolboxes
     - url: https://github.com/feelpp/toolbox
     branches: master
-    start_path: docs/examples
+    start_path: examples
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
