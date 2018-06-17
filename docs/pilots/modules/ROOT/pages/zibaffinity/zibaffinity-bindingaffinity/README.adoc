@@ -8,7 +8,7 @@ ZIBaffinity was designed to provide high-quality binding affinities ΔG of small
 
 Due to the mathematical complexity associated with the conformational space, the estimation of accurate biological host–guest (PL) binding affinities remains a difficult task that requires time-consuming atomistic force field simulations following complicated modeling and simulation protocols. Nevertheless, they are useful in various scenarios comprising computational drug design and the toxicological risk assessment on anthropogenic substances as well as their biotic/abiotic transformation products (TP). These have been increasingly accumulating in various environmental compartments particularly including drinking water. An automated and easy-to-use workflow consisting of a reliable binding energy model, a database of critical pre-parameterized target proteins, and a cloud infrastructure with access to high performance computer facilities would substantially facilitate the calculation of binding energies for computational molecular modelling laymen.
 
-.Figure: Estrogen receptor alpha.
+.Estrogen receptor alpha.
 image::media/zibaffinity/image1.png[width=566,height=270]
 
 
