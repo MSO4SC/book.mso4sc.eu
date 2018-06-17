@@ -5,9 +5,9 @@
 
 [col="2*^"]
 |===
-| image:covers/hifimagnet/cover.png[link=xref:feelpp::hifimagnet/README.adoc,width=200,alt=Hifimagnet]
+| xref:feelpp::hifimagnet/README.adoc[image:covers/hifimagnet/cover.png[width=200,alt=Hifimagnet]]
 *HIFIMAGNET*
-|image:covers/eye2brain/cover.png[link=xref:feelpp::hifimagnet/README.adoc,width=200]
+|xref:feelpp::eye2brain/README.adoc[image:covers/eye2brain/cover.png[width=200]]
 *EYE2BRAIN*
 |===
 
