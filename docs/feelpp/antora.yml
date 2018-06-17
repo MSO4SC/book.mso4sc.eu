@@ -1,0 +1,5 @@
+name: feelpp
+title: Feel++ MSO4SC Docs
+version: "0.105"
+nav:
+- modules/ROOT/nav.adoc

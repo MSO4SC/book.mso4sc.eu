@@ -1,4 +1,3 @@
-* xref:ROOT:feelpp/README.adoc[FEEL++]
-** xref:toolboxes:ROOT:index.adoc[Toolboxes]
+* xref:feelpp:index.adoc[Feel++]
 * xref:ROOT:fenics/README.adoc[FEniCS]
 * xref:ROOT:opm/README.adoc[OPM]
