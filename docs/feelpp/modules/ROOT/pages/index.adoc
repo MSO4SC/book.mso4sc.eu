@@ -30,5 +30,5 @@ The  work  on  deployability,  usability  and  scalability  will also be very va
 
 {feelpp} is the core framework for several MSO4SC pilots such as 
 
-* xref:feelpp:hifimagnet/README.adoc[hifimagnet]
-* xref:feelpp:eye2brain/README.adoc[eye2brain]
+* xref:feelpp::hifimagnet/README.adoc[hifimagnet]
+* xref:feelpp::eye2brain/README.adoc[eye2brain]
