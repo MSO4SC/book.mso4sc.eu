@@ -1,4 +1,4 @@
-[[3DAirQualityPrediction]]
+[[p3DAirQualityPrediction]]
 = 3DAirQualityPrediction
 :page-root: ../../../
 :page-permalink: /pilots/3dairq/
