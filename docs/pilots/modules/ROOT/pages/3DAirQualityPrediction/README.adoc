@@ -1,12 +1,12 @@
-[[3dairq]]
+[[p3DAirQualityPrediction]]
 = 3DAirQualityPrediction
-:page-root: ../../../../
+:page-root: ../../../
 :page-permalink: /pilots/3dairq/
 :page-layout: default
 ifndef::env-github[:icons: font]
-ifndef::imagesdir[:imagesdir: ../../../../images/]
+ifndef::imagesdir[:imagesdir: ../../../images/]
 ifndef::pilotsdir[:pilotsdir: ]
-include::../../../includes/header.adoc[]
+include::../../includes/header.adoc[]
 
 == Objectives and goals
 
