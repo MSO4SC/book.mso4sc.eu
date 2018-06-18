@@ -70,7 +70,7 @@ image:{imagesdir}media/zibaffinity/za_plot.png[width=400]
 
 * Either free energy of binding or, if no weights for linear model exist, the single energy terms
 
-==References
+== References
 
 V. Durmaz, S. Schmidt, P. Sabri, C. Piechotta, M. Weber: A hands-off linear interaction energy approach to binding mode and affinity estimation of estrogens. 'Journal of Chemical Information and Modeling', 53:2681-2688, 2013.
 
