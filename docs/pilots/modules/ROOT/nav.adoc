@@ -8,4 +8,4 @@
 ** xref:opm/opm-flow/README.adoc[OPM Flow]
 * xref:zibaffinity/zibaffinity-bindingaffinity/README.adoc[Zibaffinity]
 * xref:others/motor/README.adoc[Motor]
-* xref:others/3DAirQualityPrediction/3dairq.adoc[3DAirQualityPrediction]
+* xref:3DAirQualityPrediction/README.adoc[3DAirQualityPrediction]
