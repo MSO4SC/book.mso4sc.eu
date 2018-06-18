@@ -24,21 +24,21 @@ Due to the mathematical complexity associated with the conformational space, the
 
 ΔG is calculated as the free energy difference between two distinct states of the ligand molecule, bound to the target and, respectively, free in water. Having uploaded a small drug-like molecule under observation as input, the user needs to select a potential protein target structure from a database of force field-parameterized 3D models. Using modern cloud orchestration technologies, the job is submitted to and processed on a high performance computer. Finally, the binding affinity along with few other thermodynamic quantities and a 3D model of the favorable protein-ligand binding mode (conformation) are then supplied to the user via email.
 
-image:{imagesdir}media/zibaffinity/za_reaction.png[width=400]
+image:media/zibaffinity/za_reaction.png[width=400]
 .Figure 1: Biological association dissociation reaction associated with Gibbs binding free energy ΔG.
 
 Ensuing from the uploaded small molecule, numerous MD simulations including different starting positions of the molecular complex (distributed according to the icosahedron’s symmetry) and one unbound simulation are carried out simultaneously. The optimal binding mode (complex conformation) is extracted from that data and provided as a 3D molecular structure serving, along with thermo-statistical data as the basis for absolute or relative binding affinity estimation.
 
-image:{imagesdir}media/zibaffinity/za_complex.png[width=500]
+image:media/zibaffinity/za_complex.png[width=500]
 .Figure 2: Natural hormone ligand 17-beta-estradiol bound to the human estrogen receptor alpha.
 
 The affinity is estimated as a linear combination of averages of molecular observables according to an extended linear interaction energy model
 
-image:{imagesdir}media/zibaffinity/za_lie.png[width=500]
+image:media/zibaffinity/za_lie.png[width=500]
 
 where the parameter coefficients x_i need to be determined empirically in advance. Thus, the target data base provides only proteins, for which a training set of ligands with known binding affinities were available for the purpose of training these weights. In its urrent state the database consists only of the alpha estrogen receptor alpha as a proof-of-concept for which a highly reliable linear model has been developed.
 
-image:{imagesdir}media/zibaffinity/za_plot.png[width=400]
+image:media/zibaffinity/za_plot.png[width=400]
 .Figure 3: Predicted/fitted versus experimentally determined binding energies for the estrogen receptor alpha.
 
 
