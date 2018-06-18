@@ -20,15 +20,15 @@ Tha main goal is to Develop 3DAirQualityPrediction, an accurate, fast, modular, 
 * Validation
 
 .Fig.1. Overview of the present framework and its modules
-image:media/3dairq/3dairq1.png
+image::media/3dairq/3dairq1.png[]
 
 .Fig.2. 3D CAD from shape files with Blender scripts
-image:media/3dairq/3dairq2.png
+image:media/3dairq/3dairq2.png[]
 
 === Preprocessing of the geometrical data: meshing
 
 .Fig.3. Meshing with ANSA, ANSYS and/or in-house parallel octree mesher
-image:media/3dairq/3dairq3.png
+image::media/3dairq/3dairq3.png[]
 
 === Preprocessing of the geometrical data: parametric CAD and meshing by scripts
 
@@ -43,7 +43,7 @@ Parametric lanes defined by some measures (distances)
 OpenStreetMap and the national road authority’s format
 
 .Fig.4. Openstreetmap data
-image:media/3dairq/3dairq4.png
+image::media/3dairq/3dairq4.png[]
 
 === The traffic and emission modules
 
@@ -70,4 +70,4 @@ CFD model components:
 * Full transient and frozen flow field models
 
 .Fig.5. The dispersion module: NOx
-image:media/3dairq/3dairq5.png
+image::media/3dairq/3dairq5.png[]
