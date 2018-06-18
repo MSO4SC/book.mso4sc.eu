@@ -72,10 +72,10 @@ image:media/zibaffinity/za_plot.png[width=400]
 
 == References
 
-V. Durmaz, S. Schmidt, P. Sabri, C. Piechotta, M. Weber: A hands-off linear interaction energy approach to binding mode and affinity estimation of estrogens. 'Journal of Chemical Information and Modeling', 53:2681-2688, 2013.
+* V. Durmaz, S. Schmidt, P. Sabri, C. Piechotta, M. Weber: A hands-off linear interaction energy approach to binding mode and affinity estimation of estrogens. 'Journal of Chemical Information and Modeling', 53:2681-2688, 2013.
 
-V. Spahn, G. Del Vecchio, D. Labuz, A. Rodriguez-Gaztelumendi, N. Massaly, J. Temp, V. Durmaz, P. Sabri, M. Reidelbach, H. Machelska, M. Weber, C. Stein: A non-toxic pain killer designed by modeling of pathological receptor conformations. 'Science', 355:966-969, 2017.
+* V. Spahn, G. Del Vecchio, D. Labuz, A. Rodriguez-Gaztelumendi, N. Massaly, J. Temp, V. Durmaz, P. Sabri, M. Reidelbach, H. Machelska, M. Weber, C. Stein: A non-toxic pain killer designed by modeling of pathological receptor conformations. 'Science', 355:966-969, 2017.
 
-K. Heye, D. Becker, C. Lütke-Eversloh, V. Durmaz, T. A. Ternes, M. Oetken, J. Oehlmann: Effects of carbamazepine and two of its metabolites on the non-biting midge Chironomus riparius in a sediment full life cycle toxicity test. 'Water Research', 98:19-72, 2016.
+* K. Heye, D. Becker, C. Lütke-Eversloh, V. Durmaz, T. A. Ternes, M. Oetken, J. Oehlmann: Effects of carbamazepine and two of its metabolites on the non-biting midge Chironomus riparius in a sediment full life cycle toxicity test. 'Water Research', 98:19-72, 2016.
 
 
