@@ -36,11 +36,11 @@ image:media/zibaffinity/za_complex.png[width=500,align="center"]
 
 The affinity is estimated as a linear combination of averages of molecular observables according to an extended linear interaction energy model
 
-image:media/zibaffinity/za_lie.png[width=500,align="center"]
+image:media/zibaffinity/za_lie.png[width=350,align="center"]
 
 where the parameter coefficients x_i need to be determined empirically in advance. Thus, the target data base provides only proteins, for which a training set of ligands with known binding affinities were available for the purpose of training these weights. In its urrent state the database consists only of the alpha estrogen receptor alpha as a proof-of-concept for which a highly reliable linear model has been developed.
 
-image:media/zibaffinity/za_plot.png[width=400,align="center"]
+image:media/zibaffinity/za_plot.png[width=500,align="center"]
 
 *Figure 3: Predicted/fitted versus experimentally determined binding energies for the estrogen receptor alpha.*
 
