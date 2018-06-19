@@ -8,6 +8,7 @@
 ** xref:pilots:ROOT:index.adoc#_opm[OPM]
 ** xref:pilots:ROOT:index.adoc#_zibaffinity[ZibAffinity]
 ** xref:pilots:ROOT:index.adoc#_motor[Motor]
+** xref:pilots:ROOT:3DAirQualityPrediction/README.adoc[3D Air Quality Prediction]
 // * xref:infrastructure:ROOT:index.adoc[Infrastructure]
 // ** xref:infrastructure:ROOT:portal/README.adoc[Portal]
 // ** xref:infrastructure:ROOT:marketplace/README.adoc[Marketplace]
