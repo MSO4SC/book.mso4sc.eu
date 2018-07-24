@@ -1,0 +1,129 @@
+= Continuous integration with Gitlab-CI
+
+A software repository hosted in the MSO4SC Gitlab instance can setup a Continuous Integration/Delivery workflow by means of link:https://about.gitlab.com/features/gitlab-ci-cd/[Gitlab-CI].
+
+This document demonstrates the usage of several useful tools for the continuous in MSO4SC scope. This tools are packed in a lightweight Docker container and published in DockerHub (`mso4sc/ci:latest`). 
+
+We encourage you to use this image as base environment if you need the same features. You can see an example of how to setup CI/CD for MSO4SC in link:https://gitlab.srv.cesga.es/examples/mso4sc-ci[this repository]. In this repository we are using this container (`mso4sc/ci:latest`). 
+
+In this example we sequentially perform several dependant steps in order to deploy a new software release:
+- *build*: build and deliver a new Singularity image
+- *test*: test in HPC using serverless Cloudify CLI and the HPC plugin
+- *deploy*: _[Currently EMPTY]_
+- *undeploy*: remove the Singularity image from SRegistry if any previous step failed.
+    
+Workflow:
+
+` (1) build >> (2) test >> (3) deploy >> (4) undeploy`
+
+[NOTE]
+- If any step fail, the workflow breaks and next steps are cancelled. 
+- Undeploy step only occurs if any previous step failed.
+     
+Next sections describe some features of the involved tools.
+
+== Gitlab-CI
+
+Continuous integration service powered by gitlab.
+
+To enable the continuous integration of your project you have to place a `.gitlab-ci.yml` file in the root path of your repository.
+
+`.gitlab-ci.yml` is a YAML file to define the workflow to be performed during the continuous integration process.
+
+More info about the Gitlab-CI YAML sintax and semantics in this link:https://docs.gitlab.com/ce/ci/yaml/README.html[link].
+
+You can learn more about Gitlab-CI with this link:https://docs.gitlab.com/ce/ci/quick_start/README.html[quick-start guide].
+
+== SRegistry
+
+Transfer and storage web service for Singularity images. SRegistry is also a comand line tool to interact with the web service.
+
+Images hosted in SRegistry are reference in a docker-like style `COLLECTION/IMAGE:TAG` (e.g. mso4sc/ci:latest).
+
+To be able to push to the SRegistry web service from the command line you must use your user credentials. 
+
+User credentials must be stored in plain text file. The default path for this file is `$HOME/.sregistry`. 
+
+If you want to use a custom path you must set the right path into `SREGISTRY_CLIENT_SECRETS` environment variable.
+
+To get your secret token you must be loged in the web service and visit your link:http://sregistry.srv.cesga.es/token[token page].
+
+SRegistry push sintax:
+[source,bash]
+----
+$ export SREGISTRY_CLIENT_SECRETS=SREGISTRY_TOKEN_FILE
+$ sregistry push --name COLLECTION/IMAGE --tag TAG SINGULARITY_IMAGE
+----
+
+- *SREGISTRY_TOKEN_FILE*: path to a plain text file containing your JSON token
+- *SREGISTRY_CLIENT_SECRETS*: environment variable pointing to `SREGISTRY_TOKEN_FILE`
+- *COLLECTION*: collection name
+- *IMAGE*: image name
+- *TAG*: reference tag
+- *SINGULARITY_IMAGE*: path to a singularity image
+
+SRegistry command line basic  example:
+[source,bash]
+----
+$ sregistry push --name mso4sc/example --tag latest example.simg
+----
+
+Here you can find more info about link:https://singularityhub.github.io/sregistry/client.html[sRegistry Client].
+
+== How to do it
+
+. Create a secret variable containing your JSON token
+.. Go to your project *settings*
+.. Click on *CI/CD*
+.. Expand *Secret variables* section
+.. Create a new variable 
+.. Copy the token (e.g `{ "registry": { "token": "...", "username": "...", "base": "https://sregistry.srv.cesga.es" } }`)
+. Create a new `.gitlab-ci.yml` with the following workflow
+.. Use `mso4sc/ci:latest` as a base image.
+.. Write your JSON token to a file
+.. Export `SREGISTRY_CLIENT_SECRETS` pointin to your JSON token file
+.. Build your singularity image
+.. Push the resulting singularity image to SRegistry
+.. Delete the file containing the JSON token
+. Commit your changes
+
+Then the CI process will start automatically and publish the new image to SRegistry. You need to be assigned as owner of the `mso4sc` collection to be able to push.
+
+By default new collections are private in SRegistry. If you make public the collection the image will be available to be pulled with Singularity. Note that `mso4sc`collection is public.
+
+Type this to pull a public image with Singularity:
+
+[source,bash]
+----
+$ singularity pull shub://sregistry.srv.cesga.es/mso4sc/example:latest
+----
+
+== Cloudify CLI (cfy)
+
+Cloudify CLI (in local execution mode) allows you to execute your blueprints without connecting to the remote MSOOrchestrator instance.
+
+This use case is really usefull for HPC automated testing to ensure the correct functioning of your blueprints before using the MSOOrchestrator.
+
+The invocation pathway of `cfy` command follows the usual Cloudify flow (with an extra initial validation step) as described below:
+
+. Blueprint validation
+. Application registration
+. Job environment bootstrap
+. Job execution
+. Job environment revert
+
+You can see an implementation inxample in the `gitlab-ci.yml` file, this workflow is coded with the following commands:
+
+[source,bash]
+----
+$ ID=BLUEPRINT_ID
+$ cfy blueprints validate blueprint.yaml
+$ cfy init --install-plugins -b $ID -i ../inputs.yaml blueprint.yaml
+$ cfy executions start -b $ID install
+$ cfy executions start -b $ID run_jobs
+$ cfy executions start -b $ID uninstall
+----
+
+You can get more info about `cfy` in the following link:http://docs.getcloudify.org/4.1.0/cli/overview/[link].
+
+
