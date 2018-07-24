@@ -9,3 +9,4 @@
 
 * xref:infrastructure:ROOT:data/README.adoc[Data]
 * xref:infrastructure:ROOT:clusters/README.adoc[clusters]
+* xref:infrastructure:ROOT:gitlab/README.adoc[Gitlab]
