@@ -7,6 +7,7 @@ This document demonstrates the usage of several useful tools for the continuous 
 We encourage you to use this image as base environment if you need the same features. You can see an example of how to setup CI/CD for MSO4SC in link:https://gitlab.srv.cesga.es/examples/mso4sc-ci[this repository]. In this repository we are using this container (`mso4sc/ci:latest`). 
 
 In this example we sequentially perform several dependant steps in order to deploy a new software release:
+
 - *build*: build and deliver a new Singularity image
 - *test*: test in HPC using serverless Cloudify CLI and the HPC plugin
 - *deploy*: _[Currently EMPTY]_
@@ -14,11 +15,16 @@ In this example we sequentially perform several dependant steps in order to depl
     
 Workflow:
 
-` (1) build >> (2) test >> (3) deploy >> (4) undeploy`
+....
+(1) build >> (2) test >> (3) deploy >> (4) undeploy
+....
 
 [NOTE]
+.Take this into account
+====
 - If any step fail, the workflow breaks and next steps are cancelled. 
 - Undeploy step only occurs if any previous step failed.
+====
      
 Next sections describe some features of the involved tools.
 
