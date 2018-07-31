@@ -8,6 +8,7 @@
 *** xref:infrastructure:ROOT:orchestrator/tosca/opm/README.adoc[opm]
 
 * xref:infrastructure:ROOT:data/README.adoc[Data]
-* xref:infrastructure:ROOT:clusters/README.adoc[clusters]
+* xref:infrastructure:ROOT:clusters/README.adoc[Clusters]
+* xref:infrastructure:ROOT:singularity/README.adoc[Singularity]
 * xref:infrastructure:ROOT:gitlab/README.adoc[Gitlab]
 ** xref:infrastructure:ROOT:gitlab/continuousintegration/README.adoc[Continuous Integration]
