@@ -9,7 +9,7 @@ ifndef::pilotsdir[:pilotsdir: ]
 include::../../../includes/header.adoc[]
 
 
-*End-user:* Statoil, IRIS, TNO.
+*End-user:* Petroleum industry, research institutes, universities.
 
 OPM Flow is a reservoir simulation application that is part of OPM and has been chosen as the pilot in the MSO4SC project. Reasons for choosing OPM Flow for the pilot include:
 
