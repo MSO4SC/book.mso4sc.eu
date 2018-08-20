@@ -1,0 +1,40 @@
+# OPM Flow user guide for the MSO4SC portal
+
+This user guide is intended to show how to use the OPM Flow application through the MSO4SC portal, step by step. As a prerequisite, you must have an account on a HPC or cloud system provider linked to the portal. At the moment, the CESGA HPC system Finis Terrae II ("ft2") is available, as well as some smaller clusters belonging to the universities of Strasbourg and Györ. More systems will be available in the future.
+
+### 1. Log in to the MSO4SC portal.
+
+The portal is found at https://portal.mso4sc.eu. In order to log in, you must first have signed up to be a user of the portal. After logging in you should see a screen with some big buttons for getting help and documentation, and a top menu for the most important actions of the portal.
+
+### 2. Obtain the OPM Flow application.
+
+In the top menu of the Portal, click on "Marketplace" to get the applications you want. In the marketplace, there are both free and non-free applications. OPM Flow is open source, and you do not have to pay anything for it in the marketplace. You still have to choose the application and "purchase" it though.
+
+### 3. Look at the open testing datasets.
+
+In the top menu, click on "Data Catalogue" to look at the available datasets. Here you can search for data sets, but the simplest way to look at those that are suited for running with Flow, is to click on "Groups" in the top menu of the component (it will be below the portal's top menu), and then on the group "OPM Flow datasets". At the moment, only 3 datasets are made openly available through the data catalogue. The smallest and quickest is the "SPE 1" dataset. You do not need to do anything about it now, you will choose that data set later in the process from within the experiments tool.
+
+### 4. Enter and set up the Experiments tool.
+
+In the top menu, click on "Experiments" to enter the Experiments tool. This is where you will control the setup and running of your application. In order to start jobs on your chosen HPC or cloud provider, you must first go to "Settings", found on the extreme right of the top menu of the tool (found just below the portal top menu). There you can enter your credentials for the computational provider, and give it a name of your choosing. For example, for the "ft2" system at CESGA, you must enter "ft2.cesga.es" in the "Host" field, as well as your username and password in the appropriate fields.
+
+### 5. Deploy an experiment
+
+Each experiment is an "instance" of the application. Every time you run an experiment using OPM Flow, you will interact with a new instance. At the moment, there are five steps: create, deploy, run, undeploy and destroy. It is likely that this will be simplified in the future. To start, click "Create App Instance". From the "Application" menu that appears, choose "OPM Flow". Then automatically, a form will appear that allows you to customize your run. We will go through all items in order, the ones marked as bold should be edited or checked:
+
+ - **Deployment ID:** This is the name of the instance you are creating. It should be sufficiently unique for you to tell it apart from other instances you may want to create. For your first run, you could call it "First test run of OPM Flow" for example.
+ - **Application:** This is the application you have chosen. Here we will describe the "OPM Flow" application.
+ - **HPC: primary:** This is the computational provider you want to use. Choose the one you set up in step 4 above.
+ - HPC: secondary: This is not used by OPM Flow, leave it at "None".
+ - **Dataset resource: input_url:** This lets you choose one of the open datasets from the Data Catalogue to run. Choose "spe-1" for your first test. When you choose a data set, a list of available files will appear. For "spe-1" the list contains just a single file, called "spe1.tgz". Choose that by clicking the round selection button to the left of the file name.
+ - base_dir: This is the directory on the computational system where all files will be put, both input and output. It defaults to "$LUSTRE" which is appropriate for HPC systems running Lustre such as "ft2", but you may need to change this for your system.
+ - **hpc_partition:** The computational partition on which to launch the job. For "ft2" it is often appropriate to run on "thin-shared".
+ - **hpc_reservation:** If your user has a special reservation on the computational system you can indicate that here. Otherwise it should be left blank.
+ - job_prefix: This is arbitrary, and can be used to easily indicate which jobs are started from the portal.
+ - **max_time:** This is the maximum time that will be used for your job, in HH:MM:SS format. For the "spe-1" case you can choose one minute, it should run in a few seconds. For the "norne" case you may want to request 30 minutes if running on just one core, or less if running in parallel (see below).
+ - monitor_entrypoint: Leave blank.
+ - parallel_nodes: The number of computational nodes on which to run Flow. Leave at 1 for now.
+ - parallel_tasks: The number of parallel tasks or processes used. For your initial test leave at 1. Later, you may use this to request a higher number of cores from the node, up to 24 for the "ft2" systems.
+ - parallel_tasks_per_node: Set this equal to parallel_tasks for now.
+ - singularity_image_filename: The Singularity image containing the application will be saved on the computational system using this name.
+ - singularity_image_uri: The Singularity image will be obtained from this URI. Leave it at the default unless you need to use an older release for example.
