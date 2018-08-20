@@ -38,3 +38,24 @@ Each experiment is an "instance" of the application. Every time you run an exper
  - parallel_tasks_per_node: Set this equal to parallel_tasks for now.
  - singularity_image_filename: The Singularity image containing the application will be saved on the computational system using this name.
  - singularity_image_uri: The Singularity image will be obtained from this URI. Leave it at the default unless you need to use an older release for example.
+
+After customizing your run, click the "Create Instance!" button. You should get a confirmation saying that your intance was created.
+
+Now click on "Deploy Instance", choose your newly made instance from the "App Instance" drop down menu, and click "Deploy". You may occasionally see a message that deployment is not ready yet, if you see that message you can wait a few seconds and click Deploy again. You should now see a log with lots of messages such as "Configuring node", "Starting node" etc. These are mostly for developers to debug the application, so you can ignore them. While deploying, there will be a blue indicator next to the "Deployment" dropdown, it will turn green when deployment is complete, or red if there is an error. The deployment stage obtains the application Singularity image and the input data set, storing both on the computational system.
+
+### 6. Run an experiment.
+
+Click "Run Instance" in the Experiment tool top menu. Choose the newly created and deployed instance, and click "Run!". The indicator button will turn blue while running, and green when complete. If there is an error, it will turn red. The log messages are (again) mostly for the developers to debug the system (they are messages from the Cloudify system), but it may be useful to see the state changes there. When initiated, a run will be PENDING, while we wait for an available time slot on the computational system. This stage may last for hours or days if you requested large resources (time and parallel tasks) on a contested system, or less than a second if you have dedicated resources or a small resource request. When it actually starts, it will be RUNNING, and finally COMPLETED when done.
+
+You should then clean up the instance by clicking "Undeploy/Clean Up Instance" in the menu, choosing your instance, and clicking the "Undeploy!" button. This will remove the input data and application Singularity image, but leave your simulation output in place. Finally, click "Destroy App Instance" in the menu, choose your instance, and click the "Destroy Instance!" button.
+
+### 7. Look at the results.
+
+Your output is now stored on the computational system. At the moment, there is no extra support to download the output data, you will have to access it as you normally would access data on that system, by using scp or rclone for example. However if your computational provider offers visualization support by noVNC, you can access that by clicking "Visualization" in the Portal top menu (leaving the Experiment tool). Using the Settings there you can set up a remote desktop and visualize results using tools installed on that system. For "ft2", you can use the following settings:
+ - host: vis.lan.cesga.es
+ - list command: /opt/cesga/vis/bin/desktops
+ - create commmand: /opt/cesga/vis/bin/getdesktop
+
+After adding your settings, you can click "Desktops Available", choose the system and create a new desktop. If using "ft2" you can visualize results in ResInsight, but it requires two steps in the terminal:
+ - Make ResInsight available by "module load resinsight"
+ - Run it by "vglrun resinsight".
