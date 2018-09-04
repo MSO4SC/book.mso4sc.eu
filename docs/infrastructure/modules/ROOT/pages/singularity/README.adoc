@@ -13,11 +13,11 @@ Singularity has been installed in privileged (SUID) mode in order to utilize all
 
 There are no limitations or restrictions on the users IDs or storage paths where to store Singularity images. This means that any user with read and execution permissions is able to use any Singularity image located in any directory.
 
-Singularity has been configured to allow users to bind custom host directories inside the container. However, as FT2 kernel does not support the _overlay feature, the destination directory of a bind-mount action must exist inside the container. If the destination directory does not exist inside the container the bind-mount will not succeed.
+Singularity has been configured to allow users to bind custom host directories inside the container. However, as FT2 kernel does not support the `overlay` feature, the destination directory of a bind-mount action must exist inside the container. If the destination directory does not exist inside the container the bind-mount will not succeed.
 
-The Singularity installation is configured to automatically share some common linux directories and files from the host to the container. These directories are _/proc_, _/sys_, _/dev_, _/tmp_, and _/home_. Some files like _/etc/resolv.conf_, __/etc/host__s and _/etc/localtime_ are also automatically mounted inside the container to import host network and timing settings.
+The Singularity installation is configured to automatically share some common linux directories and files from the host to the container. These directories are `/proc`, `/sys`, `/dev`, `/tmp`, and `/home`. Some files like `/etc/resolv.conf`, `/etc/hosts` and `/etc/localtime` are also automatically mounted inside the container to import host network and timing settings.
 
-Finally, the current user and group info are automatically added into _/etc/passwd_ and _/etc/groups_ files. This means the user and group ids are exactly the same inside and outside the container.
+Finally, the current user and group info are automatically added into `/etc/passwd` and `/etc/groups` files. This means the user and group ids are exactly the same inside and outside the container.
 
 [[singularity-good-practices]]
 == Good practices using Singularity at Finis Terrae II
@@ -26,15 +26,15 @@ This section describes some instructions and good practices for building Singula
 
 The first rule is to provide a valid Singularity container. Within the container, an entire distribution of Linux or a very lightweight tuned set of packages can be included, preserving the usual Linux directories hierarchy. It is recommended to set up the required environment variables within the container in order to expose a consistent environment.
 
-To get transparent access to the host e-infrastructure storage (in this case we use Finis Terrae II as an example) from the containers, _/mnt and _/scratch directories/paths must exist within the container to be shared with the host. This allows the container to maintain the consistency with the host configuration, environment variables, etc. 
+To get transparent access to the host e-infrastructure storage (in this case we use Finis Terrae II as an example) from the containers, `/mnt` and `/scratch` directories/paths must exist within the container to be shared with the host. This allows the container to maintain the consistency with the host configuration, environment variables, etc. 
 
 Applications within a Singularity image must not be installed in any of the automatically mounted devices or directories. If this occurs, applications will be hidden for the end-user.  
 
 To run parallel applications using multiple nodes with MPI, the container must have installed support for MPI and PMI. Also for taking advantage of some HPC resources like Infiniband networks or GPUs, the container must support them. This means that the container must have installed the proper libraries to communicate with the hardware and also to perform inter-process communications.
 
  - In the case of Infiniband support, there are not any known restrictions about the infiniband libraries installed inside the container.
- - In the particular case of using GPUs from a Singularity container, the container must have _nvidia-smi installed. Singularity provides GPU containers portability through the experimental NVidia support option to allow containers to automatically use the host drivers.
- - Regarding MPI, in the current context, due to the Singularity hybrid MPI approach, it's mandatory to use the same implementation and version of MPI installed at the host and inside the container to run MPI parallel applications, and also to use the corresponding _mpirun_ or _mpiexec_ launcher, instead of _srun_ (Slurm default process manager), as process manager to ensure PMI compatibility. Both OpenMPI and IntelMPI implementations are supported and have been tested.
+ - In the particular case of using GPUs from a Singularity container, the container must have `nvidia-smi` installed. Singularity provides GPU containers portability through the experimental NVidia support option to allow containers to automatically use the host drivers.
+ - Regarding MPI, in the current context, due to the Singularity hybrid MPI approach, it's mandatory to use the same implementation and version of MPI installed at the host and inside the container to run MPI parallel applications, and also to use the corresponding `mpirun` or `mpiexec` launcher, instead of `srun` (Slurm default process manager), as process manager to ensure PMI compatibility. Both OpenMPI and IntelMPI implementations are supported and have been tested.
 
 Other alternatives where explored to provide portability of MPI Singularity containers but are not recommended for its complexity or lack of generality at FT2. These alternatives are bind-mount of host MPI inside the container and the usage of PMIx > 2.1 as default process manager.
 
@@ -54,12 +54,14 @@ Although being a default directory in the linux OS hierarchy, we recommend to ad
 
 ==== Usage
 
-To get a transparent access to _Finis Terrae 2_ storage devices while using _Singularity_, our recommendation is to bind-mount `/mnt` directory inside the container.
+To get a transparent access to _Finis Terrae II_ storage devices while using Singularity, our recommendation is to bind-mount `/mnt` directory inside the container.
 
 [source,shell]
+----
     $ module purge
     $ module load singularity/$VERSION
     $ singularity exec -B /mnt $CONTAINER $COMMAND
+----
 
 === Scratch directory
 
@@ -71,49 +73,54 @@ We recommend to add the command `mkdir -p /scratch` to the `%post` section of yo
 
 ==== Usage
 
-It's recommended to use a `scratch` folder to store temporal data while executing in a _Finis Terrae 2_ compute node.
+It's recommended to use a `scratch` folder to store temporal data while executing in a _Finis Terrae II_ compute node.
 
 The most transparent strategy is to bind-mount the `/scratch` host directory into the `/scratch` container directory.
 
 [source,shell]
+----
     $ module purge
     $ module load singularity/$VERSION
     $ singularity exec -B /scratch $CONTAINER $COMMAND
+----
 
 Other alternative is to bind-mount the `/scratch` host directory in other temporal directory like `/tmp`.
 
-NOTE: By default at _Finis Terrae 2_, `/scratch` directory is the place to store the OpenMPI session.
+NOTE: By default at _Finis Terrae II_, `/scratch` directory is the place to store the OpenMPI session.
 While launching MPI applications, if this directory doesn't exists or it's not writable, you must specify other using the `TMPDIR` environment variable.
 
 [source,shell]
+----
     $ module purge
     $ module load singularity/$VERSION
     $ export TMPDIR=/tmp
     $ singularity exec -B /scratch:/tmp $CONTAINER $COMMAND
-
+----
 
 === Shared-Memory containers
 
 ==== Build
 
-There isn't any known particular restriction for running shared-memory applications from a _Singularity_ container.
+There isn't any known particular restriction for running shared-memory applications from a Singularity container.
 
 ==== Usage
 
 [source,shell]
+----
     $ module purge
     $ module load singularity/$VERSION
     $ singularity exec -B /scratch -B /mnt $CONTAINER $COMMAND
+----
 
 === MPI containers
 
 ==== Build
 
-In order to run parallel applications in multiple nodes, _Singularity_ documentation tell us that the container must support MPI and PMI(x). Also for taking advantage of some HPC resouces like Infiniband networks, the container must suppport it. This means that the container must have installed the propper libraries to communicate with the hardware and also to perform inter-process communications.
+In order to run parallel applications in multiple nodes, Singularity documentation tell us that the container must support MPI and PMI(x). Also for taking advantage of some HPC resouces like Infiniband networks, the container must suppport it. This means that the container must have installed the propper libraries to communicate with the hardware and also to perform inter-process communications.
 
 In the case of Infiniband, there is not any known restrictions about the infiniband libraries installed inside the container.
 
-Regarding MPI, in the current context, due to the _Singularity_ hybrid MPI approach, you need to have the same implementation and version of MPI installed at the host and inside the container to run parallel/MPI applications. We strongly recommend to use an OpenMPI implementation.
+Regarding MPI, in the current context, due to the Singularity hybrid MPI approach, you need to have the same implementation and version of MPI installed at the host and inside the container to run parallel/MPI applications. We strongly recommend to use an OpenMPI implementation.
 
 The currently available MPI implementations at Finis Terrae II are listed below. Singularity images containing MPI applications must contain any of this MPI implementations to properly run in parallel at Finis Terrae II:
 
@@ -147,10 +154,12 @@ You must use `mpirun`, instead of `srun`, as process manager to ensure PMI compa
 
 
 [source,shell]
+----
     $ module purge
     $ module load $COMPILER $MPI_VERSION
     $ module load singularity/$VERSION
     $ mpirun $ARGS singularity exec -B /scratch -B /mnt $CONTAINER $COMMAND
+----
 
 === GPU containers
 
@@ -162,20 +171,22 @@ There are several alternatives in order to have the right NVidia driver within t
 * Install it persistently inside the container.
 * Bind-mount the host driver inside the container.
 
-In both cases _nvidia-smi must be installed inside the container.
+In both cases `nvidia-smi` must be installed inside the container.
 
 NOTE: The big con of a persistent installation is the lack of portability, as you cannot use the same container in other host with a different NVidia driver version.
 
 ==== Usage
 
-_Singularity_ provides the `--nv` option to automagically bind-mount the NVidia drivers (experimental Nvidia support).
+Singularity provides the `--nv` option to automagically bind-mount the NVidia drivers (experimental Nvidia support).
 
 NOTE: Please, ensure that you are in a GPU compute node to run your GPU containers.
 
 [source,shell]
+----
     $ module purge
     $ module load singularity/$VERSION
     $ mpirun singularity exec --nv -B /scratch -B /mnt $CONTAINER $COMMAND
+----
 
 === Sample recipes
 
