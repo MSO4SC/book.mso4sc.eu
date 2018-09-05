@@ -18,23 +18,22 @@ importance for the online course MOOC-HPFEM, and MOOCs in general. By
 to edit basic information or data and run simulations, and also a
 developer who wants to carry out extensive source code development:
 
+
 . **Branch repository**
    The user branches or forks the Unicorn/FEniCS-HPC Git repository
    https://bitbucket.org/fenics-hpc/unicorn , "next" branch.
 
 . **Source code web editing**
    The user edits the source code and/or data of her own repository in
-   the integrated GitHub web editor:   
-   ![GitHub repository source code web editing.](MSO4SC-github-sourcecode-editing01.png "GitHub source code web editing.")
+   the integrated GitHub web editor: image:MSO4SC-github-sourcecode-editing01.png[GitHub repository source code web editing.]
 
 . **Run experiment in Portal on FTII**
    The user runs her own repository version of the experiment in Portal-Experiments on FTII, here the wing
-   benchmark, with logging. The repository location is specified in the Experiment form:   
-   ![Run repository version of wing benchmark in Portal-Experiments.](MSO4SC-experiment-log01.png "Run repository version of wing benchmark in Portal-Experiments.")
+   benchmark, with logging. The repository location is specified in the Experiment form: image:MSO4SC-experiment-log01.png [Run repository version of wing benchmark in Portal-Experiments.]
 
-. **Visualizae in Portal**
+. **Visualize in Portal**
    The user explores the solution in ParaView the remote desktop Portal-Visualization:   
-   ![Portal-Visualization with remote desktop.](viz-remote-desktop.png "Portal-Visualization with remote desktop.")
+   image:viz-remote-desktop.png[Portal-Visualization with remote desktop.]
 
 . **Repeat**
    Based on the conclusions from the visualization, the user may want to edit again and restart the workflow.
