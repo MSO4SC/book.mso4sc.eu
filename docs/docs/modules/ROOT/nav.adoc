@@ -1,6 +1,6 @@
 //* xref:madfs:ROOT:index.adoc[Frameworks (MADFs)]
 * xref:feelpp:ROOT:index.adoc[Feel++]
-//* xref:madfs:ROOT:fenics/README.adoc[FEniCS]
+* xref:madfs:ROOT:fenics/README.adoc[FEniCS]
 * link:https://opm-project.org/?page_id=955[OPM]
 * xref:pilots:ROOT:index.adoc[Applications (pilots)]
 ** xref:pilots:ROOT:index.adoc#_feel[Feel++]
