@@ -25,11 +25,13 @@ developer who wants to carry out extensive source code development:
 
 . **Source code web editing**
    The user edits the source code and/or data of her own repository in
-   the integrated GitHub web editor: image:MSO4SC-github-sourcecode-editing01.png[GitHub repository source code web editing.]
+   the integrated GitHub web editor:
+   image:MSO4SC-github-sourcecode-editing01.png[GitHub repository source code web editing.]
 
 . **Run experiment in Portal on FTII**
    The user runs her own repository version of the experiment in Portal-Experiments on FTII, here the wing
-   benchmark, with logging. The repository location is specified in the Experiment form: image:MSO4SC-experiment-log01.png [Run repository version of wing benchmark in Portal-Experiments.]
+   benchmark, with logging. The repository location is specified in the Experiment form:
+   image:MSO4SC-experiment-log01.png[Run repository version of wing benchmark in Portal-Experiments.]
 
 . **Visualize in Portal**
    The user explores the solution in ParaView the remote desktop Portal-Visualization:   
