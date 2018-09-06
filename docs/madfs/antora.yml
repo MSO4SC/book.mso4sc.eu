@@ -1,5 +1,5 @@
 name: madfs
-title: MADFs Documentations
-version: "0.1"
+title: MADFs Documentation
+version: "latest"
 nav:
 - modules/ROOT/nav.adoc
