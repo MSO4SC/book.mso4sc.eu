@@ -26,6 +26,8 @@ This section describes some instructions and good practices for building Singula
 
 The first rule is to provide a valid Singularity container. Within the container, an entire distribution of Linux or a very lightweight tuned set of packages can be included, preserving the usual Linux directories hierarchy. It is recommended to set up the required environment variables within the container in order to expose a consistent environment.
 
+NOTE: FT2 kernel version is currently 2.32 (September 2018). Newest OS like Debian buster and Ubuntu Bionic require a more updated kernel and are not compatible with FT2 kernel. 
+
 To get transparent access to the host e-infrastructure storage (in this case we use Finis Terrae II as an example) from the containers, `/mnt` and `/scratch` directories/paths must exist within the container to be shared with the host. This allows the container to maintain the consistency with the host configuration, environment variables, etc. 
 
 Applications within a Singularity image must not be installed in any of the automatically mounted devices or directories. If this occurs, applications will be hidden for the end-user.  
