@@ -1,0 +1,215 @@
+[[p3DAirQualityPrediction]]
+= 3DAirQualityPrediction User Manual
+ifndef::env-github[:icons: font]
+
+This user manual presents the available options and workflows for the 3DAirQualityPrediction pilot.
+For using 3DAirQualityPrediction please first contact system administrators for HPC credentials.
+
+== Login and create Instance
+
+First we need to login to the MSO4SC portal, we can do it at portal.mso4sc.eu site, after successful login we can navigate to the Experiments menu.
+
+.Login screen of the MSO4SC portal
+image::media/3dairq/login_screen.PNG[]
+
+.The MSO4SC dashboard
+image::media/3dairq/frontend.PNG[]
+
+On the Instances we can add a new instance by clicking the "add a new one". In this instance we can create a simulation with user-defined datasets, and run it on the same webpage.
+
+First we must select the Appcilaction 3DAirQualityPrediction and add a new ID for our instance.
+
+.Adding a new Instance
+image::media/3dairq/application.PNG[]
+
+After that, the next session describes the available datasets, and configuration options of the 3DAirQualityPrediciton Pilot.
+
+== Map Data
+
+In this case, we cannot choose different map, only gyor-mid.osm. This is the downtown of Győr.
+
+== Traffic simulation (1-traffic-SUMO-vehiclesph)
+The traffic simulation based on SUMO (Simulation of Urban MObility, url:http://sumo.dlr.de/) simulation tool. In this scenario are using the downtown map of Győr, Hungary.
+After we modelled the map of Győr, we generate traffic to the streets. We can add a static Vehicle-per-hour rate of traffic.
+
+* If we change the option to 0, we can use a default traffic based on measurement
+* If we add a number between 1 and 10000, the simulatior will generate a number of vehicles per hour, equally spaced (not together with period or probability)
+
+.Defining the traffic size of the simulation
+image::media/3dairq/traffic.PNG[]
+
+
+== 3D mesh
+
+In our pilot we can choose 3 different level of resolution of the predefinied 3D octree mesh for CFD simulation. On the Fig. 5, we can see the difference between low and mid resolution.
+
+* low (Lowest resolution)
+* mid (Middle resolution)
+* high (Highest Resolution)
+
+.difference of the low and mid resolution
+image::media/3dairq/lowmid.png[]
+
+== CFD simulation 
+
+In this section we can add the configuration for the Ansys Fluent CFD simulation. For now, there are 3 different options, which we can change. 
+NOTE: The time step is hardcoded to 60 seconds. So choose the iteration number carefully.
+
+* 3-fluent-sim-start-time: Start time of the simulation (in second from midnight)
+* 3-fluent-sim-iter-1: Iteration number for initial wind field computation (steady state)
+* 3-fluent-sim-iter-2: Number of time steps for mixture formation (transient analysis)
+
+The start time is 18000 by default (this means the simulation starts at 5:00am).
+
+== Wind Generation
+
+In this section we describes the wind profile geneartor, which can generate transient wind profile from discrete measurements and surface roughness.
+The generator uses two different files, the first one used to add the basic configuration for the wind profile, the second contains only the measurement data.
+
+The two files are stored in the integrated Gitlab module and can be easily modified online through the Gitlab Editor.
+
+For this step we only provide the url for the two files.
+
+.The two wind profile files
+image::media/3dairq/windfiles.PNG[]
+
+
+The wind profile config file with comments:
+
+....
+measurement.start-time=2018.09.02 00:00:00
+
+# Measurement height in meters:
+measurement.z=2
+
+#Specific surface roughness of measurement:
+measurement.z0=0.2
+
+#Displacement height of measurement:
+measurement.d=0
+
+#Coordinate system of the measurement: descartes or polar. Descartes: x, y components, polar: magnitude, direction components:
+measurement.coordinate-system=descartes
+
+#Origo of the polar coordinate system: North, East, South, West:
+measurement.coordinate-system.polar.origo=North
+
+#The positive rotational direction of the polar coordinate-system: Clockwise, CounterClockwise:
+measurement.coordinate-system.polar.positive-direction=Clockwise
+
+#Full path of the measurement csv file. See measurement csv file specification in the wind-profile-creator-input-file-specification.md file.
+measurement.data.path=/nfs/3dairq-simulation/wind/windprofile.csv
+
+#### properties of generated profile ####
+
+#Specific surface roughness of the application area
+profile.z0=0.2
+
+#Displacement height of application area
+profile.d=0
+
+#Vertical offset of the generated profile in meters
+profile.offset=85
+
+#Height of the generated profile in meters
+profile.height=400
+
+#Vertical resolution of the generated profile in meters
+profile.resolution=10
+
+#Rotates original measurement values (degrees, cw)
+profile.modifier.rotation=0
+
+#Multiplies original measured magnitudes
+profile.modifier.magnitude-multiplier=1.0
+....
+
+
+Example wind data
+....
+time(s);x(m/s);y(m/s)
+0;2.4;3.7
+300;2.9;3.5
+600;3.6;4.1
+900;3.8;5.2
+1200;4;5.1
+1500;3;6.2
+1800;4.1;3.2
+2100;5.2;7.1
+....
+
+=== Editing wind profiles
+
+First navigate to the main branch of the config files:
+
+https://gitlab.srv.cesga.es/budait/3dairq-demo1
+
+After, we have to login to the Gitlab. We don't have to use our username/password, just hit the "Sign in / Register" button and the "Sign In with Filab".
+
+.The Gitlab public Repository for wind profile
+image::media/3dairq/gitlab1.PNG[]
+
+.Sign in with Filab
+image::media/3dairq/gitlab2.PNG[]
+
+We have to fork a master branch for us, to enable the edit feature.
+
+.Forking the master branch
+image::media/3dairq/gitlab3.PNG[]
+
+After that, we can edit the wind files, and copy-paste the corresponding  new URL back to the portal.
+
+.Edit the file, and save the URL
+image::media/3dairq/gitlab5.PNG[]
+
+
+== Other configuration options
+
+NOTE: Because of licensing restrictions this pilot only avaliable on sze_node HPC cluster. Please ensure to select this option on "HPC: secondary" configuration.
+
+There are some other configuration options for the developers, to ensure the proper simulation like datadir and job prefix. Please leave the default value on this section.
+
+
+== Running the simulation
+
+After we ensured all the configuration was made, we can create the instance.
+
+.Creating the new instance
+image::media/3dairq/instance.png[]
+
+If the instance created succesfully like in Fig. 11. simply choose the created instance and then hit the run button.
+
+.Running Simulation
+image::media/3dairq/run2.PNG[]
+
+== Postprocessing
+
+To use built-in Post processing tool, navigate to the Visualization menu and hit the "Desktops Available" button. For 3DAirQualityPrediction we have to use the SZE-RD infrastructure.
+
+Then hit the View Only button, for now Desktop is for developing porpuse.
+
+.Visualization 
+image::media/3dairq/visu1.PNG[]
+
+When we create a View-Only desktop, a remote desktop through VNC will open in a new window, you can open the simulation results with the industry-standard Paraview.
+
+NOTE: The simulation result is saved at **/nfs/results/mso-3dairq-result-<SIMDATE-SIMTIME>**
+
+.Opening simulation result
+image::media/3dairq/visu2.PNG[]
+
+.Viewing the simulation results
+image::media/3dairq/visu3.PNG[]
+
+
+== Donwloading simulation data
+
+We can donwload our simulation data through SSH connection (WinSCP for Windows) using the credentials of the portal (without the "@mso4sc.eu").
+
+The server is mso.tilb.sze.hu
+
+.Downloading the simulation results with WinSCP
+image::media/3dairq/download.PNG[]
+
+
+

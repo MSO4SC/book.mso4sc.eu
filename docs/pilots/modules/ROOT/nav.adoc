@@ -9,3 +9,4 @@
 * xref:zibaffinity/zibaffinity-bindingaffinity/README.adoc[Zibaffinity]
 * xref:others/motor/README.adoc[Motor]
 * xref:3DAirQualityPrediction/README.adoc[3DAirQualityPrediction]
+** xref:3DAirQualityPrediction/userman.adoc[3DAirQualityPrediction User manual]
