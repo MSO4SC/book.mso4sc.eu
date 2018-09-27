@@ -29,9 +29,14 @@ content:
   - url: https://github.com/feelpp/book.feelpp.org
     branches: master
     start_path: docs/toolboxes
+    tags:
+    - v*
   - url: https://github.com/feelpp/toolbox
     branches: master
     start_path: examples
+  - url: https://github.com/feelpp/book.feelpp.org
+    branches: [master,v0.105.0]
+    start_path: docs/user
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
@@ -43,6 +48,31 @@ asciidoc:
     deploymentRoot: ""
     numbered: true
     hide-uri-scheme: true
+    uri-github: https://github.com/
+    python: Python
+    slepc: SLEPc
+    petsc: PETSc
+    lustre: Lustre
     feelpp: Feel++
+    feelpptb: Feel++ Toolboxes
+    feelppmor: Feel++ Model Order Reduction
+    pyfeelpp: pyFeel++
+    pyfeelpptb: pyFeel++ Toolboxes
+    pyfeelppmor: pyFeel++ MOR
+    angiotk: AngioTK
     4fastsim: 4FastSim
     stem: latexmath
+    hemotumpp: Hemotum++
+    eye2brain: Eye2Brain
+    vtkjs: Vtkjs
+    hifimagnet: HiFiMagnet
+    magnettools: MagnetTools
+    meshgems: MeshGems
+    salome: Salome
+    singularity: Singularity
+    sregistry: Sregistry
+    paraview: ParaView
+    ensight: EnSight
+    girder: Girder
+  extensions:
+    - ./lib/remote-include-processor
