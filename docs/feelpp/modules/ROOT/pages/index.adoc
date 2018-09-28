@@ -29,15 +29,18 @@ to deliver and deploy it in the MSO4SC environment including the parallel(MPI) v
 
 The  work  on  deployability,  usability  and  scalability  will also be very valuable for researchers. 
 
-{feelpp} is the core framework for several {feelpp} toolbox applications and 2 pilots provided on MSO4SC MarketPlace 
+{feelpp} is the core framework for several {feelpp} toolbox applications
 
 * xref:toolboxes:csm:index.adoc[Computational Solid Mechanics App]
 * xref:toolboxes:cfd:index.adoc[Computational Fluid Dynamics App]
 * xref:toolboxes:heat:index.adoc[Heat Transfer App]
 * xref:toolboxes:heatfluid:index.adoc[Heat Transfer & Computational Fluid Dynamics App]
 * xref:toolboxes:thermoelectric:index.adoc[Thermo-Eectric App]
-* xref:feelpp::hifimagnet/README.adoc[hifimagnet]
-* xref:feelpp::eye2brain/README.adoc[eye2brain]
+
+and 2 pilots provided on MSO4SC MarketPlace 
+ 
+* xref:feelpp::hifimagnet/README.adoc[HifiMagnet] High Field Magnet design platform 
+* xref:feelpp::eye2brain/README.adoc[Eye2brain] Ocular Mathematical Visualization System
 
 
 
