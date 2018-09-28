@@ -6,50 +6,45 @@ This user guide is intended to show how to use the OPM Flow application through 
 
 The portal is found at https://portal.mso4sc.eu. In order to log in, you must first have signed up to be a user of the portal. After logging in you should see a screen with some big buttons for getting help and documentation, and a top menu for the most important actions of the portal.
 
-### 2. Obtain the OPM Flow application.
+### 2. Look at the open testing datasets.
 
-In the top menu of the Portal, click on "Marketplace" to get the applications you want. In the marketplace, there are both free and non-free applications. OPM Flow is open source, and you do not have to pay anything for it in the marketplace. You still have to choose the application and "purchase" it though.
+In the top menu, click on "Data Catalogue" to look at the available datasets. Here you can search for data sets, but the simplest way to look at those that are suited for running with Flow, is to click on "Groups" in the top menu of the component (it will be below the portal's top menu), and then on the group "OPM users". At the moment, a single dataset, consisting of 4 separate examples are made openly available through the data catalogue. The smallest and quickest is the "SPE 1" example. You do not need to do anything about it now, you will choose that data set later in the process from within the experiments tool.
 
-### 3. Look at the open testing datasets.
-
-In the top menu, click on "Data Catalogue" to look at the available datasets. Here you can search for data sets, but the simplest way to look at those that are suited for running with Flow, is to click on "Groups" in the top menu of the component (it will be below the portal's top menu), and then on the group "OPM Flow datasets". At the moment, only 3 datasets are made openly available through the data catalogue. The smallest and quickest is the "SPE 1" dataset. You do not need to do anything about it now, you will choose that data set later in the process from within the experiments tool.
-
-### 4. Enter and set up the Experiments tool.
+### 3. Enter and set up the Experiments tool.
 
 In the top menu, click on "Experiments" to enter the Experiments tool. This is where you will control the setup and running of your application. In order to start jobs on your chosen HPC or cloud provider, you must first go to "Settings", found on the extreme right of the top menu of the tool (found just below the portal top menu). There you can enter your credentials for the computational provider, and give it a name of your choosing. For example, for the "ft2" system at CESGA, you must enter "ft2.cesga.es" in the "Host" field, as well as your username and password in the appropriate fields.
 
-### 5. Deploy an experiment
+### 4. Deploy an experiment
 
-Each experiment is an "instance" of the application. Every time you run an experiment using OPM Flow, you will interact with a new instance. At the moment, there are five steps: create, deploy, run, undeploy and destroy. It is likely that this will be simplified in the future. To start, click "Create App Instance". From the "Application" menu that appears, choose "OPM Flow". Then automatically, a form will appear that allows you to customize your run. We will go through all items in order, the ones marked as bold should be edited or checked:
+Each experiment is an "instance" of the application. Every time you run an experiment using OPM Flow, you will interact with a new instance. At the moment, there are three steps: create, run and destroy. To start, select one of the two OPM applications from the dropdown menu. OPM-generic will run a single example (potentially using multiple cores), while OPM-ensemble will run multiple cases each using a single core. For your first example, select "OPM-generic" and give the run a descriptive name in "Deplyment ID".
+
+A form will appear that allows you to customize your run. We will go through all items in order.
 
  - **Deployment ID:** This is the name of the instance you are creating. It should be sufficiently unique for you to tell it apart from other instances you may want to create. For your first run, you could call it "First test run of OPM Flow" for example.
- - **Application:** This is the application you have chosen. Here we will describe the "OPM Flow" application.
- - **HPC: primary:** This is the computational provider you want to use. Choose the one you set up in step 4 above.
- - HPC: secondary: This is not used by OPM Flow, leave it at "None".
- - **Dataset resource: input_url:** This lets you choose one of the open datasets from the Data Catalogue to run. Choose "spe-1" for your first test. When you choose a data set, a list of available files will appear. For "spe-1" the list contains just a single file, called "spe1.tgz". Choose that by clicking the round selection button to the left of the file name.
- - base_dir: This is the directory on the computational system where all files will be put, both input and output. It defaults to "$LUSTRE" which is appropriate for HPC systems running Lustre such as "ft2", but you may need to change this for your system.
- - **hpc_partition:** The computational partition on which to launch the job. For "ft2" it is often appropriate to run on "thin-shared".
+ - **base_dir:** This is the directory on the computational system where all files will be put, both input and output. It defaults to "$LUSTRE" which is appropriate for HPC systems running Lustre such as "ft2", but you may need to change this for your system.
+ - **hpc_partition:** The computational partition on which to launch the job.
  - **hpc_reservation:** If your user has a special reservation on the computational system you can indicate that here. Otherwise it should be left blank.
- - job_prefix: This is arbitrary, and can be used to easily indicate which jobs are started from the portal.
  - **max_time:** This is the maximum time that will be used for your job, in HH:MM:SS format. For the "spe-1" case you can choose one minute, it should run in a few seconds. For the "norne" case you may want to request 30 minutes if running on just one core, or less if running in parallel (see below).
- - monitor_entrypoint: Leave blank.
- - parallel_nodes: The number of computational nodes on which to run Flow. Leave at 1 for now.
- - parallel_tasks: The number of parallel tasks or processes used. For your initial test leave at 1. Later, you may use this to request a higher number of cores from the node, up to 24 for the "ft2" systems.
- - parallel_tasks_per_node: Set this equal to parallel_tasks for now.
- - singularity_image_filename: The Singularity image containing the application will be saved on the computational system using this name.
- - singularity_image_uri: The Singularity image will be obtained from this URI. Leave it at the default unless you need to use an older release for example.
+ - **Dataset resource: input_url:** This lets you choose one of the open datasets from the Data Catalogue to run. Choose "omp-test-datasets". When you choose a data set, a list of available files will appear. Select "spe-1" for your first test, as this is rather small test example.
+ - **HPC: primary:** This is the computational provider you want to use. Choose the one you set up in step 4 above.
+ - **singularity_image_uri:** The Singularity image will be obtained from this URI. Leave it at the default unless you need to use an older release for example.
 
-After customizing your run, click the "Create Instance!" button. You should get a confirmation saying that your intance was created.
+In addition there are a few options which only appear if you run an ensemble or not.
 
-Now click on "Deploy Instance", choose your newly made instance from the "App Instance" drop down menu, and click "Deploy". You may occasionally see a message that deployment is not ready yet, if you see that message you can wait a few seconds and click Deploy again. You should now see a log with lots of messages such as "Configuring node", "Starting node" etc. These are mostly for developers to debug the application, so you can ignore them. While deploying, there will be a blue indicator next to the "Deployment" dropdown, it will turn green when deployment is complete, or red if there is an error. The deployment stage obtains the application Singularity image and the input data set, storing both on the computational system.
+ - **parallel_nodes:** [opm-generic only] The number of computational nodes on which to run Flow. Leave at 1 for now.
+ - **parallel_tasks:** [opm-generic only] The number of parallel tasks or processes used. For your initial test leave at 1. Later, you may use this to request a higher number of cores from the node, up to 24 for the "ft2" systems.
+ - **parallel_tasks_per_node:** [opm-generic only] Set this equal to parallel_tasks for now.
+ - **hpc_array_scale:** [opm-ensemble only] Size of SLURM array (number of cases).
 
-### 6. Run an experiment.
+After customizing your run, click the "Create new Instance" button. You should get a confirmation saying that your instance was created.
 
-Click "Run Instance" in the Experiment tool top menu. Choose the newly created and deployed instance, and click "Run!". The indicator button will turn blue while running, and green when complete. If there is an error, it will turn red. The log messages are (again) mostly for the developers to debug the system (they are messages from the Cloudify system), but it may be useful to see the state changes there. When initiated, a run will be PENDING, while we wait for an available time slot on the computational system. This stage may last for hours or days if you requested large resources (time and parallel tasks) on a contested system, or less than a second if you have dedicated resources or a small resource request. When it actually starts, it will be RUNNING, and finally COMPLETED when done.
+### 5. Run an experiment.
 
-You should then clean up the instance by clicking "Undeploy/Clean Up Instance" in the menu, choosing your instance, and clicking the "Undeploy!" button. This will remove the input data and application Singularity image, but leave your simulation output in place. Finally, click "Destroy App Instance" in the menu, choose your instance, and click the "Destroy Instance!" button.
+Now from the dropdown menu under "App's instances", select your new instance. If this is your first, or only instance this will already be selected. You can now press the "Run!" button. This will submit the job to be processed. A light on the right side of the screen will appear. Blue means that the process is running, but unfinished. Green means that the job executed successfully, while red signals that something went wrong. You should now see a log with lots of messages such as "Starting 'install' workflow execution", "Starting node" etc. These are mostly for developers to debug the application, so you can safely ignore them.
 
-### 7. Look at the results.
+You should then clean up the instance by clicking "Destroy Instance". This will remove the input data and application Singularity image, but leave your simulation output in place.
+
+### 6. Look at the results.
 
 Your output is now stored on the computational system. At the moment, there is no extra support to download the output data, you will have to access it as you normally would access data on that system, by using scp or rclone for example. However if your computational provider offers visualization support by noVNC, you can access that by clicking "Visualization" in the Portal top menu (leaving the Experiment tool). Using the Settings there you can set up a remote desktop and visualize results using tools installed on that system. For "ft2", you can use the following settings:
  - host: vis.lan.cesga.es
