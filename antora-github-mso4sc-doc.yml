@@ -25,7 +25,7 @@ content:
   # Feel++
   - url: https://github.com/feelpp/book.feelpp.org
     branches: master
-    start_path: docs/docs  
+    start_path: docs/feelppdocs  
   - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/feelpp
