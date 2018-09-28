@@ -6,7 +6,7 @@
 * MSO4SC {feelpp} Pilots
 ** xref:feelpp::hifimagnet/README.adoc[Feel++ Pilot Hifimagnet]
 ** xref:feelpp::eye2brain/README.adoc[Feel++ Pilot Eye2Brain]
-* xref:felppdocs::index.adoc[Feel++]
+* xref:feelppdocs::index.adoc[Feel++]
 ** xref:user::index.adoc[Feel++ User Manual]
 ** xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
 ** xref:cases:ROOT:index.adoc[Feel++ Case Studies]
