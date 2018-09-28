@@ -42,7 +42,7 @@ and 2 pilots provided on MSO4SC MarketPlace
 * xref:feelpp::hifimagnet/README.adoc[HifiMagnet] High Field Magnet design platform
 * xref:feelpp::eye2brain/README.adoc[Eye2brain] Ocular Mathematical Visualization System
 
-NOTE: We provide also the documentation for the two pilots but they require a login and password to access it. 
+NOTE: We provide also the documentation for the two pilots but they require a login and password to access it. Please contact mailto:christophe.prudhomme@cemosis.fr[Christophe Prud'homme] if you wish to access it.
 
 
 == What's next?
