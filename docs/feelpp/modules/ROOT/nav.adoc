@@ -1,11 +1,12 @@
-* xref:docs::index.adoc[Feel++]
+
 * xref:feelpp::index.adoc[Feel++ in MSO4SC]
 * xref:toolboxes:mso4sc:index.adoc[{feelpp} Apps Tutorial in MSO4SC]
 ** xref:toolboxes:mso4sc:offer.adoc[Get {feelpp} Apps in MSO4SC]
 ** xref:toolboxes:mso4sc:run.adoc[Run {feelpp} Apps in MSO4SC]
-* xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
-* xref:cases:ROOT:index.adoc[Feel++ Case Studies]
 * MSO4SC {feelpp} Pilots
 ** xref:feelpp::hifimagnet/README.adoc[Feel++ Pilot Hifimagnet]
 ** xref:feelpp::eye2brain/README.adoc[Feel++ Pilot Eye2Brain]
-* xref:user::index.adoc[Feel++ User Manual]
+* xref:docs::index.adoc[Feel++]
+** xref:user::index.adoc[Feel++ User Manual]
+** xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
+** xref:cases:ROOT:index.adoc[Feel++ Case Studies]
