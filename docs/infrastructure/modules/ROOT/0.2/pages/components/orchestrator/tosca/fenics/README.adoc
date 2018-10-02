@@ -1,0 +1,6 @@
+= Fenics blueprints
+
+This document details the blueprint design used for the FEniCS based
+applications.
+
+IMPORTANT: This document is W.I.P

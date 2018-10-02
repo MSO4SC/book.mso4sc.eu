@@ -1,0 +1,14 @@
+[[gitter]]
+= Gitter
+
+MSO4SC has several Gitter rooms for discussing about different aspects of the project in a near real-time basis. It allows the project participants to interact using chats. In order to provide a close support to stakeholders in a short term, we have enabled a dedicated Gitter room under the MSO4SC project. Such room is named ‘Support’ and its link is the following:
+
+https://gitter.im/MSO4SC/Support[_https://gitter.im/MSO4SC/Support_]
+
+image:media/image31.png[image,width=566,height=285]
+
+[[_Toc520829723]]Figure . Gitter
+
+It is important to highlight that Gitter is not the main support channel. The official and main support channel is the AskBot tool, but Gitter can be used for providing some support when those involved in the first and second level support are available for some chat that could solve certain issues faster than complex explanations.
+
+When an important doubt is solved through Gitter, it is important that the responsible moves the conversation to AskBot, so it will be possible to maintain a copy of the request and how it was solved. Otherwise, since Gitter is a chat, we may lose the information, or make it very difficult to find. With AskBot, it will be easily searchable and it will also allow for the participation of other users.

@@ -583,7 +583,7 @@ ____________________________________________________
 == Infrastructure Administrator: permissions and support
 
 [[permissions]]
-=== 7.1 Permissions
+=== Permissions
 
 Administrators of the system can add or revoke permissions to any other user in the system. This is mainly done inside the Identity Manager, but can be managed in a fine grain fashion from any other service. Specifically, end-users do not need any special permission, but developers need to receive the “seller” role in the marketplace, and the “admin” role in the data catalogue, apart from being added as members of an organization inside the IDM called “MSO4SC Developers” (organizations are just a mean to organize users).
 

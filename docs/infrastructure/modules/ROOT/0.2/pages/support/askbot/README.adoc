@@ -1,0 +1,29 @@
+[[askbot]]
+= Askbot
+
+AskBot is the official channel for getting support in the MSO4SC e-Infrastructure. It can be accessed from the MSO Portal, in the ‘Q&A’ tab. It is a Questions and Answers tool, in which registered users can publish their doubts and issues and other people can publish answers.
+
+These questions can be searched and accessed by anybody without any registration, so the information will be available for anybody interested in MSO4SC.
+
+image:media/image30.png[image,width=566,height=288]
+
+[[_Toc520829722]]Figure . Askbot
+
+In order to organize questions and answers in the proper way, we will use the tags functionality that is available in the tool. In principle, users publishing the questions will be able to define the tags they want to use but, for the sake of clarity and to facilitate search, we propose to use the following tags:
+
+* *Application:* Those questions related to pilot applications and other external applications should be tagged this way. Then, for referring to a concrete pilot, we can use the following:
+** Eye2brain
+** HifiMagnet
+** ZibAffinity
+** OPMFlow
+** 3DUrbanAirQuality
+** FloatingWindTurbine
+* *MADF:* When having questions about the mathematical frameworks, the thread should include this tag. We propose also to use the following tags when talking about a concrete MADF:
+** Feelpp
+** OPM
+** FEniCS
+* *Platform:* When questions refer to aspects related to the platform itself (orchestration, portal, etc…), this tag should be used.
+
+Since we do not expect users to know the internal components of MSO4SC, in principle, we will not use specific tags for the platform part.
+
+Those involved in the support will be responsible in answering the questions (according to the first and second level support). They will act as moderators, also removing unacceptable messages and voting those interesting ones.

@@ -1,0 +1,106 @@
+[[end-user-use-of-the-infrastructure]]
+= End-user: use of the infrastructure
+
+An end-user is the final user of the e-Infrastructure. They can enter into the MSO Portal and look for software solutions to solve their problems, purchase these and subsequently use them through the Portal.
+
+End-users are focused on simulation. Their main responsibility is to configure and run new experiments, visualize and analyse the obtained results. This role has, at least, some experience with the field of expertise of one of the MADFs or Pilots.
+
+In order to obtain support, there are several channels or tools to communicate with researchers having different roles for solving all kinds of issues while using the portal. These tools are Askbot [19] and Gitter [20].
+
+[[mso-portal]]
+== MSO Portal
+
+The portal is the main entrance for users to access all MSO4SC services. All roles will use it as starting point. When the user accesses through a web browser to http://portal.mso4sc.eu[_http://portal.mso4sc.eu_], he/she is presented with general information about the project, and the “login” button which it will use to start browsing the MSO4SC tools (see following section 4.2).
+
+image:media/image4.png[image,width=483,height=447]
+
+[[_Toc520829699]]Figure . MSO Portal landing page
+
+A testing or “canary” version of the portal is also deployed for the development and testing of new e-infrastructure features. This version of the portal is hosted at http://portal-dev.mso4sc.eu[_http://portal-dev.mso4sc.eu_]. Testers can try the latest features in this portal before including these new functionalities in the official portal.
+
+[[authentication-authorization]]
+== Authentication & Authorization
+
+Before users start using MSO4SC, they need to sign-up in the system. This is performed by the IDM (Identity Manager), the module in charge of providing a single sign-on point for authentication and authorization, of users and other modules in the platform. It is deployed at https://portal.mso4sc.eu[_https://portal.mso4sc.eu_].
+
+The sign-up process consists of accessing the IDM, clicking the “sign-up” button, and providing user data (email, username and password). A confirmation email will be sent to the address provided to verify the authenticity of data.
+
+After successful sign-up, the user will be able to enter into services by clicking on the “login” button in the portal. He/she will be redirected to the IDM which will ask for user credentials. If authentication is successful, the user will be redirected again to the portal, presenting the access points to the platform and useful information (see next section).
+
+image:media/image5.png[image,width=567,height=196]
+
+[[_Toc520829700]]Figure . Identity manager
+
+After an end-user has logged in, the portal presents the navigation menu to many of the tools available in the platform, and some other links to documentation and a feedback form. The home page also presents three documentation links on how to use the portal, technical documentation about it, and the source code.
+
+image:media/image6.png[image,width=567,height=314]
+
+[[_Toc520829701]]Figure . MSO Portal: Home
+
+[[section]]
+
+
+[[marketplace]]
+== [[_drkidddcjx4a]][[_Toc520829641]] Marketplace
+
+Using the marketplace, the end-user can buy the different apps that are available. After adding one to the cart, the user can go to the shopping cart and checkout the application, paying for it using paypal if it is not free.
+
+image:media/image7.png[image,width=516,height=408]
+
+[[_Toc520829702]]Figure . MSO Portal: MarketPlace
+
+Purchased applications will appear under “My Inventory” menu. Those applications will remain there eligible to be used in the rest of the platform by the purchaser.
+
+[[data-catalogue]]
+== Data Catalogue
+
+In the data catalogue the end user is able to browse the public and private datasets that belong to him. He/she can easily create new organizations (a group of users and datasets), and add new datasets to them.
+
+image:media/image8.png[image,width=567,height=446]
+
+[[_Toc520829703]]Figure . MSO Portal: Data Catalogue
+
+Each dataset is composed by zero or more data files that the user can reference later-on as inputs in the experiments tool (see next section). Similarly, in the same tool, the user can reference the datasets themselves to store the simulation outputs.
+
+[[experiments-tool]]
+== Experiments tool
+
+Using the experiments tool, an end user can create/delete instances of the applications purchased from the marketplace. An instance is an application with a concrete configuration (a set of inputs). Among these inputs, the end-user is able to select the computing infrastructures that the simulation will use, as well as input/output datasets from the ones it has available in the data catalogue.
+
+image:media/image9.png[image,width=521,height=421]
+
+[[_Toc520829704]]Figure . MSO Portal: Experiments tool
+
+Once an instance has been created, it can be run.
+
+image:media/image10.png[image,width=417,height=381]
+
+[[_Toc520829705]]Figure . MSO Portal: Monitoring
+
+While executing the instance, the end user is able to see its logs. The coloured state button (in the image above) can be grey: if no instance is selected; yellow: if the instance is ready to run; blue: if the instance is running; red: if the instance failed at some point; and green: if the instance successfully finished.
+
+But before creating an instance, the user has to enter its settings. In this tab, three sections appear:
+
+1.  **Data Catalogue Key**: Is the user personal key of the data catalogue (can be found in the data catalogue user profile, at the bottom left). This key is necessary to be set in order the application will be able to publish the outputs to the data catalogue after finishing its executions.
+2.  **Computing infrastructures**: In here the end user can define the credentials of all the computing infrastructures that the user has access to. This will be used later by the platform to run the simulations in the name of the user.
+3.  **SSH tunnels**: It is usual that computing infrastructures or nodes will not be accessible directly through internet, but from a gateway entry point. In this section one can optionally define such gateways.
+
+image:media/image11.png[image,width=516,height=594]
+
+[[_Toc520829706]]Figure . MSO Portal: Infrastructure settings
+
+[[visualization]]
+== Visualization
+
+The visualization module enables the end-user to create new graphic desktops from where he/she can visualize and pre/post-process datasets through the graphics tools installed in the infrastructure. A “view only” link is also available in case the user can share what is done with other users or stakeholders.
+
+image:media/image12.png[image,width=567,height=153]
+
+[[_Toc520829707]]Figure . MSO Portal: Launch remote desktops
+
+These infrastructures can be set in the settings tab similarly to the experiments tool. Each visualization infrastructure defines its underlying technology (only noVNC is supported at the moment), the user credentials, and other specific information related to the used technology.
+
+image:media/image13.png[image,width=402,height=305]
+
+[[_Toc520829708]]Figure . MSO Portal: Remote desktop settings
+
