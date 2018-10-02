@@ -1,10 +1,12 @@
 * xref:infrastructure:ROOT:index.adoc[Introduction]
+
 * xref:infrastructure:ROOT:roles/README.adoc[Roles]
 ** xref:infrastructure:ROOT:roles/end_user/README.adoc[End-user]
 ** xref:infrastructure:ROOT:roles/developer/README.adoc[Developer]
 ** xref:infrastructure:ROOT:roles/resources_provider/README.adoc[Resources provider]
-* xref:infrastructure:ROOT:index.adoc[Components]
-* xref:infrastructure:ROOT:components/portal/README.adoc[Portal]
+
+* xref:infrastructure:ROOT:components/README.adoc[Portal]
+** xref:infrastructure:ROOT:components/portal/README.adoc[Portal]
 ** xref:infrastructure:ROOT:components/experiments_tool/README.adoc[Experiments tool]
 ** xref:infrastructure:ROOT:components/orchestrator/README.adoc[Orchestrator]
 *** xref:infrastructure:ROOT:components/orchestrator/tosca/README.adoc[Blueprints (TOSCA)]
@@ -22,6 +24,7 @@
 ** xref:infrastructure:ROOT:components/data_management/datacatalogue/README.adoc[DataCatalogue]
 *** xref:infrastructure:ROOT:components/data_management/globus/README.adoc[Globus]
 *** xref:infrastructure:ROOT:components/data_management/rclone/README.adoc[Rclone]
+
 * xref:infrastructure:ROOT:support/README.adoc[Support]
 ** xref:infrastructure:ROOT:support/askbot/README.adoc[Askbot]
 ** xref:infrastructure:ROOT:support/gitter/README.adoc[gitter] 
