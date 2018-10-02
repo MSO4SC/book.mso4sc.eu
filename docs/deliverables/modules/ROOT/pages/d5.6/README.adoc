@@ -1,0 +1,709 @@
+image:media/d5.6/image1.png[image,width=174,height=164]
+
+MSO4SC
+
+D5.6 Operational MSO4SC e-Infrastructure V2
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |24 months
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+**Dissemination level**: Public
+
+[cols=",",options="header",]
+|===========================================================================================================
+|Work Package |WP5 End-user Applications Development
+|Due Date: |_M22_
+|Submission Date: |_31/07/2018_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Carlos Fernández (CESGA); Victor Sande (CESGA); F. Javier Nieto (ATOS); Javier Carnero (ATOS)_
+|Reviewer(s) |_Volker Mehrmann (MATHEON) and Wil Schilders (EU-MATHS-IN)_
+|===========================================================================================================
+
+[cols=",",]
+|==================================================================================================================================================================================
+|image:media/d5.6/image2.png[image,width=66,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|==================================================================================================================================================================================
+
+Version History
+
+[cols=",,,",]
+|==================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |02/07/2018 |Preliminary TOC |_Víctor Sande (CESGA)_
+|0.2 |17/07/2018 |Roles |_Víctor Sande (CESGA)_
+|0.3 |25/07/2018 |A&A, End-User, Admins IDM |_Javier Carnero (ATOS)_
+|0.4 |26/07/2018 |Resources providers |_Pablo Díaz (CESGA)_
+|0.5 |26/07/2018 |Admins and Support |_Víctor Sande (CESGA)_
+|0.6 |27/07/2018 |Acronyms and references |_Víctor Sande (CESGA)_
+|0.7 |30/07/2018 |Review |_Wil Schilders (EU-MATH-IN)_
+|0.8 |30/07/2018 |Review |_Volker Mehrmann (TUB)_
+|0.9 |31/07/2018 |Minor updates |_Víctor Sande (CESGA)_
+|1.0 |31/07/2018 |Final version |_Víctor Sande (CESGA)_
+|==================================================================================
+
+*Table of Contents*
+
+[[list-of-figures]]
+= List of figures
+
+link:#_Toc520829698[_Figure 1. MSO4SC roles_ 8]
+
+link:#_Toc520829699[_Figure 2. MSO Portal landing page_ 9]
+
+link:#_Toc520829700[_Figure 3. Identity manager_ 10]
+
+link:#_Toc520829701[_Figure 4. MSO Portal: Home_ 11]
+
+link:#_Toc520829702[_Figure 5. MSO Portal: MarketPlace_ 11]
+
+link:#_Toc520829703[_Figure 6. MSO Portal: Data Catalogue_ 12]
+
+link:#_Toc520829704[_Figure 7. MSO Portal: Experiments tool_ 13]
+
+link:#_Toc520829705[_Figure 8. MSO Portal: Monitoring_ 13]
+
+link:#_Toc520829706[_Figure 9. MSO Portal: Infrastructure settings_ 14]
+
+link:#_Toc520829707[_Figure 10. MSO Portal: Launch remote desktops_ 15]
+
+link:#_Toc520829708[_Figure 11. MSO Portal: Remote desktop settings_ 15]
+
+link:#_Toc520829709[_Figure 12. Development life-cycle_ 16]
+
+link:#_Toc520829710[_Figure 13. Gitlab: Login_ 17]
+
+link:#_Toc520829711[_Figure 14. Gitlab: Projects_ 18]
+
+link:#_Toc520829712[_Figure 15. Gitlab: CI/CD configuration file_ 18]
+
+link:#_Toc520829713[_Figure 16. SRegistry: Explore collections_ 19]
+
+link:#_Toc520829714[_Figure 17. SRegistry: Roles and permissions_ 20]
+
+link:#_Toc520829715[_Figure 18. MarketPlace: Landing page_ 21]
+
+link:#_Toc520829716[_Figure 19. MarketPlace: create a new catalog_ 22]
+
+link:#_Toc520829717[_Figure 20. MarketPlace: create a new product_ 22]
+
+link:#_Toc520829718[_Figure 21. MarketPlace: create a new offering_ 23]
+
+link:#_Toc520829719[_Figure 22. Experiments tool: Register a new experiment_ 23]
+
+link:#_Toc520829720[_Figure 23. Data Catalogue: Create a new organization_ 25]
+
+link:#_Toc520829721[_Figure 24. Data Catalogue: Create a new dataset_ 25]
+
+link:#_Toc520829722[_Figure 25. Askbot_ 32]
+
+link:#_Toc520829723[_Figure 26. Gitter_ 33]
+
+[[_1fob9te]]
+
+[[list-of-tables]]
+= List of tables
+
+link:#_Toc520829697[_Table 1. Acronyms_ 7]
+
+[[executive-summary]]
+= Executive Summary
+
+This deliverable describes the provision of the e-Infrastructure integrated with MADFs and other components and tools of the MSO Cloud and Portal, which will be available for independent testers to validate the proposed solution. D3.4 [1] is a description about the technical integration and implementation of the MSO Cloud and Portal components, including low level details about how the components are implemented. D4.4 [2] contains the detailed description of the MADFs adaptation to the e-Infrastructure. The current deliverable, D5.6, describes how these functionalities should be used by the final users and stakeholders of the infrastructure. It includes a list of functionalities and some use cases representing the typical usage of MSO4SC services.
+
+[[introduction]]
+== 1. Introduction
+
+[[purpose]]
+=== 1.1 Purpose
+
+Once a detailed description of the e-Infrastructure, based on the reported end-user requirements, has become available and a deep analysis was performed to determine the features and services to be provided through the e-Infrastructure, in D2.2 those features were exposed, identifying the conceptual layers they belong to, and defining the high level architecture of the e-Infrastructure. Such definition includes some high level components, and examples of how they are expected to interact when providing some of the functionalities.
+
+D2.5 updates the list of requirements and maps them in to the detailed design of the high level components of the e-Infrastructure. Such detailed design as well as the list of features are still high level, and it is the purpose of this document to provide more detail as a base for the user’s interaction.
+
+The implementation and integration of the technologies is described in D3.3 [3]. Now in this deliverable we explain how to get access to the described features and how to interact and use the MSO4SC services from the point of view of the users.
+
+[[glossary-of-acronyms]]
+=== 1.2 Glossary of Acronyms
+
+[cols=",",options="header",]
+|========================================================================
+|*Acronym* |*Definition*
+|*CD* |Continuous Delivery/Deployment
+|*CI* |Continuous Integration
+|*CKAN* |Comprehensive Knowledge Archive Network
+|*CLI* |Command Line Interface
+|*D* |Deliverable
+|*DTN* |Data Transfer Node
+|*FAQ* |Frequently Asked Questions
+|*FTP* |File Transfer Protocol
+|*HPC* |High Performance Computing
+|*ID* |Identity
+|*IDM* |Identity Manager
+|*MADF* |Mathematical Development Framework
+|*MSO* |Modelling, Simulation and Optimization
+|*MSO4SC* |Modelling, Simulation and Optimization for Societal Challenges
+|*PaaS* |Platform as a Service
+|*SSH* |Secure shell
+|*TOSCA* |Topology and Orchestration Specification for Cloud Applications
+|*Q&A* |Question and Answer
+|========================================================================
+
+[[_Toc505781260]][[_Toc520829697]]Table . Acronyms
+
+[[the-integrated-mso4sc-e-infrastructure-description-architecture-and-components]]
+== [[_4d34og8]][[_Toc520829636]]2. The integrated MSO4SC e-infrastructure: description, architecture and components
+
+The general architecture of the MSO4SC project has no changes since the previous version, so we do not repeat this information here (it can be accessed in deliverable D3.3 [3]).
+
+[[roles]]
+== 3. Roles
+
+In this section we expose a brief description of the roles involved in the usage of the e-Infrastructure. Roles help to group users regarding permissions, functionalities and responsibilities. The list of available roles includes end-users, developers, resources providers and administrators.
+
+image:media/d5.6/image3.png[image,width=393,height=219]
+
+[[_Toc505781253]][[_Toc520829698]]Figure . MSO4SC roles
+
+Providing roles and views per role simplifies the usage of the platform, hides some underlying complexities and enables a better user experience, letting the users focus on what they really want to do.
+
+An overview of the responsibilities of each kind of role is listed below:
+
+* *End-user:* users in this role manage the input and output data of their experiments focusing on visualization and analysis of the obtained results. End-users are in charge of configuring, running and monitoring experiments. The entry point for this kind of users is the input form of the selected simulation software.
+* *Developer:* In addition to what an end-user can do, developers are in charge of managing the software product they provide. This means to configure and optimize the workflow of an MADF or Pilot to be ready to be used by end-users. They can also take advantage of several MSO4SC services to automate the development, to test and distribute cycles of their software.
+* *Resources provider:* This is a transversal role focused on the configuration of the computational resources and storage endpoints to be used by end-users. This role can also monitor HPC and Cloud resources.
+* *Admin:* Administrators assign roles and permissions, and provide support to end-users. This role is also in charge of managing all the Cloud services integrated within the e-Infrastructure.
+
+[[end-user-use-of-the-infrastructure]]
+== 4. End-user: use of the infrastructure
+
+An end-user is the final user of the e-Infrastructure. They can enter into the MSO Portal and look for software solutions to solve their problems, purchase these and subsequently use them through the Portal.
+
+End-users are focused on simulation. Their main responsibility is to configure and run new experiments, visualize and analyse the obtained results. This role has, at least, some experience with the field of expertise of one of the MADFs or Pilots.
+
+In order to obtain support, there are several channels or tools to communicate with researchers having different roles for solving all kinds of issues while using the portal. These tools are Askbot [19] and Gitter [20].
+
+[[mso-portal]]
+=== 4.1 MSO Portal
+
+The portal is the main entrance for users to access all MSO4SC services. All roles will use it as starting point. When the user accesses through a web browser to http://portal.mso4sc.eu[_http://portal.mso4sc.eu_], he/she is presented with general information about the project, and the “login” button which it will use to start browsing the MSO4SC tools (see following section 4.2).
+
+image:media/d5.6/image4.png[image,width=483,height=447]
+
+[[_Toc520829699]]Figure . MSO Portal landing page
+
+A testing or “canary” version of the portal is also deployed for the development and testing of new e-infrastructure features. This version of the portal is hosted at http://portal-dev.mso4sc.eu[_http://portal-dev.mso4sc.eu_]. Testers can try the latest features in this portal before including these new functionalities in the official portal.
+
+[[authentication-authorization]]
+=== 4.2 Authentication & Authorization
+
+Before users start using MSO4SC, they need to sign-up in the system. This is performed by the IDM (Identity Manager), the module in charge of providing a single sign-on point for authentication and authorization, of users and other modules in the platform. It is deployed at https://portal.mso4sc.eu[_https://portal.mso4sc.eu_].
+
+The sign-up process consists of accessing the IDM, clicking the “sign-up” button, and providing user data (email, username and password). A confirmation email will be sent to the address provided to verify the authenticity of data.
+
+After successful sign-up, the user will be able to enter into services by clicking on the “login” button in the portal. He/she will be redirected to the IDM which will ask for user credentials. If authentication is successful, the user will be redirected again to the portal, presenting the access points to the platform and useful information (see next section).
+
+image:media/d5.6/image5.png[image,width=567,height=196]
+
+[[_Toc520829700]]Figure . Identity manager
+
+After an end-user has logged in, the portal presents the navigation menu to many of the tools available in the platform, and some other links to documentation and a feedback form. The home page also presents three documentation links on how to use the portal, technical documentation about it, and the source code.
+
+image:media/d5.6/image6.png[image,width=567,height=314]
+
+[[_Toc520829701]]Figure . MSO Portal: Home
+
+[[section]]
+===
+
+[[marketplace]]
+=== [[_drkidddcjx4a]][[_Toc520829641]]4.3 Marketplace
+
+Using the marketplace, the end-user can buy the different apps that are available. After adding one to the cart, the user can go to the shopping cart and checkout the application, paying for it using paypal if it is not free.
+
+image:media/d5.6/image7.png[image,width=516,height=408]
+
+[[_Toc520829702]]Figure . MSO Portal: MarketPlace
+
+Purchased applications will appear under “My Inventory” menu. Those applications will remain there eligible to be used in the rest of the platform by the purchaser.
+
+[[data-catalogue]]
+=== 4.4 Data Catalogue
+
+In the data catalogue the end user is able to browse the public and private datasets that belong to him. He/she can easily create new organizations (a group of users and datasets), and add new datasets to them.
+
+image:media/d5.6/image8.png[image,width=567,height=446]
+
+[[_Toc520829703]]Figure . MSO Portal: Data Catalogue
+
+Each dataset is composed by zero or more data files that the user can reference later-on as inputs in the experiments tool (see next section). Similarly, in the same tool, the user can reference the datasets themselves to store the simulation outputs.
+
+[[experiments-tool]]
+=== 4.5 Experiments tool
+
+Using the experiments tool, an end user can create/delete instances of the applications purchased from the marketplace. An instance is an application with a concrete configuration (a set of inputs). Among these inputs, the end-user is able to select the computing infrastructures that the simulation will use, as well as input/output datasets from the ones it has available in the data catalogue.
+
+image:media/d5.6/image9.png[image,width=521,height=421]
+
+[[_Toc520829704]]Figure . MSO Portal: Experiments tool
+
+Once an instance has been created, it can be run.
+
+image:media/d5.6/image10.png[image,width=417,height=381]
+
+[[_Toc520829705]]Figure . MSO Portal: Monitoring
+
+While executing the instance, the end user is able to see its logs. The coloured state button (in the image above) can be grey: if no instance is selected; yellow: if the instance is ready to run; blue: if the instance is running; red: if the instance failed at some point; and green: if the instance successfully finished.
+
+But before creating an instance, the user has to enter its settings. In this tab, three sections appear:
+
+1.  **Data Catalogue Key**: Is the user personal key of the data catalogue (can be found in the data catalogue user profile, at the bottom left). This key is necessary to be set in order the application will be able to publish the outputs to the data catalogue after finishing its executions.
+2.  **Computing infrastructures**: In here the end user can define the credentials of all the computing infrastructures that the user has access to. This will be used later by the platform to run the simulations in the name of the user.
+3.  **SSH tunnels**: It is usual that computing infrastructures or nodes will not be accessible directly through internet, but from a gateway entry point. In this section one can optionally define such gateways.
+
+image:media/d5.6/image11.png[image,width=516,height=594]
+
+[[_Toc520829706]]Figure . MSO Portal: Infrastructure settings
+
+[[visualization]]
+=== 4.6 Visualization
+
+The visualization module enables the end-user to create new graphic desktops from where he/she can visualize and pre/post-process datasets through the graphics tools installed in the infrastructure. A “view only” link is also available in case the user can share what is done with other users or stakeholders.
+
+image:media/d5.6/image12.png[image,width=567,height=153]
+
+[[_Toc520829707]]Figure . MSO Portal: Launch remote desktops
+
+These infrastructures can be set in the settings tab similarly to the experiments tool. Each visualization infrastructure defines its underlying technology (only noVNC is supported at the moment), the user credentials, and other specific information related to the used technology.
+
+image:media/d5.6/image13.png[image,width=402,height=305]
+
+[[_Toc520829708]]Figure . MSO Portal: Remote desktop settings
+
+[[section-1]]
+==
+
+[[developer-software-and-data-management]]
+== 5. Developer: software and data management
+
+In addition to what an end-user can do using the MSO4SC portal, in this section we explain the development workflow together with the components involved in the development pipeline. Developers, as software providers, can satisfy the whole development process, from coding to container deployment, using MSO4SC services
+
+The role of developer is also the role having the expertise on how to execute a particular application or framework provided, but also how to configure it to run it efficiently and to take advantage of the computational or storage resources.
+
+In order to give support to end-users or to obtain support from other roles, there are several channels or tools to communicate. These tools, Askbot [19] and Gitter [20], together with the support plan, are explained in section 7.2.
+
+[[software-management]]
+=== 5.1 Software management
+
+In order to provide a software product to end-users, developers have to publish it into the Marketplace and provide the application workflow coded in TOSCA blueprints. Once this is done a single time, source code changes trigger the automated pipeline to create, deliver and deploy brand new application versions or bug fixes ready to be used.
+
+After this process, these new versions are transparently available through the MSO Portal for end-users and also developers. Figure 12 describes components, processes and interactions belonging to this workflow.
+
+image:media/d5.6/image14.png[image,width=567,height=270]
+
+[[_Toc520829709]]Figure . Development life-cycle
+
+For satisfying the automated development process life-cycle, several services are provided from MSO4SC, like the software repository [5], container registry [6], marketplace, etc. The integration of these services results in a set of practices, tools and protocols for providing advanced features like automated testing in Cloud/HPC and continuous integration/delivery/deployment.
+
+The following sections describe all the artefacts involved in the entire development process pipeline.
+
+[[source-code-repository-and-continuous-integration]]
+==== 5.1.1 Source Code Repository and Continuous Integration
+
+Gitlab together with Gitlab-CI provides the necessary features to configure the entire development workflow. The source code repository is based on Git and the continuous integration feature is based on the Gitlab-CI/CD also powered by Gitlab. The MSO4SC source code repository can be accessed from https://gitlab.srv.cesga.es[_https://gitlab.srv.cesga.es_].
+
+In addition to the service description provided in section 6 of D3.2 [2] and the description of its features in section 7 of D3.3 [3], here we present an overview of the integration with other MSO4SC services by means of the optional and advanced continuous integration feature.
+
+Gitlab is a mature and stable open software tool oriented to the community and provides a lot of useful documentation to get started [7]. Developers used to deal with Git and/or Github repositories will find a familiar environment with many useful and easy-to-use features.
+
+The first step is to sign-in using the single-sign-on feature (Figure 13). MSO4SC users have to click on “Filab” button and they will be redirected to the Identity Manager. Once the developer is logged in, he can transparently access to Gitlab, create or manage existing code repositories and configure the continuous integration process of their software products.
+
+image:media/d5.6/image15.png[image,width=253,height=268]
+
+[[_Toc520829710]]Figure . Gitlab: Login
+
+After sign-in into Gitlab, users can create new repositories to store and manage their source code. Simply clicking on “New project”, see Figure 14, users can create empty repositories or clone existing repositories from places like Github, Bitbucket, etc. By default, new repositories are private, but developers can manage the privacy of their repository.
+
+image:media/d5.6/image16.png[image,width=460,height=333]
+
+[[_Toc520829711]]Figure . Gitlab: Projects
+
+Once the repository exists, Developers only have to place a file “.gitlab-ci.yml” in the root directory of a repository to activate the CI/CD feature. In particular, the CI is performed on top of Docker containers allowing developers to control the environment where the compilation and containerization occurs.
+
+To configure the workflow of the CI/CD process, a YAML script describing the steps is used, see Figure 15. A deep explanation of the syntax of these files [8], how to integrate them with MSO4SC services [9] and a demonstration repository [10] can be found in the official documentation.
+
+image:media/d5.6/image17.png[image,width=443,height=343]
+
+[[_Toc520829712]]Figure . Gitlab: CI/CD configuration file
+
+To integrate Gitlab-CI with other services, MSO4SC provides a Docker container, “mso4sc/ci:latest” at DockerHub, with the necessary tools to perform the CI/CD process taking advantage of several tools like:
+
+* **Singularity**: to build containers.
+* **Cloudify CLI**: to perform automated HPC/Cloud tests.
+* **SRegistry CLI**: to deliver Singularity containers to a container registry.
+
+With this configuration developers can apply agile practices and automatize the creation and delivery of new software packages ready to be used by end-users.
+
+[[container-registry]]
+==== 5.1.2 Container registry
+
+The container registry is the main storage point for the containerized software. This software consists on Pilots and MADFS, but also the applications or utils used from Pilot and MADFs workflows. All this software can be launched through the MSO4SC portal. It is based on SRegistry [11] a storage tool for Singularity containers. it is hosted in http://sregistry.srv.cesga.es/[_http://sregistry.srv.cesga.es_] and developers can sign-in using the Identity Manager from the top “login” button at the top bar.
+
+The web frontend, Figure 16, allows users and developers to explore, manage and download the existing containerized software based on Singularity. These tools empower developers to manage their software collections, decide who can use it and also who can modify, when configuring privacy settings. By default a new collection is private and only accessible for a set of chosen users, but it can be easily modified to be open for all users.
+
+image:media/d5.6/image18.png[image,width=567,height=322]
+
+[[_Toc520829713]]Figure . SRegistry: Explore collections
+
+Containers are grouped in collections. If collections are public there are no restrictions to download and use them, but SRegistry also allows developers to manage the privacy of the software they provide and assign different roles to end-users. There are three main concepts involved in privacy management:
+
+* **Collections**: can be created using the “New collection” buttons in the “Containers” tab. Collections are groups of containers sharing the same characteristics, like privacy and involved members.
+* **Teams**: can be created using the “New team” button under the “Teams” tab. Teams are groups of members that can belong to a collection with a given role.
+* **Roles**: can be assigned through the “Settings” button of a particular collection. Roles are permissions assigned to a particular team member into a particular container collection. There are two possible roles.
+** Owner: can create or modify (“push”) new or existing containers
+** Contributor: can obtain (“pull”) private existing containers
+
+In Figure 17 one can see the form displayed when clicking on the “Settings“ button of a collection. From this screen collection owners can manage the roles of a particular collection.
+
+image:media/d5.6/image19.png[image,width=567,height=449]
+
+[[_Toc520829714]]Figure . SRegistry: Roles and permissions
+
+The naming convention for stored containers is based on collection and container names. Containers can be obtained referencing them with “collection/container”. A command line tool, SRegistry-cli [12], can be used to obtain containers programmatically for being automatically deployed by the orchestrator in the proper computational infrastructure. The following command line is an example on how to retrieve a container using SRegistri-cli:
+
+image:media/d5.6/image20.png[image,width=366,height=20]
+
+[[marketplace-1]]
+==== 5.1.3 Marketplace
+
+Developers take the role of software suppliers in the MarketPlace. In addition to what an end-user can do using the MarketPlace, developers can create new products and offer them to be discoverable and purchased by end-users. Products can have a given price, to be paid through paypal, or be free. Once a product is purchased it will be usable from the Experiments tool.
+
+In addition to the presentation and introduction to this service in section 6.4 of deliverable D3.1 [1] and section 6 of deliverable D5.2 [4], here we present the necessary steps to create new products from the MarketPlace.
+
+All users can access to the MarketPlace from the top menu of the MSO Portal. The first view of the MarketPlace show the list of offered applications and a left menu to manage the product inventory and stock, see Figure 18.
+
+image:media/d5.6/image21.png[image,width=567,height=357]
+
+[[_Toc520829715]]Figure . MarketPlace: Landing page
+
+To create a new product, developers have to click the “My stock” button. From this point developers can manage all the items and concepts related to a digital marketplace:
+
+* Catalogues
+* Products
+* Offerings
+
+A product must belong to a catalogue and an offering must be assigned to it. A developer must create one item in these three categories at least once to supply a new software product.
+
+A new catalogue of products can be created from “My stock” menu. After clicking on “My stock”, a new left menu is shown to access the management section of the MarketPlace. The button “New” on the “Catalogs” subsection displays a simple form to create a new catalogue. In this form only the name and description of the catalogue have to be provided, see Figure 19.
+
+image:media/d5.6/image22.png[image,width=567,height=257]
+
+[[_Toc520829716]]Figure . MarketPlace: create a new catalog
+
+In the same way, new product specifications can be defined for a new product. Again, developers must click on “Product Specifications” and then in the “New” button. A form is displayed and must be filled-in by developers. From this form users name the product and describe its characteristics. They can also do product versioning, create bundles of products, attach metadata and licenses and describe the terms and conditions of usage, see Figure 20.
+
+image:media/d5.6/image23.png[image,width=567,height=285]
+
+[[_Toc520829717]]Figure . MarketPlace: create a new product
+
+Finally, to present the product to users, an offering must be also created. A form is displayed to create a new offering clicking on “New” button of “Offerings” subsection. A new offering attaches an existing product to a catalogue and assign a price plan to the product, among other details, see Figure 21.
+
+image:media/d5.6/image24.png[image,width=525,height=267]
+
+[[_Toc520829718]]Figure . MarketPlace: create a new offering
+
+[[experiments-tool-1]]
+==== 5.1.4 Experiments Tool
+
+The Experiments tool screen displayed for developers shows an extra button called “Applications”. At this point developers can assign workflows to their owned software products. This step is required to provide to users not only the software but also the way it is going to be executed and how to interact with it.
+
+To register a new application, developers have to select a product, assign a name to the experiment and attach a packed file containing the workflow, see Figure 22.
+
+image:media/d5.6/image25.png[image,width=440,height=398]
+
+[[_Toc520829719]]Figure . Experiments tool: Register a new experiment
+
+Workflows are written in TOSCA blueprints and describe the required user inputs and the steps that are going to be executed. A brief explanation of TOSCA blueprints is presented in the following section 5.1.5.
+
+[[tosca-blueprints]]
+==== 5.1.5 TOSCA blueprints
+
+Blueprints are scripts to describe the workflow of a particular Pilot or MADF and how the users interact with it. It’s written in YAML format under the Cloudify TOSCA specification.
+
+More information about the language itself can be found in the official documentation [13]. The introduction to the standard and usage example remains unchanged from deliverable D3.2 [2], in particular one can see this information in section 4.2 and Appendix of D3.2. MSO4SC also provides some technical documentation [14], about TOSCA and how to create new blueprints from scratch, and also a public repository containing examples [15].
+
+[[data-management]]
+=== 5.2 Data management
+
+The data management component is the one in charge of managing the data storage and transfer to allow users to reference custom data to be used as inputs from custom experiments and to store outputs and results after a successful experiment.
+
+The design of the component remains unchanged and has been described in section 7 of deliverable D3.2 [2] and in section 8 of deliverable D3.3. In addition, in this section, two main categories of tools are described, the data catalogue and data movers.
+
+[[data-catalogue-1]]
+==== 5.2.1 Data Catalogue
+
+The Data Catalogue is the tool allowing publishing data and attaching metadata in order to be discoverable and directly published and retrieved during workflows execution by means of the experiments tool. The Data Catalogue is based on CKan, a brief description of this tool and its features was already presented in section 6.2 of deliverable D3.1 [1] and section 8 of deliverable D5.2 [4]. In these sections we describe the minimal steps to make data available from CKan.
+
+The Data Catalogue is accessible at the top bar of the MSO Portal. Data in the Data Catalogue is organized in datasets, groups and organizations. Datasets are strongly related sets of resources, containing multiple files, under the same identifier and characteristics. Organizations allow to group datasets by their owner. It is mandatory to associate a dataset with an Organization. Finally, groups are another optional hierarchy level allowing the grouping of several related datasets into the same folder.
+
+The first time a developer wants to provide new data, at least, a new organization and datasets must be created. To create a new organization the user must click on the “Organizations” tab on CKan menu and then click on “Add organization” button. A form to introduce the organization name and description and to optionally attach a picture must be filled-in, see Figure 23.
+
+image:media/d5.6/image26.png[image,width=567,height=270]
+
+[[_Toc520829720]]Figure . Data Catalogue: Create a new organization
+
+Once the organization is created users can attach to it as many datasets as they want. To create a new dataset, users must click on the “Datasets” tab on CKan menu and then click on “Add dataset” button. A form to name, describe and upload or reference files is displayed, see Figure 24.
+
+image:media/d5.6/image27.png[image,width=567,height=278]
+
+[[_Toc520829721]]Figure . Data Catalogue: Create a new dataset
+
+[[_35nkun2]]The data can be directly stored into the data catalogue or referenced by an URL. In addition, custom tags, license, description, maintainer and other metadata can be described together with the raw data. The visibility and permissions of the data can be also managed by users. By default, datasets are private but the user can choose the visibility for a new dataset.
+
+[[data-movers]]
+==== 5.2.2 Data movers
+
+Strongly related with data referencing from the data catalogue, a set of tools are provided for transferring data. Thanks to these tools, data transfers can be performed not only from and to the data catalogue, but also from a set of heterogeneous cloud storage endpoints and data nodes. In addition to common linux tools, usually available in all linux systems, like “ftp”, “wget” or “curl”, rClone and Globus-CLI were containerized and provided to be used from the blueprints.
+
+Using rClone, developers can simply enable end-users to specify their personal cloud storage endpoints to be used as input and/or output storage. Globus-CLI is an open source tool that allows performing efficient transfers of big amounts of data between data nodes and also personal computers. For performing high performance transferences Globus-CLI was also containerized and provided by MSO4SC.
+
+To reference remote data to be transferred from and to the current computational resources using rClone, three requirements must be passed through the blueprints:
+
+* **Credentials file**: an rClone config file containing the enabled endpoints and credentials per user.
+* **Input path**: a reference to the remote storage endpoint concatenated with the path to the particular input file or directory. A local path can be also used.
+* **Output path**: a reference to the remote storage endpoint concatenated with the path to the particular output file or directory. A local path can be also used.
+
+An example of usage with rClone is shown in the following line:
+
+image:media/d5.6/image28.png[image,width=542,height=20]
+
+The requirements to perform transfers with Globus-CLI are similar to the ones required by rClone. Again, three requirements must be passed through the blueprints:
+
+* **Credentials file**: a Globus config file containing the authentication tokens and expiration date. This file must be placed in a “.globus.cfg” file located in the home directory.
+* **Input path**: the ID of a data node concatenated with the path to the particular input file or directory. A local path can be also used.
+* **Output path**: the ID of a data node concatenated with the path to the particular output file or directory. A local path can be also used.
+
+An example of how to use Globus-cli to perform a transfer is shown in the following line:
+
+image:media/d5.6/image29.png[image,width=567,height=18]
+
+Extensive information about these tools from the point of view of a resources provider can be found in the following section.
+
+[[resources-provider-resources-configuration]]
+== 6. Resources provider: resources configuration
+
+Complementing end-users and developers interaction through the portal, In this section we explain the basic capabilities and configuration of all kind of resources managed from the portal.
+
+[[computational-resources]]
+=== 6.1 Computational resources
+
+The resources provider has to supply all the information related to the computation systems needed by a Developer or an End-user to execute an application through the portal. Currently, a Developer or an End-user can also fill this information with the aid of the technical staff of the computing centre.
+
+Due to the heterogeneity of the configurations of the current supercomputing centres, in the future, technical staff of each computational infrastructure must provide this information related to the particular configuration of the HPC infrastructure.
+
+This information is as follows:
+
+* *Workload manager:* Currently Slurm is supported, but other plugins are being developed for support several workload managers (Torque, etc). The technical staff must provide what version of the workload manager run in the infrastructure.
+* *Base directory:* This information is related to the path where the executions will be performed in the HPC/Cloud infrastructure, it means the “root directory” of the experiments. Nowadays it is usual to find several storage locations with different purposes in the computational infrastructures. The technical staff of the centre must provide where is this path, usually we found it related to the “$HOME” environment variable, but another values are also accepted.
+* *Partitions:* This field is related to the HPC cluster configuration. A partition is a logical group of nodes which have the same configuration and limits to run jobs, this information must be provided in order to set the default partition where the jobs will run, and the other possibilities that a user can choose to submit jobs.
+* *Modules:* The portability of the applications is based containers. Currently Singularity is the main choice to run the containerized software, and the infrastructure must provide how to use Singularity as a module to run the applications. In addition, other applications may need to load some packages to run correctly, for example several versions of the MPI implementation, the infrastructure must provide how to make accessible this software for the end-users and developers.
+* *Mount points:* Singularity allows the user to map directories of the host system to directories within the container using bind mounts. This allows the user to read and write data on the host system with ease. For example, at CESGA supercomputing infrastructure, Finis Terrae II, the mount point “/mnt” allows the container to transparently access to all the paths where the users can find their personal storages.
+* *Hostname:* Each infrastructure has a hostname that identifies it univocally. This identifier must be provided to distinguish each HPC in which a user can submit jobs. For example, the CESGA main HPC resource, Finis Terrae II has the “ft2.cesga.es” hostname.
+* *Timezone:* The portal must be capable to send jobs to several HPC’s located all around the world, so it is important to set the current time zone of each HPC centre for a correct functioning of the orchestrator and the portal.
+
+[[visualization-resources]]
+=== 6.2 Visualization resources
+
+As we saw in section 3.2 [2], the platform has a component dedicated to visualization for pre/post process operations. The information required to set the visualization module running in the platform can be provided by each supercomputing centre or cloud provider. This visualization platform usually requires the presence of powerful graphic cards which allows users view with high quality and performance complex graphical results that cannot be visualized in ordinary computers.
+
+The information needed is as follows:
+
+* *Hostname:* Usually the visualization infrastructure can be a dedicated system, which must have a unique identifier or hostname with which the platform can communicate. For example, the visualization infrastructure at CESGA has the “vis.lan.cesga.es” hostname.
+* *Remote access software for visualization:* This is the basis of the visualization infrastructure, actually only “noVNC” is supported in the platform. This part is the responsible of the remote visualization feature.
+* *Commands:* Like in other remote visualization platforms, the infrastructure allows to create several remote desktops and share with third-users to allow them to view what is done in the platform, but without the capability to interact with them. The platform must have at least two commands, one that lists the available desktops for the user and another to create the remote desktops. For example, these commands at the CESGA visualization platform are located at:
+** List command: /opt/cesga/vis/bin/desktops
+** Create command: /opt/cesga/vis/bin/getdesktop
+
+MSO4SC documentation extends information about remote desktops [16].
+
+[[storage-resources]]
+=== 6.3 Storage resources
+
+One of the characteristics of the platform is to provide to the users features to manage and store his data with reliable and powerful tools which cover a wide range of functionalities. Many options were inspected and two tools were included in the platform to allow users to perform transfers with high speed between HPC centres and to interact with several storage resources. These tools are the following, Globus for high speed transfers, and rClone for heterogeneous cloud storage support.
+
+[[globus-transfer]]
+==== 6.3.1 Globus Transfer
+
+This tool is based in the Globus Platform (PaaS), and uses the GridFTP protocol, which allows the users to perform robust file transfer between centres which have available a DTN (Data Transfer Node) with GridFTP in the infrastructure. The main requisite to perform high speed transfers is to install the required software in a centre. For more information about how to deploy a Globus installation see the Globus Connect official web path [17]. This documentation allows the systems administrator of each supercomputing centre to understand how to enable Globus in their computation systems. In addition to the deployment in the computation systems, the users also can deploy in his personal computers a personal version for Globus Connect, which allows them to convert his personas computers into an endpoint to perform data transfers with advanced features.
+
+The first step requires that a user have access to Globus, creating an account with Globus for example with a personal Google ID, or if his institution is registered in Globus, using his institutional login to have access to Globus Services.
+
+The second step requires the user to have an account in the HPC infrastructure which has the Globus Connect Server enabled.
+
+[[rclone]]
+==== 6.3.2 rClone
+
+This tool is the chosen option to cover the needs of those users who want to use several cloud storage solutions inside a HPC infrastructure, like Dropbox, Google Drive, etc. The complete list of available options which rClone can manage can be consulted in the official documentation [18].
+
+[[_g97pj8us58yl]]As we discussed before in the previous section, the first step needed to use rClone is a configuration file. As the object storage systems have quite complicated authentication, these are kept in a config file. This application is provided within a container and can be executed with Singularity in the HPC infrastructure or in the user personal computer installing the component.
+
+[[_1te1pb1c06je]]The easiest way to make the config file is to run the command config with rclone:[[_dyric7yr8d6f]]
+
+[cols="",options="header",]
+|===============
+|$ rclone config
+|===============
+
+[[_2udme5lbfrs6]]This will guide the user through an interactive setup process that will create the configuration file in our home directory: “$HOME/.config/rclone/rclone.conf”.
+
+[[_25duh4yc7nds]]This file called “rclone.conf” will normally have several entries with the following structure
+
+[cols="",options="header",]
+|===================================================
+a|
+____________________________________________________
+[remote] +
+app_key = +
+app_secret = +
+token = XXXXXXXXXXXXXXXXXXXX_XXXX_XXXXXXXXXXXXXXXXXX
+____________________________________________________
+
+|===================================================
+
+[[_isf6ihkmuhd9]][[_4qi74sgyf7zm]]The complete configuration documentation of each remote storage system can be checked in [18] and also the complete guide of usage.[[_u3l1yjp0h1yp]]
+
+[[infrastructure-administrator-permissions-and-support]]
+== 7. Infrastructure Administrator: permissions and support
+
+[[permissions]]
+=== 7.1 Permissions
+
+Administrators of the system can add or revoke permissions to any other user in the system. This is mainly done inside the Identity Manager, but can be managed in a fine grain fashion from any other service. Specifically, end-users do not need any special permission, but developers need to receive the “seller” role in the marketplace, and the “admin” role in the data catalogue, apart from being added as members of an organization inside the IDM called “MSO4SC Developers” (organizations are just a mean to organize users).
+
+Similarly to be recognized by the system as administrator, users must be added to the special administrator’s organization.
+
+[[support]]
+=== 7.2 Support
+
+The support in MSO4SC will be structured in several layers: a first level support, which will answer the requests from users and stakeholders, and the second level support, focused on solving concrete issues, with a higher technical background.
+
+[[_9qpmlkdrigzv]]Both levels require concrete teams to manage the requests which arrive, organized taking into account the knowledge required and the rotation of turns.[[_pqrxr8ultl3o]]
+
+[[first-level-support]]
+=== 7.2.1 First level support
+
+[[_bvxhzngvvtox]]
+
+The first level support does not require a high technical specialization. The purpose is to provide a first feedback to MSO4SC users in a short time, so they will be aware that the MSO4SC is processing the mentioned request.
+
+Basically, the first level support will answer easy questions, especially those related to how to use certain Pilots, MADFs and features of the MSO4SC e-Infrastructure. The responsible person will provide some hints about how to carry out activities and will provide links to the official examples, tutorials and videos.
+
+[[_c1f12tv8rpbf]]On the other hand, the first level support will also deal with concrete technical issues, notifying the appropriate contacts in the second level, who will then handle the issues. The first level support responsible will answer the question, mentioning that it is being handled by the appropriate expert.
+
+We propose a 5x9 support (five days per week – Monday to Friday – during nine hours per day). The time covered will be the office hours, as it is the time we expect that users will need support and it is in line with the support provided in some production systems, taking into account that we do not have any critical service to manage.
+
+[[_ltp9tpd3vwz8]]The main contacts for providing first level support should include at least one member from WP3, WP4 and WP5. The representative of one of the work package will take the responsibility of the first level support during one week and, after that, other partner will take over cyclically (so each one deals with users’ request for one entire week). We assume that it will be enough if the responsible takes a look at pending requests every two hours. In case it is necessary, support team may change turns and propose other person to substitute the official contact. [[_ahk97rs22n7t]]
+
+[[second-level-support]]
+=== 7.2.2 Second level support
+
+The second level support is focused on concrete topics, which require certain specialization of those who are supporting users. Second level support may be required in several circumstances like:
+
+* Solving bugs related to a concrete component of the MSO4SC e-Infrastructure;
+* [[_6o7h7zpwy8zn]]Solving issues and doubts related to complex features of a concrete component, which are not clarified in the official documentation.
+
+[[_w9jzora8o1jw]]When the first level support identifies this kind of situation, they contact the second level support, specifying the problem to be solved and why it could not be solved in the first level. That contact will be done by email using the internal support list (__mso4sc_techsupport@lists.atosresearch.eu__) and taking into account concrete contacts identified for the main e-Infrastructure parts. This means to identify responsibles for each e-Infrastructure component like MSO Portal, Orchestrator, Monitor and HPC and Cloud resources among others. At least one expert per MADF (Feel++, Fenics and OPM) must be included in the second support level.
+
+The responsible who takes care of a ‘ticket’, will also be in charge of answering the user through the appropriate tool (the same channel that the user used for requesting our support.
+
+While the support for the platform (MSO Portal, Orchestrator, Monitoring and resources) will be 5x9 (five days per week – Monday to Friday – during nine hours per day), this cannot be guaranteed by the MADFs, since they are part of the MSO4SC e-Infrastructure, but they have their own communities. In this case, there is no rotation. The list of contacts will be the same all the time, and it is expected that they will provide any feedback within one hour after receiving the request. When there is more than one contact, the preferred option is the one tagged as ‘main’.
+
+[[_sp8hm2xrpi9n]]In case that the request received is an issue or bug related to the software, the person in charge of solving it will open the corresponding issue in the Git repository, so it will be possible to keep trace of the actions done. The issue identifier can be provided to the user reporting the problem, so it will be possible to receive more comments.
+
+[[support-tools]]
+=== 7.3 Support Tools
+
+[[askbot]]
+==== 7.3.1 Askbot
+
+AskBot is the official channel for getting support in the MSO4SC e-Infrastructure. It can be accessed from the MSO Portal, in the ‘Q&A’ tab. It is a Questions and Answers tool, in which registered users can publish their doubts and issues and other people can publish answers.
+
+These questions can be searched and accessed by anybody without any registration, so the information will be available for anybody interested in MSO4SC.
+
+image:media/d5.6/image30.png[image,width=566,height=288]
+
+[[_Toc520829722]]Figure . Askbot
+
+In order to organize questions and answers in the proper way, we will use the tags functionality that is available in the tool. In principle, users publishing the questions will be able to define the tags they want to use but, for the sake of clarity and to facilitate search, we propose to use the following tags:
+
+* *Application:* Those questions related to pilot applications and other external applications should be tagged this way. Then, for referring to a concrete pilot, we can use the following:
+** Eye2brain
+** HifiMagnet
+** ZibAffinity
+** OPMFlow
+** 3DUrbanAirQuality
+** FloatingWindTurbine
+* *MADF:* When having questions about the mathematical frameworks, the thread should include this tag. We propose also to use the following tags when talking about a concrete MADF:
+** Feelpp
+** OPM
+** FEniCS
+* *Platform:* When questions refer to aspects related to the platform itself (orchestration, portal, etc…), this tag should be used.
+
+Since we do not expect users to know the internal components of MSO4SC, in principle, we will not use specific tags for the platform part.
+
+Those involved in the support will be responsible in answering the questions (according to the first and second level support). They will act as moderators, also removing unacceptable messages and voting those interesting ones.
+
+[[gitter]]
+==== 7.3.2 Gitter
+
+MSO4SC has several Gitter rooms for discussing about different aspects of the project in a near real-time basis. It allows the project participants to interact using chats. In order to provide a close support to stakeholders in a short term, we have enabled a dedicated Gitter room under the MSO4SC project. Such room is named ‘Support’ and its link is the following:
+
+https://gitter.im/MSO4SC/Support[_https://gitter.im/MSO4SC/Support_]
+
+image:media/d5.6/image31.png[image,width=566,height=285]
+
+[[_Toc520829723]]Figure . Gitter
+
+It is important to highlight that Gitter is not the main support channel. The official and main support channel is the AskBot tool, but Gitter can be used for providing some support when those involved in the first and second level support are available for some chat that could solve certain issues faster than complex explanations.
+
+When an important doubt is solved through Gitter, it is important that the responsible moves the conversation to AskBot, so it will be possible to maintain a copy of the request and how it was solved. Otherwise, since Gitter is a chat, we may lose the information, or make it very difficult to find. With AskBot, it will be easily searchable and it will also allow for the participation of other users.
+
+[[summary-and-conclusions]]
+== 8. Summary and Conclusions
+
+This document presents the integration of the components that are part of the MSO4SC e-Infrastructure. As of July 2018 almost all MADFs and Pilots are integrated into the Portal and, taking advantage of the services provided from MSO4SC. Features have been separated among different roles to clarify responsibilities, and thereby ease the interaction with Portal for end-users, developers, resources providers and administrators. An explanation of the usage and configuration of all MSO4SC services from the point of view of each role is presented. A support plan is also presented together with the communication tools and channels.
+
+[[section-2]]
+==
+
+[[references]]
+= References
+
+1.  MSO4SC D3.1, detailed specifications for the infrastructure, Cloud Management and MSO Portal
+2.  MSO4SC D3.2, Integrated infrastructure, Cloud Management and MSO Portal
+3.  MSO4SC D3.3, detailed specifications for the infrastructure, Cloud Management and MSO Portal
+4.  MSO4SC D5.2, Operational MSO4SC e-infrastructure
+5.  MSO4SC Repository: https://gitlab.srv.cesga.es[_https://gitlab.srv.cesga.es_]
+6.  MSO4SC Container registry: https://sregistry.srv.cesga.es[_https://sregistry.srv.cesga.es_]
+7.  Gitlab official docs: https://docs.gitlab.com/ce/user/index.html[_https://docs.gitlab.com/ce/user/index.html_]
+8.  Gitlab-CI syntax: https://docs.gitlab.com/ce/ci/yaml/[_https://docs.gitlab.com/ce/ci/yaml/_]
+9.  Gitlab MSO4SC Continuous integration documentation: http://book.mso4sc.cemosis.fr/infrastructure/0.1/gitlab/continuousintegration/README/[_http://book.mso4sc.cemosis.fr/infrastructure/0.1/gitlab/continuousintegration/README/_]
+10. Gitlab MSO4SC Continuous integration example: https://gitlab.srv.cesga.es/examples/mso4sc-ci[_https://gitlab.srv.cesga.es/examples/mso4sc-ci_]
+11. SRegistry: https://singularityhub.github.io/sregistry/[_https://singularityhub.github.io/sregistry/_]
+12. SRegistry CLI: https://singularityhub.github.io/sregistry-cli/[_https://singularityhub.github.io/sregistry-cli/_]
+13. Cloudify TOSCA official docs: https://cloudify.co/2015/07/21/what-is-TOSCA-cloud-application-orchestration-tutorial-cloudify.html[_https://cloudify.co/2015/07/21/what-is-TOSCA-cloud-application-orchestration-tutorial-cloudify.html_]
+14. MSO4SC TOSCA blueprints technical docs: http://book.mso4sc.cemosis.fr/infrastructure/0.1/orchestrator/tosca/README/[_http://book.mso4sc.cemosis.fr/infrastructure/0.1/orchestrator/tosca/README/_]
+15. MSO4SC TOSCA blueprints examples: https://github.com/MSO4SC/resources/tree/master/blueprint-examples[_https://github.com/MSO4SC/resources/tree/master/blueprint-examples_]
+16. MSO4SC Remote desktops configuration: https://github.com/MSO4SC/MSOPortal/tree/master/portal#visualization--pre--post-tool[_https://github.com/MSO4SC/MSOPortal/tree/master/portal#visualization--pre--post-tool_]
+17. Globus connect: https://www.globus.org/globus-connect[_https://www.globus.org/globus-connect_]
+18. rClone official webpage: _https://rclone.org_
+19. MSO4SC Askbot Q&A: https://askbot.srv.cesga.es/questions/[_https://askbot.srv.cesga.es_]
+20. Gitter channels: https://gitter.im/MSO4SC[_https://gitter.im/MSO4SC_]
