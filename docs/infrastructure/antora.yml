@@ -1,5 +1,5 @@
 name: infrastructure
 title: Infrastructure documentation
-version: "0.2"
+version: "latest"
 nav:
-- modules/ROOT/0.2/nav.adoc
+- modules/ROOT/nav.adoc
