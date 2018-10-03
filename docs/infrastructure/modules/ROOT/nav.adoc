@@ -1,14 +1,32 @@
-* xref:infrastructure:ROOT:portal/README.adoc[Portal]
-* xref:infrastructure:ROOT:marketplace/README.adoc[Marketplace]
-* xref:infrastructure:ROOT:orchestrator/README.adoc[Orchestrator]
-** xref:infrastructure:ROOT:orchestrator/tosca/README.adoc[Blueprints (TOSCA)]
-** xref:infrastructure:ROOT:orchestrator/tosca/README.adoc[MADF blueprints]
-*** xref:infrastructure:ROOT:orchestrator/tosca/feelpp/README.adoc[Feel++]
-*** xref:infrastructure:ROOT:orchestrator/tosca/fenics/README.adoc[FEniCS]
-*** xref:infrastructure:ROOT:orchestrator/tosca/opm/README.adoc[opm]
+* xref:infrastructure:ROOT:index.adoc[Introduction]
 
-* xref:infrastructure:ROOT:data/README.adoc[Data]
-* xref:infrastructure:ROOT:clusters/README.adoc[Clusters]
-* xref:infrastructure:ROOT:singularity/README.adoc[Singularity]
-* xref:infrastructure:ROOT:gitlab/README.adoc[Gitlab]
-** xref:infrastructure:ROOT:gitlab/continuousintegration/README.adoc[Continuous Integration]
+
+* xref:infrastructure:ROOT:roles/README.adoc[Users]
+** xref:infrastructure:ROOT:roles/end_user/README.adoc[End-user]
+** xref:infrastructure:ROOT:roles/developer/README.adoc[Developer]
+** xref:infrastructure:ROOT:roles/resources_provider/README.adoc[Resources provider]
+
+
+* xref:infrastructure:ROOT:components/README.adoc[Services]
+** xref:infrastructure:ROOT:components/portal/README.adoc[Portal]
+** xref:infrastructure:ROOT:components/experiments_tool/README.adoc[Experiments tool]
+** xref:infrastructure:ROOT:components/orchestrator/README.adoc[Orchestrator]
+*** xref:infrastructure:ROOT:components/orchestrator/tosca/README.adoc[Blueprints (TOSCA)]
+*** xref:infrastructure:ROOT:components/orchestrator/cfy/README.adoc[Cloudify (CFY)]
+
+** xref:infrastructure:ROOT:components/software_management/README.adoc[Software management]
+*** xref:infrastructure:ROOT:components/software_management/marketplace/README.adoc[Marketplace]
+*** xref:infrastructure:ROOT:components/software_management/singularity/README.adoc[Singularity]
+*** xref:infrastructure:ROOT:components/software_management/sregistry/README.adoc[SRegistry]
+*** xref:infrastructure:ROOT:components/software_management/gitlab/README.adoc[Gitlab]
+*** xref:infrastructure:ROOT:components/software_management/gitlab/continuous_integration/README.adoc[Continuous integration]
+
+** xref:infrastructure:ROOT:components/data_management/README.adoc[Data management]
+*** xref:infrastructure:ROOT:components/data_management/datacatalogue/README.adoc[DataCatalogue]
+*** xref:infrastructure:ROOT:components/data_management/globus/README.adoc[Globus]
+*** xref:infrastructure:ROOT:components/data_management/rclone/README.adoc[Rclone]
+
+
+* xref:infrastructure:ROOT:support/README.adoc[Support]
+** xref:infrastructure:ROOT:support/askbot/README.adoc[Askbot]
+** xref:infrastructure:ROOT:support/gitter/README.adoc[Gitter] 

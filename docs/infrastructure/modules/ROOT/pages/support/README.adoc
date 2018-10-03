@@ -1,0 +1,37 @@
+[[support]]
+= Support
+
+The support in MSO4SC will be structured in several layers: a first level support, which will answer the requests from users and stakeholders, and the second level support, focused on solving concrete issues, with a higher technical background.
+
+[[_9qpmlkdrigzv]]Both levels require concrete teams to manage the requests which arrive, organized taking into account the knowledge required and the rotation of turns.[[_pqrxr8ultl3o]]
+
+[[first-level-support]]
+== First level support
+
+[[_bvxhzngvvtox]]
+
+The first level support does not require a high technical specialization. The purpose is to provide a first feedback to MSO4SC users in a short time, so they will be aware that the MSO4SC is processing the mentioned request.
+
+Basically, the first level support will answer easy questions, especially those related to how to use certain Pilots, MADFs and features of the MSO4SC e-Infrastructure. The responsible person will provide some hints about how to carry out activities and will provide links to the official examples, tutorials and videos.
+
+[[_c1f12tv8rpbf]]On the other hand, the first level support will also deal with concrete technical issues, notifying the appropriate contacts in the second level, who will then handle the issues. The first level support responsible will answer the question, mentioning that it is being handled by the appropriate expert.
+
+We propose a 5x9 support (five days per week – Monday to Friday – during nine hours per day). The time covered will be the office hours, as it is the time we expect that users will need support and it is in line with the support provided in some production systems, taking into account that we do not have any critical service to manage.
+
+[[_ltp9tpd3vwz8]]The main contacts for providing first level support should include at least one member from WP3, WP4 and WP5. The representative of one of the work package will take the responsibility of the first level support during one week and, after that, other partner will take over cyclically (so each one deals with users’ request for one entire week). We assume that it will be enough if the responsible takes a look at pending requests every two hours. In case it is necessary, support team may change turns and propose other person to substitute the official contact. [[_ahk97rs22n7t]]
+
+[[second-level-support]]
+== Second level support
+
+The second level support is focused on concrete topics, which require certain specialization of those who are supporting users. Second level support may be required in several circumstances like:
+
+* Solving bugs related to a concrete component of the MSO4SC e-Infrastructure;
+* [[_6o7h7zpwy8zn]]Solving issues and doubts related to complex features of a concrete component, which are not clarified in the official documentation.
+
+[[_w9jzora8o1jw]]When the first level support identifies this kind of situation, they contact the second level support, specifying the problem to be solved and why it could not be solved in the first level. That contact will be done by email using the internal support list (__mso4sc_techsupport@lists.atosresearch.eu__) and taking into account concrete contacts identified for the main e-Infrastructure parts. This means to identify responsibles for each e-Infrastructure component like MSO Portal, Orchestrator, Monitor and HPC and Cloud resources among others. At least one expert per MADF (Feel++, Fenics and OPM) must be included in the second support level.
+
+The responsible who takes care of a ‘ticket’, will also be in charge of answering the user through the appropriate tool (the same channel that the user used for requesting our support.
+
+While the support for the platform (MSO Portal, Orchestrator, Monitoring and resources) will be 5x9 (five days per week – Monday to Friday – during nine hours per day), this cannot be guaranteed by the MADFs, since they are part of the MSO4SC e-Infrastructure, but they have their own communities. In this case, there is no rotation. The list of contacts will be the same all the time, and it is expected that they will provide any feedback within one hour after receiving the request. When there is more than one contact, the preferred option is the one tagged as ‘main’.
+
+[[_sp8hm2xrpi9n]]In case that the request received is an issue or bug related to the software, the person in charge of solving it will open the corresponding issue in the Git repository, so it will be possible to keep trace of the actions done. The issue identifier can be provided to the user reporting the problem, so it will be possible to receive more comments.

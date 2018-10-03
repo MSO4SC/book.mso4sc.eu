@@ -1,0 +1,82 @@
+[[resources-provider-resources-configuration]]
+= Resources provider: resources configuration
+
+Complementing end-users and developers interaction through the portal, In this section we explain the basic capabilities and configuration of all kind of resources managed from the portal.
+
+[[computational-resources]]
+== Computational resources
+
+The resources provider has to supply all the information related to the computation systems needed by a Developer or an End-user to execute an application through the portal. Currently, a Developer or an End-user can also fill this information with the aid of the technical staff of the computing centre.
+
+Due to the heterogeneity of the configurations of the current supercomputing centres, in the future, technical staff of each computational infrastructure must provide this information related to the particular configuration of the HPC infrastructure.
+
+This information is as follows:
+
+* *Workload manager:* Currently Slurm is supported, but other plugins are being developed for support several workload managers (Torque, etc). The technical staff must provide what version of the workload manager run in the infrastructure.
+* *Base directory:* This information is related to the path where the executions will be performed in the HPC/Cloud infrastructure, it means the “root directory” of the experiments. Nowadays it is usual to find several storage locations with different purposes in the computational infrastructures. The technical staff of the centre must provide where is this path, usually we found it related to the “$HOME” environment variable, but another values are also accepted.
+* *Partitions:* This field is related to the HPC cluster configuration. A partition is a logical group of nodes which have the same configuration and limits to run jobs, this information must be provided in order to set the default partition where the jobs will run, and the other possibilities that a user can choose to submit jobs.
+* *Modules:* The portability of the applications is based containers. Currently Singularity is the main choice to run the containerized software, and the infrastructure must provide how to use Singularity as a module to run the applications. In addition, other applications may need to load some packages to run correctly, for example several versions of the MPI implementation, the infrastructure must provide how to make accessible this software for the end-users and developers.
+* *Mount points:* Singularity allows the user to map directories of the host system to directories within the container using bind mounts. This allows the user to read and write data on the host system with ease. For example, at CESGA supercomputing infrastructure, Finis Terrae II, the mount point “/mnt” allows the container to transparently access to all the paths where the users can find their personal storages.
+* *Hostname:* Each infrastructure has a hostname that identifies it univocally. This identifier must be provided to distinguish each HPC in which a user can submit jobs. For example, the CESGA main HPC resource, Finis Terrae II has the “ft2.cesga.es” hostname.
+* *Timezone:* The portal must be capable to send jobs to several HPC’s located all around the world, so it is important to set the current time zone of each HPC centre for a correct functioning of the orchestrator and the portal.
+
+[[visualization-resources]]
+== Visualization resources
+
+As we saw in section 3.2 [2], the platform has a component dedicated to visualization for pre/post process operations. The information required to set the visualization module running in the platform can be provided by each supercomputing centre or cloud provider. This visualization platform usually requires the presence of powerful graphic cards which allows users view with high quality and performance complex graphical results that cannot be visualized in ordinary computers.
+
+The information needed is as follows:
+
+* *Hostname:* Usually the visualization infrastructure can be a dedicated system, which must have a unique identifier or hostname with which the platform can communicate. For example, the visualization infrastructure at CESGA has the “vis.lan.cesga.es” hostname.
+* *Remote access software for visualization:* This is the basis of the visualization infrastructure, actually only “noVNC” is supported in the platform. This part is the responsible of the remote visualization feature.
+* *Commands:* Like in other remote visualization platforms, the infrastructure allows to create several remote desktops and share with third-users to allow them to view what is done in the platform, but without the capability to interact with them. The platform must have at least two commands, one that lists the available desktops for the user and another to create the remote desktops. For example, these commands at the CESGA visualization platform are located at:
+** List command: /opt/cesga/vis/bin/desktops
+** Create command: /opt/cesga/vis/bin/getdesktop
+
+MSO4SC documentation extends information about remote desktops [16].
+
+[[storage-resources]]
+== Storage resources
+
+One of the characteristics of the platform is to provide to the users features to manage and store his data with reliable and powerful tools which cover a wide range of functionalities. Many options were inspected and two tools were included in the platform to allow users to perform transfers with high speed between HPC centres and to interact with several storage resources. These tools are the following, Globus for high speed transfers, and rClone for heterogeneous cloud storage support.
+
+[[globus-transfer]]
+=== Globus Transfer
+
+This tool is based in the Globus Platform (PaaS), and uses the GridFTP protocol, which allows the users to perform robust file transfer between centres which have available a DTN (Data Transfer Node) with GridFTP in the infrastructure. The main requisite to perform high speed transfers is to install the required software in a centre. For more information about how to deploy a Globus installation see the Globus Connect official web path [17]. This documentation allows the systems administrator of each supercomputing centre to understand how to enable Globus in their computation systems. In addition to the deployment in the computation systems, the users also can deploy in his personal computers a personal version for Globus Connect, which allows them to convert his personas computers into an endpoint to perform data transfers with advanced features.
+
+The first step requires that a user have access to Globus, creating an account with Globus for example with a personal Google ID, or if his institution is registered in Globus, using his institutional login to have access to Globus Services.
+
+The second step requires the user to have an account in the HPC infrastructure which has the Globus Connect Server enabled.
+
+[[rclone]]
+=== rClone
+
+This tool is the chosen option to cover the needs of those users who want to use several cloud storage solutions inside a HPC infrastructure, like Dropbox, Google Drive, etc. The complete list of available options which rClone can manage can be consulted in the official documentation [18].
+
+[[_g97pj8us58yl]]As we discussed before in the previous section, the first step needed to use rClone is a configuration file. As the object storage systems have quite complicated authentication, these are kept in a config file. This application is provided within a container and can be executed with Singularity in the HPC infrastructure or in the user personal computer installing the component.
+
+[[_1te1pb1c06je]]The easiest way to make the config file is to run the command config with rclone:[[_dyric7yr8d6f]]
+
+[cols="",options="header",]
+|===============
+|$ rclone config
+|===============
+
+[[_2udme5lbfrs6]]This will guide the user through an interactive setup process that will create the configuration file in our home directory: “$HOME/.config/rclone/rclone.conf”.
+
+[[_25duh4yc7nds]]This file called “rclone.conf” will normally have several entries with the following structure
+
+[cols="",options="header",]
+|===================================================
+a|
+____________________________________________________
+[remote] +
+app_key = +
+app_secret = +
+token = XXXXXXXXXXXXXXXXXXXX_XXXX_XXXXXXXXXXXXXXXXXX
+____________________________________________________
+
+|===================================================
+
+[[_isf6ihkmuhd9]][[_4qi74sgyf7zm]]The complete configuration documentation of each remote storage system can be checked in [18] and also the complete guide of usage.[[_u3l1yjp0h1yp]]

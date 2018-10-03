@@ -18,6 +18,7 @@ per work packages.
 * xref:deliverables:ROOT:d3.1/README.adoc[Deliverable 3.1]
 * xref:deliverables:ROOT:d3.2/README.adoc[Deliverable 3.2]
 * xref:deliverables:ROOT:d3.3/README.adoc[Deliverable 3.3]
+* xref:deliverables:ROOT:d3.4/README.adoc[Deliverable 3.4]
 
 === WP4
 
@@ -30,6 +31,7 @@ per work packages.
 * xref:deliverables:ROOT:d5.2/README.adoc[Deliverable 5.2]
 * xref:deliverables:ROOT:d5.3/README.adoc[Deliverable 5.3]
 * xref:deliverables:ROOT:d5.4/README.adoc[Deliverable 5.4]
+* xref:deliverables:ROOT:d5.6/README.adoc[Deliverable 5.6]
 
 === WP6
 

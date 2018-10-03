@@ -1,0 +1,205 @@
+[[developer-software-and-data-management]]
+= Developer: software and data management
+
+In addition to what an end-user can do using the MSO4SC portal, in this section we explain the development workflow together with the components involved in the development pipeline. Developers, as software providers, can satisfy the whole development process, from coding to container deployment, using MSO4SC services
+
+The role of developer is also the role having the expertise on how to execute a particular application or framework provided, but also how to configure it to run it efficiently and to take advantage of the computational or storage resources.
+
+In order to give support to end-users or to obtain support from other roles, there are several channels or tools to communicate. These tools, Askbot [19] and Gitter [20], together with the support plan, are explained in section 7.2.
+
+[[software-management]]
+== Software management
+
+In order to provide a software product to end-users, developers have to publish it into the Marketplace and provide the application workflow coded in TOSCA blueprints. Once this is done a single time, source code changes trigger the automated pipeline to create, deliver and deploy brand new application versions or bug fixes ready to be used.
+
+After this process, these new versions are transparently available through the MSO Portal for end-users and also developers. Figure 12 describes components, processes and interactions belonging to this workflow.
+
+image:media/image14.png[image,width=567,height=270]
+
+[[_Toc520829709]]Figure . Development life-cycle
+
+For satisfying the automated development process life-cycle, several services are provided from MSO4SC, like the software repository [5], container registry [6], marketplace, etc. The integration of these services results in a set of practices, tools and protocols for providing advanced features like automated testing in Cloud/HPC and continuous integration/delivery/deployment.
+
+The following sections describe all the artefacts involved in the entire development process pipeline.
+
+[[source-code-repository-and-continuous-integration]]
+=== Source Code Repository and Continuous Integration
+
+Gitlab together with Gitlab-CI provides the necessary features to configure the entire development workflow. The source code repository is based on Git and the continuous integration feature is based on the Gitlab-CI/CD also powered by Gitlab. The MSO4SC source code repository can be accessed from https://gitlab.srv.cesga.es[_https://gitlab.srv.cesga.es_].
+
+In addition to the service description provided in section 6 of D3.2 [2] and the description of its features in section 7 of D3.3 [3], here we present an overview of the integration with other MSO4SC services by means of the optional and advanced continuous integration feature.
+
+Gitlab is a mature and stable open software tool oriented to the community and provides a lot of useful documentation to get started [7]. Developers used to deal with Git and/or Github repositories will find a familiar environment with many useful and easy-to-use features.
+
+The first step is to sign-in using the single-sign-on feature (Figure 13). MSO4SC users have to click on “Filab” button and they will be redirected to the Identity Manager. Once the developer is logged in, he can transparently access to Gitlab, create or manage existing code repositories and configure the continuous integration process of their software products.
+
+image:media/image15.png[image,width=253,height=268]
+
+[[_Toc520829710]]Figure . Gitlab: Login
+
+After sign-in into Gitlab, users can create new repositories to store and manage their source code. Simply clicking on “New project”, see Figure 14, users can create empty repositories or clone existing repositories from places like Github, Bitbucket, etc. By default, new repositories are private, but developers can manage the privacy of their repository.
+
+image:media/image16.png[image,width=460,height=333]
+
+[[_Toc520829711]]Figure . Gitlab: Projects
+
+Once the repository exists, Developers only have to place a file “.gitlab-ci.yml” in the root directory of a repository to activate the CI/CD feature. In particular, the CI is performed on top of Docker containers allowing developers to control the environment where the compilation and containerization occurs.
+
+To configure the workflow of the CI/CD process, a YAML script describing the steps is used, see Figure 15. A deep explanation of the syntax of these files [8], how to integrate them with MSO4SC services [9] and a demonstration repository [10] can be found in the official documentation.
+
+image:media/image17.png[image,width=443,height=343]
+
+[[_Toc520829712]]Figure . Gitlab: CI/CD configuration file
+
+To integrate Gitlab-CI with other services, MSO4SC provides a Docker container, “mso4sc/ci:latest” at DockerHub, with the necessary tools to perform the CI/CD process taking advantage of several tools like:
+
+* **Singularity**: to build containers.
+* **Cloudify CLI**: to perform automated HPC/Cloud tests.
+* **SRegistry CLI**: to deliver Singularity containers to a container registry.
+
+With this configuration developers can apply agile practices and automatize the creation and delivery of new software packages ready to be used by end-users.
+
+[[container-registry]]
+== Container registry
+
+The container registry is the main storage point for the containerized software. This software consists on Pilots and MADFS, but also the applications or utils used from Pilot and MADFs workflows. All this software can be launched through the MSO4SC portal. It is based on SRegistry [11] a storage tool for Singularity containers. it is hosted in http://sregistry.srv.cesga.es/[_http://sregistry.srv.cesga.es_] and developers can sign-in using the Identity Manager from the top “login” button at the top bar.
+
+The web frontend, Figure 16, allows users and developers to explore, manage and download the existing containerized software based on Singularity. These tools empower developers to manage their software collections, decide who can use it and also who can modify, when configuring privacy settings. By default a new collection is private and only accessible for a set of chosen users, but it can be easily modified to be open for all users.
+
+image:media/image18.png[image,width=567,height=322]
+
+[[_Toc520829713]]Figure . SRegistry: Explore collections
+
+Containers are grouped in collections. If collections are public there are no restrictions to download and use them, but SRegistry also allows developers to manage the privacy of the software they provide and assign different roles to end-users. There are three main concepts involved in privacy management:
+
+* **Collections**: can be created using the “New collection” buttons in the “Containers” tab. Collections are groups of containers sharing the same characteristics, like privacy and involved members.
+* **Teams**: can be created using the “New team” button under the “Teams” tab. Teams are groups of members that can belong to a collection with a given role.
+* **Roles**: can be assigned through the “Settings” button of a particular collection. Roles are permissions assigned to a particular team member into a particular container collection. There are two possible roles.
+** Owner: can create or modify (“push”) new or existing containers
+** Contributor: can obtain (“pull”) private existing containers
+
+In Figure 17 one can see the form displayed when clicking on the “Settings“ button of a collection. From this screen collection owners can manage the roles of a particular collection.
+
+image:media/image19.png[image,width=567,height=449]
+
+[[_Toc520829714]]Figure . SRegistry: Roles and permissions
+
+The naming convention for stored containers is based on collection and container names. Containers can be obtained referencing them with “collection/container”. A command line tool, SRegistry-cli [12], can be used to obtain containers programmatically for being automatically deployed by the orchestrator in the proper computational infrastructure. The following command line is an example on how to retrieve a container using SRegistri-cli:
+
+image:media/image20.png[image,width=366,height=20]
+
+[[marketplace-1]]
+=== Marketplace
+
+Developers take the role of software suppliers in the MarketPlace. In addition to what an end-user can do using the MarketPlace, developers can create new products and offer them to be discoverable and purchased by end-users. Products can have a given price, to be paid through paypal, or be free. Once a product is purchased it will be usable from the Experiments tool.
+
+In addition to the presentation and introduction to this service in section 6.4 of deliverable D3.1 [1] and section 6 of deliverable D5.2 [4], here we present the necessary steps to create new products from the MarketPlace.
+
+All users can access to the MarketPlace from the top menu of the MSO Portal. The first view of the MarketPlace show the list of offered applications and a left menu to manage the product inventory and stock, see Figure 18.
+
+image:media/image21.png[image,width=567,height=357]
+
+[[_Toc520829715]]Figure . MarketPlace: Landing page
+
+To create a new product, developers have to click the “My stock” button. From this point developers can manage all the items and concepts related to a digital marketplace:
+
+* Catalogues
+* Products
+* Offerings
+
+A product must belong to a catalogue and an offering must be assigned to it. A developer must create one item in these three categories at least once to supply a new software product.
+
+A new catalogue of products can be created from “My stock” menu. After clicking on “My stock”, a new left menu is shown to access the management section of the MarketPlace. The button “New” on the “Catalogs” subsection displays a simple form to create a new catalogue. In this form only the name and description of the catalogue have to be provided, see Figure 19.
+
+image:media/image22.png[image,width=567,height=257]
+
+[[_Toc520829716]]Figure . MarketPlace: create a new catalog
+
+In the same way, new product specifications can be defined for a new product. Again, developers must click on “Product Specifications” and then in the “New” button. A form is displayed and must be filled-in by developers. From this form users name the product and describe its characteristics. They can also do product versioning, create bundles of products, attach metadata and licenses and describe the terms and conditions of usage, see Figure 20.
+
+image:media/image23.png[image,width=567,height=285]
+
+[[_Toc520829717]]Figure . MarketPlace: create a new product
+
+Finally, to present the product to users, an offering must be also created. A form is displayed to create a new offering clicking on “New” button of “Offerings” subsection. A new offering attaches an existing product to a catalogue and assign a price plan to the product, among other details, see Figure 21.
+
+image:media/image24.png[image,width=525,height=267]
+
+[[_Toc520829718]]Figure . MarketPlace: create a new offering
+
+[[experiments-tool-1]]
+=== Experiments Tool
+
+The Experiments tool screen displayed for developers shows an extra button called “Applications”. At this point developers can assign workflows to their owned software products. This step is required to provide to users not only the software but also the way it is going to be executed and how to interact with it.
+
+To register a new application, developers have to select a product, assign a name to the experiment and attach a packed file containing the workflow, see Figure 22.
+
+image:media/image25.png[image,width=440,height=398]
+
+[[_Toc520829719]]Figure . Experiments tool: Register a new experiment
+
+Workflows are written in TOSCA blueprints and describe the required user inputs and the steps that are going to be executed. A brief explanation of TOSCA blueprints is presented in the following section 5.1.5.
+
+[[tosca-blueprints]]
+=== TOSCA blueprints
+
+Blueprints are scripts to describe the workflow of a particular Pilot or MADF and how the users interact with it. It’s written in YAML format under the Cloudify TOSCA specification.
+
+More information about the language itself can be found in the official documentation [13]. The introduction to the standard and usage example remains unchanged from deliverable D3.2 [2], in particular one can see this information in section 4.2 and Appendix of D3.2. MSO4SC also provides some technical documentation [14], about TOSCA and how to create new blueprints from scratch, and also a public repository containing examples [15].
+
+[[data-management]]
+== Data management
+
+The data management component is the one in charge of managing the data storage and transfer to allow users to reference custom data to be used as inputs from custom experiments and to store outputs and results after a successful experiment.
+
+The design of the component remains unchanged and has been described in section 7 of deliverable D3.2 [2] and in section 8 of deliverable D3.3. In addition, in this section, two main categories of tools are described, the data catalogue and data movers.
+
+[[data-catalogue-1]]
+=== Data Catalogue
+
+The Data Catalogue is the tool allowing publishing data and attaching metadata in order to be discoverable and directly published and retrieved during workflows execution by means of the experiments tool. The Data Catalogue is based on CKan, a brief description of this tool and its features was already presented in section 6.2 of deliverable D3.1 [1] and section 8 of deliverable D5.2 [4]. In these sections we describe the minimal steps to make data available from CKan.
+
+The Data Catalogue is accessible at the top bar of the MSO Portal. Data in the Data Catalogue is organized in datasets, groups and organizations. Datasets are strongly related sets of resources, containing multiple files, under the same identifier and characteristics. Organizations allow to group datasets by their owner. It is mandatory to associate a dataset with an Organization. Finally, groups are another optional hierarchy level allowing the grouping of several related datasets into the same folder.
+
+The first time a developer wants to provide new data, at least, a new organization and datasets must be created. To create a new organization the user must click on the “Organizations” tab on CKan menu and then click on “Add organization” button. A form to introduce the organization name and description and to optionally attach a picture must be filled-in, see Figure 23.
+
+image:media/image26.png[image,width=567,height=270]
+
+[[_Toc520829720]]Figure . Data Catalogue: Create a new organization
+
+Once the organization is created users can attach to it as many datasets as they want. To create a new dataset, users must click on the “Datasets” tab on CKan menu and then click on “Add dataset” button. A form to name, describe and upload or reference files is displayed, see Figure 24.
+
+image:media/image27.png[image,width=567,height=278]
+
+[[_Toc520829721]]Figure . Data Catalogue: Create a new dataset
+
+[[_35nkun2]]The data can be directly stored into the data catalogue or referenced by an URL. In addition, custom tags, license, description, maintainer and other metadata can be described together with the raw data. The visibility and permissions of the data can be also managed by users. By default, datasets are private but the user can choose the visibility for a new dataset.
+
+[[data-movers]]
+=== Data movers
+
+Strongly related with data referencing from the data catalogue, a set of tools are provided for transferring data. Thanks to these tools, data transfers can be performed not only from and to the data catalogue, but also from a set of heterogeneous cloud storage endpoints and data nodes. In addition to common linux tools, usually available in all linux systems, like “ftp”, “wget” or “curl”, rClone and Globus-CLI were containerized and provided to be used from the blueprints.
+
+Using rClone, developers can simply enable end-users to specify their personal cloud storage endpoints to be used as input and/or output storage. Globus-CLI is an open source tool that allows performing efficient transfers of big amounts of data between data nodes and also personal computers. For performing high performance transferences Globus-CLI was also containerized and provided by MSO4SC.
+
+To reference remote data to be transferred from and to the current computational resources using rClone, three requirements must be passed through the blueprints:
+
+* **Credentials file**: an rClone config file containing the enabled endpoints and credentials per user.
+* **Input path**: a reference to the remote storage endpoint concatenated with the path to the particular input file or directory. A local path can be also used.
+* **Output path**: a reference to the remote storage endpoint concatenated with the path to the particular output file or directory. A local path can be also used.
+
+An example of usage with rClone is shown in the following line:
+
+image:media/image28.png[image,width=542,height=20]
+
+The requirements to perform transfers with Globus-CLI are similar to the ones required by rClone. Again, three requirements must be passed through the blueprints:
+
+* **Credentials file**: a Globus config file containing the authentication tokens and expiration date. This file must be placed in a “.globus.cfg” file located in the home directory.
+* **Input path**: the ID of a data node concatenated with the path to the particular input file or directory. A local path can be also used.
+* **Output path**: the ID of a data node concatenated with the path to the particular output file or directory. A local path can be also used.
+
+An example of how to use Globus-cli to perform a transfer is shown in the following line:
+
+image:media/image29.png[image,width=567,height=18]
+
+Extensive information about these tools from the point of view of a resources provider can be found in the following section.

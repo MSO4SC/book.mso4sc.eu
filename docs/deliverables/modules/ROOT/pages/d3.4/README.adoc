@@ -1,0 +1,507 @@
+image:media/d3.4/image1.png[image,width=174,height=165]
+
+[[_gjdgxs]]
+
+MSO4SC
+
+D3.4 Integrated Infrastructure, Cloud Management and MSO Portal v2
+
+[cols=",",options="header",]
+|====================================================================================================================
+|Project Acronym |MSO4SC
+|Project Title |Mathematical Modelling, Simulation and Optimization for Societal Challenges with Scientific Computing
+|Project Number |731063
+|Instrument |Collaborative Project
+|Start Date |01/10/2016
+|Duration |24 months
+|Thematic Priority |H2020-EINFRA-2016-1
+|====================================================================================================================
+
+**Dissemination level**: Public
+
+[cols=",",options="header",]
+|========================================================================================================
+|Work Package |WP3 Cloud Technology
+|Due Date: |_M22_
+|Submission Date: |_17/08/2018_
+|Version: |_1.0_
+|Status |_Final_
+|Author(s): |_Carlos Fernández, Pablo Díaz, Victor Sande (CESGA); F. Javier Nieto, Javier Carnero (ATOS)_
+|Reviewer(s) |_Atgeirr Rasmussen (SINTEF), Johan Hoffman (KTH)_
+|========================================================================================================
+
+[cols=",",]
+|==================================================================================================================================================================================
+|image:media/d3.4/image2.png[image,width=66,height=46] |The MSO4SC Project is funded by the European Commission through the H2020 Programme under Grant Agreement 731063
+|==================================================================================================================================================================================
+
+[[version-history]]
+= Version History
+
+[cols=",,,",]
+|==================================================================================
+|*Version* |*Date* |*Comments, Changes, Status* |*Authors, contributors, reviewers*
+|0.1 |08/02/2018 |Preliminary TOC |_Víctor Sande_ (CESGA)
+|0.2 |02/08/2018 |Application Monitor |Víctor Sande (CESGA)
+|0.3 |03/08/2018 |Software Management |Víctor Sande (CESGA)
+|0.4 |07/08/2018 |Orchestrator and Monitor |Javier Carnero (ATOS)
+|0.5 |08/08/2018 |MSO Portal |Javier Carnero (ATOS)
+|0.6 |08/08/2018 |Data Management & Resources |Víctor Sande (CESGA)
+|0.7 |08/08/2018 |Overview |Javier Carnero (ATOS)
+|0.8 |09/08/2018 |Overview, acronyms and refs |Víctor Sande (CESGA)
+|1.0 |13/08/2018 |Reviewer’s comments addressed |Javier Carnero (ATOS)
+|==================================================================================
+
+*Table of Contents*
+
+[[list-of-figures]]
+= [[_Toc521658076]][[_Toc522291131]]List of figures
+
+[[list-of-tables]]
+= [[_Toc521658077]][[_Toc522291132]]List of tables
+
+[[executive-summary]]
+= [[_Toc521658078]][[_Toc522291133]]Executive Summary
+
+This deliverable represents the current status of all the components belonging to the MSO4SC e-Infrastructure together with implementation and deployment details. Deliverable D3.3 already provided an updated description of the MSO4SC e-infrastructure components. In this deliverable we describe how these components are integrated and how to use them in the MSO4SC infrastructure, including documentation of the implemented documents.
+
+[[introduction]]
+= [[_Toc521658079]][[_Toc522291134]]1. Introduction
+
+[[purpose]]
+== [[_Toc521658080]][[_Toc522291135]]1.1 Purpose
+
+Once the first set of requirements was available and a deep analysis was performed to determine the features and services to be provided through the e-Infrastructure, in D2.2 and D2.6 those features were analysed, identifying the conceptual layers they belong to, and defining the high level architecture of the e-Infrastructure. This definition includes high level components and examples about how they are expected to interact when providing the functionalities.
+
+Deliverables D3.1 and D3.3 provide deeper detail as a base for the implementation of these components. In most cases a study of the available technologies was performed while, in others, a pilot implementation was performed to verify that the design would be suitable. Also, benchmarking of the technologies was performed to ensure that there would be no performance degradation when deployed in the e-infrastructure.
+
+Deliverable D3.4 describes how these components are implemented and integrated, taking in account the design described in D3.1 and D3.3, and provides an overview of the current status.
+
+In section 2 of this document we present an overview of the implementation plan and the evolution of the components of the MSO4SC e-Infrastructure. Some metrics are also presented to provide some details about the production e-Infrastructure and its usage. In section 3 we present news on the integration of MADFs and Pilots in the MSO4SC e-Infrastructure. In section 4 we update the details of the MSO4SC orchestrator and monitor remarking some new features. Section 5 provides a description of new implemented features of MSO Portal together with some included community tools. Section 6 provides a description of the new features of the Software Management component. In Section 7 we present modifications of the data repository configuration and new tools for data movement. In section 8 we describe the new hardware components of the MSO4SC e-Infrastructure recently included for testing purposes. Finally in section 9 the summary and conclusions of this deliverable are provided.
+
+[[glossary-of-acronyms]]
+== [[_Toc521658081]][[_Toc522291136]]1.2 Glossary of Acronyms
+
+[cols=",",options="header",]
+|==============================================================
+|*Acronym* |*Definition*
+|*AMQP* |Advanced Message Queuing Protocol
+|*CD* |Continuous Delivery
+|*CI* |Continuous Integration
+|*CLI* |Command Line Interface
+|*D* |Deliverable
+|*DTN* |Data Transfer Node
+|*EOSC* |European Open Science Cloud
+|*FTP* |File Transfer Protocol
+|*GB* |Gigabyte
+|*HTTP* |HyperText Transfer Protocol
+|*HPC* |High Performance Computing
+|*IM* |Infrastructure Manager
+|*MADF* |Mathematics Application Development Frameworks
+|*MSO* |Modeling Simulation and Optimization
+|*PRACE* |Partnership for Advanced Computing in Europe
+|*Q&A* |Question & Answer
+|*RAM* |Random Access Memory
+|*SCP* |Secure Copy Protocol
+|*SSH* |Secure Shell
+|*SSO* |Single Sign-On
+|*TOSCA* a|
+_______________________________________________________________
+Topology and Orchestration Specification for Cloud Applications
+_______________________________________________________________
+
+|*URL* a|
+________________________
+Uniform Resource Locator
+________________________
+
+|*WP* a|
+____________
+Work Package
+____________
+
+|*YAML* a|
+__________________________
+YAML Ain’t Markup Language
+__________________________
+
+|==============================================================
+
+[[_Toc522291186]]**Table 1. Acronyms**
+
+[[e-infrastructure-overview]]
+= [[_Toc521658082]][[_Toc522291137]]2. E-Infrastructure Overview
+
+After our last face to face meeting in Strasbourg, the project decided to move to a more agile methodology to manage the work of the core components. This decision lead to use, on top of our GitHub repositories, a tool (ZenHub) to arrange, prioritize and encourage all partners and external people to work collaboratively.
+
+Since then, the number of MSO4SC users has grown from 16 to 52. 13 services are deployed to provide the project web services, each service is deployed in two environments: One for production, and other to tests with real users the new functionalities that are incrementally added (canary). 21 simulation applications are published in the Marketplace, and 14 datasets in the Data Catalogue.
+
+185 issues and pull requests have been opened (enhancements, bugs, research discussions, etc). From which 105 are closed at the time of writing. Because not all the work done in the project was migrated to the new methodology due to being near the end of the project, this only reflects the work done in the orchestrator, monitoring and portal modules of MSO4SC.
+
+The work has been arranged into releases and milestones (sprints), controlling the pace of the entire project and adapting accordingly our work foresight.
+
+image:media/d3.4/image3.png[image,width=510,height=417]
+
+[[_Toc521658101]][[_Toc522291157]]**Figure 1. Sprints velocity report**
+
+From this analysis we were able to agree on a WP3 outcomes map feasible for all partners to the end of the project (as it is the work package in charge of the core components).
+
+image:media/d3.4/image4.png[image,width=567,height=529]
+
+[[_Toc521658102]][[_Toc522291158]]**Figure 2. e-Infrastructure: Roadmap**
+
+Changing the work methodology enabled us to increase the quality of the communication between partners and stakeholders, as well as giving better implementation velocity and quick feedback. In this regard, a “canary” version of the portal was deployed to test with developers and early end-users the new features that were being added. Activity of the components is presented on the following subsections.
+
+Three HPC infrastructures (FTII, Atlas and SZE cluster) are being used within the project (based on Slurm), and another one (HLRS) is being used outside the project (based on Torque, the COEGSS project is using the MSO4SC orchestrator).
+
+If we focus on the resources usage on FT2, the main HPC provider of the project, we can highlight that 26 users have access to FT2 through the MSO4SC project. 16 of them are actively using these resources. The total number of jobs submitted by these users is 10826. In Figure 3 one can see the distribution of the number of submitted jobs per user. The distribution profile is heterogeneous and not only depends on the activity of a particular user; the number of jobs per workflow is also relevant. For example, those users running ensembles, embarrassingly parallel jobs, are the ones with high number of submitted jobs.
+
+image:media/d3.4/image5.png[image,width=396,height=222]
+
+[[_Toc521658103]][[_Toc522291159]]**Figure 3. Resources usage: Number of jobs per user**
+
+74031 core/hours is the total reservation time, but 52235 core/hours were effectively consumed. In Figure 4 one can see the amount of time reserved and spent per user. User profiles are heterogeneous again. To try to categorize MSO4SC end-user profiles and see how resources are being used, we can go deep into the characteristics of the submitted jobs per user in terms of amount of resources.
+
+image:media/d3.4/image6.png[image,width=480,height=269]
+
+[[_Toc521658104]][[_Toc522291160]]**Figure 4. Resources usage: Core/hours per user**
+
+The number of cores requested per job is between a range of 1 and 256, while the most repeated maximum is 128. In the following figure we show the distribution of the maximum number of requested cores per user in a single job.
+
+image:media/d3.4/image7.png[image,width=396,height=222]
+
+[[_Toc521658105]][[_Toc522291161]]**Figure 5. Resources usage: Max requested cores per user in a single job**
+
+Memory usage profiles per job can also vary a lot. The minimum RAM memory reserved by a single job is 5GB, while the maximum is 2TB. The most repeated maximums per user are 256GB and 1TB.
+
+image:media/d3.4/image8.png[image,width=396,height=222]
+
+[[_Toc521658106]][[_Toc522291162]]**Figure 6. Resources usage: Max requested memory per user in a single job**
+
+Finally, storage requirements per user can also vary. Some users are only storing a few GBs while others need more than 256GB of storage. It’s not only related with the amount of input or output data generated, but also with the need to keep these data persistently.
+
+image:media/d3.4/image9.png[image,width=396,height=222]
+
+[[_Toc521658107]][[_Toc522291163]]**Figure 7. Resources usage: Max requested memory per user in a single job**
+
+For cloud infrastructures, SZE cloud and CityCloud, both based on OpenStack, have been successfully tested. Compatibility with other technologies as OpenNebula or EOSC Hub is under development at the time of writing.
+
+CESGA provides the main cloud infrastructure for the deployment of the MSO4SC components. From this point of view 1105 virtual machines were launched since the beginning of the project for testing and deploying the e-Infrastructure. These VMs consumed a total amount of 233422 hours. Currently 16 VMs are running and hosting all the components of the production e-Infrastructure. In further sections, more details and metrics per component are provided.
+
+[[deployment-and-integration-of-madfs-in-the-e-infrastructure]]
+= [[_Toc521658083]][[_Toc522291138]]3. Deployment and Integration of MADFs in the e-Infrastructure
+
+Previous studies on containers’ performance and portability, recommendations and good practices were presented in section 4.2 of both deliverable D3.1 [3] and D3.3 [5], and in section 3 of deliverable D3.2 [4]. This documentation and examples were also drafted in a repository. In Figure 8 one can see the commit history of this repository.
+
+image:media/d3.4/image10.png[image,width=567,height=106]
+
+[[_Toc521658108]][[_Toc522291164]]**Figure 8. Singularity documentation: Commit history**
+
+As software portability in MSO4SC relies on container technology, mainly Singularity, several improvements, fixes and new tools were updated and containerized to extend some features and functionalities of the e-Infrastructure. These improvements have a major impact in some components like Software and Data Management and Monitor. All new containers are hosted in the MSO4SC Container Registry, for Singularity, and in DockerHub, for Docker containers.
+
+The Docker container used for continuous integration and delivery in MSO4SC was updated to include Cloudify command line (cfy). With this tool, and taking advantage of the HPC-plugin developed from scratch within the Orchestrator component, MSO4SC enables deployment, and automated testing of MADFS and Pilots on HPC, and blueprint validation. A deeper explanation of the new CI/CD workflow is described in section 6.1.
+
+Data movement tools like Rclone [14] and Globus [16] were also containerized. These tools extend the number of storage endpoints supported for input and output data transfers. On the one hand, rClone is an rsync wrapper to manage the authentication for transfer data from and to several kinds of cloud storage providers. On the other hand, Globus enables efficient transfers of large datasets between Data Transfer Nodes (DTN). See more information in section 7.3.
+
+The Application Monitor is a new service consisting of two tools, the server and the probe. The self-hosted server was containerized and deployed in production using Docker and Docker-Compose. The probe is made to be portable and executed together with the MADFs and Pilots and it is being distributed using Docker and Singularity containers. A deeper description of these tools is exposed in section 4.1.
+
+All software in MSO4SC is containerized. It includes e-Infrastructure services, tools and also MADFs and Pilots. In Figure 9 one can see the current number of created containers.
+
+image:media/d3.4/image11.png[image,width=480,height=270]
+
+[[_Toc521658109]][[_Toc522291165]]**Figure 9. Containers: Number of tools and services**
+
+Finally, an important bug in the installation of Singularity at Finis Terrae II (FT2) was also discovered. The previous installation of Singularity presented an issue while running multiple simultaneous and concurrent jobs resulting in apparently random container failures. The fix consists in a new installation configuring the local state Singularity directory in all computational nodes instead of a shared device. The issue was fixed allowing running multiple simultaneous Singularity jobs at FT2.
+
+[[the-orchestrator-and-monitor]]
+= [[_Toc521658084]][[_Toc522291139]]4. The Orchestrator and Monitor
+
+While many improvements and new features have been added to the orchestrator & monitor systems, their architecture has not substantially changed from D3.2 [4].
+
+[[orchestrator-and-basic-monitoring]]
+== 4.1 Orchestrator and Basic Monitoring
+
+While the orchestrator improvements are many (see below), the most important one has been the implementation of the hybrid executions in both HPC and Cloud resources. It has been achieved by growing our “HPC plugin” for Cloudify (the core of MSO4SC orchestrator), as well as allowing it to collaborate with other official plugins like the OpenStack plugin. Another one is currently under development to allow the orchestrator to work with many other Cloud providers not available in Cloudify, such as OpenNebula [8] or EOSC Hub [9].
+
+Publication of application outputs in external storage it is now available after an execution finishes, currently only transfers to the MSO4SC Catalogue are fully integrated. We have done extensive research in order to work with other services like Google Drive, Dropbox, Owncloud, and many others, and if possible, we will try to implement a stronger integration within the MSO4SC project.
+
+Other important features that should be outlined are the security improvements that have enabled to work with a larger range of HPCs, such as Atlas from the Strasbourg university; the “scale” property that allows us to define job arrays (or how a job should scale in parallel); and many other such as supporting all Slurm configuration options, execution isolation by defining working directories for each execution, etc.
+
+Relevant work has also been done in the deployment field, by dockerizing the orchestrator and its plugins (the external monitor was already dockerized in D3.2)
+
+Additionally, we have also worked on the definition of an algorithm for supporting the selection of the resources provision and selection. Such algorithm tries to predict the load and waiting time of complex jobs in the HPC queues. It also predicts the time to move the data used by the application, depending on the network historical behaviour. According to these parameters, it determines whether some tasks can be executed in a Cloud infrastructure, instead of doing it in HPC, as a way to save time and optimize resources.
+
+Finally, other work was done in collaboration with other projects, for example the integration with Torque, which was done by the COEGSS project [10] (they are using the MSO4SC orchestrator as well). This joint work was possible thanks to some internal modifications in the HPC plugin, like the workload manager abstraction and SSH client changes. Nevertheless, in this regard the most important change was to implement a brand new internal monitor inside the orchestrator.
+
+image:media/d3.4/image12.png[image,width=567,height=136]
+
+[[_Toc521658110]][[_Toc522291166]]**Figure 10. Cloudify HPC Plugin: Activity report**
+
+image:media/d3.4/image13.png[image,width=567,height=108]
+
+[[_Toc521658111]][[_Toc522291167]]**Figure 11. Cloudify HPC Plugin: Commit history**
+
+image:media/d3.4/image14.png[image,width=567,height=112]
+
+[[_Toc521658112]][[_Toc522291168]]**Figure 12. Orchestrator command line tool for developers: Commit history**
+
+The internal monitor, while it lacks the power of the external monitor in terms of the metrics it can gather, unchains the orchestrator from the external monitor and allows external administrators to use it as a completely independent component that they can include in their own system architectures as a black box (e.g. the COEGSS case). This has many advantages, as the orchestrator can keep growing its own open source community independent of the MSO4SC project.
+
+On the monitoring side, the other main change is the application logger which, instead of being implemented inside the external monitor, was implemented as a separate component for technical reasons (see next subsection).
+
+image:media/d3.4/image15.png[image,width=567,height=108]
+
+[[_Toc521658113]][[_Toc522291169]]**Figure 13. MSO4SC external monitor server: Commit history**
+
+image:media/d3.4/image16.png[image,width=567,height=106]
+
+[[_Toc521658114]][[_Toc522291170]]**Figure 14. MSO4SC external monitor exporters: Commit history**
+
+[[application-monitor]]
+== [[_Toc521658085]][[_Toc522291141]]4.2 Application Monitor
+
+A log file is a file that records the events that occur while running some software. Applications usually records this events into one or more files to allow users, developers and administrators to track, inspect and diagnose what is currently going on.
+
+The Application Monitor is the service allowing e-Infrastructure users to track the evolution of an experiment execution by means of its logs. It consists of two components developed from scratch, the server and the probe, both included in the e-Infrastructure. In summary, the responsibilities of the Application Monitor are to homogenize, send, store and visualize logs. This helps to detect warnings, errors and successes in real time.
+
+On the one hand, the probe (“remotelogger-cli”) is a lightweight command line tool that must be executed together with the experiment where it runs. The probe follows one or more incremental log files using pattern matching to inspect, filter and send log lines to the server. No modification of MADFS and Pilots are required. The glue between the probe and the applications is a YAML file describing and categorizing log lines using regular expressions and common log attributes like verbosity and severity, see Figure 15.
+
+image:media/d3.4/image17.png[image,width=567,height=154]
+
+[[_Toc521658115]][[_Toc522291171]]**Figure 15. Application monitor: Log filter file**
+
+The orchestrator is the component in charge of introducing the containerized probe transparently together with singularity workflows.
+
+On the other hand, the server (“remotelogger”) receives log lines, stores them persistently in a database and displays them in a web like console. The history of any experiment can be retrieved at any moment. In addition, real time logs are sent to the web client to live track the evolution of the experiment. The integration of the Application Monitor within the MSO Portal results in the automated workflow described in Figure 16.
+
+The design has been done with scalability of the whole service in mind. To partition and distribute the responsibilities as much as possible is of great importance for getting lightweight services and avoiding bottlenecks. Some of the pieces involved in the stack of the service are task queues, a message broker, a database, a web server and event observers. Most important involved protocols are AMQP, WebSockets and HTTP.
+
+image:media/d3.4/image18.png[image,width=567,height=388]
+
+[[_Toc521658116]][[_Toc522291172]]**Figure 16. Application monitor: Interaction diagram**
+
+The service was implemented including functionalities incrementally. This implementation strategy allows us to focus on testing every micro-component one by one and the integration of all of them obtaining two robust components. Before the deployment it was tested in real HPC and Cloud environments. Repositories containing the code are hosted in the MSO4SC Github Organization [11]. In Figures 17 and 18 one can see the commit history of the server and the probe.
+
+image:media/d3.4/image19.png[image,width=567,height=101]
+
+[[_Toc521658117]][[_Toc522291173]]**Figure 17. Application monitor: Probe commit history**
+
+image:media/d3.4/image20.png[image,width=567,height=105]
+
+[[_Toc521658118]][[_Toc522291174]]**Figure 18. Application monitor: Server commit history**
+
+[[mso-portal]]
+= [[_Toc521658086]][[_Toc522291142]]5. MSO Portal
+
+While the architecture and main modules of the MSO4SC Portal web application has not changed since D3.2, a lot of work has been done to add as many features as possible and be as usable and useful as possible. In this regard, all the partners involved in MSO4SC but specifically MADFs and Pilots developers have been very active asking for new features, enhancements and so on according with their community’s needs.
+
+image:media/d3.4/image21.png[image,width=312,height=312]
+
+[[_Toc521658119]][[_Toc522291175]]**Figure 19. MSO Portal: Services ecosystem**
+
+The experiments management tool has suffered a lot of changes to provide the end user an interface as simple as possible, following what we call the “one-click philosophy”: The user selects an application, configures it as little as possible (selects datasets, if it wants to have the outputs published, etc.), and clicks “run”. The tool presents the execution logs, as well as the application logs if available.
+
+Before this process occurs, application developers can register or update applications binaries very easily through the web. First they need to create the application in the Marketplace, giving its metadata information and price. Then, they can register the associated binaries in the experiments tool. On the end-user side, it must purchase the application (although many of the applications are free) before running it.
+
+Following security enhancements in the orchestrator, the portal has followed the same path by allowing the user to configure and use those new features, as well as adding more security ensuring that users can only deal with datasets and applications they have access to, without interaction with any other execution / dataset.
+
+The IDM, Marketplace and Data Catalogue were updated according with latest FIWARE changes, and all modules have been dockerized and their deployment automated.
+
+image:media/d3.4/image22.png[image,width=567,height=136]
+
+[[_Toc521658120]][[_Toc522291176]]**Figure 20. MSO4SC Portal: Activity report**
+
+image:media/d3.4/image23.png[image,width=567,height=102]
+
+[[_Toc521658121]][[_Toc522291177]]**Figure 21. MSO4SC Portal: Commit history**
+
+Extensive work has been done to improve and complete the documentation; both technical information for developers and for end users. Two repositories, _book_ and __resources__, are meant to collaboratively provide general MSO4SC usage documentation and examples of it respectively.
+
+image:media/d3.4/image24.png[image,width=567,height=104]
+
+[[_Toc521658122]][[_Toc522291178]]**Figure 22. MSO4SC Book: Commit history**
+
+image:media/d3.4/image25.png[image,width=567,height=101]
+
+[[_Toc521658123]][[_Toc522291179]]**Figure 23. MSO4SC resources: Commit history**
+
+Last but not least, in the following subsection we present the integration of the community tools. Large datasets can be managed as well from the MSO Portal; see section 7.3 for more details.
+
+[[community-tools]]
+== [[_Toc521658087]][[_Toc522291143]]5.1 Community tools
+
+With the aim of enriching the functionalities that are provided to the community, new collaborative tools have been incorporated to favor the communication and diffusion mechanisms of the e-Infrastructure. In particular Askbot, a Q&A tool, and Moodle, a learning platform, were added to the MSO4SC services. In addition to the introduction of these tools in section 6 of deliverable D3.1 and section 14 of deliverable D5.2, here we present the final deployment.
+
+[[askbot]]
+=== [[_Toc521658088]][[_Toc522291144]]5.1.1 Askbot
+
+Askbot is a widely-used Q&A self-hosted open software similar to other well-known tools like StackOverflow [18]. Websites such as Fedora and LibreOffice use it to run their Q&A sites. It allows users in similar fields to discuss questions and answer to common and specialist questions.
+
+Askbot is not only a tool to intercommunicate end-users, but also a key tool to provide a channel for the uses of different roles to be connected. It is a platform to quickly share knowledge, solve issues and provide first level support to end-users, developers and resources providers. Some of the Askbot features are listed below:
+
+* Efficient question and answer knowledge management
+* Focused on-topic discussions
+* Best answers are shown first
+* Tag and categorize
+* Follow-up in the comments
+* Organize comments and answers by re-posting
+* Everything is editable
+
+Askbot is already deployed in production and integrated into MSO4SC. It is hosted on https://askbot.srv.cesga.es/questions[_https://askbot.srv.cesga.es_]. One of the biggest efforts in the integration of Askbot into MSO4SC was the adaptation of the authentication module to take advantage of the authentication methods provided by the Identity Manager. An OAuth2 plugin in Python has been developed to integrate it with the SSO mechanism. Once the user is signed-in MSO4SC, he/she can simply start new threads, post questions or answers into the forum. Users don’t need to be authenticated to be able to read existing threads. More information about how to use Askbot and its role into the support plan can be found in section 7.3.1 of deliverable D5.6 [6].
+
+[[moodle]]
+=== [[_Toc521658089]][[_Toc522291145]]5.1.2 Moodle
+
+Moodle is an open learning platform designed to provide educators, administrators and learners with a single robust, secure and integrated system to create personalised learning environments. The integration of Moodle into the e-Infrastructure aims to centralize learning resources related with MSO4SC. Some of the Moodle features are:
+
+* All-in-one teaching and learning platform
+* Highly flexible and fully customisable
+* Scalable to any size
+* Robust, secure and private
+* Use any time, anywhere, on any device
+* Backed by a strong community
+* Multilingual
+
+Moodle is already deployed in production and integrated into MSO4SC. It is hosted in https://moodle.srv.cesga.es/[_https://moodle.srv.cesga.es_]. An OAuth2 plugin in PHP has been developed to integrate it with the SSO mechanism. Once a user is signed-in MSO4SC, he/she can simply create or join to his/her courses. Teachers or course moderators can create new content, manage the list of students and also evaluate them. Users don’t need to be authenticated to be able to access open courses.
+
+[[software-management]]
+= [[_Toc521658090]][[_Toc522291146]]6. Software management
+
+[[source-code-repository-and-continuous-integration]]
+== [[_Toc521658091]][[_Toc522291147]]6.1 Source code repository and continuous integration
+
+The source code repository and continuous integration services remains unchanged since D3.3 [5]. The service is up and running with minor improvements since November 2017. This can be also seen in the repository containing the preparation and configuration files of the project. the commit history of the repository is shown in Figure 24. Currently it is being actively used by 17 registered users. It contains 15 source code repositories and performed 294 CI/CD processes.
+
+image:media/d3.4/image26.png[image,width=567,height=104]
+
+[[_Toc521658124]][[_Toc522291180]]**Figure 24. Gitlab: Service preparation and deployment commit history**
+
+In the last period new functionalities were explored and introduced within the CI/CD workflow. In particular, Cloudify was included into the containerized CI/CD tools provided to enable automated testing on HPC of the experiment workflows described with TOSCA blueprints.
+
+In Figure 25 one can see how to use Cloudify (cfy) to test and execute the blueprints during the CI/CD process. In the example below a “blueprint” directory containing an experiment workflow is supposed to exist. This script sequentially perform the validation of the blueprint itself, installation of the requirements, experiment preparation and data movement (install), execution of the experiment workflow (run_jobs) and experiment workdir cleaning (uninstall).
+
+image:media/d3.4/image27.png[image,width=567,height=149]
+
+[[_Toc521658125]][[_Toc522291181]]**Figure 25. CI/CD: Automated HPC test configuration**
+
+The entire CI/CD workflow has been updated to include all the involved artefacts, features and interactions to provide brand new software versions or bug fixes to be quickly available through the MSO Portal. As shown in Figure 26, source code changes trigger software packaging (compilation and containerization), testing (remote deployment and tests on HPC/Cloud) and delivery (publishing into a container Registry).
+
+image:media/d3.4/image28.png[image,width=567,height=270]
+
+[[_Toc521658126]][[_Toc522291182]]**Figure 26. CI/CD: Workflow**
+
+A broad view of the whole CI/CD pipeline was already presented in section 5.1.1 of D5.6 [6]. One can find more information in the official MSO4SC documentation [12] and examples in the MSO4SC repository [13].
+
+[[container-registry]]
+== [[_Toc521658092]][[_Toc522291148]]6.2 Container registry
+
+The design and role of the Container Registry in the e-Infrastructure remains unchanged since D3.3 [3]. In addition, some new releases of SRegistry were launched, tested and deployed under MSO4SC to include an important feature like privacy management and some bug fixes. Currently the MSO4SC container registry is hosting 20 Singularity containers: 12 MADFS and Pilots and 8 tools.
+
+The roles model has been completely redesigned to manage owners and contributors per collection (set of containers). “Owners” can modify the containers of a particular collection and “Contributors” can use containers of a private collection. Public collections have no usage restrictions. The concept of “Teams” was also introduced to ease the management of groups of users. Privacy management is an import requirement of the e-Infrastructure which allows developers to control who is able to use their software, but also who can contribute to it.
+
+In section 5.1.2 of D5.6 [6] a complete description of the roles and permission management system of SRegistry from the developers’ point of view was provided.
+
+A new important feature is the integration of SRegistry with Globus. This feature allow service admins to perform efficient container transfers based on GridFTP from the container registry to any other cluster or supercomputing center providing a Globus DTN.
+
+In addition, some bugs where found during the normal functioning of the service and fixed. The most important bugs were related to an issue with large containers transfers (more than 3GB) and also to a bottleneck with several simultaneous downloads. These issues were fixed with the deployment of a new uploading strategy implemented by the SRegistry maintainers and the improvement of the web server configuration.
+
+[[data-management]]
+= [[_Toc521658093]][[_Toc522291149]]7. Data Management
+
+[[_atubo7gg38r2]]The data management component includes several tools as the Data Catalogue base and data movers. The Data Catalogue is the main cloud tool for storing and referencing data, it also enhances data visibility allowing searches. On the other hand, data movers include heterogeneous storage providers support (Rclone) and also efficient large data transfers (Globus). These tools enable an extra way to perform private data movement. Figure 27 illustrates some providers supported by these tools.
+
+[[_m98b22n9b2rh]]image:media/d3.4/image29.png[image,width=245,height=245]
+
+[[_Toc521658127]][[_Toc522291183]]**Figure 27. Data Management: Heterogeneous storage providers**
+
+[[section]]
+==
+
+[[data-catalogue]]
+== [[_Toc521658094]][[_Toc522291150]]7.1 Data Catalogue
+
+The Data Catalogue has not essentially changed from D3.2 [4], but as outlined in the portal section, it has been tuned to interact better with the experiments tool and the orchestrator. In this regard, users can now create and maintain not only public datasets, but private ones. Those datasets can be stored on the Data Catalogue’s own storage provided by MSO4SC, or externally reference it by URL.
+
+Similarly, users can not only reference public/private datasets in their simulations, but also use the datasets to automatically store output data coming from its execution. This output data can be later be visualized using the visualization tool.
+
+[[cloud-storage]]
+== [[_Toc521658095]][[_Toc522291151]]7.2 Cloud storage
+
+Rclone is a rsync interface to support authentication and transfer using multiple cloud storage providers. For example, one can copy files either to or from a remote storage services like Amazon S3 to Google Cloud Storage, or locally from a host to a remote storage. Each cloud storage system is slightly different. Rclone attempts to provide a unified interface to them, but it implies some underlying differences [15]. All providers support the “copy” and “sync” commands.
+
+The containerized Rclone provided by MSO4SC allows including it into experiment workflows by means of blueprints. The requirements to include Rclone into a workflow (to have valid credentials) together with the required user interaction from the Experiments Tool are explained in sections 5.2.2 and 6.3.2 of deliverable D5.6 [6]. In future work a stronger integration of Rclone into the MSO Portal is planned.
+
+[[large-data-transfers]]
+== [[_Toc521658096]][[_Toc522291152]]7.3 Large data transfers
+
+One of the foundational issues in HPC computing is the ability to move large (multi GB, and even TB), file-based data sets between sites. Simple file transfer mechanisms such as FTP and SCP are not sufficient either from a reliability or performance perspective.
+
+Globus is an expert tool that provides a set of fast and efficient tools for transfer data between data transfer nodes (DTN) (institutions and personal endpoints). One can use Globus to initiate data transfer between institutions that have servers connected to Globus. Globus will then use the GridFTP [17] protocol to complete the transfers without requiring further personal interaction, even if the transfer is interrupted. GridFTP extends the standard FTP protocol to provide a high-performance, secure, reliable protocol for bulk data transfer.
+
+Globus lets one use a web browser, see Figure 28, or command line interface to submit transfer and synchronization requests, optionally choosing encryption. The containerized command line tool provided from MSO4SC allows including Globus transfers into experiment workflows by means of blueprints. The requirements to include Globus into a workflow (to have valid credentials and activated endpoints) together with the required user interaction from the Experiments Tool are explained in sections 5.2.2 and 6.3.1 of deliverable D5.6 [6]. In future work a stronger integration of Globus into the MSO Portal is planned.
+
+image:media/d3.4/image30.png[image,width=510,height=371]
+
+[[_Toc521658128]][[_Toc522291184]]**Figure 28. Globus Connect: Web interface**
+
+One DTN has been deployed at CESGA for enabling large efficient data transfers. The authentication method of the DTN is based on MyProxy, allowing users to take advantage of this service using his FT2 credentials. Read and write tests with different data sizes have been done from this DTN to others in different locations obtaining efficient data movements with high transfer rates. Some basic configuration parameters of the DTN are:
+
+* Host: dtn.srv.cesga.es
+* Port: 2811
+* Authentication method: MyProxy
+* Max concurrency: 4
+* Preferred concurrency: 2
+* Max parallelism: 8
+* Preferred parallelism: 4
+
+If one needs to transfer data directly to or from his/her personal computer, it is possible to connect it to Globus by installing and running the Globus Connect client software. With this tool is now possible to transfer files between two computers both running Globus Connect clients.
+
+[[computational-resources]]
+= [[_Toc521658097]][[_Toc522291153]]8. Computational resources
+
+For the testing, execution and development of the e-Infrastructure, a development and production infrastructure is available. CESGA provides access to the Finis Terrae II HPC cluster, which is a Singular Research Infrastructure part of the Spanish Supercomputing Network and a Tier-1 PRACE system. This system is an example of how the complex MADFs and pilots can be deployed in a production HPC system. SZE provides a test and preproduction infrastructure for testing the software during its development phase and all the changes that cannot be implemented in the production infrastructure. UNISTRA also provides the Atlas cluster to be used by end-users for teaching purposes.
+
+In addition, a new cloud infrastructure based on OpenStack has been deployed at SZE for testing purposes. It is also planned to integrate EOSC-Hub infrastructure. Currently, from the orchestrator component, a plugin is being implemented to support EOSC-Hub cloud infrastructures together with other providers by means of the Infrastructure Manager (IM) [19]. Figure 29 shows the infrastructures expected to be supported.
+
+[[_5wmpq0v8k4hk]]
+
+[[_v3waunoiiz21]]image:media/d3.4/image31.png[image,width=266,height=267]
+
+[[_Toc521658129]][[_Toc522291185]]**Figure 29. Computational resources: Heterogeneous providers**
+
+[[sze-cloud]]
+== [[_35nkun2]][[_Toc521658098]][[_Toc522291154]]8.1 SZE Cloud
+
+In addition to the HPC resources, SZE also provides access to cloud resources available in their computing centre. This cloud infrastructure is based on the OpenStack cloud management system and delivers a virtual infrastructure, configurable to the requirements of the final users: operating system, number of processors, memory, disk and number of nodes are configured to user ́s needs in a dynamic way. This cloud will be used for those parts of the pilots that are not suitable to be run in an HPC infrastructure.
+
+[[summary-and-conclusions]]
+= [[_Toc521658099]][[_Toc522291155]]9. Summary and Conclusions
+
+This document presents the implementation, and integration of the components and also an overview of the current status of the components that are part of the MSO4SC e-Infrastructure. Hybrid HPC and Cloud executions are already integrated into the Orchestrator. Data management tools to allow transferring data between heterogeneous storage endpoints are available, as well as new tools for supporting the community. During the next phase of the project, a stronger coupling and integration of the new components and an extension to support more Cloud providers is planned together with scheduling automation.
+
+[[_2afmg28]]
+
+[[references]]
+= [[_Toc521658100]][[_Toc522291156]]References
+
+[[_39kk8xu]]
+
+1.  [[_ronl6m4ae33a]]MSO4SC D2.2 MSO4SC e-Infrastructure Definition
+2.  [[_22q19iclx6u6]]MSO4SC D2.6 MSO4SC e-Infrastructure Definition v2
+3.  MSO4SC D3.1 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+4.  [[_1k3lt5fvq57x]]MSO4SC D3.2 Integrated Infrastructure, Cloud Management and MSO Portal
+5.  [[_dyo1muigk0af]]MSO4SC D3.3 Detailed Specifications for the Infrastructure, Cloud Management and MSO Portal
+6.  [[_2zwg1lo5t7v7]]MSO4SC D5.6 Operation MSO4SC e-Infrastructure v2
+7.  [[_7pfarc8xc4hq]]OpenStack: https://www.openstack.org/[_https://www.openstack.org/_]
+8.  [[_cgqn1ipqv5pf]]OpenNebula: https://opennebula.org/[_https://opennebula.org/_]
+9.  [[_77cf59vneeie]]EOSC-HUB: https://eosc-hub.eu/[_https://eosc-hub.eu/_]
+10. [[_i6s2rwtokpn1]]COEGSS: http://coegss.eu/[_http://coegss.eu/_]
+11. MSO4SC Github organization: https://github.com/MSO4SC[_https://github.com/MSO4SC_]
+12. MSO4SC Continuous Integration (Documentation): _http://book.mso4sc.cemosis.fr/infrastructure/0.1/gitlab/continuousintegration/README/_
+13. MSO4SC Continuous Integration (Example reporitory): https://gitlab.srv.cesga.es/examples/mso4sc-ci[_https://gitlab.srv.cesga.es/examples/mso4sc-ci_]
+14. Rclone: https://rclone.org/
+15. Rclone overview: https://rclone.org/overview/[_https://rclone.org/overview/_]
+16. Globus-CLI: https://docs.globus.org/cli/
+17. GridFTP: http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/[_http://toolkit.globus.org/toolkit/docs/latest-stable/gridftp/_]
+18. StackOverflow: https://stackoverflow.com/[_https://stackoverflow.com/_]
+19. Infrastructure Manager: http://www.grycap.upv.es/im/[_http://www.grycap.upv.es/im/_]

@@ -1,0 +1,18 @@
+[[roles]]
+= Roles
+
+In this section we expose a brief description of the roles involved in the usage of the e-Infrastructure. Roles help to group users regarding permissions, functionalities and responsibilities. The list of available roles includes end-users, developers, resources providers and administrators.
+
+image:media/image3.png[image,width=393,height=219]
+
+[[_Toc505781253]][[_Toc520829698]]Figure . MSO4SC roles
+
+Providing roles and views per role simplifies the usage of the platform, hides some underlying complexities and enables a better user experience, letting the users focus on what they really want to do.
+
+An overview of the responsibilities of each kind of role is listed below:
+
+* *End-user:* users in this role manage the input and output data of their experiments focusing on visualization and analysis of the obtained results. End-users are in charge of configuring, running and monitoring experiments. The entry point for this kind of users is the input form of the selected simulation software.
+* *Developer:* In addition to what an end-user can do, developers are in charge of managing the software product they provide. This means to configure and optimize the workflow of an MADF or Pilot to be ready to be used by end-users. They can also take advantage of several MSO4SC services to automate the development, to test and distribute cycles of their software.
+* *Resources provider:* This is a transversal role focused on the configuration of the computational resources and storage endpoints to be used by end-users. This role can also monitor HPC and Cloud resources.
+* *Admin:* Administrators assign roles and permissions, and provide support to end-users. This role is also in charge of managing all the Cloud services integrated within the e-Infrastructure.
+
