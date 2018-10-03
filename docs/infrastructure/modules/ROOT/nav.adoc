@@ -19,7 +19,7 @@
 *** xref:infrastructure:ROOT:components/software_management/singularity/README.adoc[Singularity]
 *** xref:infrastructure:ROOT:components/software_management/sregistry/README.adoc[SRegistry]
 *** xref:infrastructure:ROOT:components/software_management/gitlab/README.adoc[Gitlab]
-*** xref:infrastructure:ROOT:components/software_management/gitlab/continuous_integration/README.adoc[Continuous integration]
+**** xref:infrastructure:ROOT:components/software_management/gitlab/continuous_integration/README.adoc[Continuous integration]
 
 ** xref:infrastructure:ROOT:components/data_management/README.adoc[Data management]
 *** xref:infrastructure:ROOT:components/data_management/datacatalogue/README.adoc[DataCatalogue]
