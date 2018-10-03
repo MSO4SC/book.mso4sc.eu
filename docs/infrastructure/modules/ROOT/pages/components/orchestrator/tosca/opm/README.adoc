@@ -1,4 +1,0 @@
-= OPM Blueprint design
-
-
-IMPORTANT: This document is W.I.P
