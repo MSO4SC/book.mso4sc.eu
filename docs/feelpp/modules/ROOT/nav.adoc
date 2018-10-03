@@ -9,7 +9,7 @@
 *** http://docs.cemosis.fr/hifimagnet/stable/[Documentation]
 ** Eye2Brain
 *** xref:feelpp::eye2brain/README.adoc[MSO4SC Description]
-*** http://docs.cemosis.fr/eye2brain/0.105/[Documentation]
+*** http://docs.cemosis.fr/eye2brain/current/[Documentation]
 * xref:feelppdocs::index.adoc[Feel++]
 ** xref:user::index.adoc[Feel++ User Manual]
 ** xref:toolboxes:ROOT:index.adoc[Feel++ Toolboxes Guide]
