@@ -25,7 +25,7 @@ content:
   # Feel++
   - url: https://github.com/feelpp/book.feelpp.org
     branches: master
-    start_path: docs/feelppdocs  
+    start_path: docs/feelppdocs
   - url: https://github.com/mso4sc/book.mso4sc.eu
     branches: master
     start_path: docs/feelpp
@@ -67,6 +67,7 @@ asciidoc:
     stem: latexmath
     hemotumpp: Hemotum++
     eye2brain: Eye2Brain
+    omvs: Ocular Mathematical Virtual Simulator
     vtkjs: Vtkjs
     hifimagnet: HiFiMagnet
     magnettools: MagnetTools
