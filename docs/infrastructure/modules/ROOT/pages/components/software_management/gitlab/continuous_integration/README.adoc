@@ -1,4 +1,7 @@
 = Continuous integration with Gitlab-CI
+CESGA
+v0.1 (2018-10-04), <vsande at cesga dot es>
+:toc:
 
 A software repository hosted in the MSO4SC Gitlab instance can setup a Continuous Integration/Delivery workflow by means of link:https://about.gitlab.com/features/gitlab-ci-cd/[Gitlab-CI].
 
@@ -28,6 +31,7 @@ Workflow:
      
 Next sections describe some features of the involved tools.
 
+[[Gitlab-CI]]
 == Gitlab-CI
 
 Continuous integration service powered by gitlab.
@@ -40,7 +44,8 @@ More info about the Gitlab-CI YAML sintax and semantics in this link:https://doc
 
 You can learn more about Gitlab-CI with this link:https://docs.gitlab.com/ce/ci/quick_start/README.html[quick-start guide].
 
-== SRegistry
+[[Sregistry]]
+== Sregistry
 
 Transfer and storage web service for Singularity images. SRegistry is also a comand line tool to interact with the web service.
 
@@ -76,6 +81,7 @@ $ sregistry push --name mso4sc/example --tag latest example.simg
 
 Here you can find more info about link:https://singularityhub.github.io/sregistry/client.html[sRegistry Client].
 
+[[How-to-do-it]]
 == How to do it
 
 . Create a secret variable containing your JSON token
@@ -104,6 +110,7 @@ Type this to pull a public image with Singularity:
 $ singularity pull shub://sregistry.srv.cesga.es/mso4sc/example:latest
 ----
 
+[[Cloudify-cli]]
 == Cloudify CLI (cfy)
 
 Cloudify CLI (in local execution mode) allows you to execute your blueprints without connecting to the remote MSOOrchestrator instance.

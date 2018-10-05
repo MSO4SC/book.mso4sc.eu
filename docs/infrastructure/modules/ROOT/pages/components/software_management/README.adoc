@@ -1,5 +1,7 @@
-[[Software management]]
 = Software Management
+CESGA
+v0.1 (2018-10-04), <vsande at cesga dot es>
+:toc:
 
 Scientific software has adopted agile development practices and its development cycles have been impressingly shortened. New features and utilities are continuously implemented and it results in new increments of the software included in quick releases.
 
@@ -16,6 +18,7 @@ From the point of view of end-users only the Marketplace is relevant. The market
 
 From the point of view of developers, Gitlab, Singularity and Sregistry satisfy all the agile and automated development workflow, from the code to the execution of experiments, to allow users to take advantage of brand new software versions running with the best performance. The Marketplace is the place where developers provide their applications to end users.
 
+[[Marketplace]]
 == Marketplace: Provide or purchase your software
 
 The Marketplace manages the “products” lifecycle. It is an archival infrastructure to store, provide and categorize MADFs, pilots, benchmarks, models, etc. That is, registration of new apps, offerings, purchases… It is based on the Fiware Business Ecosystem.
@@ -24,6 +27,7 @@ All users can access to the MarketPlace. It shows the list of offered applicatio
 
 Developers take the role of software suppliers in the MarketPlace. In addition to what an end-user can do using the MarketPlace, developers can create new products and offer them to be discoverable and purchased by end-users. Products can have a given price, to be paid through paypal, or be free. Once a product is purchased it will be usable from the Experiments tool.
 
+[[Gitlab]]
 == Gitlab: Repository and CI/CD/CD
 
 Providing a software repository accessible from a single place (the portal) helps to homogenize applications usage, integration with the portal, and to increase the visibility and the impact of the provided data and applications. The repository based on Gitlab is deployed as a standalone service in the Cloud (https://gitlab.srv.cesga.es).
@@ -38,6 +42,7 @@ As scientific software building and testing can be costly in terms of time and r
 
 For the particular case of repositories of web content, CI service also provides Continuous Deployment of web sites by means of Static Site Generators as Jekyll. This enables developers to also publish up-to-date content, like documentation, according to the latest status of their software.
 
+[[Singularity]]
 == Containers: Singularity 
 
 Traditional software deployment and integration consists in performing all the needed steps, like download, configure, build, test and install, to have the software project natively in a production infrastructure. The main goal of this task is to provide the software with good performance and ready to use for end users.
@@ -50,6 +55,7 @@ Singularity was designed focusing on HPC and allows to leverage the resources of
 
 Singularity was also designed around the notion of extreme mobility of computing and reproducible science. Singularity is also used to perform HPC in the cloud on AWS, Google Cloud, Azure and other cloud providers. This makes it possible to develop a research work-flow on a laboratory or a laboratory server, then bundle it to run on a departmental cluster, on a leadership class supercomputer, or in the cloud.
 
+[[Sregistry]]
 == SRegistry: Container storage and transfer
 
 Having a Cloud service for storing and transferring Singularity images let us to provide a central location where to offer ready-to-run containerized software in a homogeneous way. It also enables developers to implement portable workflows for their containerized applications instead of manually copying the images to every HPC system and hardcoding paths in their workflows definitions.
