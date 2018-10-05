@@ -1,5 +1,42 @@
-= WIP
 
-include::{partialsdir}/topnote.adoc[]
+= Sregistry
 
-IMPORTANT: Documentation is W.I.P
+Having a Cloud service for storing and transferring Singularity images let us to provide a central location where to offer ready-to-run containerized software in a homogeneous way. It also enables developers to implement portable workflows for their containerized applications instead of manually copying the images to every HPC system and hardcoding paths in their workflows definitions.
+
+There are some concepts involved in the containers management:
+
+ - Collection:  Set of containers sharing the same permissions
+ - Team: Group of users
+ - Owner: Role with read and write permissions on a particular collection
+ - Contributor: Role with read permission on a particular private collection
+
+== Sregistry server
+
+We have deployed a Cloud service based on https://singularityhub.github.io/sregistry/[SRegistry] with this purpose. SRegistry is a service to simply store and transfer Singularity images. It allows managing the published images visibility, but it’s configured to keep images private by default unless the user make it explicitly public. You can visit the https://sregistry.srv.cesga.es/[MSO4SC container registry] to check the provided containers.
+
+=== Privacy and permissions
+
+Sregistry allows end-users and developers to manage permissions and privacy of the software and teams of contributors and ownser. The roles model of Sregistry is designed to manage owners and contributors per collection (set of containers). “Owners” can modify the containers of a particular collection and “Contributors” can use containers of a private collection. Public collections have no usage restrictions. The concept of “Teams” was also introduced to ease the management of groups of users. Privacy management is an import requirement of the e-Infrastructure which allows developers to control who is able to use their software, but also who can contribute to it.
+
+You can learn more about teams management in the https://singularityhub.github.io/sregistry/setup-teams[official sregistry teams documentation].
+
+== Sregistry client
+
+In order to programatically interact with the container registry, a command tool provided by the Singularity team is used. https://singularityhub.github.io/sregistry-cli/[Sregistry-cli] simplify the user interaction while publishing and obtaining containers. 
+
+End-users and developers can obtain containers from MSO4SC Sregistry using the `push` command:
+
+----
+$ sregistry pull collection/container:tag
+----
+
+Developers can publish new containers using the `push` command:
+
+----
+$ sregistry push --name collection/container --tag latest container.simg
+----
+
+You can obtain more information in the https://singularityhub.github.io/sregistry-cli/getting-started#user-guide[Sregistry-cli user guide].
+
+
+
