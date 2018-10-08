@@ -1,5 +1,6 @@
 * xref:infrastructure:ROOT:index.adoc[Introduction]
 
+* xref:infrastructure:ROOT:whitepaper/README.adoc[White paper]
 
 * xref:infrastructure:ROOT:roles/README.adoc[Quick-start]
 ** xref:infrastructure:ROOT:roles/end_user/README.adoc[End-user]
