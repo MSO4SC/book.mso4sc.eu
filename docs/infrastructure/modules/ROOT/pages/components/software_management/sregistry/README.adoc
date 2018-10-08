@@ -12,7 +12,7 @@ There are some concepts involved in the containers management:
  - Owner: Role with read and write permissions on a particular collection
  - Contributor: Role with read permission on a particular private collection
 
-[[Sregistry server]]
+
 == Sregistry server
 
 We have deployed a Cloud service based on https://singularityhub.github.io/sregistry/[SRegistry] with this purpose. SRegistry is a service to simply store and transfer Singularity images. It allows managing the published images visibility, but it’s configured to keep images private by default unless the user make it explicitly public. You can visit the https://sregistry.srv.cesga.es/[MSO4SC container registry] to check the provided containers.
@@ -23,7 +23,7 @@ Sregistry allows end-users and developers to manage permissions and privacy of t
 
 You can learn more about teams management in the https://singularityhub.github.io/sregistry/setup-teams[official sregistry teams documentation].
 
-[[Sregistry client]]
+
 == Sregistry client
 
 In order to programatically interact with the container registry, a command tool provided by the Singularity team is used. https://singularityhub.github.io/sregistry-cli/[Sregistry-cli] simplify the user interaction while publishing and obtaining containers. 

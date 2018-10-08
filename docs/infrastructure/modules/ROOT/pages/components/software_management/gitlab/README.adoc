@@ -8,7 +8,6 @@ The Software repository is the place where to store the development-related envi
 The technology choice for the software repository relies on link:https://about.gitlab.com/[Gitlab], in particular GitLab Community Edition, a popular, scalable and open-source project supported by GitLab inc. and a huge community. See a running instance of Gitlab at CESGA cloud link:https://gitlab.srv.cesga.es/[here]! and in the following Figure 1.
 
 
-[[Software repository]]
 == Software repository
 
 Thanks to GitLab we can provide several features to help to create, build, manage and maintain software projects during all the development lifecycle. Some of its features are enumerated in this section, but it is important to remark that GitLab allows managing different user profiles, roles and the repository visibility. This means that the end-user will control several levels of privacy for all its data.
@@ -16,7 +15,6 @@ Thanks to GitLab we can provide several features to help to create, build, manag
 One of the main GitLab features is to provide a code repository based on _Git_ and a set of tools to manage the history of changes, easing some common practices like branching, tagging and code reviewing. Other features like its merge request tool, issue tracking, code snippets and wikis help to enrich the communication process of the developer team itself and also with users community.
 
 
-[[Continuous integration]]
 == Continuous integration
 
 GitLab also provides built-in continuous integration. Software projects can configure and automate the building process with every submitted change. It improves failure discovering and fast bug fixing decreasing risks and problems related with the integration and deployment. It also supports a Docker based CI to define and control the building environment during the CI process. GitLab architecture allows separating this component in a different machine to prevent bottlenecks to the main web service due to the load of the CI service.
