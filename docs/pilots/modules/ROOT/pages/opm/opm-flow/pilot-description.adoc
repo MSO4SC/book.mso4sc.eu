@@ -1,0 +1,47 @@
+[[opm-flow]]
+= OPM Flow
+:page-root: ../../../../
+:page-permalink: /pilots/opm-flow/
+:page-layout: default
+ifndef::env-github[:icons: font]
+ifndef::imagesdir[:imagesdir: ../../../../../../images/]
+ifndef::pilotsdir[:pilotsdir: ]
+include::../../../includes/header.adoc[]
+
+
+*End-user:* Petroleum industry, research institutes, universities.
+
+OPM Flow is a reservoir simulation application that is part of OPM and has been chosen as the pilot in the MSO4SC project. Reasons for choosing OPM Flow for the pilot include:
+
+* It is the most advanced application in OPM, and is actively developed by the project partner (SINTEF) and other contributors.
+* It is the application that generates the most interest from users, including both industry and the research community.
+
+Subsurface flow simulation is of vital importance for the oil and gas industry. This industry depends on reservoir simulation to study petroleum fields, forecast their performance and make investment decisions. Subsurface flow simulations are also important for a wide range of environmental management applications. For example, CO~2~ sequestration studies can inform policymakers and stakeholders about the potential and execution of long-term CO~2~ storage. Studies of groundwater flows and pollutants are other important use cases.
+
+From a mathematical point of view, reservoir simulators solve systems of nonlinear partial differential equations describing the flow of fluids in the porous medium, coupled to models that describe fluid behaviour in wells or facilities that are connected to the reservoir. These systems are often hard to solve for several reasons, for example:
+
+* The porous medium is strongly heterogeneous and anisotropic. In particular permeability can span several orders of magnitude.
+* Computational grids usually have high aspect ratios and can be fully unstructured with arbitrary polygonal cells.
+* Phase behaviour is nontrivial. For example, phases can appear and disappear as fluid components dissolve or vaporize across gaseous and oleic phases.
+* Coupling to wells can connect regions that are far away from each other.
+* The models are highly nonlinear.
+
+After discretization in space and time, a complex system of nonlinear discrete equations has to be solved by Newton's method. The Newton approach must be modified to achieve acceptable convergence behaviour.
+
+A successful reservoir simulator must have robust strategies to deal with numerical problems, preconditioning methods that are capable of handling strongly heterogeneous and anisotropic systems, and highly capable linear solvers. From an engineering point of view, it is also essential that the simulator is flexible and powerful with respect to input data, both for reservoir geometry and physical properties, provides robust non-linear and linear solvers with high performance, and support user-friendly reporting and output facilities.
+
+OPM Flow is a fully implicit reservoir simulator for the black-oil fluid model and some extended models. It can run realistic industrial simulation models for petroleum assets and CO2 sequestration cases. The simulator is implemented using automatic differentiation to enable rapid development of new fluid models and features. Since the entire simulator and framework is open source, it is possible for any interested party to build such features and extend the simulator for research or other purposes. It supports industry-standard input and output formats to fit into existing workflows, and its performance is close to the performance of commercial alternatives.
+
+The MSO4SC pilot will allow users to run OPM Flow transparently on HPC or cloud hardware, controlled from a simple web interface. Users must be able to upload their own input data, monitor simulations as they progress and access full results upon completion. From the requirements set out in D2.1, particular emphasis is on the ability to run large ensembles effectively. Three test cases will be used for the evaluation of the pilot.
+
+*Test case 1:* The Norne field is a Norwegian Sea oil field for which the operator (Statoil) has made available the simulation models and other data used on the field. While not very large in terms of number of computational cells, it is complex in terms of grid structure and fluid behaviour features. The field has many wells that connect to the reservoir that must be accounted for. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, that the results can be accessed afterwards, and that the results match those obtained by a baseline simulation.
+
+image:media/image19.png[Norne permeability field,width=566,height=270]
+
+*Figure 11: Permeability distribution of Norne field.*
+
+
+*Test case 2:* The OLYMPIC benchmark is an artificial benchmark created by TNO (Netherlands) for benchmarking ensemble-based reservoir optimization and history matching algorithms, software and workflows. A critical part of such a workflow is the ability to run large ensembles of simulation cases, and that is what will be tested in this scenario. For successful evaluation, we require that a large set of realizations drawn from the case can be uploaded and run in bulk with only minimal user intervention other than setting up the set of ensemble runs, and that results can be accessed in bulk afterwards.
+
+*Test case 3:* The Norwegian Continental Shelf has several aquifers that are considered potential candidates for large-scale storage of CO2. Simulating the injection process and subsequent migration of the CO2 plume is an important part of the suitability evaluation. In this test scenario, we will simulate one of the primary candidates for such sequestration. For successful evaluation, we require that the model can be uploaded and run with no further user intervention, and that results can be accessed afterwards.
+

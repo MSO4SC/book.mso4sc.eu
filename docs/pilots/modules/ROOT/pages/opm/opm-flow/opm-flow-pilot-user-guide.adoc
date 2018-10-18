@@ -2,19 +2,24 @@
 
 This user guide is intended to show how to use the OPM Flow application through the MSO4SC portal, step by step. As a prerequisite, you must have an account on a HPC or cloud system provider linked to the portal. At the moment, the CESGA HPC system Finis Terrae II ("ft2") is available, as well as some smaller clusters belonging to the universities of Strasbourg and Györ. More systems will be available in the future.
 
-### 1. Log in to the MSO4SC portal.
+### Log in to the MSO4SC portal.
 
 The portal is found at https://portal.mso4sc.eu. In order to log in, you must first have signed up to be a user of the portal. After logging in you should see a screen with some big buttons for getting help and documentation, and a top menu for the most important actions of the portal.
 
-### 2. Look at the open testing datasets.
+### Look at the open testing datasets.
 
 In the top menu, click on "Data Catalogue" to look at the available datasets. Here you can search for data sets, but the simplest way to look at those that are suited for running with Flow, is to click on "Groups" in the top menu of the component (it will be below the portal's top menu), and then on the group "OPM users". At the moment, a single dataset, consisting of 4 separate examples are made openly available through the data catalogue. The smallest and quickest is the "SPE 1" example. You do not need to do anything about it now, you will choose that data set later in the process from within the experiments tool.
 
-### 3. Enter and set up the Experiments tool.
+### Look at the Marketplace.
+
+In the top menu, click on "Marketplace" to look at the available applications in the portal. Since the OPM Flow applications are free and open source, they have been already set up to run in the experiments tool, and there is no need to obtain the applications in the Marketplace.
+_Note: due to a bug in the current version, you must enter the Marketplace at least once to be able to use any application, see https://github.com/MSO4SC/MSOPortal/issues/142[the reported issue on GitHub]._
+
+### Enter and set up the Experiments tool.
 
 In the top menu, click on "Experiments" to enter the Experiments tool. This is where you will control the setup and running of your application. In order to start jobs on your chosen HPC or cloud provider, you must first go to "Settings", found on the extreme right of the top menu of the tool (found just below the portal top menu). There you can enter your credentials for the computational provider, and give it a name of your choosing. For example, for the "ft2" system at CESGA, you must enter "ft2.cesga.es" in the "Host" field, as well as your username and password in the appropriate fields.
 
-### 4. Deploy an experiment
+### Deploy an experiment
 
 Each experiment is an "instance" of the application. Every time you run an experiment using OPM Flow, you will interact with a new instance. At the moment, there are three steps: create, run and destroy. To start, select one of the two OPM applications from the dropdown menu. OPM-generic will run a single example (potentially using multiple cores), while OPM-ensemble will run multiple cases each using a single core. For your first example, select "OPM-generic" and give the run a descriptive name in "Deplyment ID".
 
@@ -22,29 +27,32 @@ A form will appear that allows you to customize your run. We will go through all
 
  - **Deployment ID:** This is the name of the instance you are creating. It should be sufficiently unique for you to tell it apart from other instances you may want to create. For your first run, you could call it "First test run of OPM Flow" for example.
  - **base_dir:** This is the directory on the computational system where all files will be put, both input and output. It defaults to "$LUSTRE" which is appropriate for HPC systems running Lustre such as "ft2", but you may need to change this for your system.
- - **hpc_partition:** The computational partition on which to launch the job.
+ - **hpc_partition:** The computational partition (i.e. set of computational nodes of the HPC system) on which to launch the job. If left blank, the default partition will be used.
  - **hpc_reservation:** If your user has a special reservation on the computational system you can indicate that here. Otherwise it should be left blank.
- - **max_time:** This is the maximum time that will be used for your job, in HH:MM:SS format. For the "spe-1" case you can choose one minute, it should run in a few seconds. For the "norne" case you may want to request 30 minutes if running on just one core, or less if running in parallel (see below).
+ - **max_time:** This is the maximum time that will be used for your job, in HH:MM:SS format. For the "spe-1" case you can choose one minute, it should run in a few seconds. For the "norne" case you may want to request 20 minutes if running on just one core, or less if running in parallel (see below). For ensembles, this should be the maximum time used for the longest-running ensemble member. Since your job will be terminated if taking longer, it is advisable to have some margin when specifying this.
  - **Dataset resource: input_url:** This lets you choose one of the open datasets from the Data Catalogue to run. Choose "omp-test-datasets". When you choose a data set, a list of available files will appear. Select "spe-1" for your first test, as this is rather small test example.
  - **HPC: primary:** This is the computational provider you want to use. Choose the one you set up in step 4 above.
  - **singularity_image_uri:** The Singularity image will be obtained from this URI. Leave it at the default unless you need to use an older release for example.
 
-In addition there are a few options which only appear if you run an ensemble or not.
+In addition there are a few options which only appear if you run a single case (not an ensemble).
 
- - **parallel_nodes:** [opm-generic only] The number of computational nodes on which to run Flow. Leave at 1 for now.
- - **parallel_tasks:** [opm-generic only] The number of parallel tasks or processes used. For your initial test leave at 1. Later, you may use this to request a higher number of cores from the node, up to 24 for the "ft2" systems.
- - **parallel_tasks_per_node:** [opm-generic only] Set this equal to parallel_tasks for now.
- - **hpc_array_scale:** [opm-ensemble only] Size of SLURM array (number of cases).
+ - **parallel_nodes:** The number of computational nodes on which to run Flow. Leave at 1 for now.
+ - **parallel_tasks:** The number of parallel tasks or processes used. For your initial test leave at 1. Later, you may use this to request a higher number of cores from the node, up to 24 for the "ft2" systems.
+ - **parallel_tasks_per_node:** Set this equal to parallel_tasks for now.
+
+For ensemble runs, the above options do not appear, each ensemble member is run on a single core. However we need to tell the system the size of the ensemble.
+
+ - **hpc_array_scale:** Size of job array (that is, number of cases in your ensemble).
 
 After customizing your run, click the "Create new Instance" button. You should get a confirmation saying that your instance was created.
 
-### 5. Run an experiment.
+### Run an experiment.
 
 Now from the dropdown menu under "App's instances", select your new instance. If this is your first, or only instance this will already be selected. You can now press the "Run!" button. This will submit the job to be processed. A light on the right side of the screen will appear. Blue means that the process is running, but unfinished. Green means that the job executed successfully, while red signals that something went wrong. You should now see a log with lots of messages such as "Starting 'install' workflow execution", "Starting node" etc. These are mostly for developers to debug the application, so you can safely ignore them.
 
 You should then clean up the instance by clicking "Destroy Instance". This will remove the input data and application Singularity image, but leave your simulation output in place.
 
-### 6. Look at the results.
+### Look at the results.
 
 Your output is now stored on the computational system. At the moment, there is no extra support to download the output data, you will have to access it as you normally would access data on that system, by using scp or rclone for example. However if your computational provider offers visualization support by noVNC, you can access that by clicking "Visualization" in the Portal top menu (leaving the Experiment tool). Using the Settings there you can set up a remote desktop and visualize results using tools installed on that system. For "ft2", you can use the following settings:
  - host: vis.lan.cesga.es
