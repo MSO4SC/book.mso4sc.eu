@@ -1,0 +1,812 @@
+= MSO4SC: e-Infrastructure requirements
+CESGA
+v0.1 (2018-11-05), <vsande at cesga dot es>
+:toc:
+:tot:
+
+
+Requirements describe the desired features and functionality of a product, here the MSO4SC e-infrastructure. A requirement is something that the e-infrastructure must do or a quality that is must have (it is also possible to consider constraints); either the e-infrastructure demands certain functionalities or qualities, or the stakeholders (clients) want that requirement to be part of the e-infrastructure. Requirements are divided into two classes. A *functional requirement* is something that the e-infrastructure must do if it is to be useful within its intended context. *Non-functional requirements* are properties, or qualities, that the e-infrastructure must have. An important example for a non-functional requirement in the context of the intended MSO4SC e-infrastructure with its mathematical application frameworks are performance requirements (how fast, big, accurate, safe, reliable, scalable).
+
+
+[[requirements]]
+= Requirements list
+
+
+[cols=",,,",]
+.Requirement table Cloud-1 Generic application support
+|==============================================================================================================================================================================================================================
+a| *# Id*
+ |Cloud-1 a| *Name*
+ |Generic application support
+a| *Priority*
+ |Medium a| *Req. Type*
+ |Functional
+a| *Description*
+ |The infrastructure should provide support to other MADFs and applications not described in the project. This means that it should be flexible and generic enough that it will not stick to a concrete domain or set of tools.
+a| *Purpose*
+ |For the sustainability of the project the infrastructure should have the availability to provide support to other user communities beyond those which are part of the consortium.
+a| *Actors*
+ |CESGA, ATOS
+a| *Requester*
+ |Stakeholders
+a| *Validation scenario*
+ |New stakeholders will be invited to use the MSO4SC which should be able to run the new simulations. At least one external application will be executed correctly.
+a| *Related WPs*
+ |WP3, WP4, WP5
+a| *Components*
+ |Orchestrator, Monitor, MSO portal
+a| *Relationships*
+
+ |NA
+|==============================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-2 Multiple infrastructure support
+|=======================================================================================================================================================================================================
+a| *# Id*
+ |Cloud-2 a| *Name*
+ |Multiple infrastructures support
+a| *Priority*
+ |High a| *Req. Type*
+ |Functional
+a| *Description*
+ |The software developed to manage and orchestrate the infrastructure should be portable and capable to manage other infrastructures, not only the ones and the beginning of the project (CESGA & ATOS).
+a| *Purpose*
+ |Some use cases are very restricted in terms of data confidentiality, so some parts of the software have to run in local clusters of the users. This should be supported.
+a| *Actors*
+ |ATOS, CESGA, SINTEF
+a| *Requester*
+ |SINTEF (OPM Flow use case)
+a| *Validation scenario*
+ |The OPM Flow use case will be able to execute part of the scenario in an infrastructure different from the ones provided by CESGA and ATOS.
+a| *Related WPs*
+ |WP3, WP4, WP5
+a| *Components*
+ |Orchestrator
+a| *Relationships*
+
+ |NA
+|=======================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-3 Data management
+|=======================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-3 a|
+*Name*
+ |Data management
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures in a secure way, especially when different parts of the application are running in different hardware infrastructures.
+a|
+*Purpose*
+ |This functionality is needed to provide the data for the simulations and the output results in the different places where the simulations might take place
+a|
+*Actors*
+ |CESGA, ATOS, SZE
+a|
+*Requester*
+ |SZE (3DAirqualityprediction use case), survey
+a|
+*Validation scenario*
+ |In the 3DAirqualityprediction use case, the application will be split in two hardware infrastructures for its execution, and all the data will be moved correctly from one infrastructure to the other one, as required by the application components.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |Orchestrator
+a|
+*Relationships*
+ |Cloud-2
+|=======================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-4 Licenses and software restrictions
+|=================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-4 a|
+*Name*
+ |Cloud-4
+a|
+*Priority*
+ |Medium a|
+*Req. Type*
+ |Medium
+a|
+*Description*
+ |The software developed to manage and orchestrate the infrastructure should support proprietary software and the restrictions that it might impose.
+a|
+*Purpose*
+ |Some use cases make use of proprietary software. This software is not installed in all the clusters because of license restrictions so the orchestration must take this in account when deploying and running the simulations
+a|
+*Actors*
+ |CESGA, ATOS, SZE
+a|
+*Requester*
+ |SZE (3DAirqualityprediction use case) and UNISTRA (Eye2Brain and HIFIMAGNET uses cases)
+a|
+*Validation scenario*
+ |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |Orchestrator
+a|
+*Relationships*
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-5 Support MPI Applications
+|=================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-5 a|
+*Name*
+ |Support MPI Applications
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The software developed to manage and orchestrate the infrastructure should support proprietary software and the restrictions that it might impose.
+a|
+*Purpose*
+ |Some use cases make use of proprietary software. This software is not installed in all the clusters because of license restrictions so the orchestration must take this in account when deploying and running the simulations
+a|
+*Actors*
+ |CESGA, ATOS, SZE
+a|
+*Requester*
+ |SZE (3DAirqualityprediction use case) and UNISTRA (Eye2Brain and HIFIMAGNET uses cases)
+a|
+*Validation scenario*
+ |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |Orchestrator
+a|
+*Relationships*
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-6 Visualization
+|====================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-6 a|
+*Name*
+ |Visualization
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The infrastructure should support remote visualization capabilities, so it will be possible to load the results of a simulation and watch them. The infrastructure should support an integrated use of visualization software as part of the services to the users.
+a|
+*Purpose*
+ |Many use cases require visualization software in different parts of the simulation: pre-processing and post-processing, mainly.
+a|
+*Actors*
+ |CESGA, ATOS, UNISTRA
+a|
+*Requester*
+ |ZIBaffinity users, ZIB, survey
+a|
+*Validation scenario*
+ |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|====================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-7 Simulation monitoring
+|====================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-7 a|
+*Name*
+ |Simulation monitoring
+a|
+*Priority*
+ |Medium a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The infrastructure should support remote visualization capabilities, so it will be possible to load the results of a simulation and watch them. The infrastructure should support an integrated use of visualization software as part of the services to the users.
+a|
+*Purpose*
+ |Many use cases require visualization software in different parts of the simulation: pre-processing and post-processing, mainly.
+a|
+*Actors*
+ |CESGA, ATOS, UNISTRA
+a|
+*Requester*
+ |ZIBaffinity users, ZIB, survey
+a|
+*Validation scenario*
+ |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|====================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-8 Automate applications deployment and execution
+|==========================================================================================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-8 a|
+*Name*
+ |Automate applications deployment and execution
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The MSO4SC e-Infrastructure will provide a rich GUI in order to submit jobs to HPC systems and tasks to Cloud providers. A process in the background will be responsible to prepare the application, deploy it and run it in the corresponding context (HPC and/or Cloud) without the need of user intervention in the technical aspects.
+a|
+*Purpose*
+ |MSO4SC stakeholders do not need to be aware of the technical details when asking for the execution of an application. Therefore, MSO4SC e-Infrastructure should ease such task by abstracting the technical complexity, with the proper mechanisms running in the background.
+a|
+*Actors*
+ |ATOS, CESGA
+a|
+*Requester*
+ |MSO4SC partners, Stakeholders
+a|
+*Validation scenario*
+ |All the project pilots will evaluate the functionality. Stakeholders will run the applications through a GUI from the MSO Portal, and the right deployment and execution will be done by MSO4SC in 100% of the cases (without any error related to the orchestration mechanism itself).
+a|
+*Related WPs*
+ |WP3
+a|
+*Components*
+ |Orchestrator, MSO Portal
+a|
+*Relationships*
+
+ |NA
+|==========================================================================================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-9 Decoupling of simulations and visualization
+|=========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-9 a|
+*Name*
+ |Decoupling of simulations and visualization
+a|
+*Priority*
+ |Medium a|
+*Req. Type*
+ |Non-Functional
+a|
+*Description*
+ |Simulations run in MSO4SC should provide the possibility to use any tool for visualization, instead of a concrete one for all the cases. This means that it will be possible to generate the simulation outcome and just download it if desired, so the stakeholders will be able to select the visualization tool they want and provide such outcome as input. All the MADFs will store simulation outcomes in a location from which the MSO Portal will be able to access to serve it to stakeholders.
+a|
+*Purpose*
+ |MSO4SC stakeholders want to avoid vendor lock-in in the case of visualization, since each one may have their own preferences in term of post-processing and visualization tools.
+a|
+*Actors*
+ |ATOS, CESGA, KTH, BCAM, UNISTRA, SINTEF
+a|
+*Requester*
+ |Stakeholders
+a|
+*Validation scenario*
+ |Several simulations will generate outcomes that can be retrieved directly by stakeholders. Such functionality will be tested separately with all the pilots, checking that in 100% of the cases it is possible to retrieve the simulation result, and use it in the desired visualization tool (after some post-processing, if required).
+a|
+*Related WPs*
+ |WP3, WP4
+a|
+*Components*
+ |MSO Portal, MADFs
+a|
+*Relationships*
+|=========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-10 Optimize data management
+|==================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-10 a|
+*Name*
+ |Optimize Data Management
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional/Non Functional
+a|
+*Description*
+ |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures, some of them dedicated to particular tasks so that optimise data movement times.
+a|
+*Purpose*
+ |This functionality is needed to ensure movement of measured data of the end-user application represented on dedicated servers to the MSO4SC infrastructure while keeping good overall execution times.
+a|
+*Actors*
+ |SZE, CESGA, ATOS
+a|
+*Requester*
+ |external parties, SZE
+a|
+*Validation scenario*
+ |3DAirQualityPrediction pilot
+a|
+*Related WPs*
+ |WP3, WP5
+a|
+*Components*
+ |Orchestrator
+a|
+*Relationships*
+
+ |3DAQP-2
+|==================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-11 Pause/Restart/Recover simulation
+|==================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-11 a|
+*Name*
+ |Pause/Restart/Recover simulation
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The users request a way to pause or stop a simulation in order to reconfigure it and start again, from the beginning or a certain point, from an adequate GUI.
+a|
+*Purpose*
+ |In some simulations, it is very useful to recalibrate the simulation if something is wrong or could be improved, and restart it without starting over again, especially if the resources consumed during the simulation are high.
+a|
+*Actors*
+ |MADF owners, ATOS
+a|
+*Requester*
+ |Stakeholders, survey
+a|
+*Validation scenario*
+ |A modularized simulation using one of the MADFs will be stopped, reconfigured and restarted from the same point, and the results obtained will be the expected ones.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |MADFs, MSO Portal
+a|
+*Relationships*
+
+ |Cloud-7
+|==================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-12 Community Support
+|=================================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-12 a|
+*Name*
+ |Community Support
+a|
+*Priority*
+ |Medium a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |Different mechanisms should be provided to allow users an easy learning curve of MSO4SC, such as Q&A, Wikis or forums. These mechanisms will be the way to articulate the community around MSO4SC.
+a|
+*Purpose*
+ |Stakeholders (members and no-members of the project) will have questions about how the different parts of MSO4SC work, as well as need some kind of training to start using it quickly. Such functionality will allow a higher level of software maturity (TRL).
+a|
+*Actors*
+ |ATOS, CESGA
+a|
+*Requester*
+ |MSO4SC partners
+a|
+*Validation scenario*
+ |Users will be able to post/answer more than 3 questions, read and edit the wikis, and participate in, at least one learning event. The MSO Portal will reach, at least, TRL 8.
+a|
+*Related WPs*
+ |WP3, WP2, WP6
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|=================================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-13 Data categorization
+|=========================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-13 a|
+*Name*
+ |Data categorization
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The data management system should provide a way to easily find the different datasets available and generated in the infrastructure. That means that there should be available metadata about the datasets and that a search mechanism will be in place.
+a|
+*Purpose*
+ |MSO4SC users need to navigate through the data catalogue available in the portal, quickly finding the dataset they need.
+a|
+*Actors*
+ |ATOS
+a|
+*Requester*
+ |MSO4SC Partners, survey
+a|
+*Validation scenario*
+ |Concrete datasets are found in only one query.
+a|
+*Related WPs*
+ |WP3
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|=========================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-14 Multi-Simulation
+|=========================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-14 a|
+*Name*
+ |Multi-Simulation
+a|
+*Priority*
+ |Medium a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The data management system should provide a way to easily find the different datasets available and generated in the infrastructure. That means that there should be available metadata about the datasets and that a search mechanism will be in place.
+a|
+*Purpose*
+ |MSO4SC users need to navigate through the data catalogue available in the portal, quickly finding the dataset they need.
+a|
+*Actors*
+ |ATOS
+a|
+*Requester*
+ |MSO4SC Partners, survey
+a|
+*Validation scenario*
+ |Concrete datasets are found in only one query.
+a|
+*Related WPs*
+ |WP3
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|=========================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-15 Containers support
+|=======================================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-15 a|
+*Name*
+ |Containers support
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Non-Functional
+a|
+*Description*
+ |The infrastructure must run HPC jobs inside containers with no significant latency.
+a|
+*Purpose*
+ |Containers will include the application to run and the right combination of libraries and versions, in such a way it will not be necessary to reconfigure the target hardware every time an application is deployed.
+a|
+*Actors*
+ |All MSO4SC Partners
+a|
+*Requester*
+ |MSO4SC Partners
+a|
+*Validation scenario*
+ |Stakeholders providing its simulations with all their dependencies packed in a container should be able to execute them without perceiving delays. There will be containers for all the pilots and the MADFs, and performance loss should be below 5%.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |Orchestrator, MADFs, Pilots
+a|
+*Relationships*
+
+ |NA
+|=======================================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirements table Cloud-16 Open development.
+|===========================================================================================================================================
+a|
+*# Id*
+ |Cloud-16 a|
+*Name*
+ |Open development
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Non-Functional
+a|
+*Description*
+ |The infrastructure source code and the evolution of its development should be open and hosted in common public repositories (e.g. github).
+a|
+*Purpose*
+ |Internal and external developers can collaborate and help to improve, maintain and fix the E-Infrastructure itself.
+a|
+*Actors*
+ |MSO4SC Partners and external developers
+a|
+*Requester*
+ |MSO4SC Partners
+a|
+*Validation scenario*
+ |Developers community can access to the source code, submit improvements and issues.
+a|
+*Related WPs*
+ |WP3
+a|
+*Components*
+ |Portal, orchestrator, monitor
+a|
+*Relationships*
+
+ |NA
+|===========================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-17 Private data and security.
+|===========================================================================================================================================================================================================================================
+a|
+*# Id*
+ |Cloud-17 a|
+*Name*
+ |Private data and security
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |Users should require to work with private or confidential data for both inputs and outputs. Users can decide the visibility of the input and output data, and the e-infrastructure must ensure the required security level for these data.
+a|
+*Purpose*
+ |The end user need the above feature to manage permissions on the inputs and outputs generated by the simulations to get control on the potential credentials or confidentials issues.
+a|
+*Actors*
+ |CESGA, ATOS, SZE, End-users, survey
+a|
+*Requester*
+ |All use cases
+a|
+*Validation scenario*
+ |If the end-user does not explicitly share any particular owned file or directory, these files are only accessible for him or her. If the end user share a file or folder them will be publicly available for all users.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |Cloud, Data repository
+a|
+*Relationships*
+ |Cloud-3, Cloud-10, Cloud-13
+|===========================================================================================================================================================================================================================================
+
+
+
+[cols=",,,",]
+.Requirement table Cloud-18 Pre- and post-processing.
+|==========================================================================================================================================
+a|
+*# Id*
+ |Cloud-18 a|
+*Name*
+ |Pre- and postprocessing
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The infrastructure should support remote as well as integrated pre- and postprocessing capabilities as part of the services to the users.
+a|
+*Purpose*
+ |Many use cases require pre- and/or postprocessing for their simulation.
+a|
+*Actors*
+ |CESGA, ATOS
+a|
+*Requester*
+ |FEniCS users, survey
+a|
+*Validation scenario*
+ |At least 1 pilot will use pre- and/or postprocessing tools for their simulation results.
+a|
+*Related WPs*
+ |WP3, WP4, WP5
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
+
+ |NA
+|==========================================================================================================================================
+
+
+
+[[how-to-contribute]]
+= How to contribute
+
+We use the following table to define requeriments.
+
+[cols=",,,",]
+.Requirements table template
+|==================================================================================================================================================
+a| *# Id*
+a| ID
+a| *Name*
+ | Name for the requirement
+a| *Priority*
+a| Low/Medium/High
+a| *Req. Type*
+ | Functional/Non-functional
+a| *Description*
+ | Definition of the requirement. Describe what it is about.
+a| *Purpose*
+ | Reason to include the requirement. Justify why the requirement should be taken into account.
+a| *Actors*
+ | Actors involved in the requirement, taking into account stakeholders related to it. The ones who must deal with it.
+a| *Requester*
+ | List of pilots or entities which proposed or are related to the requirement and that can validate the requirement.
+a| *Validation scenario*
+ | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done).
+a| *Related WPs*
+ | Which WPs we expect to work on this requirement
+a| *Components*
+ | Include some mapping with the parts of the high level architecture which are affected by this requirement
+a| *Relationships*
+
+ |List here those requirements related to this one
+|==================================================================================================================================================
+
+To suggest a new requirement for the e-Infrastructure, please, click on `Edit this page` (at the top right corner of this web page) and create a new pull request with the proposed requirement.
+
+The asciidoc source code for a requirement template is shown below.
+
+.Requirement template in asciidoc
+----
+[cols=",,,",]
+.Requirements table template
+|==================================================================================================================================================
+a| *# Id*
+a| ID
+a| *Name*
+ | Name for the requirement
+a| *Priority*
+a| Low/Medium/High
+a| *Req. Type*
+ | Functional/Non-functional
+a| *Description*
+ | Definition of the requirement. Describe what it is about.
+a| *Purpose*
+ | Reason to include the requirement. Justify why the requirement should be taken into account.
+a| *Actors*
+ | Actors involved in the requirement, taking into account stakeholders related to it. The ones who must deal with it.
+a| *Requester*
+ | List of pilots or entities which proposed or are related to the requirement and that can validate the requirement.
+a| *Validation scenario*
+ | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done).
+a| *Related WPs*
+ | Which WPs we expect to work on this requirement
+a| *Components*
+ | Include some mapping with the parts of the high level architecture which are affected by this requirement
+a| *Relationships*
+----
+
+
