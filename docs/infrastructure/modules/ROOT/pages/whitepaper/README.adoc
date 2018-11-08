@@ -1,7 +1,10 @@
-image:media/whitepaper/image1.png[image,width=789,height=1057]image:media/whitepaper/image2.jpg[image,width=634,height=392]
+[[executive-summary]]
+= e-Infrastructure White Paper
 CESGA
 v0.1 (2018-11-08), <vsande at cesga dot es>
 :toc:
+
+image:media/whitepaper/image1.png[image,width=789,height=1057]image:media/whitepaper/image2.jpg[image,width=634,height=392]
 
 [[executive-summary]]
 = Executive Summary
