@@ -1,5 +1,8 @@
 [[resources-provider-resources-configuration]]
 = Resources provider: resources configuration
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 Complementing end-users and developers interaction through the portal, In this section we explain the basic capabilities and configuration of all kind of resources managed from the portal.
 

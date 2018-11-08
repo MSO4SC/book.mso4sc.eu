@@ -1,5 +1,8 @@
 [[gitter]]
 = Gitter
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 MSO4SC has several Gitter rooms for discussing about different aspects of the project in a near real-time basis. It allows the project participants to interact using chats. In order to provide a close support to stakeholders in a short term, we have enabled a dedicated Gitter room under the MSO4SC project. Such room is named ‘Support’ and its link is the following:
 

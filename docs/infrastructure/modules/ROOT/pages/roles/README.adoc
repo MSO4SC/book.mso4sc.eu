@@ -1,5 +1,8 @@
 [[roles]]
 = Roles
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 In this section we expose a brief description of the roles involved in the usage of the e-Infrastructure. Roles help to group users regarding permissions, functionalities and responsibilities. The list of available roles includes end-users, developers, resources providers and administrators.
 

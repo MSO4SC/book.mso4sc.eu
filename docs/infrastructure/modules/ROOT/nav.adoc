@@ -1,13 +1,13 @@
 * xref:infrastructure:ROOT:index.adoc[Introduction]
+** xref:infrastructure:ROOT:requirements/README.adoc[Requirements]
+** xref:infrastructure:ROOT:whitepaper/README.adoc[White paper]
 
-* xref:infrastructure:ROOT:whitepaper/README.adoc[White paper]
-
-* xref:infrastructure:ROOT:requirements/README.adoc[Requirements]
 
 * xref:infrastructure:ROOT:roles/README.adoc[Quick-start]
 ** xref:infrastructure:ROOT:roles/end_user/README.adoc[End-user]
 ** xref:infrastructure:ROOT:roles/developer/README.adoc[Developer]
 ** xref:infrastructure:ROOT:roles/resources_provider/README.adoc[Resources provider]
+** xref:infrastructure:ROOT:roles/admin/README.adoc[Admin]
 
 
 * xref:infrastructure:ROOT:components/README.adoc[Infrastructure]

@@ -1,5 +1,8 @@
 [[askbot]]
 = Askbot
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 AskBot is the official channel for getting support in the MSO4SC e-Infrastructure. It can be accessed from the MSO Portal, in the ‘Q&A’ tab. It is a Questions and Answers tool, in which registered users can publish their doubts and issues and other people can publish answers.
 

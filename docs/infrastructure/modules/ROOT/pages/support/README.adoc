@@ -1,5 +1,8 @@
 [[support]]
 = Support
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 The support in MSO4SC will be structured in several layers: a first level support, which will answer the requests from users and stakeholders, and the second level support, focused on solving concrete issues, with a higher technical background.
 

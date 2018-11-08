@@ -1,5 +1,8 @@
 [[end-user-use-of-the-infrastructure]]
 = End-user: use of the infrastructure
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 An end-user is the final user of the e-Infrastructure. They can enter into the MSO Portal and look for software solutions to solve their problems, purchase these and subsequently use them through the Portal.
 

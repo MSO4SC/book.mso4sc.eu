@@ -1,5 +1,8 @@
 [[developer-software-and-data-management]]
 = Developer: software and data management
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
 
 In addition to what an end-user can do using the MSO4SC portal, in this section we explain the development workflow together with the components involved in the development pipeline. Developers, as software providers, can satisfy the whole development process, from coding to container deployment, using MSO4SC services
 
