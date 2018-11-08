@@ -1,0 +1,39 @@
+[[admin]]
+= Admin: deployment and configuration
+CESGA
+v0.1 (2018-11-08), <vsande at cesga dot es>
+:toc:
+
+This role is also in charge of manage, deploy and configure of all the Cloud services integrated within the e-Infrastructure. Administrators assign roles and permissions, and provide support to end-users. 
+
+[[deployment and configuration]]
+== Deployment and configuration
+
+All components of MSO4SC e-Infrastructure are publicly available open projects. It's a set of adhoc implemented services, integrations of well known open projects, adaptations and customizations. 
+
+The evolution of these services is being managed by git control version software and available through Github. In each reapository you can find detailed documentation of the deployment and configuration of the MSO4SC services. Next list enumerates each component pointing to the documentation:
+
+* Portal
+* Identity Manager
+* MarketPlace
+* DataCatalogue
+* Gitlab: https://github.com/MSO4SC/Gitlab/blob/master/README.md[Docs @ *GitHub*]
+* Sregistry: https://github.com/MSO4SC/sregistry/blob/master/README.md[Docs @ *GitHub*]
+* Askbot
+* RemoteLogger: https://github.com/MSO4SC/remotelogger/blob/master/README.md[Docs @ *GitHub*]
+
+Technical documentation 
+
+[[permissions]]
+== Permissions
+Administrators of the system can add or revoke permissions to any other user in the system. This is mainly done inside the Identity Manager, but can be managed in a fine grain fashion from any other service. Specifically, end-users do not need any special permission, but developers need to receive the “seller” role in the marketplace, and the “admin” role in the data catalogue, apart from being added as members of an organization inside the IDM called “MSO4SC Developers” (organizations are just a mean to organize users).
+
+Similarly to be recognized by the system as administrator, users must be added to the special administrator’s organization.
+
+[[support]]
+== Support
+The support in MSO4SC will be structured in several layers: a first level support, which will answer the requests from users and stakeholders, and the second level support, focused on solving concrete issues, with a higher technical background.
+
+Both levels require concrete teams to manage the requests which arrive, organized taking into account the knowledge required and the rotation of turns.
+
+Please, visit section **Support** on the left menu to get more info about the support channels and plan.
