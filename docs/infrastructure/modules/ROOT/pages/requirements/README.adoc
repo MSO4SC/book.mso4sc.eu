@@ -31,9 +31,14 @@ a| *Actors*
 a| *Requester*
  |Stakeholders
 a| *Validation scenario*
- |New stakeholders will be invited to use the MSO4SC which should be able to run the new simulations. At least one external application will be executed correctly.
-a| *Related WPs*
- |WP3, WP4, WP5
+ |New stakeholders will be invited to use the MSO4SC which should be able to run the new simulations. At least one external application will be executed correctly. 
+ 
+ _KPIs: Number of applications tested on MSO4SC e-Infrastructure, Number of
+executions performed per application, Singularity versions tested, Singularity containers tested, Success/failure ratio, identified issues._
+a| *Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 90% (some issues found, to be fixed)
 a| *Components*
  |Orchestrator, Monitor, MSO portal
 a| *Relationships*
@@ -62,8 +67,12 @@ a| *Requester*
  |SINTEF (OPM Flow use case)
 a| *Validation scenario*
  |The OPM Flow use case will be able to execute part of the scenario in an infrastructure different from the ones provided by CESGA and ATOS.
-a| *Related WPs*
- |WP3, WP4, WP5
+ 
+ _KPIs: Support for federated HPC/Cloud, Types of supported infrastructures, Types of supported resource managers, Number of tests._
+a| *Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a| *Components*
  |Orchestrator
 a| *Relationships*
@@ -101,9 +110,13 @@ a|
 a|
 *Validation scenario*
  |In the 3DAirqualityprediction use case, the application will be split in two hardware infrastructures for its execution, and all the data will be moved correctly from one infrastructure to the other one, as required by the application components.
+ 
+ _KPIs: Number of tests, Number of infrastructures involved, Transfer rates, Application start time._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 90% (transfer rates reached not always as expected, but good enough in general)
 a|
 *Components*
  |Orchestrator
@@ -142,9 +155,13 @@ a|
 a|
 *Validation scenario*
  |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+ 
+ _KPIs: Number of licenses managed, Types of licenses, Number of deployed applications using licenses_
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Orchestrator
@@ -184,9 +201,14 @@ a|
 a|
 *Validation scenario*
  |During the 3DAirqualityprediction, Exe2Brain and HIFIMAGNET use cases, at least one of the components deployed will be proprietary and the MSO4SC e-Infrastructure will be able to deploy and execute it without any issues related to the licensing management.
+ 
+ _KPIs: Number of MADFs deployed, Number of pilots deployed, Number of times the MADFs and pilots were run, Number of failures
+due to issues in the installation, Number of MPI libraries tested, Number of nodes used._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Orchestrator
@@ -226,9 +248,14 @@ a|
 a|
 *Validation scenario*
  |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+ 
+ _KPIs: Visualization techniques/alternatives, MADFS and Pilots requiring visualization, Formats supported, Number of
+performed tests, Visualization software, Success/failure ratio._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -268,9 +295,14 @@ a|
 a|
 *Validation scenario*
  |At least 4 pilots will use visualization tools in order to show the simulation results. Such visualization should be smoothly integrated with the rest of functionalities in the MSO Portal.
+ 
+ _KPIs: Number of infrastructures, Number of applications, Number of application metrics shown, Number of infrastructure metrics
+shown, Number of tests._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -310,9 +342,13 @@ a|
 a|
 *Validation scenario*
  |All the project pilots will evaluate the functionality. Stakeholders will run the applications through a GUI from the MSO Portal, and the right deployment and execution will be done by MSO4SC in 100% of the cases (without any error related to the orchestration mechanism itself).
+ 
+ _KPIs: Number of buttons to click to execute a simulation._
 a|
-*Related WPs*
- |WP3
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Orchestrator, MSO Portal
@@ -352,9 +388,13 @@ a|
 a|
 *Validation scenario*
  |Several simulations will generate outcomes that can be retrieved directly by stakeholders. Such functionality will be tested separately with all the pilots, checking that in 100% of the cases it is possible to retrieve the simulation result, and use it in the desired visualization tool (after some post-processing, if required).
+ 
+ _KPIs: Visualization alternatives, Visualization formats supported._
 a|
-*Related WPs*
- |WP3, WP4
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal, MADFs
@@ -376,7 +416,7 @@ a|
 *Priority*
  |High a|
 *Req. Type*
- |Functional/Non Functional
+ |Non Functional
 a|
 *Description*
  |The software developed to manage and orchestrate the infrastructure should be able to move data among different infrastructures, some of them dedicated to particular tasks so that optimise data movement times.
@@ -391,10 +431,14 @@ a|
  |external parties, SZE
 a|
 *Validation scenario*
- |3DAirQualityPrediction pilot
+ |One of the pilots should be able to show that data movement has been optimized and simplified.
+ 
+ _KPIs: Can be automated, Supported storage endpoints, Supported data movers._
 a|
-*Related WPs*
- |WP3, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Orchestrator
@@ -434,9 +478,13 @@ a|
 a|
 *Validation scenario*
  |A modularized simulation using one of the MADFs will be stopped, reconfigured and restarted from the same point, and the results obtained will be the expected ones.
+ 
+ _KPIs: Number of applications requiring it, Number of tests._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 70%; 
+ 
+ Validation: 70%
 a|
 *Components*
  |MADFs, MSO Portal
@@ -476,9 +524,13 @@ a|
 a|
 *Validation scenario*
  |Users will be able to post/answer more than 3 questions, read and edit the wikis, and participate in, at least one learning event. The MSO Portal will reach, at least, TRL 8.
+ 
+ _KPIs: Number of documented services, Support platforms, Support plan._
 a|
-*Related WPs*
- |WP3, WP2, WP6
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -518,9 +570,13 @@ a|
 a|
 *Validation scenario*
  |Concrete datasets are found in only one query.
+ 
+ _KPIs: Number of predefined labels, Number of custom labels used, Number of datasets, Number of pilots with published datasets._
 a|
-*Related WPs*
- |WP3
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -547,10 +603,10 @@ a|
  |Functional
 a|
 *Description*
- |The data management system should provide a way to easily find the different datasets available and generated in the infrastructure. That means that there should be available metadata about the datasets and that a search mechanism will be in place.
+ |The MSO4SC e-Infrastructure should enable the possibility to run embarrassingly parallel tasks, in which multiple simulations need to be launched (sometimes varying a few parameters) in such a way they are related.
 a|
 *Purpose*
- |MSO4SC users need to navigate through the data catalogue available in the portal, quickly finding the dataset they need.
+ |MSO4SC users may need to execute ensembled simulations (such as in the case of OPM).
 a|
 *Actors*
  |ATOS
@@ -559,10 +615,15 @@ a|
  |MSO4SC Partners, survey
 a|
 *Validation scenario*
- |Concrete datasets are found in only one query.
+ |It is possible to run several ensembled simulations successfully, in the context of one of the pilots.
+ 
+ _KPIs: Number of ensemble applications tested, Scalability and number of jobs per application, Number of
+executions per application._
 a|
-*Related WPs*
- |WP3
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -602,9 +663,13 @@ a|
 a|
 *Validation scenario*
  |Stakeholders providing its simulations with all their dependencies packed in a container should be able to execute them without perceiving delays. There will be containers for all the pilots and the MADFs, and performance loss should be below 5%.
+ 
+ _KPIs: Number of containerized applications, Number of execution of containerized applications, Number of containerized benchmarks, Singularity versions tested._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Orchestrator, MADFs, Pilots
@@ -644,9 +709,14 @@ a|
 a|
 *Validation scenario*
  |Developers community can access to the source code, submit improvements and issues.
+ 
+ _KPIs: Number of external contributions, Number of external projects using parts of MSO4SC e-Infrastructure, Number of issues
+published by external users._
 a|
-*Related WPs*
- |WP3
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Portal, orchestrator, monitor
@@ -686,9 +756,13 @@ a|
 a|
 *Validation scenario*
  |If the end-user does not explicitly share any particular owned file or directory, these files are only accessible for him or her. If the end user share a file or folder them will be publicly available for all users.
+ 
+ _KPIs: Number of private datasets, Number of organization with private datasets._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |Cloud, Data repository
@@ -727,9 +801,14 @@ a|
 a|
 *Validation scenario*
  |At least 1 pilot will use pre- and/or postprocessing tools for their simulation results.
+ 
+ _KPIs: Number of pre- and postprocess tool, Number of pilots using pre- and/or postprocess tools, Number of tests with
+pre- and/or postprocess tools._
 a|
-*Related WPs*
- |WP3, WP4, WP5
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
 a|
 *Components*
  |MSO Portal
@@ -739,7 +818,50 @@ a|
  |NA
 |==========================================================================================================================================
 
+== Cloud-19: Online editing for inputs
+[cols=",,,",]
+.Requirement table Cloud-19 Online editing for inputs
+|==========================================================================================================================================
+a|
+*# Id*
+ |Cloud-19 a|
+*Name*
+ |Online editing for inputs
+a|
+*Priority*
+ |High a|
+*Req. Type*
+ |Functional
+a|
+*Description*
+ |The portal should allow the possibility to edit the inputs as a list of text lines, in such a way that they can be used, later on, for creating several instances of the simulation with different inputs.The portal will allow to indicate that the edited file is the input for the simulation, retrieving the expected values. The initial content could be a template provided by the application developer.
+a|
+*Purpose*
+ |Stakeholders may want to adapt their mathematical models before running their simulations, or even just parametrize them with different inputs listed in a file.
+a|
+*Actors*
+ |CESGA, ATOS
+a|
+*Requester*
+ |FEniCS users, maths community
+a|
+*Validation scenario*
+ |At least 1 pilot will modify a text with the desired inputs and select it as input for a simulation, showing that a new instance is generated with the new configuration.
+ 
+ _KPIs: Number applications using online editing, Number of files/text edited, number of runs with edited inputs._
+a|
+*Implementation and Validation*
+ |Implementation: 100%; 
+ 
+ Validation: 100%
+a|
+*Components*
+ |MSO Portal
+a|
+*Relationships*
 
+ |NA
+|==========================================================================================================================================
 
 [[how-to-contribute]]
 = How to contribute
@@ -766,9 +888,9 @@ a| *Actors*
 a| *Requester*
  | List of pilots or entities which proposed or are related to the requirement and that can validate the requirement.
 a| *Validation scenario*
- | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done).
-a| *Related WPs*
- | Which WPs we expect to work on this requirement
+ | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done). List the metrics (KPIs) that should be measured.
+a| *Implementation and Validation*
+ | Determine percentage of the implementation of the requirements and the percentage of validation.
 a| *Components*
  | Include some mapping with the parts of the high level architecture which are affected by this requirement
 a| *Relationships*
@@ -802,9 +924,9 @@ a| *Actors*
 a| *Requester*
  | List of pilots or entities which proposed or are related to the requirement and that can validate the requirement.
 a| *Validation scenario*
- | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done).
-a| *Related WPs*
- | Which WPs we expect to work on this requirement
+ | Determine some validation criteria which would check that the requirement is fulfilled (i.e. small remark about the testing that should be done). List concrete  metrics (KPIs) to measure.
+a| *Implementation and Validation*
+ | Percentage of implementation and validation of the requirements (0% initially).
 a| *Components*
  | Include some mapping with the parts of the high level architecture which are affected by this requirement
 a| *Relationships*
