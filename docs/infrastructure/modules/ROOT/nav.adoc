@@ -10,12 +10,11 @@
 ** xref:infrastructure:ROOT:roles/admin/README.adoc[Admin]
 
 
-* xref:infrastructure:ROOT:components/README.adoc[Infrastructure]
+* xref:infrastructure:ROOT:components/README.adoc[Components]
 ** xref:infrastructure:ROOT:components/portal/README.adoc[Portal]
 ** xref:infrastructure:ROOT:components/experiments_tool/README.adoc[Experiments tool]
-** xref:infrastructure:ROOT:components/orchestrator/README.adoc[Orchestrator]
+** xref:infrastructure:ROOT:components/orchestrator/README.adoc[Applications]
 *** xref:infrastructure:ROOT:components/orchestrator/tosca/README.adoc[Blueprints (TOSCA)]
-*** xref:infrastructure:ROOT:components/orchestrator/cfy/README.adoc[Cloudify (CFY)]
 
 ** xref:infrastructure:ROOT:components/software_management/README.adoc[Software management]
 *** xref:infrastructure:ROOT:components/software_management/marketplace/README.adoc[Marketplace]
