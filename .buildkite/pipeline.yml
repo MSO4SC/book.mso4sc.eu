@@ -2,7 +2,7 @@ steps:
  - name: ':antora: :book:'
    command: .buildkite/steps/antora-build.sh
    agents:
-       docker: true
+       docker-antora: true
    env:
       PROJECT: book.mso4sc
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: "antora"
@@ -10,5 +10,7 @@ steps:
  - name: ':rocket: :book:'
    command: .buildkite/steps/docs-deploy.sh
    branches: master
+   agents:
+       docker-antora: true
    env:
        PROJECT: book.mso4sc

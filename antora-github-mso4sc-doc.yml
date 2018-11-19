@@ -51,7 +51,8 @@ asciidoc:
     deploymentRoot: ""
     numbered: true
     hide-uri-scheme: true
-    uri-github: https://github.com/
+    uri-contributors:
+    cemosis: Cemosis
     python: Python
     slepc: SLEPc
     petsc: PETSc
