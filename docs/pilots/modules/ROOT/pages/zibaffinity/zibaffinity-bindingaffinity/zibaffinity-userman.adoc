@@ -24,8 +24,9 @@ After login we see the MSO4SC dashboard
 .The MSO4SC dashboard
 image::media/3dairq/frontend.PNG[]
 
-Now follow these steps:
 
+
+Now follow these steps:
 
 1. For this choose „Instances / Add new one“
 2. Select ZIBAffinity from the pull-down-list (some more inputs occur)
