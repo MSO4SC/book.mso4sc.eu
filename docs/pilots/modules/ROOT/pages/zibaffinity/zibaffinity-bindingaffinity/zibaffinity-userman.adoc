@@ -1,0 +1,47 @@
+[[zibaffinity-bindingaffinity]]
+= ZIBAffinity User Manual
+ifndef::env-github[:icons: font]
+
+
+ZIBAffinity is an easy-to-apply software that can be used to compute the binding affinity of small ligand molecules to given protein structures.
+After you have purchased ZIBAffinity on the market place, after you have uploaded your protein and ligand structures in the data calatogue, and after you have initiated your HPC- or cloud infrastructure, you can run the simulations. For these steps we refer to the MSO4SC-portal documentation. 
+For the preparation of ligands and proteins according to the GROMACS standards you can visit the tutorial page: 
+
+http://www.mdtutorials.com/gmx/complex/index.html
+
+
+
+== Login and Instance creation
+
+First we need to login to the MSO4SC portal, we can do it at portal.mso4sc.eu site, after successful login we can navigate to the Experiments menu.
+
+image:media/zibaffinity/login_screen.PNG[]
+
+*Figure 1: Login screen of the MSO4SC portal.*
+
+After login we see the MSO4SC dashboard
+
+.The MSO4SC dashboard
+image::media/3dairq/frontend.PNG[]
+
+Now follow these steps:
+
+
+1. For this choose „Instances / Add new one“
+2. Select ZIBAffinity from the pull-down-list (some more inputs occur)
+3. Chose an arbitrary DeploymentID (e.g.42)
+4. Press „Create Instance“
+5. Select your list of ligands from the pull-down-list „Data ressource: lig“ (saved in the data catalogue)
+6. Select your protein structure from the pull-down-list „Data ressource: tar“ (saved in the data catalogue)
+7. Chose the HPC primary (which is the HPC-instance that you have initiated before)
+8. Add a "0" (indicated as a string) in the za_charge field. If your ligand is charged, then change this number according to the positive or negative (integer) value
+9. Add your eMail-Adress for getting the results of the simulation (mandatory!)
+10.  Click „Create Instance“ and wait.
+11. Chose your Instance (Deployment ID) from the pull-down-list.
+12. Click run.
+
+Now the simulations will be perfomred and the results will be send to your indicated email. In the eMail you will find the estimated binding affinity value in kJ/mol plus a ziped-directory of attached pdb-files which contains the estimated protein-ligand-complexes. These files can be visualized using VMD (e.g.)
+For a better understanding oft he procedure watch our tutorial video:
+https://youtu.be/kVK6hpIYTGs
+
+
