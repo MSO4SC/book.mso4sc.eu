@@ -21,8 +21,10 @@ image:media/zibaffinity/login_screen.PNG[]
 
 After login we see the MSO4SC dashboard
 
-.The MSO4SC dashboard
-image::media/3dairq/frontend.PNG[]
+
+image:media/zibaffinity/frontend.PNG[]
+
+*Figure 2: The MSO4SC dashboard.*
 
 
 
