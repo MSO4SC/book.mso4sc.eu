@@ -7,6 +7,7 @@
 * xref:index.adoc#_opm[OPM]
 ** xref:opm/opm-flow/README.adoc[OPM Flow]
 * xref:zibaffinity/zibaffinity-bindingaffinity/README.adoc[Zibaffinity]
+** xref:zibaffinity/zibaffinity-bindingaffinity/zibaffinity-userman.adoc[Zibaffinity User Manual]
 * xref:others/motor/README.adoc[Motor]
 * xref:3DAirQualityPrediction/README.adoc[3DAirQualityPrediction]
 ** xref:3DAirQualityPrediction/userman.adoc[3DAirQualityPrediction User manual]
