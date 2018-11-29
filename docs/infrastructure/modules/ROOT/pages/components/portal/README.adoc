@@ -2,8 +2,6 @@
 
 include::{partialsdir}/topnote.adoc[]
 
-IMPORTANT: Documentation is W.I.P
-
 :leveloffset: +1
 
 include::https://raw.githubusercontent.com/MSO4SC/MSOPortal/canary/portal/README.adoc[]
