@@ -1,5 +1,5 @@
 = TOSCA Modelling and execution
-include::{partialdir}/includes/header-uri.adoc[]
+include::{partialsdir}/includes/header-uri.adoc[]
 
 include::{partialsdir}/topnote.adoc[]
 
@@ -15,7 +15,7 @@ NOTE: The aim of this section is not to document all the possibilities available
 
 An application is modelled using a {uri-tosca}[TOSCA] blueprint, an {uri-oasis}[OASIS] standard language to describe a topology of cloud based web services, their components, relationships, and the processes that manage them, written in yaml.
 
-A blueprint is typically composed by a _header_, an _inputs_ section, a _node_templates_ section, and an outputs section. Optinally can have a _node_types_ section. 
+A blueprint is typically composed by a _header_, an _inputs_ section, a _node_templates_ section, and an outputs section. Optionally can have a _node_types_ section. 
 
 === Header
 
