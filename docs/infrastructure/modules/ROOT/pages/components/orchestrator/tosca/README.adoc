@@ -67,6 +67,121 @@ In the example above, three inputs are defined:
 
 TIP: Check the file _local-blueprint-inputs-example.yaml_ in the {uri-blueprint-examples}[blueprint examples] as an input file example.
 
+==== MSOPortal rendering & composition
+
+To be properly presented in the portal, the inputs must be defined using the `INPUT` tag as _default_ value. Later on, the portal will replace this tag with the real value of the input, defined by the user.
+
+[source,yaml]
+----
+  job_prefix:
+    default:
+      INPUT:
+        name: Job's prefix
+        description: Job names prefix
+        default: "mso"
+        advanced: true
+        null: false
+        order: 150
+        type: string
+----
+
+In the example above, the job_prefix input will be rendered as a string box in the _advanced_ inputs section. Its default value is `mso`, and can not be null. The `order` tab is used to position the input among the others.
+
+All types available has a similar structure. Specifically, types `string`, `int`, `float`, `bool` and `file` are defined the same. However there are three types based on render a list, that changes a little:
+
+[source,yaml]
+----
+  app_singuarity_image:
+    default:
+      INPUT:
+        name: Singularity Image
+        description: Select the singularity image to be used
+        advanced: true
+        order: 30
+        type: list
+        choices:
+        - name: OPM Flow generic
+          description: OPM Flow generic
+          uri: "shub://sregistry.srv.cesga.es/mso4sc/opm-release:latest"
+          file: mso4sc-opm-image.simg
+          default: true
+   
+ ckan_input_resource:
+    default:
+      INPUT:
+        name: Input dataset
+        description: Dataset resource that will be used as input
+        type: resource_list
+        order: 100
+        storage:
+          type: ckan
+          config:
+            entrypoint: http://...
+            key: 1234
+
+  ckan_outputs_dataset:
+    default:
+      INPUT:
+        name: Outputs dataset
+        description: Dataset in which outputs will be published
+        type: dataset_list
+        order: 100
+        storage:
+          type: ckan
+          config:
+            entrypoint: http://...
+            key: 1234
+----
+
+The `list` type uses the tag _choices_ instead of _default_, to define a list of possible items. The item with `default: true` will be the one selected as default. The portal will replace the INPUT tag with the entire value of the selected item, with all its hierarchy.
+
+Similarly, the `resource_list` and `dataset_list` shows a list of items regarding datasets. The tag that replaces _default_ is in this case the _storage_ config. In the case of `resource_list`, a secondary list of resources will be presented to select, depending on the dataset selected in the first list.
+
+Finally, there is another tag `REPLACE` that it is used to compose and reuse inputs values. It won't be rendered in the portal.
+
+[source,yaml]
+----
+  singularity_image_uri:
+    default:
+      REPLACE: app_singuarity_image.uri
+  singularity_image_filename:
+    default:
+      REPLACE: app_singuarity_image.file
+----
+
+There are three objects that the portal directly provides to the application developer, that hold information about the user settings and current deployment:
+
+* `INFRA_CONFIG` holds a dictionary of lists, one for each type of infrastructure (`hpc_list`, `openstack_list`, `eosc_list`)
+* `USER_CONFIG` holds the storage list of the user
+* `INSTANCE_CONFIG` defines the id of the current deployment
+
+[source,yaml]
+----
+ primary_hpc:
+    default:
+      INPUT:
+        name: Primary HPC
+        description: Select the HPC to be used
+        order: 10
+        type: list
+        choices:
+          REPLACE: INFRA_CONFIG.hpc_list
+          
+  ckan_outputs_dataset:
+    default:
+      INPUT:
+        name: Outputs dataset
+        description: Dataset in which outputs will be published
+        type: dataset_list
+        order: 100
+        storage:
+          REPLACE: USER_CONFIG.storage_list.0
+
+  instance_id:
+    default:
+      REPLACE: INSTANCE_CONFIG.id
+----
+
 === Node Templates
 
 In the `node_templates` section is where your application is actually defined, by stablishing _nodes_ and _relations_ between them.
