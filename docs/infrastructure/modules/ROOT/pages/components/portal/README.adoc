@@ -2,8 +2,189 @@
 
 include::{partialsdir}/topnote.adoc[]
 
-:leveloffset: +1
+//:leveloffset: +1
 
-include::https://raw.githubusercontent.com/MSO4SC/MSOPortal/canary/portal/README.adoc[]
+//include::https://raw.githubusercontent.com/MSO4SC/MSOPortal/canary/portal/README.adoc[]
 
-:leveloffset: -1
+//:leveloffset: -1
+
+// URIs
+:uri-ckan-doc: http://docs.ckan.org/en/latest/user-guide.html
+:uri-biz-doc: http://business-api-ecosystem.readthedocs.io/en/v5.4.1/user-programmer-guide.html
+
+= MSO4SC Frontend & Experiments Tool
+
+Frontend of the MSO4SC project.
+
+.Integrates
+* Data Catalogue
+* Marketplace
+
+.Implements
+* Experiments Tool
+* Visualization / Pre / Post Tool
+
+== Usage
+
+The portal uses keyrock IDM to authenticate and authorize users. You will need to create an account in the IDM first.
+
+=== Marketplace
+
+The marketplace is where the applications are managed. From here, the user is able to purchase applications available. Products (applications) in the user _stock_ will be available in the <<Experiments Tool>>. Detailed information about its use can be found at the {uri-biz-doc}[Business API Ecosystem user guide].
+
+==== Creating product offerings
+
+NOTE: To add a new product the user needs to have the _seller_ role. Ask the IDM manager to give your user this role.
+
+Offers are used by regular user in order to acquire new applications. An offering belongs to a catalogue, and includes one or more product. To create a new catalogue, click on `My stock -> Catalogs -> New` and follow the steps on the screen.
+
+WARNING: After creation of a catalogue, product or offering, *don't forget to click on `Launch` and then `update`*.
+
+In the same way, click on `My stock -> Product Specifications` and follow the steps on the screen to create a new product. Some clarifications about these steps:
+
+* Asset type: The product (application) is always digital. 
+* Terms & Conditions: In here you can add an small text with the license of your application, but the description text *cannot be large or the product creation will fail*, so just an small notice is recommend.
+
+NOTE: As the owner of a product, it is not necessary to create an offering in order to start using it in the <<Experiments Tool>>. However it is mandatory if the owner wants to share its application with the other users of the portal, giving them the possibility to acquire it (by payment or for free).
+
+Finally to create an offering, click `My stock -> Offerings -> New` and follow the steps presented. In the step _Price Plans_ you can select one of the available, or create a new one. Put a price of 0 to create a free product. Also in _RS Model_ the way that the revenue of an offering must be splitted among different users can be defined (those need to have their paypal account defined in their user settings).
+
+WARNING: Marketplace payment functionalities are not yet fully available. Therefor only free offerings can be done at this moment.
+
+==== Acquire an application (product)
+
+To start using a new application, first go to the marketplace and navigate through the offerings available. After purchasing the desired one, the owner of the offering will receive a notification in the marketplace to accept or deny the purchase. If accepted, the new product will appear in the user _stock_, as well as in the <<Experinments Tool>>.
+
+
+=== Data Catalogue
+
+The data catalogue is used to manage the data in the portal, and it is based on CKAN. To know more about its functionalities and how to use it, check {uri-ckan-doc}[the CKAN user guide] for more information.
+
+==== Adding new content
+
+NOTE: To add content to CKAN, first you need to have admin privileges. Ask the portal manager to give your idm admin privileges on the data catalogue. If you are the manager, use the script `datacatalogue/add-admin-user.sh`
+
+Datasets are compilations of files that share common properties (same source, related content, etc), and belongs to an organization. To create a new organization, click `Organizations -> Add Organization` and follow the steps at the screen.
+
+Likewise to create a new Dataset, click `Datasets -> Add Dataset` and follow the steps at the screen. In the first step can be set properties like the title, description, tags, license, or source (a link to reference the data), among others. Then it ask for adding new data (resources). Each resource has a title, a format, and a source (public url, or upload a file).
+
+NOTE: If you set your datasets as _private_, copy your personal api key at the bottom left of the user page (access by clicking your user name at the top right). The key will be needed later at the <<Experiments Tool>> to use the private datasets.
+
+
+=== Experiments Tool
+
+This service is in charge of managing the execution workflow of the MSO4SC applications. It is divided in different sections:
+
+* _Settings_: In this view the user can its personal api key from <<Data Catalogue>> to have later access to its private datasets. It is also able to see the HPCs it has configured, as well as add new ones or delete them. Tunneled connections are supported by adding new ones and then being referenced when creating a new computing infrastructure. This configuration will be used later when creating a new application instance.
+* _Register/Remove App_: Those sections are meant to registrer/unregister an application in the orchestrator. They are "developer" operations. On them, you can select a product from the marketplace and register the application in the platform with a concrete name, or undo the registration respectively. To upload an application, you will have to have it packaged first: <<Packaging an application>>.
+* _Create/Destroy App Instance_: In here you can create a new _instance_ of an application, that is, an application with a concrete configuration attached. Just select a name, an application, and then the specific inputs. HPC infrastructures can be selected from a combo box, as well as datasets (one file per input). An HPC input starts with the prefix `mso4sc_hpc_`, while a dataset input starts with `mso4sc_dataset_` and a dataset output starts with `mso4sc_outdataset_`. Datacatalogue key and entrypoint are set by the inputs `mso4sc_datacatalogue_key` and `mso4sc_datacatalogue_entrypoint` respectively. List inputs must be written as comma separated list of elements, while dictionary inputs must be written in JSON using `{}`. In the same way, the destroy operation undo the creation step. The logs of the operations can be seen at the screen, as well as a grey/blue/green/light indicating if the operation is not running, running, successful or failed respectively.
+* _Run Instance_: Similarly to Create/Destroy operations, in this step is when the application is actually executed, presenting the logs in the same way as before.
+
+==== Packaging an application
+
+To package an application, two options are available at this time:
+
+* *GitHub repository*: Just creating a public repository in github with the blueprint in the root folder is enough for the orchestrator to retrieve the application files. Of course all files used by the blueprint need to be present on the repository as well.
+* *tar.gz file*: Create a tar.gz file (with env variable COPYFILE_DISABLE=true) of your application folder containing all your application files and blueprint in the root folder. Then put the compressed file in a url accesible by the orchestrator. An script that automates it a little bit can be found at MSO4SC/resources/blueprint-examples in GitHub.
+
+=== Visualization / Pre / Post Tool
+
+The tool manages visual remote desktops to be used to execute pre/post tools over the dataset, or just visualize them. To sections are available:
+
+* _settings_ To add your remote desktop infrastructures (only noVNC supported right now). For example, for CESGA it would be:
+----
+Name: cesga
+Host: vis.lan.cesga.es
+User: [Your cesga user]
+Password: [Your cesga password]
+List command: /opt/cesga/vis/bin/desktops
+Create command: /opt/cesga/vis/bin/getdesktop
+----
+* _desktops_ In here a list of available desktops for each infrastructure is presented. To create a new one, just click `create` button.
+
+== Configuration
+
+* Copy `portal/example_settings.ini` to `portal/settings.ini` and fill in the properties.
+* Create a superuser: `python3 manage.py createsuperuser`
+* Generate the database: `python3 manage.py makemigrations && python3 manage.py migrate`
+* log in with the created user at `/admin` in the browser, and in `Groups` menu create the following groups with the following permissions:
+** _Developer_: all permissions from `experimenttool` and `remotedesktops`.
+** _User_: same as above, without `Can add/change/delete application`, `Can add/change/delete orchestrator`, `Can register/remove new app in the orchestrator`.
+
+== Development Deployment
+
+=== Linux
+
+==== Setup
+The frontend uses *Python3 >= 3.5* to execute, and *pip* to install dependencies. Additionally *virtualenv* can be used to isolate the installation. The script `setup.sh` automates the setup, taking as argument your `dist-packages` folder (native or _virtualenv_ directory). +
+`./setup.sh /usr/local/lib/python3.5/dist-packages`
+
+WARNING: Some python2 libraries have been manually adapted to work with Python3 in this project. Therefore installing the requirements with pip is not enough and all steps in `setup.sh` script are required.
+
+==== Running it
+The file `up.sh` just run the frontend on top of a development server on port _8000_. Changes made in the code are automatically updated on the server. If you are using a virtual environment, you will have to activate it before running the script. +
+`./up.sh`.
+
+NOTE: A vagrant machine is provided at `vagrant` folder with ubuntu xenial and python3 installed. It mounts the frontend root at `/home/ubuntu/portal`.
+
+=== Windows
+The frontend uses *Python3 >= 3.5* to execute. *pip*, *virtualenv* and *virtualenvwrapper* are also recommended tools to complement the python development environment. Go to <<python_win_dev>> for instructions on how to setup this environment.
+
+==== Setup
+The setup consist on installing python dependencies, and then tediously change some +++*+++.py files to make a legacy library compatible with Python3.
+
+NOTE: All the setup steps are performed on a command prompt with the virtual environment activated, on the `MSOPortal/portal` folder.
+
+. Install python dependencies: +
+`pip install -r requirements.txt`
+
+. In all files with +++*+++.py extension at `C:\Users\USERNAME\Envs\msoportal\Lib\site-packages\cloudify_rest_client\` change all ocurrences from the left to the right values (you can use some editor like notepad++): +
+* `import urlparse` -> `#import urlparse`
+* `urlparse.` -> `urllib.parse.`
+* `urllib.quote` -> `urllib.parse.quote`
+
+. In the file `C:\Users\USERNAME\Envs\msoportal\Lib\site-packages\cloudify_rest_client\client.py`, change all ocurrences from the left side to the right value:
+* `urlsafe_b64encode(credentials)` -> `urlsafe_b64encode(credentials.encode("utf-8"))`
+* `+ encoded_credentials` -> `+ str(encoded_credentials, "utf-8")`
+
+. In the file `C:\Users\USERNAME\Envs\msoportal\Lib\site-packages\cloudify_rest_client\exceptions.py`, add the line of the right after the line in the left (with 8 spaces of indent):
+* `self.response = response` -> `self.message = message`
+
+IMPORTANT: Replace *USERNAME* with your windows user name, and _msoportal_ with your virtual environment in the case you are using a different name.
+
+==== Running it
+
+To run the development server with the portal, open a windows prompt, navigate to `MSOPortal/portal` folder and execute: +
+`workon msoportal` +
+`python3 manage.py runserver 0.0.0.0:8000`
+
+NOTE: Changes made in the code are automatically updated on the server.
+
+[#python_win_dev]
+==== Python development environment on Windows
+
+===== Install *Python3*
+At the time of writing, Python 3.6 is the latest version.
+
+To install Python on your machine go to https://python.org/downloads/. The website should offer you a download button for the latest Python version. Download the executable installer and run it. Check the box next to *Add Python 3.6 to PATH* and then click *Install Now*.
+
+After installation, open the command prompt and check that the Python version matches the version you installed by executing: +
+`python --version`
+
+===== Install *pip*
+
+pip is a package manage for Python. It makes installing and uninstalling Python packagesvery easy.
+
+To install pip on your machine, go to https://pip.pypa.io/en/latest/installing/, and follow the Installing with get-pip.py instructions.
+
+===== Install *virtualenv* and *virtualenvwrapper*
+
+virtualenv and virtualenvwrapper provide a dedicated environment for each python project you create. While not mandatory, this is considered a best practice and will save you time in the future when you’re ready to deploy your project. Simply type: +
+`pip install virtualenvwrapper-win`
+
+Then create a virtual environment for the portal: +
+`mkvirtualenv msoportal`
+
+The virtual environment will be activated automatically and you’ll see “(msoportal)” next to the command prompt to designate that. *If you start a new command prompt, you’ll need to activate the environment again* using: +
+`workon msoportal`
+

@@ -3,41 +3,44 @@
 [feelpp]
 === {feelpp}
 
-[col="2*^"]
+[col="2*",halign=left]
 |===
-| xref:feelpp::hifimagnet/README.adoc[image:covers/hifimagnet/cover.png[width=200,alt=Hifimagnet]]
-*HIFIMAGNET*
-|xref:feelpp::eye2brain/README.adoc[image:covers/eye2brain/cover.png[width=200]]
-*EYE2BRAIN*
+^.^|xref:feelpp::hifimagnet/README.adoc[image:covers/hifimagnet/cover.png[width=100,height=100,alt=Hifimagnet,halign=center]] | xref:feelpp::eye2brain/README.adoc[image:covers/eye2brain/cover.png[width=200,halign=center]]
+
+^.^| *HIFIMAGNET*	| *EYE2BRAIN*
 |===
+
+
+
 
 === Fenics
 
 |===
-| image:covers/floatingwindturbine/cover.png[link=fenics/3dairqualityprediction/README/,width=200]
-*FLOATING WIND TURBINE*
-| image:covers/3dairqualitypredictioncfd/cover.png[link=fenics/airqualitypredictioncfd/README/,width=200]
-*3D AIR QUALITY PREDICTION*
+^.^| xref:pilots:ROOT:fenics/floatingwindturbine/README.adoc[image:covers/floatingwindturbine/cover.png[width=200]] | xref:pilots:ROOT:fenics/3dairqualitypredictioncfd/README.adoc[image:covers/3dairqualitypredictioncfd/cover.png[width=200]]
+
+^.^| *FLOATING WIND TURBINE*	| *3D AIR QUALITY PREDICTION CFD*
 |===
+
 
 === OPM
 
 |===
-| image:covers/opm-flow/cover.png[link=opm/opm-flow/README/,width=200]
-*OPM FLOW*
+| xref:pilots:ROOT:opm/opm-flow/pilot-description.adoc[image:covers/opm-flow/cover.png[width=200]]
+^.^| *OPM FLOW*
 |===
 
 === ZIBaffinity
 
 |===
 | xref:pilots:ROOT:zibaffinity/zibaffinity-bindingaffinity/README.adoc[image:covers/zibaffinity/cover.png[width=200]]
-*ZIBAFFINITY*
+^.^| *ZIBAFFINITY*
 |===
 
 === Others
 
 |===
-| image:covers/motor/cover.png[link=others/motor/README/,width=200]
-*Motor*
+| xref:pilots:ROOT:others/motor/README.adoc[image:covers/motor/cover.png[width=200]] | xref:pilots:ROOT:3DAirQualityPrediction/README.adoc[image:covers/3dairq/3dairq2.png[width=200]]
+
+^.^| *Motor* | *3DAirQualityPrediction*
 |===
 
